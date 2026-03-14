@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia Macro — Ingrid Núñez Psi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & BASE ─────────────────────────────────────────────────────────── */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --lavanda: #D9C9E3;
+  --beige:   #F8F2EC;
+  --marron:  #806357;
+  --gris:    #B0AEB0;
+  --dark:    #3D2B24;
+  --lavanda-deep: #c5afd9;
+  --cream:   #faf6f0;
+}
+html { font-size: 16px; }
+body {
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0 80px;
+}
+
+/* ─── PRINT BUTTON (no imprime) ─────────────────────────────────────────────── */
+.print-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--dark);
+  padding: 12px 32px;
+  display: flex; align-items:center; justify-content:space-between;
+}
+.print-btn {
+  background: var(--lavanda); color: var(--dark);
+  border: none; border-radius: 100px;
+  padding: 10px 28px; font-family: 'Montserrat',sans-serif;
+  font-size: 13px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer; transition: .2s;
+}
+.print-btn:hover { background: #fff; }
+.print-bar-logo {
+  font-family: 'Arizonia', cursive; font-size: 22px; color: var(--lavanda);
+}
+
+/* ─── PORTADA ────────────────────────────────────────────────────────────────── */
+.portada {
+  background: var(--dark);
+  padding: 72px 64px 64px;
+  text-align: center;
+}
+.portada-tag {
+  font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--lavanda); opacity: .7; margin-bottom: 24px;
+}
+.portada-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px; font-weight: 700; line-height: 1.1;
+  color: var(--beige); margin-bottom: 16px;
+}
+.portada-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-style: italic;
+  color: var(--lavanda); opacity: .85; margin-bottom: 40px;
+}
+.portada-divider {
+  width: 60px; height: 2px; background: var(--lavanda);
+  margin: 0 auto 40px; border-radius: 2px;
+}
+.portada-stats {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 700; color: var(--lavanda); line-height: 1;
+}
+.stat-label {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gris); margin-top: 6px;
+}
+.portada-handle {
+  margin-top: 48px; font-size: 13px; letter-spacing: 3px;
+  color: rgba(176,174,176,.5);
+}
+
+/* ─── CONTENT WRAPPER ─────────────────────────────────────────────────────────── */
+.content { padding: 0 48px; }
+
+/* ─── SECTION HEADERS ─────────────────────────────────────────────────────────── */
+.sec {
+  margin-top: 56px; margin-bottom: 28px;
+  padding-bottom: 14px; border-bottom: 2px solid var(--lavanda);
+  display: flex; align-items: baseline; gap: 16px;
+}
+.sec-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; color: var(--lavanda); opacity: .8;
+  letter-spacing: 3px; text-transform: uppercase; min-width: 24px;
+}
+.sec-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; color: var(--dark);
+}
+
+/* ─── INTRO ─────────────────────────────────────────────────────────────────────── */
+.intro-box {
+  background: var(--cream); border-left: 4px solid var(--lavanda);
+  padding: 24px 28px; border-radius: 0 8px 8px 0; margin-bottom: 28px;
+}
+.intro-box p {
+  font-size: 16px; line-height: 1.8; color: var(--dark);
+  font-weight: 300;
+}
+.intro-box strong { font-weight: 600; color: var(--dark); }
+
+/* ─── OVERVIEW CARDS ─────────────────────────────────────────────────────────────── */
+.overview-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin-bottom: 24px;
+}
+.ov-card {
+  background: var(--cream); border-radius: 12px;
+  padding: 20px 24px;
+}
+.ov-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--marron); margin-bottom: 6px; font-weight: 600;
+}
+.ov-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700; color: var(--dark);
+}
+
+/* ─── WEEK BLOCKS ─────────────────────────────────────────────────────────────────── */
+.week {
+  margin-bottom: 32px;
+  border: 1px solid rgba(61,43,36,.1); border-radius: 12px;
+  overflow: hidden;
+}
+.week-header {
+  background: var(--dark); padding: 14px 20px;
+  display: flex; align-items:center; justify-content:space-between;
+}
+.week-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 700; color: var(--beige);
+}
+.week-dates {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gris);
+}
+.week-body { padding: 16px 20px; }
+
+/* ─── CALENDAR TABLE ────────────────────────────────────────────────────────────── */
+.cal-table { width: 100%; border-collapse: collapse; }
+.cal-table th {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gris); padding: 6px 12px; text-align: left;
+  border-bottom: 1px solid rgba(61,43,36,.08);
+}
+.cal-table td {
+  padding: 10px 12px; vertical-align: top;
+  border-bottom: 1px solid rgba(61,43,36,.05);
+  font-size: 14px; line-height: 1.5;
+}
+.cal-table tr:last-child td { border-bottom: none; }
+.cal-date { font-weight: 600; color: var(--dark); white-space: nowrap; }
+.cal-type {
+  display: inline-block; border-radius: 100px;
+  padding: 2px 10px; font-size: 10px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;
+}
+.type-c { background: rgba(217,201,227,.35); color: var(--marron); }
+.type-r { background: rgba(128,99,87,.15); color: var(--marron); }
+.type-launch { background: var(--dark); color: var(--lavanda); }
+.type-rest { background: rgba(176,174,176,.2); color: var(--gris); }
+.cal-title { color: #555; }
+
+/* ─── CAROUSEL SCRIPTS ───────────────────────────────────────────────────────────── */
+.carousel-entry { margin-bottom: 32px; }
+.c-header {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(61,43,36,.1);
+}
+.c-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 700; color: var(--lavanda); line-height: 1;
+}
+.c-meta {}
+.c-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--dark); }
+.c-date { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--marron); margin-top: 3px; }
+
+.slides-list { display: flex; flex-direction: column; gap: 8px; }
+.slide-item {
+  display: flex; gap: 14px;
+  background: var(--cream); border-radius: 8px; padding: 12px 16px;
+}
+.slide-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--lavanda);
+  min-width: 32px; line-height: 1;
+}
+.slide-content { flex: 1; }
+.slide-type {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--marron); font-weight: 600; margin-bottom: 4px;
+}
+.slide-text { font-size: 14px; line-height: 1.6; color: var(--dark); font-weight: 300; }
+
+/* ─── REELS ─────────────────────────────────────────────────────────────────────── */
+.reel-entry {
+  background: var(--cream); border-radius: 12px;
+  padding: 20px 24px; margin-bottom: 16px;
+  border-left: 4px solid var(--dark);
+}
+.reel-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.reel-num {
+  font-family: 'Playfair Display', serif; font-size: 24px;
+  font-weight: 700; color: var(--dark);
+}
+.reel-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--dark); }
+.reel-date { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--marron); margin-bottom: 8px; }
+.reel-script { font-size: 13px; line-height: 1.7; color: #555; font-weight: 300; }
+
+/* ─── STORIES OVERVIEW ──────────────────────────────────────────────────────────── */
+.stories-overview {
+  background: var(--cream); border-radius: 12px; padding: 24px 28px; margin-bottom: 20px;
+}
+.slot-row { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap:wrap; }
+.slot-card {
+  flex: 1; min-width: 200px;
+  background: #fff; border-radius: 8px; padding: 14px 18px;
+  border-top: 3px solid var(--lavanda);
+}
+.slot-time {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--marron); font-weight: 600; margin-bottom: 4px;
+}
+.slot-name { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.slot-desc { font-size: 12px; line-height: 1.5; color: var(--gris); font-weight: 300; }
+
+/* ─── LEAD MAGNETS ───────────────────────────────────────────────────────────────── */
+.lm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.lm-card {
+  background: var(--cream); border-radius: 12px;
+  padding: 20px 22px;
+  border-top: 4px solid var(--lavanda);
+}
+.lm-num { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gris); margin-bottom: 6px; }
+.lm-keyword {
+  display: inline-block; background: var(--dark); color: var(--lavanda);
+  border-radius: 100px; padding: 4px 14px; font-size: 11px;
+  font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
+}
+.lm-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.lm-desc { font-size: 13px; line-height: 1.6; color: #555; font-weight: 300; margin-bottom: 10px; }
+.lm-items { list-style: none; }
+.lm-items li {
+  font-size: 12px; line-height: 1.5; color: var(--dark);
+  padding-left: 16px; position: relative; margin-bottom: 4px;
+}
+.lm-items li::before { content:"▸"; position:absolute; left:0; color:var(--lavanda); }
+.lm-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--marron); margin-top: 10px; }
+
+/* ─── CURSO ──────────────────────────────────────────────────────────────────────── */
+.curso-card {
+  background: var(--dark); border-radius: 16px; padding: 36px 40px;
+  color: var(--beige);
+}
+.curso-tag {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--lavanda); opacity: .7; margin-bottom: 12px;
+}
+.curso-title {
+  font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700;
+  color: var(--beige); line-height: 1.1; margin-bottom: 8px;
+}
+.curso-tagline { font-size: 16px; font-weight: 300; color: rgba(248,242,236,.7); margin-bottom: 24px; }
+.curso-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.curso-price { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700; color: var(--lavanda); line-height: 1; }
+.curso-currency { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--lavanda); opacity: .8; }
+.curso-note { font-size: 13px; font-weight: 300; color: rgba(248,242,236,.5); margin-bottom: 24px; }
+.modulos { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.modulo {
+  background: rgba(248,242,236,.07); border-radius: 8px; padding: 14px 18px;
+  border-left: 3px solid var(--lavanda);
+}
+.mod-n { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--lavanda); opacity: .7; margin-bottom: 4px; }
+.mod-title { font-size: 15px; font-weight: 700; color: var(--beige); margin-bottom: 3px; }
+.mod-sub { font-size: 13px; font-weight: 300; color: rgba(248,242,236,.6); }
+.includes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 20px; }
+.inc { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 300; color: rgba(248,242,236,.7); }
+.inc::before { content:"▸"; color:var(--lavanda); font-size:10px; }
+
+/* ─── ESTRATEGIA ─────────────────────────────────────────────────────────────────── */
+.estrategia-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px;
+}
+.est-card {
+  background: var(--cream); border-radius: 10px; padding: 16px 18px;
+  border-top: 3px solid var(--lavanda-deep);
+}
+.est-phase { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--marron); margin-bottom: 4px; }
+.est-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.est-dates { font-size: 11px; color: var(--gris); margin-bottom: 8px; }
+.est-bullets { list-style: none; }
+.est-bullets li { font-size: 12px; line-height: 1.5; color: #555; padding-left: 12px; position: relative; margin-bottom: 3px; }
+.est-bullets li::before { content:"·"; position:absolute; left:0; color:var(--lavanda); font-weight:700; }
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────────────── */
+.page-footer {
+  background: var(--dark); padding: 28px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 60px;
+}
+.pf-brand { font-family: 'Arizonia', cursive; font-size: 20px; color: var(--lavanda); }
+.pf-center { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(176,174,176,.4); }
+.pf-web { font-size: 12px; color: rgba(217,201,227,.4); }
+
+/* ─── PRINT ──────────────────────────────────────────────────────────────────────── */
+@media print {
+  .print-bar { display: none !important; }
+  body { max-width: 100%; padding: 0; }
+  .content { padding: 0 28px; }
+  .portada { padding: 40px 32px; }
+  .week, .carousel-entry, .reel-entry { break-inside: avoid; }
+  .sec { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- Print bar -->
+<div class="print-bar">
+  <span class="print-bar-logo">Ingrid Núñez</span>
+  <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+  <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">D'LYRA STUDIO</span>
+</div>
+
+<!-- Portada -->
+<div class="portada">
+  <p class="portada-tag">Estrategia de contenido · Marzo–Abril 2026</p>
+  <h1 class="portada-title">Ingrid Núñez Psi</h1>
+  <p class="portada-sub">Plan Maestro de Contenidos</p>
+  <div class="portada-divider"></div>
+  <div class="portada-stats">
+    <div class="stat"><div class="stat-num">20</div><div class="stat-label">Carruseles</div></div>
+    <div class="stat"><div class="stat-num">10</div><div class="stat-label">Reels</div></div>
+    <div class="stat"><div class="stat-num">105</div><div class="stat-label">Historias</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Lead Magnets</div></div>
+    <div class="stat"><div class="stat-num">$29</div><div class="stat-label">Curso digital</div></div>
+  </div>
+  <p class="portada-handle">@ingridnunezpsi · psicolaingridnunez.lovable.app</p>
+</div>
+
+<div class="content">
+
+<!-- 1. OBJETIVOS -->
+<div class="sec"><span class="sec-num">01</span><span class="sec-title">Objetivos de la Estrategia</span></div>
+<div class="intro-box">
+  <p><strong>Objetivo principal:</strong> Lanzar el curso digital <em>"De la frustración a la calma"</em> a $29 USD el 26 de marzo de 2026, con un flujo de contenido que construya confianza, demuestre expertise y active la compra.</p>
+</div>
+<div class="overview-grid">
+  <div class="ov-card">
+    <div class="ov-label">Audiencia objetivo</div>
+    <div class="ov-value">Papás y mamás de hijos de 2–10 años con rabietas o crisis emocionales recurrentes</div>
+  </div>
+  <div class="ov-card">
+    <div class="ov-label">Propuesta de valor</div>
+    <div class="ov-value">Psicología práctica para criar con calma — no con gritos</div>
+  </div>
+  <div class="ov-card">
+    <div class="ov-label">Tono de marca</div>
+    <div class="ov-value">Cercana, experta, honesta. Como la amiga psicóloga que todos quisiéramos tener</div>
+  </div>
+  <div class="ov-card">
+    <div class="ov-label">Frecuencia de publicación</div>
+    <div class="ov-value">5 días/semana en feed + 3 historias diarias · L–V (+ domingos seleccionados)</div>
+  </div>
+</div>
+
+<!-- 2. ESTRUCTURA POR FASES -->
+<div class="sec"><span class="sec-num">02</span><span class="sec-title">Estructura por Fases</span></div>
+<div class="estrategia-grid">
+  <div class="est-card">
+    <div class="est-phase">Fase 1</div>
+    <div class="est-name">Siembra + Confianza</div>
+    <div class="est-dates">Mar 14–21</div>
+    <ul class="est-bullets">
+      <li>Presentación de perfil (C1)</li>
+      <li>Contenido educativo puro</li>
+      <li>Rabietas, pantallas, felicidad</li>
+      <li>LM1 PAUSA + LM2 CALMA</li>
+      <li>0 venta directa — solo valor</li>
+    </ul>
+  </div>
+  <div class="est-card">
+    <div class="est-phase">Fase 2</div>
+    <div class="est-name">Teaser + Lanzamiento</div>
+    <div class="est-dates">Mar 22–27 🚀</div>
+    <ul class="est-bullets">
+      <li>Teaser misterioso (C8)</li>
+      <li>Co-regulación + señales (C9, C10)</li>
+      <li>Preview del curso (C11)</li>
+      <li>LM3 MAPA · Countdown 3-2-1</li>
+      <li>Lanzamiento Jue 26 Mar — $29</li>
+    </ul>
+  </div>
+  <div class="est-card">
+    <div class="est-phase">Fase 3</div>
+    <div class="est-name">Post-lanzamiento + Cierre</div>
+    <div class="est-dates">Mar 27 – Abr 17</div>
+    <ul class="est-bullets">
+      <li>FAQ + social proof (C13)</li>
+      <li>Etapas, autismo, Semana Santa</li>
+      <li>LM4 · Reels participativos</li>
+      <li>Heridas infancia, límites, presencia</li>
+      <li>Cierre R10 — Abr 17</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. CALENDARIO -->
+<div class="sec"><span class="sec-num">03</span><span class="sec-title">Calendario de Publicación</span></div>
+
+<div class="week">
+  <div class="week-header">
+    <span class="week-title">⬛ Semana 1 — Siembra + Confianza</span>
+    <span class="week-dates">Mar 14–20</span>
+  </div>
+  <div class="week-body">
+    <table class="cal-table">
+      <tr><th>Fecha</th><th>Tipo</th><th>Contenido</th></tr>
+      <tr><td class="cal-date">Sáb 14 Mar</td><td><span class="cal-type type-c">Carrusel C1</span></td><td class="cal-title">Hola, por si no nos conocemos — Presentación de perfil</td></tr>
+      <tr><td class="cal-date">Dom 15 Mar</td><td><span class="cal-type type-c">Carrusel C2</span></td><td class="cal-title">Criar también es sanar — Carta dominical</td></tr>
+      <tr><td class="cal-date">Lun 16 Mar</td><td><span class="cal-type type-c">Carrusel C3</span></td><td class="cal-title">Las rabietas no son manipulación — Neurobiología</td></tr>
+      <tr><td class="cal-date">Mar 17 Mar</td><td><span class="cal-type type-c">Carrusel C4 + 🎁 LM2</span></td><td class="cal-title">Más pantallas, más frustración — Paradoja + Lead Magnet CALMA</td></tr>
+      <tr><td class="cal-date">Mié 18 Mar</td><td><span class="cal-type type-c">Carrusel C5</span></td><td class="cal-title">🌍 Día Mundial Felicidad — Un niño feliz no es el que nunca llora</td></tr>
+      <tr><td class="cal-date">Jue 19 Mar</td><td><span class="cal-type type-c">Carrusel C6 + 🎁 LM1</span></td><td class="cal-title">💙 Día Síndrome Down — Todos nuestros hijos necesitan ser vistos</td></tr>
+      <tr><td class="cal-date">Vie 20 Mar</td><td><span class="cal-type type-c">Carrusel C7</span></td><td class="cal-title">Carta a la mamá y el papá que hoy está agotado/a</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="week">
+  <div class="week-header">
+    <span class="week-title">⬛ Semana 2 — Valor + Lanzamiento</span>
+    <span class="week-dates">Mar 22–27 🚀</span>
+  </div>
+  <div class="week-body">
+    <table class="cal-table">
+      <tr><th>Fecha</th><th>Tipo</th><th>Contenido</th></tr>
+      <tr><td class="cal-date">Dom 22 Mar</td><td><span class="cal-type type-c">Carrusel C8</span></td><td class="cal-title">🛠️ Algo que creé pensando en ti — Teaser misterioso del curso</td></tr>
+      <tr><td class="cal-date">Lun 23 Mar</td><td><span class="cal-type type-c">Carrusel C9 + 🎁 LM3</span></td><td class="cal-title">Tú eres el termostato emocional de tu hijo/a — Co-regulación</td></tr>
+      <tr><td class="cal-date">Mar 24 Mar</td><td><span class="cal-type type-c">Carrusel C10</span></td><td class="cal-title">¿Te reconoces en esto? — 5 señales de que el curso es para ti</td></tr>
+      <tr><td class="cal-date">Mié 25 Mar</td><td><span class="cal-type type-c">Carrusel C11</span></td><td class="cal-title">Los 3 módulos del curso — Preview completo</td></tr>
+      <tr><td class="cal-date">Jue 26 Mar</td><td><span class="cal-type type-launch">🚀 LANZAMIENTO C12</span></td><td class="cal-title">De la frustración a la calma — $29 USD · Link en bio</td></tr>
+      <tr><td class="cal-date">Vie 27 Mar</td><td><span class="cal-type type-c">Carrusel C13</span></td><td class="cal-title">Post-lanzamiento — FAQ + ¿Ya lo tienes? Social proof inicial</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="week">
+  <div class="week-header">
+    <span class="week-title">🎬 Semana 3 — Post-lanzamiento + Reels</span>
+    <span class="week-dates">Mar 28 – Abr 3</span>
+  </div>
+  <div class="week-body">
+    <table class="cal-table">
+      <tr><th>Fecha</th><th>Tipo</th><th>Contenido</th></tr>
+      <tr><td class="cal-date">Dom 29 Mar</td><td><span class="cal-type type-r">Reel R1</span></td><td class="cal-title">Antes de las 9am ya viví esto — Situaciones cotidianas de crianza 😅</td></tr>
+      <tr><td class="cal-date">Lun 30 Mar</td><td><span class="cal-type type-c">Carrusel C14 + 🎁 LM4</span></td><td class="cal-title">Lo normal a los 3, 5 y 7 años (que no tiene nada de malo)</td></tr>
+      <tr><td class="cal-date">Mar 31 Mar</td><td><span class="cal-type type-r">Reel R2</span></td><td class="cal-title">3 actividades para Semana Santa que conectan y no cuestan nada</td></tr>
+      <tr><td class="cal-date">Mié 1 Abr</td><td><span class="cal-type type-c">Carrusel C15</span></td><td class="cal-title">💙 Día Autismo — La diferencia entre portarse mal y procesar diferente</td></tr>
+      <tr><td class="cal-date">Jue 2 Abr</td><td><span class="cal-type type-r">Reel R3</span></td><td class="cal-title">¿Para qué sirve ir a psicología si mi hijo parece estar bien?</td></tr>
+      <tr><td class="cal-date">Vie 3 Abr</td><td><span class="cal-type type-c">Carrusel C16</span></td><td class="cal-title">🌸 Semana Santa — Esta semana, permítete simplemente estar</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="week">
+  <div class="week-header">
+    <span class="week-title">🌸 Semana 4 — Semana Santa</span>
+    <span class="week-dates">Abr 4–10</span>
+  </div>
+  <div class="week-body">
+    <table class="cal-table">
+      <tr><th>Fecha</th><th>Tipo</th><th>Contenido</th></tr>
+      <tr><td class="cal-date">Dom 5 Abr</td><td><span class="cal-type type-r">Reel R4</span></td><td class="cal-title">La peor madre del mundo — Humanización Ingrid: los errores que nadie nombra</td></tr>
+      <tr><td class="cal-date">Lun 6 Abr</td><td><span class="cal-type type-c">Carrusel C17</span></td><td class="cal-title">💚 Día Mundial Salud — ¿Cuándo revisaste la salud emocional de tu hijo/a?</td></tr>
+      <tr><td class="cal-date">Mar 7 Abr</td><td><span class="cal-type type-r">Reel R5</span></td><td class="cal-title">Cuando tu hijo/a llora y no sabes qué hacer — Identificación emocional</td></tr>
+      <tr><td class="cal-date">Mié 8 Abr</td><td><span class="cal-type type-c">Carrusel C18</span></td><td class="cal-title">Poner límites no es hacer sufrir. Es enseñarle que el mundo tiene estructura.</td></tr>
+      <tr><td class="cal-date">Jue 9 Abr</td><td><span class="cal-type type-rest">🕊️ Jueves Santo</span></td><td class="cal-title">Descanso del feed — Solo historias</td></tr>
+      <tr><td class="cal-date">Vie 10 Abr</td><td><span class="cal-type type-r">Reel R6</span></td><td class="cal-title">🥚 Viernes Santo — El descanso que más necesitan tus hijos no es el que crees</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="week">
+  <div class="week-header">
+    <span class="week-title">🌟 Semana 5 — Consolidación + Cierre</span>
+    <span class="week-dates">Abr 12–17</span>
+  </div>
+  <div class="week-body">
+    <table class="cal-table">
+      <tr><th>Fecha</th><th>Tipo</th><th>Contenido</th></tr>
+      <tr><td class="cal-date">Dom 12 Abr 🌸</td><td><span class="cal-type type-r">Reel R7</span></td><td class="cal-title">Domingo de Pascua — Inside Out nos enseñó algo que adultos aún aprendemos</td></tr>
+      <tr><td class="cal-date">Lun 13 Abr</td><td><span class="cal-type type-r">Reel R8</span></td><td class="cal-title">Soy psicóloga y... — Confesiones participativas</td></tr>
+      <tr><td class="cal-date">Mar 14 Abr</td><td><span class="cal-type type-c">Carrusel C19</span></td><td class="cal-title">A veces la rabia con tu hijo/a no tiene que ver con él/ella — Heridas infancia</td></tr>
+      <tr><td class="cal-date">Mié 15 Abr</td><td><span class="cal-type type-r">Reel R9</span></td><td class="cal-title">Una actividad de 10 minutos para conectar con tu hijo/a esta noche</td></tr>
+      <tr><td class="cal-date">Jue 16 Abr</td><td><span class="cal-type type-c">Carrusel C20</span></td><td class="cal-title">No necesitas más tiempo con tus hijos. Necesitas mejor presencia.</td></tr>
+      <tr><td class="cal-date">Vie 17 Abr ✨</td><td><span class="cal-type type-r">Reel R10</span></td><td class="cal-title">Lo que aprendí siendo psicóloga Y mamá — Reel de cierre del mes</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 4. GUIONES CARRUSELES (resumen) -->
+<div class="sec"><span class="sec-num">04</span><span class="sec-title">Estructura de Carruseles — Guiones</span></div>
+<div class="intro-box" style="margin-bottom:20px">
+  <p>Los guiones completos de cada carrusel están disponibles en la galería visual en línea y en Notion. Aquí se muestra la estructura de slides por carrusel.</p>
+</div>
+
+<div class="carousel-entry">
+  <div class="c-header"><div class="c-num">C1</div><div class="c-meta"><div class="c-title">Hola, por si no nos conocemos</div><div class="c-date">Sáb 14 Mar · Presentación</div></div></div>
+  <div class="slides-list">
+    <div class="slide-item"><div class="slide-n">1</div><div class="slide-content"><div class="slide-type">Portada gancho</div><div class="slide-text">Hola. Soy Ingrid. Psicóloga infantil y mamá. Y creo que la crianza no debería doler tanto.</div></div></div>
+    <div class="slide-item"><div class="slide-n">2</div><div class="slide-content"><div class="slide-type">Quién soy</div><div class="slide-text">Psicóloga infantil. Especialista en crianza consciente. +8 años acompañando familias.</div></div></div>
+    <div class="slide-item"><div class="slide-n">3</div><div class="slide-content"><div class="slide-type">Por qué este espacio</div><div class="slide-text">Cada semana recibo mensajes de papás y mamás que no saben cómo parar una rabieta sin gritar.</div></div></div>
+    <div class="slide-item"><div class="slide-n">4</div><div class="slide-content"><div class="slide-type">Qué encontrarás aquí</div><div class="slide-text">Herramientas prácticas. Neurociencia explicada sin jerga. Validación real. Sin perfeccionismo.</div></div></div>
+    <div class="slide-item"><div class="slide-n">5</div><div class="slide-content"><div class="slide-type">Para quién es este espacio</div><div class="slide-text">Para el papá/mamá que ama profundamente pero que a veces reacciona de formas que luego lamenta.</div></div></div>
+    <div class="slide-item"><div class="slide-n">6</div><div class="slide-content"><div class="slide-type">La promesa</div><div class="slide-text">Aquí no vas a encontrar crianza perfecta. Vas a encontrar crianza real, con herramientas que funcionan.</div></div></div>
+    <div class="slide-item"><div class="slide-n">7</div><div class="slide-content"><div class="slide-type">CTA</div><div class="slide-text">Si algo de esto resuena contigo: guarda este post. Sígueme. Y escríbeme si necesitas hablar. 💙</div></div></div>
+  </div>
+</div>
+
+<div style="background:var(--cream);border-radius:10px;padding:16px 20px;margin-bottom:8px;font-size:13px;color:var(--gris);text-align:center;letter-spacing:1px">
+  Guiones completos C2–C20 disponibles en la galería: <strong style="color:var(--dark)">mygia25.github.io/myproejcts</strong>
+</div>
+
+<!-- 5. HISTORIAS -->
+<div class="sec"><span class="sec-num">05</span><span class="sec-title">Plan de Historias · 35 días · 105 historias</span></div>
+<div class="stories-overview">
+  <p style="font-size:14px;line-height:1.7;color:#555;font-weight:300;margin-bottom:18px">
+    Cada día se publican <strong style="color:var(--dark)">3 historias</strong> en horarios estratégicos para maximizar engagement y ventas. Las historias complementan el contenido del feed con interacción directa, lead magnets y CTAs personalizados.
+  </p>
+  <div class="slot-row">
+    <div class="slot-card">
+      <div class="slot-time">H1 · 8–9am</div>
+      <div class="slot-name">Buenos días + Encuesta</div>
+      <div class="slot-desc">Conexión matutina con la audiencia. Encuesta o pregunta para generar datos sobre el seguidor ideal y aumentar engagement en las primeras horas.</div>
+    </div>
+    <div class="slot-card">
+      <div class="slot-time">H2 · 12–1pm</div>
+      <div class="slot-name">Dato + Recordatorio de post</div>
+      <div class="slot-desc">Refuerzo del contenido educativo del feed. Dato de neurociencia o crianza + redirección al carrusel/reel del día para aumentar alcance.</div>
+    </div>
+    <div class="slot-card">
+      <div class="slot-time">H3 · 6–8pm</div>
+      <div class="slot-name">CTA + Comunidad</div>
+      <div class="slot-desc">Cierre del día. Activación de lead magnets (PAUSA/CALMA/MAPA/LM4), CTA al curso, o caja de preguntas para DMs. Máxima conversión.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. LEAD MAGNETS -->
+<div class="sec"><span class="sec-num">06</span><span class="sec-title">Guías Gratuitas — Lead Magnets</span></div>
+<div class="lm-grid">
+  <div class="lm-card">
+    <div class="lm-num">Guía 01 de 04</div>
+    <div class="lm-keyword">PAUSA</div>
+    <div class="lm-title">"Tu Pausa de Poder"</div>
+    <div class="lm-desc">Audio guiado de 10 minutos para regularse antes de que empiece la tormenta.</div>
+    <ul class="lm-items">
+      <li>Técnica de respiración en 4 tiempos</li>
+      <li>Cómo bajar el cortisol en 90 segundos</li>
+      <li>Frase de anclaje para el momento exacto</li>
+      <li>Relajación muscular progresiva</li>
+    </ul>
+    <div class="lm-date">📅 Activa: Jue 19 Mar</div>
+  </div>
+  <div class="lm-card">
+    <div class="lm-num">Guía 02 de 04</div>
+    <div class="lm-keyword">CALMA</div>
+    <div class="lm-title">"Tu Calma, Su Refugio"</div>
+    <div class="lm-desc">PDF 5 páginas — 5 claves para sobrevivir las crisis emocionales sin perder la tuya.</div>
+    <ul class="lm-items">
+      <li>Lo que NO debes decir (y qué decir en cambio)</li>
+      <li>Tu cuerpo primero — regular antes de hablar</li>
+      <li>La postura física que calma de verdad</li>
+      <li>Validar sin ceder — cómo se hace</li>
+    </ul>
+    <div class="lm-date">📅 Activa: Mar 17 Mar</div>
+  </div>
+  <div class="lm-card">
+    <div class="lm-num">Guía 03 de 04</div>
+    <div class="lm-keyword">MAPA</div>
+    <div class="lm-title">"¿Qué emoción esconde esa rabieta?"</div>
+    <div class="lm-desc">Mapa visual de emociones en niños de 2 a 8 años: qué las desencadena y qué necesitan.</div>
+    <ul class="lm-items">
+      <li>2–3 años: 5 emociones clave + disparadores</li>
+      <li>4–5 años: emociones sociales + miedos</li>
+      <li>6–8 años: vergüenza, frustración, comparación</li>
+      <li>Guía de respuesta para cada caso</li>
+    </ul>
+    <div class="lm-date">📅 Activa: Lun 23 Mar</div>
+  </div>
+  <div class="lm-card">
+    <div class="lm-num">Guía 04 de 04</div>
+    <div class="lm-keyword">LM4</div>
+    <div class="lm-title">"Qué decirle (y qué NO decirle)"</div>
+    <div class="lm-desc">Hoja de referencia rápida — 20 frases SÍ + 10 frases NO para usar en una crisis emocional.</div>
+    <ul class="lm-items">
+      <li>✅ "Veo que estás muy enojado/a. Estoy aquí contigo."</li>
+      <li>✅ "No tienes que calmarte ya. Yo me quedo."</li>
+      <li>❌ "Para de llorar ya." / "No es para tanto."</li>
+      <li>Laminada para imprimir o guardar en el teléfono</li>
+    </ul>
+    <div class="lm-date">📅 Activa: Lun 30 Mar</div>
+  </div>
+</div>
+
+<!-- 7. CURSO -->
+<div class="sec"><span class="sec-num">07</span><span class="sec-title">El Producto Principal — Curso Digital</span></div>
+<div class="curso-card">
+  <div class="curso-tag">Lanzamiento · Jue 26 Marzo 2026 · Link en bio</div>
+  <div class="curso-title">De la frustración<br>a la calma</div>
+  <div class="curso-tagline">El método para criar sin gritos. Transforma los desbordes emocionales de tus hijos en momentos de conexión.</div>
+  <div class="curso-price-row"><div class="curso-price">$29</div><div class="curso-currency">USD</div></div>
+  <div class="curso-note">Pago único · Acceso de por vida · Garantía 7 días</div>
+  <div class="modulos">
+    <div class="modulo">
+      <div class="mod-n">Módulo 1</div>
+      <div class="mod-title">Comprendiendo la Tormenta</div>
+      <div class="mod-sub">Neurobiología y Conexión — Por qué tu hijo reacciona así y cómo leerlo</div>
+    </div>
+    <div class="modulo">
+      <div class="mod-n">Módulo 2</div>
+      <div class="mod-title">Tu Ancla en la Tormenta</div>
+      <div class="mod-sub">Autocuidado y Auto-regulación — Regúlate tú primero para sostener a tu familia</div>
+    </div>
+    <div class="modulo">
+      <div class="mod-n">Módulo 3</div>
+      <div class="mod-title">Navegando la Tormenta</div>
+      <div class="mod-sub">Estrategias de Conexión y Límites — Protocolo paso a paso para cada crisis</div>
+    </div>
+  </div>
+  <div class="includes">
+    <div class="inc">Videos explicativos HD</div>
+    <div class="inc">Meditaciones guiadas</div>
+    <div class="inc">Cuaderno digital</div>
+    <div class="inc">Recursos descargables</div>
+    <div class="inc">Soporte por WhatsApp</div>
+    <div class="inc">+200 familias transformadas</div>
+  </div>
+</div>
+
+</div><!-- end .content -->
+
+<div class="page-footer">
+  <span class="pf-brand">Ingrid Núñez</span>
+  <span class="pf-center">D'LYRA STUDIO · PLAN MAESTRO · MARZO 2026</span>
+  <span class="pf-web">psicolaingridnunez.lovable.app</span>
+</div>
+
+</body>
+</html>
