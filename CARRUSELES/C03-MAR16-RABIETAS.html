@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>C03 — Rabietas | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+/* ─── SLIDE 1: Split layout — photo top 60%, beige bottom 40% ─── */
+.slide-split {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.split-top {
+  height:810px; /* 60% of 1350 */
+  position:relative;
+  flex-shrink:0;
+  overflow:hidden;
+}
+
+.split-top img {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(0.62) saturate(0.75);
+}
+
+.split-top-overlay {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(61,43,36,.05) 0%,
+    rgba(61,43,36,.35) 60%,
+    rgba(248,242,236,.95) 100%
+  );
+}
+
+.split-bottom {
+  flex:1;
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding: 52px 80px 64px;
+  text-align:center;
+}
+
+.cover-title {
+  font-family:'Playfair Display',serif;
+  font-size:72px;
+  font-weight:700;
+  color:#3D2B24;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.cover-subtitle {
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  font-style:italic;
+  color:#806357;
+  line-height:1.2;
+}
+
+.slide-num-split {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,.5);
+  z-index:4;
+}
+
+/* ─── SLIDES 2–3: Full beige with icon ─── */
+.slide-beige {
+  width:1080px;
+  height:1350px;
+  background:#F8F2EC;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.slide-num-beige {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:#B0AEB0;
+  z-index:4;
+}
+
+.beige-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: 0 100px;
+}
+
+.icon-circle {
+  width:100px; height:100px;
+  border-radius:50%;
+  background:#D9C9E3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:48px;
+  margin-bottom:48px;
+  opacity:.85;
+}
+
+.beige-title {
+  font-family:'Playfair Display',serif;
+  font-size:62px;
+  font-weight:700;
+  color:#3D2B24;
+  line-height:1.15;
+  margin-bottom:28px;
+  max-width:820px;
+}
+
+.beige-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:26px;
+  font-weight:300;
+  color:#806357;
+  line-height:1.55;
+  max-width:680px;
+}
+
+/* Accent bar */
+.accent-bar {
+  position:absolute;
+  left:0;
+  top:80px;
+  bottom:80px;
+  width:4px;
+  background:linear-gradient(to bottom, #D9C9E3, #806357, #D9C9E3);
+  border-radius:2px;
+}
+
+/* ─── SLIDE 4: Dark bg ─── */
+.slide-dark {
+  width:1080px;
+  height:1350px;
+  background:#3D2B24;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.dark-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: 0 100px;
+}
+
+.dark-quote {
+  font-family:'Playfair Display',serif;
+  font-size:62px;
+  font-style:italic;
+  color:#F8F2EC;
+  line-height:1.2;
+  margin-bottom:36px;
+  max-width:820px;
+}
+
+.dark-accent {
+  font-family:'Playfair Display',serif;
+  font-size:62px;
+  font-style:italic;
+  color:#D9C9E3;
+  line-height:1.2;
+  max-width:820px;
+}
+
+.dark-divider {
+  width:60px;
+  height:1px;
+  background:rgba(217,201,227,.4);
+  margin:32px auto;
+}
+
+/* ─── SLIDE 5: Lavanda bg ─── */
+.slide-lavanda {
+  width:1080px;
+  height:1350px;
+  background:#D9C9E3;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.lav-title {
+  font-family:'Playfair Display',serif;
+  font-size:60px;
+  font-weight:700;
+  color:#3D2B24;
+  line-height:1.2;
+  text-align:center;
+  margin-bottom:28px;
+  max-width:800px;
+}
+
+.lav-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:26px;
+  font-weight:300;
+  color:#3D2B24;
+  opacity:.75;
+  text-align:center;
+}
+
+/* ─── SLIDE 6: CTA beige ─── */
+.slide-cta {
+  width:1080px;
+  height:1350px;
+  background:#F8F2EC;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.cta-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: 0 100px;
+  flex:1;
+  justify-content:center;
+}
+
+.cta-question {
+  font-family:'Playfair Display',serif;
+  font-size:56px;
+  font-style:italic;
+  color:#3D2B24;
+  line-height:1.25;
+  margin-bottom:36px;
+  max-width:820px;
+}
+
+.cta-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:24px;
+  font-weight:300;
+  color:#806357;
+}
+
+.cta-footer {
+  width:100%;
+  padding:0 80px 72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#B0AEB0;
+}
+
+.no-judgment {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#B0AEB0;
+  font-style:italic;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:36px;
+}
+.div-line { width:60px; height:1px; background:rgba(217,201,227,.5); }
+.div-dot { width:6px; height:6px; border-radius:50%; background:#D9C9E3; opacity:.6; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — Portada: Split layout -->
+<div class="slide-split">
+  <div class="split-top">
+    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1080&q=85&fit=crop" alt="child upset">
+    <div class="split-top-overlay"></div>
+    <span class="slide-num-split">01 / 06</span>
+  </div>
+  <div class="split-bottom">
+    <h1 class="cover-title">Las rabietas no son manipulación.</h1>
+    <p class="cover-subtitle">Son un llamado de auxilio.</p>
+  </div>
+</div>
+
+<!-- SLIDE 2 — Beige + icon -->
+<div class="slide-beige">
+  <div class="accent-bar"></div>
+  <span class="slide-num-beige">02 / 06</span>
+  <div class="beige-content">
+    <div class="icon-circle">🧠</div>
+    <h2 class="beige-title">Su sistema nervioso está desbordado.</h2>
+    <p class="beige-sub">No puede calmarse solo todavía.</p>
+  </div>
+</div>
+
+<!-- SLIDE 3 — Beige + icon -->
+<div class="slide-beige">
+  <div class="accent-bar"></div>
+  <span class="slide-num-beige">03 / 06</span>
+  <div class="beige-content">
+    <div class="icon-circle">🔬</div>
+    <h2 class="beige-title">Lo que hace en ese momento no es elegido.</h2>
+    <p class="beige-sub">Es automático. Es biológico.</p>
+  </div>
+</div>
+
+<!-- SLIDE 4 — Dark -->
+<div class="slide-dark">
+  <span class="slide-num-beige" style="color:rgba(248,242,236,.35);">04 / 06</span>
+  <div class="dark-content">
+    <p class="dark-quote">El problema no es la rabieta.</p>
+    <div class="dark-divider"></div>
+    <p class="dark-accent">Es que nadie nos enseñó qué hacer en ese momento.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5 — Lavanda -->
+<div class="slide-lavanda">
+  <span class="slide-num-beige" style="color:rgba(61,43,36,.35);">05 / 06</span>
+  <div style="display:flex;flex-direction:column;align-items:center;padding:0 100px;text-align:center;">
+    <div class="divider" style="margin-bottom:40px;">
+      <div class="div-line" style="background:rgba(61,43,36,.2);"></div>
+      <div class="div-dot" style="background:#806357;opacity:.5;"></div>
+      <div class="div-line" style="background:rgba(61,43,36,.2);"></div>
+    </div>
+    <p class="lav-title">Ni a ellos.<br>Ni a nosotros.</p>
+    <p class="lav-sub">Y eso cambia ahora.</p>
+  </div>
+</div>
+
+<!-- SLIDE 6 — CTA Beige -->
+<div class="slide-cta">
+  <div class="accent-bar" style="background:linear-gradient(to bottom, #D9C9E3, #806357, #D9C9E3);"></div>
+  <div class="cta-content">
+    <div class="divider" style="margin-bottom:36px;">
+      <div class="div-line" style="background:rgba(128,99,87,.3);"></div>
+      <div class="div-dot" style="background:#806357;opacity:.4;"></div>
+      <div class="div-line" style="background:rgba(128,99,87,.3);"></div>
+    </div>
+    <p class="cta-question">¿Cuántas veces esta semana tu hijo/a tuvo una crisis?</p>
+    <p class="cta-sub">Sin juicio. Te leo en comentarios.</p>
+  </div>
+  <div class="cta-footer">
+    <span class="handle">@ingridnunezpsi</span>
+    <span class="no-judgment">psicolaingridnunez.lovable.app</span>
+  </div>
+</div>
+
+</body>
+</html>

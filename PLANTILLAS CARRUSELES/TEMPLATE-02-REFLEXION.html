@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Template 02 — Reflexión</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; height:1350px; overflow:hidden; }
+
+.slide {
+  width:1080px; height:1350px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  overflow:hidden;
+}
+
+/* Full-bleed background image */
+.bg-img {
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Gradient overlay — stronger at bottom for text */
+.overlay {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(61,43,36,0.15) 0%,
+    rgba(61,43,36,0.35) 40%,
+    rgba(61,43,36,0.82) 70%,
+    rgba(61,43,36,0.96) 100%
+  );
+}
+
+/* Lavanda tint on top half */
+.tint {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(217,201,227,0.3) 0%,
+    transparent 50%
+  );
+}
+
+/* Content block */
+.content {
+  position:relative;
+  z-index:3;
+  width:100%;
+  padding: 0 90px 100px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Script opener */
+.opener {
+  font-family:'Arizonia',cursive;
+  font-size:50px;
+  color:#D9C9E3;
+  opacity:.85;
+  margin-bottom:28px;
+}
+
+/* Divider */
+.divider {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:36px;
+}
+.div-line { width:60px; height:1px; background:rgba(217,201,227,.5); }
+.div-dot { width:6px; height:6px; border-radius:50%; background:#D9C9E3; opacity:.6; }
+
+/* Main quote */
+.quote {
+  font-family:'Playfair Display',serif;
+  font-size:66px;
+  font-weight:400;
+  font-style:italic;
+  line-height:1.2;
+  color:#F8F2EC;
+  margin-bottom:36px;
+  max-width:860px;
+}
+
+.quote strong {
+  font-weight:700;
+  color:#D9C9E3;
+  font-style:italic;
+}
+
+/* Support line */
+.support {
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:300;
+  color:rgba(248,242,236,.7);
+  line-height:1.6;
+  margin-bottom:52px;
+  max-width:680px;
+}
+
+/* Handle */
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  letter-spacing:3px;
+  color:rgba(217,201,227,.6);
+}
+
+/* Slide num top right */
+.slide-num {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,.4);
+  z-index:4;
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1080&q=85&fit=crop" alt="nature soft light">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">01 / 07</span>
+
+  <div class="content">
+    <div class="opener">para ti,</div>
+
+    <div class="divider">
+      <div class="div-line"></div>
+      <div class="div-dot"></div>
+      <div class="div-line"></div>
+    </div>
+
+    <p class="quote">
+      Criar te va a cambiar.<br>
+      Pero solo si te dejas<br>
+      <strong>mirar</strong> mientras lo haces.
+    </p>
+
+    <p class="support">
+      No estás fallando. Estás creciendo.<br>
+      Y crecer siempre duele un poco. 🌿
+    </p>
+
+    <span class="handle">@ingridnunezpsi</span>
+  </div>
+</div>
+</body>
+</html>

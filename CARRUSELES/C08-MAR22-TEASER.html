@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>C08 · Teaser Producto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; font-family: 'Montserrat', sans-serif; background: #3D2B24; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1080&q=85&fit=crop');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* ===== SLIDE 1 — PORTADA ===== */
+  #s1 {
+    background: #3D2B24;
+  }
+  #s1 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 110px;
+    text-align: center;
+  }
+  #s1 .script-label {
+    font-family: 'Arizonia', cursive;
+    font-size: 56px;
+    color: #D9C9E3;
+    margin-bottom: 28px;
+  }
+  #s1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 84px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.05;
+    margin-bottom: 56px;
+  }
+  #s1 .week-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #D9C9E3;
+    text-transform: uppercase;
+  }
+  #s1 .handle {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 2 ===== */
+  #s2 {
+    background: #1e140d;
+  }
+  #s2 .bg-photo { opacity: 0.22; filter: blur(1px); }
+  #s2 .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20,12,6,0.82);
+  }
+  #s2 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 110px;
+    text-align: center;
+  }
+  #s2 .years-badge {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(217,201,227,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  #s2 .years-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #D9C9E3;
+    line-height: 1;
+  }
+  #s2 .years-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #D9C9E3;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  #s2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 58px;
+    font-weight: 400;
+    color: #F8F2EC;
+    line-height: 1.25;
+  }
+  #s2 .handle-bottom {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.30);
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 3 — QUOTES ===== */
+  #s3 {
+    background: #D9C9E3;
+  }
+  #s3 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 110px;
+  }
+  #s3 .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #806357;
+    text-transform: uppercase;
+    margin-bottom: 64px;
+  }
+  #s3 .quote-item {
+    border-left: 3px solid #806357;
+    padding-left: 36px;
+    margin-bottom: 52px;
+  }
+  #s3 .quote-item:last-child { margin-bottom: 0; }
+  #s3 .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 40px;
+    font-weight: 400;
+    color: #3D2B24;
+    line-height: 1.3;
+  }
+  #s3 .handle-bottom {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(61,43,36,0.40);
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 4 ===== */
+  #s4 {
+    background: #3D2B24;
+  }
+  #s4 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 110px;
+    text-align: center;
+  }
+  #s4 .big-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+  #s4 .italic-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 44px;
+    font-weight: 400;
+    color: #D9C9E3;
+    line-height: 1.25;
+  }
+  #s4 .deco-dot-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin: 52px auto;
+  }
+  #s4 .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #D9C9E3;
+    opacity: 0.5;
+  }
+  #s4 .dot.active { opacity: 1; width: 12px; height: 12px; background: #F8F2EC; }
+  #s4 .handle-bottom {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.30);
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 5 — BLURRED PRODUCT ===== */
+  #s5 {
+    background: #F8F2EC;
+  }
+  #s5 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 110px;
+    text-align: center;
+  }
+  #s5 .blurred-product {
+    width: 340px;
+    height: 340px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #D9C9E3, #806357);
+    filter: blur(12px);
+    opacity: 0.55;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  #s5 .blurred-product::after {
+    content: '🌿';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+    filter: blur(4px);
+  }
+  #s5 .main-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.15;
+    margin-bottom: 32px;
+  }
+  #s5 .italic-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 44px;
+    color: #806357;
+    line-height: 1.2;
+    margin-bottom: 48px;
+  }
+  #s5 .note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #B0AEB0;
+    letter-spacing: 0.5px;
+  }
+  #s5 .handle-bottom {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #B0AEB0;
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 6 — CTA ===== */
+  #s6 {
+    background: #F8F2EC;
+  }
+  #s6 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 110px;
+    text-align: center;
+  }
+  #s6 .question {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.18;
+    margin-bottom: 72px;
+  }
+  #s6 .options {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  #s6 .option {
+    border: 1.5px solid #D9C9E3;
+    border-radius: 16px;
+    padding: 28px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    text-align: left;
+    background: rgba(217,201,227,0.12);
+  }
+  #s6 .option-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #D9C9E3;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  #s6 .option-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #3D2B24;
+    line-height: 1.5;
+  }
+  #s6 .deco-line {
+    width: 60px;
+    height: 2px;
+    background: #D9C9E3;
+    margin: 0 auto 36px auto;
+  }
+  #s6 .handle-big {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 54px;
+    color: #806357;
+    margin-bottom: 20px;
+  }
+  #s6 .web {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #B0AEB0;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — PORTADA ===== -->
+<div class="slide" id="s1">
+  <div class="content">
+    <div class="script-label">algo que creé</div>
+    <h1>pensando en ti.</h1>
+    <span class="week-label">Esta semana</span>
+  </div>
+  <div class="handle">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 2 ===== -->
+<div class="slide" id="s2">
+  <div class="bg-photo"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="years-badge">
+      <span class="years-num">15</span>
+      <span class="years-text">años<br>escuchando</span>
+    </div>
+    <h2>Durante 15 años escuché a padres decirme lo mismo.</h2>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 3 — QUOTES ===== -->
+<div class="slide" id="s3">
+  <div class="content">
+    <p class="section-label">Lo que me dicen una y otra vez</p>
+    <div class="quote-item">
+      <p class="quote-text">"Yo entiendo la teoría.<br>Pero en el momento no puedo."</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">"Me pierdo cuando empieza la crisis."</p>
+    </div>
+    <div class="quote-item">
+      <p class="quote-text">"No sé cómo reparar después."</p>
+    </div>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 4 ===== -->
+<div class="slide" id="s4">
+  <div class="content">
+    <div class="deco-dot-row">
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
+    <p class="big-text">Por eso creé algo.</p>
+    <p class="italic-sub">Algo práctico. Para ese momento exacto en que todo se desborda.</p>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 5 — BLURRED PRODUCT ===== -->
+<div class="slide" id="s5">
+  <div class="content">
+    <div class="blurred-product"></div>
+    <p class="main-text">No es un libro de teoría.</p>
+    <p class="italic-sub">Es una herramienta para momentos reales.</p>
+    <p class="note">Esta semana te lo presento. Quédate cerca. 🌿</p>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 6 — CTA ===== -->
+<div class="slide" id="s6">
+  <div class="content">
+    <p class="question">¿Cuál de estas frases te representa más?</p>
+    <div class="options">
+      <div class="option">
+        <span class="option-letter">A</span>
+        <span class="option-text">Entiendo la teoría, pero en el momento no puedo.</span>
+      </div>
+      <div class="option">
+        <span class="option-letter">B</span>
+        <span class="option-text">Me pierdo cuando empieza la crisis.</span>
+      </div>
+      <div class="option">
+        <span class="option-letter">C</span>
+        <span class="option-text">No sé cómo reparar después de un momento difícil.</span>
+      </div>
+    </div>
+    <div class="deco-line"></div>
+    <div class="handle-big">@ingridnunezpsi</div>
+    <p class="web">psicolaingridnunez.lovable.app</p>
+  </div>
+</div>
+
+</body>
+</html>

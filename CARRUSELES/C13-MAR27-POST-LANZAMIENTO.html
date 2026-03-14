@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>C13 · Post-Lanzamiento FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;600;700&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; background: #1a1a1a; font-family: 'Montserrat', sans-serif; }
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .slide-counter {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #B0AEB0;
+  }
+
+  /* ── SLIDE 1 ── Portada */
+  .s1 {
+    background: #F8F2EC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+  .s1-icon {
+    font-size: 80px;
+  }
+  .s1-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 78px;
+    font-weight: 700;
+    color: #3D2B24;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .s1-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-style: italic;
+    color: #D9C9E3;
+  }
+  .s1-line {
+    width: 80px;
+    height: 2px;
+    background: #D9C9E3;
+  }
+
+  /* ── SLIDE 2 / 3 / 4 — FAQ slides ── */
+  .faq-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 100px;
+    gap: 44px;
+  }
+  .s2 { background: #D9C9E3; }
+  .s3 { background: #F8F2EC; }
+  .s4 { background: #3D2B24; }
+
+  .faq-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #806357;
+  }
+  .s4 .faq-label { color: rgba(255,255,255,0.4); }
+
+  .faq-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-style: italic;
+    color: #3D2B24;
+    line-height: 1.2;
+    max-width: 780px;
+  }
+  .s4 .faq-question { color: #ffffff; }
+
+  .faq-divider {
+    width: 60px;
+    height: 2px;
+    background: #3D2B24;
+  }
+  .s4 .faq-divider { background: #D9C9E3; }
+
+  .faq-answer {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: #3D2B24;
+    line-height: 1.65;
+    max-width: 760px;
+  }
+  .s4 .faq-answer { color: #D9C9E3; }
+
+  .faq-num-bg {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: 280px;
+    font-weight: 700;
+    opacity: 0.07;
+    line-height: 1;
+    user-select: none;
+    color: #3D2B24;
+  }
+  .s4 .faq-num-bg { color: #D9C9E3; }
+
+  /* ── SLIDE 5 ── Engagement */
+  .s5 {
+    background: #F8F2EC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+    padding: 0 100px;
+  }
+  .s5-icon {
+    font-size: 72px;
+  }
+  .s5-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #3D2B24;
+    text-align: center;
+  }
+  .s5-body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: #806357;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 780px;
+  }
+  .s5-line {
+    width: 60px;
+    height: 2px;
+    background: #D9C9E3;
+  }
+
+  /* ── SLIDE 6 ── CTA final */
+  .s6 {
+    background: #F8F2EC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 100px;
+  }
+  .s6-script {
+    font-family: 'Arizonia', cursive;
+    font-size: 64px;
+    color: #D9C9E3;
+  }
+  .s6-still {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: #3D2B24;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .s6-terms {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #806357;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .s6-btn {
+    background: #3D2B24;
+    color: #F8F2EC;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 20px 52px;
+    display: inline-block;
+  }
+  .s6-divider {
+    width: 60px;
+    height: 1px;
+    background: #D9C9E3;
+  }
+  .s6-handle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #B0AEB0;
+    text-transform: uppercase;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide s1">
+  <div class="s1-icon">💙</div>
+  <div class="s1-line"></div>
+  <div class="s1-title">Ya está<br>disponible.</div>
+  <div class="s1-sub">Y ya hay familias adentro.</div>
+  <div class="s1-line"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide s2 faq-slide">
+  <div class="faq-label">Pregunta frecuente 01</div>
+  <div class="faq-question">"¿Para quién es el curso?"</div>
+  <div class="faq-divider"></div>
+  <div class="faq-answer">Para el papá o la mamá que ama con todo pero en el momento de la crisis no sabe qué hacer.</div>
+  <div class="faq-num-bg">1</div>
+  <div class="slide-counter" style="color:rgba(61,43,36,0.35);">02 / 06</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide s3 faq-slide">
+  <div class="faq-label">Pregunta frecuente 02</div>
+  <div class="faq-question">"¿Cuánto tiempo necesito?"</div>
+  <div class="faq-divider"></div>
+  <div class="faq-answer">Puedes ir a tu ritmo. El acceso es de por vida. Vuelves cuando quieras.</div>
+  <div class="faq-num-bg">2</div>
+  <div class="slide-counter">03 / 06</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide s4 faq-slide">
+  <div class="faq-label">Pregunta frecuente 03</div>
+  <div class="faq-question">"¿Y si no funciona para mi familia?"</div>
+  <div class="faq-divider"></div>
+  <div class="faq-answer">Tienes 7 días de garantía. Si no ves cambios &rarr; te devuelvo el 100%. Sin preguntas.</div>
+  <div class="faq-num-bg">3</div>
+  <div class="slide-counter" style="color:rgba(255,255,255,0.25);">04 / 06</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide s5">
+  <div class="s5-icon">🌿</div>
+  <div class="s5-line"></div>
+  <div class="s5-title">¿Ya lo tienes?</div>
+  <div class="s5-body">Cuéntame en comentarios. ¿Con qué módulo empezaste? ¿Qué fue lo que más te llegó?</div>
+  <div class="s5-line"></div>
+  <div class="slide-counter">05 / 06</div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide s6">
+  <div class="s6-script">todavía puedes</div>
+  <div class="s6-still">¿Aún<br>no lo tienes?</div>
+  <div class="s6-divider"></div>
+  <div class="s6-terms">$29 USD &nbsp;·&nbsp; Link en bio &nbsp;·&nbsp; Garantía 7 días</div>
+  <div class="s6-btn">Ver el curso</div>
+  <div class="s6-divider"></div>
+  <div class="s6-handle">@ingridnunezpsi<br>psicolaingridnunez.lovable.app</div>
+</div>
+
+</body>
+</html>

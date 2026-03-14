@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>C01 — Presentación | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+.slide {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.bg-img {
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.overlay {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(61,43,36,0.20) 0%,
+    rgba(61,43,36,0.40) 35%,
+    rgba(61,43,36,0.80) 65%,
+    rgba(61,43,36,0.96) 100%
+  );
+}
+
+.tint {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(217,201,227,0.25) 0%,
+    transparent 45%
+  );
+}
+
+.content {
+  position:relative;
+  z-index:3;
+  width:100%;
+  padding: 0 90px 100px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.opener {
+  font-family:'Arizonia',cursive;
+  font-size:52px;
+  color:#D9C9E3;
+  opacity:.90;
+  margin-bottom:24px;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:36px;
+}
+.div-line { width:60px; height:1px; background:rgba(217,201,227,.5); }
+.div-dot { width:6px; height:6px; border-radius:50%; background:#D9C9E3; opacity:.6; }
+
+.title {
+  font-family:'Playfair Display',serif;
+  font-size:88px;
+  font-weight:700;
+  line-height:1.05;
+  color:#F8F2EC;
+  margin-bottom:0;
+}
+
+.slide-num {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,.4);
+  z-index:4;
+}
+
+/* Slides 2–6: interior */
+.slide-inner {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.inner-content {
+  position:relative;
+  z-index:3;
+  width:100%;
+  padding: 0 100px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.quote {
+  font-family:'Playfair Display',serif;
+  font-size:56px;
+  font-weight:400;
+  font-style:italic;
+  line-height:1.25;
+  color:#F8F2EC;
+  max-width:860px;
+}
+
+.quote-normal {
+  font-family:'Playfair Display',serif;
+  font-size:54px;
+  font-weight:400;
+  line-height:1.25;
+  color:#F8F2EC;
+  max-width:860px;
+}
+
+/* Slide 7: CTA beige */
+.slide-cta {
+  width:1080px;
+  height:1350px;
+  background:#F8F2EC;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.cta-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding: 0 100px;
+  flex:1;
+  justify-content:center;
+}
+
+.cta-opener {
+  font-family:'Arizonia',cursive;
+  font-size:56px;
+  color:#D9C9E3;
+  margin-bottom:32px;
+}
+
+.cta-title {
+  font-family:'Playfair Display',serif;
+  font-size:68px;
+  font-weight:700;
+  color:#3D2B24;
+  line-height:1.15;
+  margin-bottom:32px;
+  max-width:800px;
+}
+
+.cta-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:24px;
+  font-weight:300;
+  color:#806357;
+  margin-bottom:0;
+}
+
+.cta-footer {
+  width:100%;
+  padding:0 80px 72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#B0AEB0;
+}
+
+.web {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#B0AEB0;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — Portada -->
+<div class="slide">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1080&q=85&fit=crop" alt="psychologist warm">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">01 / 07</span>
+  <div class="content">
+    <div class="opener">para ti,</div>
+    <div class="divider">
+      <div class="div-line"></div>
+      <div class="div-dot"></div>
+      <div class="div-line"></div>
+    </div>
+    <h1 class="title">Hola. Por si no nos<br>conocemos todavía.</h1>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide-inner">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1080&q=85&fit=crop" alt="psychologist warm">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">02 / 07</span>
+  <div class="inner-content">
+    <p class="quote">Me llamo Ingrid. Soy psicóloga infantil y familiar desde hace 15 años.<br><br>Pero eso no es lo primero que soy.</p>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide-inner">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1080&q=85&fit=crop" alt="psychologist warm">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">03 / 07</span>
+  <div class="inner-content">
+    <p class="quote-normal">Lo primero que soy es <em style="color:#D9C9E3;font-style:italic;">mamá.</em><br><br>Y fue desde ahí —desde el agotamiento, la culpa y ese amor enorme que duele— que entendí de verdad lo que es criar.</p>
+  </div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide-inner">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1080&q=85&fit=crop" alt="psychologist warm">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">04 / 07</span>
+  <div class="inner-content">
+    <p class="quote">La teoría la aprendí<br>en la universidad.<br><br>El peso de la crianza<br>lo aprendí en casa.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide-inner">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1080&q=85&fit=crop" alt="psychologist warm">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">05 / 07</span>
+  <div class="inner-content">
+    <p class="quote-normal">En este espacio voy a hablar de lo que nadie te dice:<br><br>que criar también es <em style="color:#D9C9E3;font-style:italic;">regularte a ti.</em><br>Que estar bien tú importa tanto como tu hijo/a.</p>
+  </div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide-inner">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1080&q=85&fit=crop" alt="psychologist warm">
+  <div class="tint"></div>
+  <div class="overlay"></div>
+  <span class="slide-num">06 / 07</span>
+  <div class="inner-content">
+    <p class="quote">Aquí no vas a encontrar perfección.<br><br>Vas a encontrar <em style="color:#D9C9E3;font-style:italic;">honestidad,</em> herramientas y mucho acompañamiento.</p>
+  </div>
+</div>
+
+<!-- SLIDE 7 — CTA Beige -->
+<div class="slide-cta">
+  <div class="cta-content">
+    <div class="cta-opener">cuéntame:</div>
+    <div class="divider" style="margin-bottom:32px;">
+      <div class="div-line" style="background:rgba(128,99,87,.3);"></div>
+      <div class="div-dot" style="background:#806357;opacity:.4;"></div>
+      <div class="div-line" style="background:rgba(128,99,87,.3);"></div>
+    </div>
+    <h2 class="cta-title">¿Qué es lo más difícil de la crianza para ti hoy?</h2>
+    <p class="cta-sub">Te leo en comentarios.</p>
+  </div>
+  <div class="cta-footer">
+    <span class="handle">@ingridnunezpsi</span>
+    <span class="web">psicolaingridnunez.lovable.app</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>C17 — Salud Emocional | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+.slide {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+/* ─── Shared utils ─── */
+.accent-bar {
+  position:absolute;
+  left:0;
+  top:80px;
+  bottom:80px;
+  width:4px;
+  background:linear-gradient(to bottom, #D9C9E3, #806357, #D9C9E3);
+  border-radius:2px;
+}
+
+.slide-num {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:#B0AEB0;
+  z-index:4;
+}
+
+.slide-num-light {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,.4);
+  z-index:4;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:36px;
+}
+.div-line { width:60px; height:1px; background:rgba(128,99,87,.3); }
+.div-dot { width:6px; height:6px; border-radius:50%; background:#806357; opacity:.4; }
+
+/* ─── SLIDE 1: Portada dark ─── */
+.slide-1 {
+  background:#3D2B24;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.s1-pill {
+  display:inline-block;
+  background:rgba(217,201,227,.18);
+  border:1px solid rgba(217,201,227,.35);
+  border-radius:100px;
+  padding:12px 32px;
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:400;
+  color:#D9C9E3;
+  letter-spacing:1px;
+  margin-bottom:40px;
+}
+
+.s1-title {
+  font-family:'Playfair Display',serif;
+  font-size:80px;
+  font-weight:700;
+  color:#F8F2EC;
+  line-height:1.1;
+  text-align:center;
+  max-width:880px;
+  margin-bottom:28px;
+}
+
+.s1-sub {
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  font-style:italic;
+  color:#D9C9E3;
+  text-align:center;
+  max-width:720px;
+  line-height:1.3;
+}
+
+/* ─── SLIDE 2: Checklist beige ─── */
+.slide-beige {
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+.checklist-wrap {
+  padding:0 100px;
+  width:100%;
+}
+
+.checklist-title {
+  font-family:'Playfair Display',serif;
+  font-size:46px;
+  font-weight:700;
+  color:#3D2B24;
+  margin-bottom:48px;
+}
+
+.checklist-item {
+  font-family:'Montserrat',sans-serif;
+  font-size:26px;
+  font-weight:400;
+  color:#3D2B24;
+  line-height:1.5;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.checklist-divider {
+  width:100%;
+  height:1px;
+  background:rgba(176,174,176,.3);
+  margin:36px 0;
+}
+
+.checklist-question {
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-style:italic;
+  color:#806357;
+  line-height:1.4;
+}
+
+/* ─── SLIDE 3: Lavanda questions ─── */
+.slide-lavanda {
+  background:#D9C9E3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.lav-content {
+  padding:0 100px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:36px;
+}
+
+.lav-question {
+  font-family:'Playfair Display',serif;
+  font-size:40px;
+  font-style:italic;
+  color:#3D2B24;
+  line-height:1.35;
+  padding-left:32px;
+  border-left:3px solid rgba(61,43,36,.25);
+}
+
+/* ─── SLIDE 4: Dark insight ─── */
+.slide-dark {
+  background:#3D2B24;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.dark-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 100px;
+}
+
+.dark-title {
+  font-family:'Playfair Display',serif;
+  font-size:62px;
+  font-weight:700;
+  color:#F8F2EC;
+  line-height:1.15;
+  margin-bottom:28px;
+  max-width:820px;
+}
+
+.dark-italic-lav {
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  font-style:italic;
+  color:#D9C9E3;
+  line-height:1.3;
+  max-width:760px;
+}
+
+.dark-divider {
+  width:60px;
+  height:1px;
+  background:rgba(217,201,227,.35);
+  margin:32px auto;
+}
+
+/* ─── SLIDE 5: Beige challenge ─── */
+.slide-5 {
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.s5-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:16px;
+  letter-spacing:4px;
+  color:#B0AEB0;
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+
+.s5-saludo {
+  font-family:'Arizonia',cursive;
+  font-size:48px;
+  color:#D9C9E3;
+  margin-bottom:24px;
+}
+
+.s5-question {
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  font-style:italic;
+  color:#3D2B24;
+  text-align:center;
+  line-height:1.25;
+  max-width:840px;
+  margin-bottom:36px;
+  padding:0 80px;
+}
+
+.s5-instruction {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px;
+  font-weight:300;
+  color:#806357;
+  text-align:center;
+  line-height:1.6;
+  max-width:680px;
+}
+
+/* ─── SLIDE 6: CTA ─── */
+.slide-cta {
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow:hidden;
+}
+
+.cta-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 100px;
+  flex:1;
+  justify-content:center;
+}
+
+.cta-question {
+  font-family:'Playfair Display',serif;
+  font-size:54px;
+  font-style:italic;
+  color:#3D2B24;
+  line-height:1.3;
+  margin-bottom:28px;
+  max-width:820px;
+}
+
+.cta-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px;
+  font-weight:300;
+  color:#806357;
+}
+
+.cta-footer {
+  width:100%;
+  padding:0 80px 72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#B0AEB0;
+}
+
+.web {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#B0AEB0;
+  font-style:italic;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — Portada dark -->
+<div class="slide slide-1">
+  <span class="slide-num-light">01 / 06</span>
+  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 100px;">
+    <span class="s1-pill">💚 Día Mundial de la Salud</span>
+    <h1 class="s1-title">Revisas el peso, la talla, las vacunas.</h1>
+    <p class="s1-sub">¿Cuándo revisaste su salud emocional?</p>
+  </div>
+</div>
+
+<!-- SLIDE 2 — Checklist beige -->
+<div class="slide slide-beige">
+  <div class="accent-bar"></div>
+  <span class="slide-num">02 / 06</span>
+  <div class="checklist-wrap">
+    <p class="checklist-title">El chequeo de rutina:</p>
+    <p class="checklist-item">✅ &nbsp;Peso — revisado.</p>
+    <p class="checklist-item">✅ &nbsp;Talla — revisada.</p>
+    <p class="checklist-item">✅ &nbsp;Vacunas — al día.</p>
+    <p class="checklist-item">✅ &nbsp;Dientes — OK.</p>
+    <div class="checklist-divider"></div>
+    <p class="checklist-question">❓ ¿Sabe poner en palabras lo que siente?</p>
+  </div>
+</div>
+
+<!-- SLIDE 3 — Lavanda questions -->
+<div class="slide slide-lavanda">
+  <span class="slide-num" style="color:rgba(61,43,36,.35);">03 / 06</span>
+  <div class="lav-content">
+    <p class="lav-question">¿Puede pedir ayuda cuando lo necesita?</p>
+    <p class="lav-question">¿Se siente seguro/a en casa?</p>
+    <p class="lav-question">¿Sabe que sus emociones son válidas?</p>
+  </div>
+</div>
+
+<!-- SLIDE 4 — Dark insight -->
+<div class="slide slide-dark">
+  <span class="slide-num-light">04 / 06</span>
+  <div class="dark-content">
+    <p class="dark-title">La salud emocional no sale en un examen de laboratorio.</p>
+    <div class="dark-divider"></div>
+    <p class="dark-italic-lav">Pero se nota en cómo duerme, cómo come, cómo se relaciona.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5 — Challenge beige -->
+<div class="slide slide-5">
+  <div class="accent-bar"></div>
+  <span class="slide-num">05 / 06</span>
+  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+    <p class="s5-label">Hoy</p>
+    <p class="s5-saludo">pregúntale:</p>
+    <p class="s5-question">"¿Cómo estás tú, de verdad?"</p>
+    <p class="s5-instruction">Y escucha sin interrumpir.<br>Sin arreglar. Sin consejo.</p>
+  </div>
+</div>
+
+<!-- SLIDE 6 — CTA -->
+<div class="slide slide-cta">
+  <div class="accent-bar"></div>
+  <div class="cta-content">
+    <div class="divider">
+      <div class="div-line"></div>
+      <div class="div-dot"></div>
+      <div class="div-line"></div>
+    </div>
+    <p class="cta-question">Cuéntame qué te respondió. 💙</p>
+    <p class="cta-sub">Te leo en comentarios.</p>
+  </div>
+  <div class="cta-footer">
+    <span class="handle">@ingridnunezpsi</span>
+    <span class="web">psicolaingridnunez.lovable.app</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,30 +1,466 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project">
-    <meta name="author" content="Lovable" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingrid Núñez — Repositorio de Contenido</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- TODO: Update og:title to match your application name -->
-    
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6090c130-2a2b-4188-adcd-3a50c1209ba0/id-preview-a833bc8a--d47ce82a-f96e-467b-bd27-939bb07e15cc.lovable.app-1773448178771.png">
+    :root {
+      --lavanda: #D9C9E3;
+      --beige: #F8F2EC;
+      --dark: #3D2B24;
+      --dark-light: #6b4e45;
+      --lavanda-dark: #b5a3c7;
+      --white: #ffffff;
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6090c130-2a2b-4188-adcd-3a50c1209ba0/id-preview-a833bc8a--d47ce82a-f96e-467b-bd27-939bb07e15cc.lovable.app-1773448178771.png">
-    <meta property="og:title" content="Lovable App">
-  <meta name="twitter:title" content="Lovable App">
-  <meta property="og:description" content="Lovable Generated Project">
-  <meta name="twitter:description" content="Lovable Generated Project">
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--beige);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background-color: var(--dark);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    header .subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--lavanda);
+      margin-bottom: 14px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    header h1 span {
+      color: var(--lavanda);
+      font-style: italic;
+    }
+
+    header p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--lavanda);
+      letter-spacing: 0.5px;
+    }
+
+    /* MAIN LAYOUT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    /* SECTION HEADERS */
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dark-light);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--lavanda);
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    /* HERO CARD — Plan Maestro */
+    .hero-card {
+      background-color: var(--dark);
+      border-radius: 12px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(61,43,36,0.25);
+    }
+
+    .hero-card .hero-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .hero-card .hero-info p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--lavanda);
+    }
+
+    .hero-card .hero-badge {
+      background-color: var(--lavanda);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 50px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* SECONDARY DOCS GRID */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .doc-card {
+      background: var(--white);
+      border: 1.5px solid var(--lavanda);
+      border-radius: 10px;
+      padding: 24px 26px;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .doc-card:hover {
+      background: var(--lavanda);
+      border-color: var(--lavanda-dark);
+      transform: translateY(-2px);
+    }
+
+    .doc-card .doc-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .doc-card .doc-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .doc-card .doc-info p {
+      font-size: 11px;
+      color: var(--dark-light);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* CAROUSEL GRID */
+    .carousel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .carousel-card {
+      background: var(--white);
+      border: 1.5px solid var(--lavanda);
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .carousel-card:hover {
+      background: var(--lavanda);
+      transform: translateY(-2px);
+    }
+
+    .carousel-card .carousel-date {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--dark-light);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .carousel-card .carousel-id {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .carousel-card .carousel-title {
+      font-size: 11px;
+      color: var(--dark-light);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    /* TEMPLATE GRID */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .template-card {
+      background: var(--dark);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .template-card:hover {
+      background: var(--dark-light);
+      transform: translateY(-2px);
+    }
+
+    .template-card .tmpl-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--lavanda-dark);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .template-card .tmpl-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--lavanda);
+      font-size: 11px;
+      color: var(--dark-light);
+      letter-spacing: 0.5px;
+    }
+  </style>
 </head>
+<body>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <header>
+    <p class="subtitle">D'Lyra Studio · Estrategia de Contenido</p>
+    <h1>Ingrid <span>Núñez</span></h1>
+    <p>Plan Maestro &amp; Carruseles — Marzo–Abril 2026</p>
+  </header>
+
+  <main>
+
+    <!-- PLAN MAESTRO -->
+    <section>
+      <p class="section-label">Documento Principal</p>
+      <p class="section-title">Plan Maestro</p>
+      <a href="PLAN-MAESTRO-V2.html" class="hero-card">
+        <div class="hero-info">
+          <h2>Plan Maestro V2</h2>
+          <p>Estrategia integral de contenido, objetivos, tono de voz, calendario de publicaciones y análisis de audiencia.</p>
+        </div>
+        <span class="hero-badge">Ver Plan</span>
+      </a>
+    </section>
+
+    <!-- DOCUMENTOS ESTRATÉGICOS -->
+    <section>
+      <p class="section-label">Estrategia</p>
+      <p class="section-title">Documentos Estratégicos</p>
+      <div class="docs-grid">
+        <a href="PLAN-MAESTRO-VISUAL.html" class="doc-card">
+          <span class="doc-icon">🎨</span>
+          <div class="doc-info">
+            <h3>Plan Maestro Visual</h3>
+            <p>Guía visual, paleta de marca, tipografías y recursos gráficos.</p>
+          </div>
+        </a>
+        <a href="ESTRATEGIA-MACRO-MARZO-ABRIL-2026.md" class="doc-card">
+          <span class="doc-icon">📋</span>
+          <div class="doc-info">
+            <h3>Estrategia Macro</h3>
+            <p>Estrategia macro Marzo–Abril 2026. Pilares de contenido, objetivos mensuales y KPIs.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CARRUSELES -->
+    <section>
+      <p class="section-label">Contenido Publicable</p>
+      <p class="section-title">Carruseles (C01–C20)</p>
+      <div class="carousel-grid">
+        <a href="CARRUSELES/C01-MAR14-PRESENTACION.html" class="carousel-card">
+          <p class="carousel-date">Mar 14</p>
+          <p class="carousel-id">C01</p>
+          <p class="carousel-title">Presentación</p>
+        </a>
+        <a href="CARRUSELES/C02-MAR15-CRIAR-SANAR.html" class="carousel-card">
+          <p class="carousel-date">Mar 15</p>
+          <p class="carousel-id">C02</p>
+          <p class="carousel-title">Criar y Sanar</p>
+        </a>
+        <a href="CARRUSELES/C03-MAR16-RABIETAS.html" class="carousel-card">
+          <p class="carousel-date">Mar 16</p>
+          <p class="carousel-id">C03</p>
+          <p class="carousel-title">Rabietas</p>
+        </a>
+        <a href="CARRUSELES/C04-MAR17-PANTALLAS.html" class="carousel-card">
+          <p class="carousel-date">Mar 17</p>
+          <p class="carousel-id">C04</p>
+          <p class="carousel-title">Pantallas</p>
+        </a>
+        <a href="CARRUSELES/C05-MAR18-FELICIDAD.html" class="carousel-card">
+          <p class="carousel-date">Mar 18</p>
+          <p class="carousel-id">C05</p>
+          <p class="carousel-title">Felicidad</p>
+        </a>
+        <a href="CARRUSELES/C06-MAR19-SINDROME-DOWN.html" class="carousel-card">
+          <p class="carousel-date">Mar 19</p>
+          <p class="carousel-id">C06</p>
+          <p class="carousel-title">Síndrome Down</p>
+        </a>
+        <a href="CARRUSELES/C07-MAR20-PAPA-AGOTADO.html" class="carousel-card">
+          <p class="carousel-date">Mar 20</p>
+          <p class="carousel-id">C07</p>
+          <p class="carousel-title">Papá Agotado</p>
+        </a>
+        <a href="CARRUSELES/C08-MAR22-TEASER.html" class="carousel-card">
+          <p class="carousel-date">Mar 22</p>
+          <p class="carousel-id">C08</p>
+          <p class="carousel-title">Teaser</p>
+        </a>
+        <a href="CARRUSELES/C09-MAR23-TERMOSTATO.html" class="carousel-card">
+          <p class="carousel-date">Mar 23</p>
+          <p class="carousel-id">C09</p>
+          <p class="carousel-title">Termostato</p>
+        </a>
+        <a href="CARRUSELES/C10-MAR24-RECONOCES.html" class="carousel-card">
+          <p class="carousel-date">Mar 24</p>
+          <p class="carousel-id">C10</p>
+          <p class="carousel-title">¿Te Reconoces?</p>
+        </a>
+        <a href="CARRUSELES/C11-MAR25-PREVIEW-MODULOS.html" class="carousel-card">
+          <p class="carousel-date">Mar 25</p>
+          <p class="carousel-id">C11</p>
+          <p class="carousel-title">Preview Módulos</p>
+        </a>
+        <a href="CARRUSELES/C12-MAR26-LANZAMIENTO.html" class="carousel-card">
+          <p class="carousel-date">Mar 26</p>
+          <p class="carousel-id">C12</p>
+          <p class="carousel-title">Lanzamiento</p>
+        </a>
+        <a href="CARRUSELES/C13-MAR27-POST-LANZAMIENTO.html" class="carousel-card">
+          <p class="carousel-date">Mar 27</p>
+          <p class="carousel-id">C13</p>
+          <p class="carousel-title">Post-Lanzamiento</p>
+        </a>
+        <a href="CARRUSELES/C14-MAR30-ETAPAS.html" class="carousel-card">
+          <p class="carousel-date">Mar 30</p>
+          <p class="carousel-id">C14</p>
+          <p class="carousel-title">Etapas</p>
+        </a>
+        <a href="CARRUSELES/C15-ABR01-AUTISMO.html" class="carousel-card">
+          <p class="carousel-date">Abr 01</p>
+          <p class="carousel-id">C15</p>
+          <p class="carousel-title">Autismo</p>
+        </a>
+        <a href="CARRUSELES/C16-ABR03-SEMANA-SANTA.html" class="carousel-card">
+          <p class="carousel-date">Abr 03</p>
+          <p class="carousel-id">C16</p>
+          <p class="carousel-title">Semana Santa</p>
+        </a>
+        <a href="CARRUSELES/C17-ABR06-SALUD.html" class="carousel-card">
+          <p class="carousel-date">Abr 06</p>
+          <p class="carousel-id">C17</p>
+          <p class="carousel-title">Salud</p>
+        </a>
+        <a href="CARRUSELES/C18-ABR08-LIMITES.html" class="carousel-card">
+          <p class="carousel-date">Abr 08</p>
+          <p class="carousel-id">C18</p>
+          <p class="carousel-title">Límites</p>
+        </a>
+        <a href="CARRUSELES/C19-ABR14-HERIDAS.html" class="carousel-card">
+          <p class="carousel-date">Abr 14</p>
+          <p class="carousel-id">C19</p>
+          <p class="carousel-title">Heridas</p>
+        </a>
+        <a href="CARRUSELES/C20-ABR16-PRESENCIA.html" class="carousel-card">
+          <p class="carousel-date">Abr 16</p>
+          <p class="carousel-id">C20</p>
+          <p class="carousel-title">Presencia</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- PLANTILLAS -->
+    <section>
+      <p class="section-label">Herramientas</p>
+      <p class="section-title">Plantillas de Carruseles</p>
+      <div class="template-grid">
+        <a href="PLANTILLAS CARRUSELES/TEMPLATE-01-EDUCATIVO.html" class="template-card">
+          <p class="tmpl-num">Template 01</p>
+          <p class="tmpl-name">Educativo</p>
+        </a>
+        <a href="PLANTILLAS CARRUSELES/TEMPLATE-02-REFLEXION.html" class="template-card">
+          <p class="tmpl-num">Template 02</p>
+          <p class="tmpl-name">Reflexión</p>
+        </a>
+        <a href="PLANTILLAS CARRUSELES/TEMPLATE-03-MEME-RELATABLE.html" class="template-card">
+          <p class="tmpl-num">Template 03</p>
+          <p class="tmpl-name">Meme Relatable</p>
+        </a>
+        <a href="PLANTILLAS CARRUSELES/TEMPLATE-04-PARADOJA.html" class="template-card">
+          <p class="tmpl-num">Template 04</p>
+          <p class="tmpl-name">Paradoja</p>
+        </a>
+        <a href="PLANTILLAS CARRUSELES/TEMPLATE-05-PRODUCTO-CTA.html" class="template-card">
+          <p class="tmpl-num">Template 05</p>
+          <p class="tmpl-name">Producto CTA</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Ingrid Núñez &mdash; D'Lyra Studio &mdash; Marzo–Abril 2026</p>
+  </footer>
+
+</body>
 </html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>C16 — Semana Santa | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+/* ─── SLIDE BASE TYPES ─── */
+.slide {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+/* ─── SLIDE 1: Portada — soft beige ─── */
+.slide-1 {
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.s1-tag {
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:400;
+  letter-spacing:3px;
+  color:#B0AEB0;
+  margin-bottom:28px;
+  text-transform:uppercase;
+}
+
+.s1-saludo {
+  font-family:'Arizonia',cursive;
+  font-size:52px;
+  color:#D9C9E3;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.s1-title {
+  font-family:'Playfair Display',serif;
+  font-size:82px;
+  font-weight:700;
+  color:#3D2B24;
+  line-height:1.1;
+  text-align:center;
+  max-width:880px;
+}
+
+.accent-bar {
+  position:absolute;
+  left:0;
+  top:80px;
+  bottom:80px;
+  width:4px;
+  background:linear-gradient(to bottom, #D9C9E3, #806357, #D9C9E3);
+  border-radius:2px;
+}
+
+.slide-num {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:#B0AEB0;
+  z-index:4;
+}
+
+.slide-num-light {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  letter-spacing:3px;
+  color:rgba(255,255,255,.4);
+  z-index:4;
+}
+
+/* ─── SLIDE 2: Full-bleed photo ─── */
+.slide-2 {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.slide-2 img {
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:brightness(0.55) saturate(0.7);
+}
+
+.slide-2-overlay {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(61,43,36,.2) 0%,
+    rgba(61,43,36,.6) 100%
+  );
+}
+
+.slide-2-text {
+  position:relative;
+  z-index:3;
+  text-align:center;
+  padding:0 100px;
+}
+
+.slide-2-text p {
+  font-family:'Playfair Display',serif;
+  font-size:56px;
+  font-style:italic;
+  color:#F8F2EC;
+  line-height:1.3;
+  max-width:820px;
+}
+
+/* ─── SLIDE 3: Beige — big insight ─── */
+.slide-beige {
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.beige-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 100px;
+}
+
+.big-insight {
+  font-family:'Playfair Display',serif;
+  font-size:62px;
+  font-weight:700;
+  color:#3D2B24;
+  line-height:1.15;
+  margin-bottom:36px;
+  max-width:820px;
+}
+
+.italic-lavanda {
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  font-style:italic;
+  color:#D9C9E3;
+  line-height:1.2;
+}
+
+/* ─── SLIDE 4: Dark ─── */
+.slide-dark {
+  background:#3D2B24;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.dark-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 100px;
+}
+
+.dark-title {
+  font-family:'Playfair Display',serif;
+  font-size:70px;
+  font-weight:700;
+  color:#F8F2EC;
+  line-height:1.15;
+  margin-bottom:36px;
+  max-width:820px;
+}
+
+.dark-italic-lav {
+  font-family:'Playfair Display',serif;
+  font-size:50px;
+  font-style:italic;
+  color:#D9C9E3;
+  line-height:1.2;
+  max-width:760px;
+}
+
+.dark-divider {
+  width:60px;
+  height:1px;
+  background:rgba(217,201,227,.35);
+  margin:32px auto;
+}
+
+/* ─── SLIDE 5: Quote ─── */
+.slide-quote {
+  background:#F8F2EC;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.quote-mark {
+  font-family:'Playfair Display',serif;
+  font-size:120px;
+  color:#D9C9E3;
+  line-height:0.7;
+  margin-bottom:32px;
+  opacity:0.6;
+}
+
+.quote-text {
+  font-family:'Playfair Display',serif;
+  font-size:58px;
+  font-style:italic;
+  color:#3D2B24;
+  line-height:1.3;
+  text-align:center;
+  max-width:840px;
+  padding:0 80px;
+}
+
+/* ─── SLIDE 6: CTA Lavanda ─── */
+.slide-cta {
+  background:#D9C9E3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow:hidden;
+}
+
+.cta-content {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 100px;
+  flex:1;
+  justify-content:center;
+}
+
+.cta-greeting {
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  font-weight:700;
+  color:#3D2B24;
+  margin-bottom:28px;
+}
+
+.cta-saludo {
+  font-family:'Arizonia',cursive;
+  font-size:52px;
+  color:#806357;
+  margin-bottom:24px;
+}
+
+.cta-question {
+  font-family:'Montserrat',sans-serif;
+  font-size:24px;
+  font-weight:300;
+  color:#3D2B24;
+  opacity:.8;
+  line-height:1.6;
+  max-width:760px;
+}
+
+.cta-footer {
+  width:100%;
+  padding:0 80px 72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  letter-spacing:3px;
+  color:#806357;
+}
+
+.web {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  letter-spacing:1px;
+  color:#806357;
+  font-style:italic;
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:36px;
+}
+.div-line { width:60px; height:1px; background:rgba(128,99,87,.3); }
+.div-dot { width:6px; height:6px; border-radius:50%; background:#806357; opacity:.4; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — Portada -->
+<div class="slide slide-1">
+  <div class="accent-bar"></div>
+  <span class="slide-num">01 / 06</span>
+  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 100px;">
+    <p class="s1-tag">Semana Santa 🌸</p>
+    <p class="s1-saludo">para ti,</p>
+    <h1 class="s1-title">Esta semana, permítete simplemente estar.</h1>
+  </div>
+</div>
+
+<!-- SLIDE 2 — Full-bleed photo -->
+<div class="slide slide-2">
+  <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=1080&q=85&fit=crop" alt="peaceful spring nature">
+  <div class="slide-2-overlay"></div>
+  <span class="slide-num-light">02 / 06</span>
+  <div class="slide-2-text">
+    <p>Para muchos es vacaciones. Para los papás puede ser más de lo mismo... pero sin rutina.</p>
+  </div>
+</div>
+
+<!-- SLIDE 3 — Big insight beige -->
+<div class="slide slide-beige">
+  <div class="accent-bar"></div>
+  <span class="slide-num">03 / 06</span>
+  <div class="beige-content">
+    <h2 class="big-insight">No necesitas llenar la semana de actividades.</h2>
+    <p class="italic-lavanda">Solo necesitas estar.</p>
+  </div>
+</div>
+
+<!-- SLIDE 4 — Dark -->
+<div class="slide slide-dark">
+  <span class="slide-num-light">04 / 06</span>
+  <div class="dark-content">
+    <p class="dark-title">Con ellos.<br>Sin pantallas.<br>Sin agenda.</p>
+    <div class="dark-divider"></div>
+    <p class="dark-italic-lav">Solo tú y él/ella.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5 — Quote beige -->
+<div class="slide slide-quote">
+  <div class="accent-bar"></div>
+  <span class="slide-num">05 / 06</span>
+  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+    <p class="quote-mark">"</p>
+    <p class="quote-text">Lo que un niño recuerda no es el parque de diversiones. Es el momento en que sentiste su mirada y no la soltaste.</p>
+  </div>
+</div>
+
+<!-- SLIDE 6 — CTA lavanda -->
+<div class="slide slide-cta">
+  <div class="cta-content">
+    <div class="divider" style="margin-bottom:32px;">
+      <div class="div-line"></div>
+      <div class="div-dot"></div>
+      <div class="div-line"></div>
+    </div>
+    <p class="cta-greeting">Feliz Semana Santa. 🌸</p>
+    <p class="cta-saludo">cuéntame:</p>
+    <p class="cta-question">¿Qué van a hacer? ¿Un plan especial o simplemente estar juntos?</p>
+  </div>
+  <div class="cta-footer">
+    <span class="handle">@ingridnunezpsi</span>
+    <span class="web">psicolaingridnunez.lovable.app</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>C14 · Etapas por Edad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;600;700&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; background: #1a1a1a; font-family: 'Montserrat', sans-serif; }
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .slide-counter {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #B0AEB0;
+  }
+
+  /* ── SLIDE 1 ── Split portada */
+  .s1 {
+    display: flex;
+    flex-direction: row;
+  }
+  .s1-left {
+    width: 520px;
+    background: #3D2B24;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    gap: 36px;
+    flex-shrink: 0;
+  }
+  .s1-right {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1080&q=85&fit=crop') center/cover no-repeat;
+    filter: brightness(0.75) saturate(0.8);
+  }
+  .s1-pill {
+    display: inline-block;
+    background: #D9C9E3;
+    color: #3D2B24;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    align-self: flex-start;
+  }
+  .s1-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.05;
+  }
+  .s1-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.4;
+  }
+
+  /* ── AGE SLIDES 2 / 3 / 4 ── */
+  .age-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 100px;
+    gap: 44px;
+  }
+  .s2 { background: #D9C9E3; }
+  .s3 { background: #F8F2EC; }
+  .s4 { background: #3D2B24; }
+
+  .age-num-bg {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 340px;
+    font-weight: 700;
+    line-height: 1;
+    user-select: none;
+    opacity: 0.12;
+    color: #3D2B24;
+  }
+  .s4 .age-num-bg { color: #D9C9E3; opacity: 0.1; }
+
+  .age-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #806357;
+  }
+  .s4 .age-eyebrow { color: rgba(255,255,255,0.45); }
+
+  .age-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1;
+  }
+  .s4 .age-heading { color: #ffffff; }
+
+  .age-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .age-list-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #3D2B24;
+    line-height: 1.5;
+  }
+  .s4 .age-list-item { color: rgba(255,255,255,0.8); }
+
+  .age-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 700;
+    color: #806357;
+    border-left: 4px solid #806357;
+    padding-left: 20px;
+    line-height: 1.4;
+  }
+  .s4 .age-label {
+    color: #D9C9E3;
+    border-color: #D9C9E3;
+  }
+
+  /* ── SLIDE 5 ── Insight */
+  .s5 {
+    background: #F8F2EC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 100px;
+    gap: 40px;
+    text-align: center;
+  }
+  .s5-line {
+    width: 60px;
+    height: 2px;
+    background: #D9C9E3;
+  }
+  .s5-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-style: italic;
+    color: #3D2B24;
+    line-height: 1.2;
+    max-width: 840px;
+  }
+  .s5-bold {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.2;
+    max-width: 840px;
+  }
+
+  /* ── SLIDE 6 ── Lead magnet */
+  .s6 {
+    background: #D9C9E3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    padding: 0 100px;
+    text-align: center;
+  }
+  .s6-icon {
+    font-size: 80px;
+  }
+  .s6-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #806357;
+  }
+  .s6-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.1;
+  }
+  .s6-body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #3D2B24;
+    line-height: 1.6;
+    max-width: 760px;
+  }
+  .s6-pill {
+    background: #3D2B24;
+    color: #D9C9E3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 18px 44px;
+    display: inline-block;
+  }
+  .s6-divider {
+    width: 60px;
+    height: 1px;
+    background: #806357;
+    opacity: 0.4;
+  }
+
+  /* ── SLIDE 7 ── Handle CTA */
+  .s7 {
+    background: #3D2B24;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+  .s7-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .s7-swipe {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-style: italic;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 2px;
+  }
+  .s7-handle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D9C9E3;
+  }
+  .s7-web {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+  }
+  .s7-line {
+    width: 60px;
+    height: 1px;
+    background: #D9C9E3;
+    opacity: 0.3;
+  }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide s1">
+  <div class="s1-left">
+    <div class="s1-pill">Guia por etapas</div>
+    <div class="s1-title">Lo que es normal<br>a los 3, 5<br>y 7 años.</div>
+    <div class="s1-sub">(y que no tiene nada de malo.)</div>
+  </div>
+  <div class="s1-right"></div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide s2 age-slide">
+  <div class="age-eyebrow">Desarrollo infantil</div>
+  <div class="age-heading">A los 3 años:</div>
+  <div class="age-list">
+    <div class="age-list-item">✦ Rabietas fuertes y "no" a todo.</div>
+    <div class="age-list-item">✦ Dificultad para compartir.</div>
+    <div class="age-list-item">✦ Impulsividad alta.</div>
+  </div>
+  <div class="age-label">NORMAL. Su cerebro está desarrollando<br>el control de impulsos.</div>
+  <div class="age-num-bg">3</div>
+  <div class="slide-counter" style="color:rgba(61,43,36,0.35);">02 / 07</div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide s3 age-slide">
+  <div class="age-eyebrow">Desarrollo infantil</div>
+  <div class="age-heading">A los 5 años:</div>
+  <div class="age-list">
+    <div class="age-list-item">✦ Mentiras pequeñas.</div>
+    <div class="age-list-item">✦ Miedo a lo nuevo.</div>
+    <div class="age-list-item">✦ Necesita ser "el mejor".</div>
+  </div>
+  <div class="age-label">NORMAL. Está aprendiendo<br>su lugar en el mundo.</div>
+  <div class="age-num-bg">5</div>
+  <div class="slide-counter">03 / 07</div>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide s4 age-slide">
+  <div class="age-eyebrow">Desarrollo infantil</div>
+  <div class="age-heading">A los 7 años:</div>
+  <div class="age-list">
+    <div class="age-list-item">✦ Más sensibilidad.</div>
+    <div class="age-list-item">✦ Preocupación por lo justo.</div>
+    <div class="age-list-item">✦ Necesita ser aceptado.</div>
+  </div>
+  <div class="age-label">NORMAL. Su mundo social<br>ya le importa mucho.</div>
+  <div class="age-num-bg">7</div>
+  <div class="slide-counter" style="color:rgba(255,255,255,0.25);">04 / 07</div>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide s5">
+  <div class="s5-line"></div>
+  <div class="s5-quote">El problema no es<br>que pasen por esto.</div>
+  <div class="s5-bold">El problema es cuando<br>no tienen a nadie que<br>les ayude a transitarlo.</div>
+  <div class="s5-line"></div>
+  <div class="slide-counter">05 / 07</div>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide s6">
+  <div class="s6-icon">🎁</div>
+  <div class="s6-tag">Para ti, gratis</div>
+  <div class="s6-title">Guía de frases:</div>
+  <div class="s6-body">Qué decirle y qué NO decirle<br>según la edad de tu hijo o hija.</div>
+  <div class="s6-divider"></div>
+  <div class="s6-pill">Comenta la edad de tu hijo/a en el post</div>
+  <div class="slide-counter" style="color:rgba(61,43,36,0.35);">06 / 07</div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide s7">
+  <div class="s7-label">Psicóloga Infantil</div>
+  <div class="s7-swipe">&larr; desliza para volver</div>
+  <div class="s7-line"></div>
+  <div class="s7-handle">@ingridnunezpsi</div>
+  <div class="s7-web">psicolaingridnunez.lovable.app</div>
+</div>
+
+</body>
+</html>

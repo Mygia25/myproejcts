@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>C10 · ¿Te reconoces?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; font-family: 'Montserrat', sans-serif; background: #F8F2EC; }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?w=1080&q=85&fit=crop');
+    background-size: cover;
+    background-position: center top;
+  }
+
+  /* ===== SLIDE 1 — PORTADA ===== */
+  #s1 {
+    background: #D9C9E3;
+  }
+  #s1 .img-area {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 60%;
+  }
+  #s1 .img-area .bg-photo {
+    height: 100%;
+    bottom: auto;
+    opacity: 0.50;
+  }
+  #s1 .img-area .img-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(180deg, rgba(217,201,227,0) 0%, rgba(217,201,227,1) 100%);
+  }
+  #s1 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 110px 130px 110px;
+    text-align: center;
+  }
+  #s1 .mirror-icon {
+    font-size: 88px;
+    margin-bottom: 36px;
+    line-height: 1;
+  }
+  #s1 .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #806357;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  #s1 h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 76px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.1;
+  }
+  #s1 .handle {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(61,43,36,0.45);
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SHARED SIGNAL SLIDE STYLES ===== */
+  .signal-slide {
+    background: #F8F2EC;
+  }
+  .signal-slide .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 110px;
+  }
+  .signal-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 160px;
+    font-weight: 700;
+    color: #D9C9E3;
+    opacity: 0.40;
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    line-height: 1;
+  }
+  .signal-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 62px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.15;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 3;
+  }
+  .signal-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #806357;
+    font-style: italic;
+    line-height: 1.55;
+    position: relative;
+    z-index: 3;
+  }
+  .signal-deco {
+    width: 60px;
+    height: 3px;
+    background: #D9C9E3;
+    margin-bottom: 44px;
+    position: relative;
+    z-index: 3;
+  }
+  .handle-bottom {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #B0AEB0;
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 5 — DOUBLE SIGNAL ===== */
+  #s5 {
+    background: #3D2B24;
+  }
+  #s5 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 110px;
+  }
+  #s5 .nums-row {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: #D9C9E3;
+    opacity: 0.35;
+    margin-bottom: 40px;
+  }
+  #s5 .signal-block {
+    margin-bottom: 52px;
+  }
+  #s5 .signal-block:last-child { margin-bottom: 0; }
+  #s5 .signal-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #D9C9E3;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.70;
+  }
+  #s5 .signal-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #F8F2EC;
+    line-height: 1.18;
+  }
+  #s5 .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(217,201,227,0.25);
+    margin: 48px 0;
+  }
+  #s5 .handle-bottom-dark {
+    position: absolute;
+    bottom: 52px;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.30);
+    letter-spacing: 1.5px;
+  }
+
+  /* ===== SLIDE 6 — CTA ===== */
+  #s6 {
+    background: #D9C9E3;
+  }
+  #s6 .content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 110px;
+    text-align: center;
+  }
+  #s6 .deco-top {
+    width: 60px;
+    height: 3px;
+    background: #806357;
+    margin-bottom: 60px;
+  }
+  #s6 .if-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 60px;
+    font-weight: 400;
+    color: #3D2B24;
+    line-height: 1.2;
+    margin-bottom: 52px;
+  }
+  #s6 .sub-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #3D2B24;
+    line-height: 1.6;
+    margin-bottom: 72px;
+    max-width: 820px;
+  }
+  #s6 .cta-pill {
+    background: #3D2B24;
+    color: #F8F2EC;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 28px 72px;
+    border-radius: 60px;
+    letter-spacing: 0.5px;
+    margin-bottom: 80px;
+  }
+  #s6 .deco-line {
+    width: 60px;
+    height: 2px;
+    background: rgba(61,43,36,0.25);
+    margin: 0 auto 36px auto;
+  }
+  #s6 .handle-big {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 56px;
+    color: #806357;
+    margin-bottom: 20px;
+  }
+  #s6 .web {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: rgba(61,43,36,0.50);
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 — PORTADA ===== -->
+<div class="slide" id="s1">
+  <div class="img-area">
+    <div class="bg-photo"></div>
+    <div class="img-fade"></div>
+  </div>
+  <div class="content">
+    <div class="mirror-icon">🪞</div>
+    <p class="eyebrow">¿Te reconoces?</p>
+    <h1>5 señales de que el curso es para ti.</h1>
+  </div>
+  <div class="handle">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 2 — SEÑAL 01 ===== -->
+<div class="slide signal-slide" id="s2">
+  <div class="content">
+    <span class="signal-num">01</span>
+    <div class="signal-deco"></div>
+    <p class="signal-main">Entiendes la teoría pero en el momento no puedes.</p>
+    <p class="signal-note">El cerebro sabe.<br>El cuerpo no puede.</p>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 3 — SEÑAL 02 ===== -->
+<div class="slide signal-slide" id="s3">
+  <div class="content">
+    <span class="signal-num">02</span>
+    <div class="signal-deco"></div>
+    <p class="signal-main">Después de la crisis, la culpa te aplasta más que la crisis misma.</p>
+    <p class="signal-note">Y ese peso lo cargas solo/a.</p>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 4 — SEÑAL 03 ===== -->
+<div class="slide signal-slide" id="s4">
+  <div class="content">
+    <span class="signal-num">03</span>
+    <div class="signal-deco"></div>
+    <p class="signal-main">Quieres cambiar, pero cada semana empiezas de cero.</p>
+    <p class="signal-note">No es falta de voluntad.<br>Es falta de herramientas.</p>
+  </div>
+  <div class="handle-bottom">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 5 — SEÑALES 04 + 05 ===== -->
+<div class="slide" id="s5">
+  <div class="content">
+    <div class="nums-row">04 + 05</div>
+    <div class="signal-block">
+      <p class="signal-label">Señal 04</p>
+      <p class="signal-text">Amas con todo pero a veces sientes que no es suficiente.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="signal-block">
+      <p class="signal-label">Señal 05</p>
+      <p class="signal-text">No sabes cómo reparar después de un momento difícil.</p>
+    </div>
+  </div>
+  <div class="handle-bottom-dark">@ingridnunezpsi</div>
+</div>
+
+<!-- ===== SLIDE 6 — CTA ===== -->
+<div class="slide" id="s6">
+  <div class="content">
+    <div class="deco-top"></div>
+    <p class="if-text">Si dijiste sí a 3 o más...</p>
+    <p class="sub-text">El curso que lanzamos mañana es exactamente para ti.</p>
+    <div class="cta-pill">Quédate cerca 🌿</div>
+    <div class="deco-line"></div>
+    <div class="handle-big">@ingridnunezpsi</div>
+    <p class="web">psicolaingridnunez.lovable.app</p>
+  </div>
+</div>
+
+</body>
+</html>

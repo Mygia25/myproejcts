@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plan Maestro — Ingrid Núñez | D'Lyra Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lavanda: #D9C9E3;
+  --beige: #F8F2EC;
+  --marron: #806357;
+  --gris: #B0AEB0;
+  --dark: #3D2B24;
+  --accent: #5C4A42;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #F8F2EC;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--dark);
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  top:-150px; right:-150px;
+  width:500px; height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.18) 0%, transparent 70%);
+}
+.hero-eyebrow {
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--lavanda);
+  opacity:.7;
+  margin-bottom:16px;
+}
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  font-weight:700;
+  color:#F8F2EC;
+  line-height:1.1;
+  margin-bottom:12px;
+}
+.hero-title em { font-style:italic; color:var(--lavanda); }
+.hero-sub {
+  font-size:18px;
+  font-weight:300;
+  color:rgba(248,242,236,.65);
+  margin-bottom:48px;
+}
+.hero-stats {
+  display:flex;
+  gap:48px;
+}
+.stat { text-align:center; }
+.stat-num {
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  font-weight:700;
+  color:var(--lavanda);
+  line-height:1;
+}
+.stat-label {
+  font-size:12px;
+  font-weight:300;
+  color:rgba(248,242,236,.5);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+
+/* ─── SECTION HEADERS ─── */
+.section {
+  padding: 60px 80px;
+}
+.section + .section { border-top: 1px solid rgba(176,174,176,.2); }
+
+.section-label {
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--lavanda);
+  margin-bottom:8px;
+}
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:36px;
+}
+
+/* ─── PHASES OVERVIEW ─── */
+.phases {
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:16px;
+  margin-bottom:0;
+}
+.phase-card {
+  border-radius:16px;
+  padding:28px 24px;
+  position:relative;
+  overflow:hidden;
+}
+.phase-card.p1a { background:var(--lavanda); }
+.phase-card.p1b { background:#c8b8d4; }
+.phase-card.p1c { background:var(--dark); }
+.phase-card.p2a { background:var(--marron); }
+.phase-card.p2b { background:var(--accent); }
+
+.phase-card.dark-text .ph-title,
+.phase-card.dark-text .ph-dates,
+.phase-card.dark-text .ph-desc { color:var(--dark); }
+.phase-card.light-text .ph-title,
+.phase-card.light-text .ph-dates,
+.phase-card.light-text .ph-desc { color:#F8F2EC; }
+
+.ph-label {
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  opacity:.6;
+  margin-bottom:12px;
+}
+.ph-title {
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-weight:700;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.ph-dates {
+  font-size:12px;
+  font-weight:300;
+  opacity:.7;
+  margin-bottom:12px;
+}
+.ph-desc {
+  font-size:13px;
+  font-weight:300;
+  opacity:.8;
+  line-height:1.5;
+}
+
+/* ─── CALENDAR GRID ─── */
+.calendar-wrap { overflow:hidden; }
+
+.week-row {
+  display:grid;
+  gap:12px;
+  margin-bottom:12px;
+}
+.week-row.w7 { grid-template-columns: repeat(7, 1fr); }
+.week-row.w6 { grid-template-columns: repeat(6, 1fr); }
+.week-row.w5 { grid-template-columns: repeat(5, 1fr); }
+.week-row.w3 { grid-template-columns: repeat(3, 1fr); }
+
+.week-label {
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin-bottom:8px;
+  margin-top:20px;
+}
+
+.day-card {
+  border-radius:14px;
+  padding:16px 14px;
+  min-height:140px;
+  position:relative;
+  border:1.5px solid transparent;
+  transition:all .2s;
+}
+.day-card:hover { transform:translateY(-2px); }
+
+.day-card.carousel { background:white; border-color:rgba(217,201,227,.5); }
+.day-card.reel { background: linear-gradient(135deg, rgba(217,201,227,.3), rgba(176,174,176,.2)); border-color:var(--lavanda); }
+.day-card.nopost { background:rgba(176,174,176,.1); border-color:rgba(176,174,176,.2); opacity:.5; }
+.day-card.launch { background:var(--dark); border-color:var(--dark); }
+.day-card.special { border-color:var(--marron); background:rgba(128,99,87,.06); }
+
+.day-date {
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:1px;
+  margin-bottom:6px;
+}
+.day-card.carousel .day-date { color:var(--gris); }
+.day-card.reel .day-date { color:var(--marron); }
+.day-card.nopost .day-date { color:var(--gris); }
+.day-card.launch .day-date { color:rgba(217,201,227,.6); }
+.day-card.special .day-date { color:var(--marron); }
+
+.day-type {
+  display:inline-block;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border-radius:100px;
+  padding:3px 8px;
+  margin-bottom:8px;
+}
+.day-card.carousel .day-type { background:rgba(217,201,227,.4); color:var(--marron); }
+.day-card.reel .day-type { background:var(--lavanda); color:var(--dark); }
+.day-card.nopost .day-type { background:rgba(176,174,176,.2); color:var(--gris); }
+.day-card.launch .day-type { background:var(--lavanda); color:var(--dark); }
+.day-card.special .day-type { background:rgba(128,99,87,.15); color:var(--marron); }
+
+.day-title {
+  font-size:13px;
+  font-weight:500;
+  color:var(--dark);
+  line-height:1.35;
+}
+.day-card.launch .day-title { color:#F8F2EC; font-size:14px; }
+
+.day-format {
+  position:absolute;
+  top:12px;
+  right:12px;
+  font-size:16px;
+}
+
+.day-badge {
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:1px;
+  color:var(--gris);
+  opacity:.6;
+}
+
+.special-label {
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--marron);
+  margin-top:6px;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+/* ─── LEAD MAGNETS ─── */
+.magnets-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.magnet-card {
+  background:white;
+  border-radius:16px;
+  padding:28px 32px;
+  border-left:4px solid var(--lavanda);
+}
+.magnet-num {
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-style:italic;
+  color:var(--lavanda);
+  margin-bottom:8px;
+}
+.magnet-title {
+  font-size:17px;
+  font-weight:600;
+  color:var(--dark);
+  margin-bottom:6px;
+}
+.magnet-desc {
+  font-size:14px;
+  font-weight:300;
+  color:var(--accent);
+  margin-bottom:12px;
+  line-height:1.5;
+}
+.magnet-cta {
+  display:inline-block;
+  background:var(--dark);
+  color:#F8F2EC;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:2px;
+  padding:8px 16px;
+  border-radius:100px;
+}
+
+/* ─── STORIES TABLE ─── */
+.stories-grid {
+  display:grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  gap:0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(176,174,176,.2);
+}
+
+.stories-header {
+  display:contents;
+}
+.stories-header > div {
+  background:var(--dark);
+  color:#F8F2EC;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  padding:14px 16px;
+}
+
+.stories-row {
+  display:contents;
+}
+.stories-row > div {
+  padding:16px;
+  border-bottom:1px solid rgba(176,174,176,.15);
+  font-size:13px;
+  vertical-align:top;
+}
+.stories-row:last-child > div { border-bottom:none; }
+.stories-row:nth-child(even) > div { background:rgba(217,201,227,.07); }
+
+.s-week {
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-style:italic;
+  color:var(--lavanda);
+  font-weight:700;
+  padding:16px !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-right:1px solid rgba(176,174,176,.15);
+  border-bottom:none !important;
+  background:white !important;
+  grid-row: span 7;
+}
+
+.s-day {
+  font-weight:600;
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--marron);
+  border-right:1px solid rgba(176,174,176,.1);
+}
+
+.s-h { line-height:1.5; color:var(--dark); font-weight:300; }
+.s-h strong { font-weight:500; display:block; }
+
+/* Story time badges */
+.time-badge {
+  display:inline-block;
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border-radius:100px;
+  padding:2px 7px;
+  margin-bottom:3px;
+}
+.t-morning { background:rgba(217,201,227,.35); color:var(--marron); }
+.t-noon { background:rgba(128,99,87,.15); color:var(--dark); }
+.t-evening { background:var(--dark); color:var(--lavanda); }
+
+/* ─── PLATFORM RECO ─── */
+.platform-grid {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:20px;
+}
+.platform-card {
+  background:white;
+  border-radius:16px;
+  padding:28px;
+}
+.platform-card.recommended {
+  background:var(--dark);
+  border:2px solid var(--lavanda);
+}
+.platform-name {
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:6px;
+}
+.platform-card.recommended .platform-name { color:#F8F2EC; }
+.platform-tag {
+  display:inline-block;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  background:var(--lavanda);
+  color:var(--dark);
+  padding:4px 10px;
+  border-radius:100px;
+  margin-bottom:16px;
+}
+.platform-fee {
+  font-size:16px;
+  font-weight:500;
+  color:var(--marron);
+  margin-bottom:8px;
+}
+.platform-card.recommended .platform-fee { color:var(--lavanda); }
+.platform-why {
+  font-size:13px;
+  font-weight:300;
+  color:var(--accent);
+  line-height:1.6;
+}
+.platform-card.recommended .platform-why { color:rgba(248,242,236,.7); }
+
+/* ─── FOOTER ─── */
+.footer {
+  background:var(--dark);
+  padding:40px 80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.footer-brand {
+  font-family:'Arizonia',cursive;
+  font-size:32px;
+  color:var(--lavanda);
+}
+.footer-note {
+  font-size:12px;
+  font-weight:300;
+  color:rgba(217,201,227,.5);
+  letter-spacing:1px;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<div class="hero">
+  <p class="hero-eyebrow">D'Lyra Studio · Estrategia Digital</p>
+  <h1 class="hero-title">Plan Maestro<br><em>Ingrid Núñez</em></h1>
+  <p class="hero-sub">Psicóloga Infantil & Familiar · Marzo 14 – Abril 17, 2026</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">25</div><div class="stat-label">Carruseles</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Reels</div></div>
+    <div class="stat"><div class="stat-num">105</div><div class="stat-label">Historias</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Lead Magnets</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Lanzamiento</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════ FASES ══════════════════ -->
+<div class="section">
+  <p class="section-label">Estructura de fases</p>
+  <h2 class="section-title">El arco del mes</h2>
+  <div class="phases">
+    <div class="phase-card p1a dark-text">
+      <p class="ph-label">Fase 1A</p>
+      <h3 class="ph-title">Presentación</h3>
+      <p class="ph-dates">Mar 14 – 17</p>
+      <p class="ph-desc">¿Quién es Ingrid? Intro cálida, humanización, vínculo inicial.</p>
+    </div>
+    <div class="phase-card p1b dark-text">
+      <p class="ph-label">Fase 1B</p>
+      <h3 class="ph-title">Valor + Leads</h3>
+      <p class="ph-dates">Mar 18 – 22</p>
+      <p class="ph-desc">Educación emocional + activación de 4 guías gratuitas.</p>
+    </div>
+    <div class="phase-card p1c light-text">
+      <p class="ph-label">Fase 1C</p>
+      <h3 class="ph-title">Lanzamiento</h3>
+      <p class="ph-dates">Mar 23 – 27</p>
+      <p class="ph-desc">Pre-lanzamiento gradual + LANZAMIENTO oficial 26 Mar.</p>
+    </div>
+    <div class="phase-card p2a light-text">
+      <p class="ph-label">Fase 2A</p>
+      <h3 class="ph-title">Expansión</h3>
+      <p class="ph-dates">Mar 28 – Apr 10</p>
+      <p class="ph-desc">Post-lanzamiento + Reels comienzan + Semana Santa.</p>
+    </div>
+    <div class="phase-card p2b light-text">
+      <p class="ph-label">Fase 2B</p>
+      <h3 class="ph-title">Consolidación</h3>
+      <p class="ph-dates">Apr 11 – 17</p>
+      <p class="ph-desc">Autoridad, comunidad + cierre de mes con CTA final.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ CALENDARIO CARRUSELES ══════════════════ -->
+<div class="section">
+  <p class="section-label">Calendario de contenido</p>
+  <h2 class="section-title">Carruseles + Reels — Día a día</h2>
+
+  <!-- SEMANA 1 -->
+  <p class="week-label">── Semana 1 ── Mar 14–21</p>
+  <div class="week-row w7">
+    <div class="day-card carousel">
+      <p class="day-date">SAB 14 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Hola. Por si no nos conocemos todavía."</p>
+      <span class="day-format">💌</span>
+    </div>
+    <div class="day-card nopost">
+      <p class="day-date">SAB 15 MAR</p>
+      <span class="day-type">Sin post</span>
+      <p class="day-title" style="color:#B0AEB0">Sábado · descanso</p>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">DOM 16 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Nadie te dijo que criar también te iba a sanar."</p>
+      <span class="day-format">💌</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">LUN 17 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"¿Para qué sirve ir a psicología?"</p>
+      <span class="day-format">📖</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">MAR 18 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Las rabietas no son manipulación."</p>
+      <span class="day-format">🚩</span>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">MIÉ 19 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Más pantallas. Más frustración."</p>
+      <span class="day-format">⚡</span>
+      <p class="special-label">🎁 Lead Magnet 2</p>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">JUE 20 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Un niño feliz es el que sabe que no está solo."</p>
+      <span class="day-format">🌍</span>
+      <p class="special-label">🌍 Día Felicidad</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 2 -->
+  <p class="week-label">── Semana 2 ── Mar 21–27</p>
+  <div class="week-row w6">
+    <div class="day-card carousel special">
+      <p class="day-date">VIE 21 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Todos nuestros hijos necesitan ser vistos."</p>
+      <span class="day-format">🎀</span>
+      <p class="special-label">🎀 Síndrome Down · 🎁 LM 1</p>
+    </div>
+    <div class="day-card nopost">
+      <p class="day-date">SAB 22 MAR</p>
+      <span class="day-type">Sin post</span>
+      <p class="day-title" style="color:#B0AEB0">Sábado · descanso</p>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">DOM 23 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Para el papá que hoy no sabe cómo más seguir."</p>
+      <span class="day-format">💌</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">LUN 24 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Algo que creé pensando en ti." 🔵 TEASER</p>
+      <span class="day-format">🛠️</span>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">MAR 25 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Tú eres el termostato emocional de tu hijo/a."</p>
+      <span class="day-format">📖</span>
+      <p class="special-label">🎁 Lead Magnet 3</p>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">MIÉ 26 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Las 3 partes del Cuaderno de Calma."</p>
+      <span class="day-format">📖</span>
+    </div>
+  </div>
+  <div class="week-row w3">
+    <div class="day-card launch">
+      <p class="day-date" style="color:rgba(217,201,227,.6)">JUE 27 MAR · 🚀 LANZAMIENTO</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Llegó el día. Mi Cuaderno de Calma ya está aquí."</p>
+      <span class="day-format">🚀</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">VIE 28 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"La peor madre del mundo." 🤱 Humanización</p>
+      <span class="day-format">🤱</span>
+    </div>
+    <div class="day-card nopost">
+      <p class="day-date">SAB 29 MAR</p>
+      <span class="day-type">Sin post</span>
+      <p class="day-title" style="color:#B0AEB0">Sábado · descanso</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 3 -->
+  <p class="week-label">── Semana 3 ── Mar 30 – Apr 5 · Reels comienzan</p>
+  <div class="week-row w6">
+    <div class="day-card reel">
+      <p class="day-date">LUN 30 MAR</p>
+      <span class="day-type">Reel 1</span>
+      <p class="day-title">"Antes de las 9am ya viví esto..." Situación relatable</p>
+      <span class="day-format">🎬</span>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">MAR 31 MAR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Lo normal a los 3, 5 y 7 años."</p>
+      <span class="day-format">📊</span>
+      <p class="special-label">🎁 Lead Magnet 4</p>
+    </div>
+    <div class="day-card reel">
+      <p class="day-date">MIÉ 1 ABR</p>
+      <span class="day-type">Reel 2</span>
+      <p class="day-title">"3 actividades para Semana Santa."</p>
+      <span class="day-format">🎬</span>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">JUE 2 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Portarse mal vs. procesar diferente."</p>
+      <span class="day-format">🧩</span>
+      <p class="special-label">🧩 Día Autismo</p>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">VIE 3 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Esta semana, permítete simplemente estar."</p>
+      <span class="day-format">🌿</span>
+      <p class="special-label">✝️ Viernes Santo</p>
+    </div>
+    <div class="day-card nopost">
+      <p class="day-date">SAB 4 ABR</p>
+      <span class="day-type">Sin post</span>
+      <p class="day-title" style="color:#B0AEB0">Sábado · descanso</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 4 -->
+  <p class="week-label">── Semana 4 ── Apr 6–12 · Post Semana Santa</p>
+  <div class="week-row w6">
+    <div class="day-card carousel special">
+      <p class="day-date">DOM 6 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"El descanso que más necesitan tus hijos."</p>
+      <span class="day-format">⚡</span>
+      <p class="special-label">🌸 Pascua</p>
+    </div>
+    <div class="day-card carousel special">
+      <p class="day-date">LUN 7 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"¿Cuándo revisaste su salud emocional?"</p>
+      <span class="day-format">💚</span>
+      <p class="special-label">💚 Día Salud</p>
+    </div>
+    <div class="day-card reel">
+      <p class="day-date">MAR 8 ABR</p>
+      <span class="day-type">Reel 3</span>
+      <p class="day-title">"Cuando llora y no sabes qué hacer." Identificación</p>
+      <span class="day-format">🎬</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">MIÉ 9 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Poner límites no es hacer sufrir."</p>
+      <span class="day-format">📖</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">JUE 10 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Inside Out nos enseñó algo que olvidamos."</p>
+      <span class="day-format">🎭</span>
+    </div>
+    <div class="day-card nopost">
+      <p class="day-date">SAB 12 ABR</p>
+      <span class="day-type">Sin post</span>
+      <p class="day-title" style="color:#B0AEB0">Sábado · descanso</p>
+    </div>
+  </div>
+
+  <!-- SEMANA 5 -->
+  <p class="week-label">── Semana 5 ── Apr 11–17 · Consolidación</p>
+  <div class="week-row w7">
+    <div class="day-card carousel">
+      <p class="day-date">VIE 11 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Soy psicóloga y... completa la frase."</p>
+      <span class="day-format">🧩</span>
+    </div>
+    <div class="day-card nopost">
+      <p class="day-date">SAB 12 ABR</p>
+      <span class="day-type">Sin post</span>
+      <p class="day-title" style="color:#B0AEB0">Sábado · descanso</p>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">DOM 13 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"Empezar de nuevo siempre es posible."</p>
+      <span class="day-format">💌</span>
+    </div>
+    <div class="day-card reel">
+      <p class="day-date">LUN 14 ABR</p>
+      <span class="day-type">Reel 4</span>
+      <p class="day-title">"10 minutos de conexión: Pausa de Poder."</p>
+      <span class="day-format">🎬</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">MAR 15 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"La rabia que sientes a veces no tiene que ver con él/ella."</p>
+      <span class="day-format">🚩</span>
+    </div>
+    <div class="day-card carousel">
+      <p class="day-date">MIÉ 16 ABR</p>
+      <span class="day-type">Carrusel</span>
+      <p class="day-title">"No más tiempo. Mejor presencia."</p>
+      <span class="day-format">⚡</span>
+    </div>
+    <div class="day-card reel">
+      <p class="day-date">JUE 17 ABR</p>
+      <span class="day-type">Reel 5</span>
+      <p class="day-title">"Un mes. Lo que aprendí siendo psicóloga y mamá."</p>
+      <span class="day-format">🎬</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ LEAD MAGNETS ══════════════════ -->
+<div class="section">
+  <p class="section-label">Captación de leads</p>
+  <h2 class="section-title">4 Guías Gratuitas</h2>
+  <div class="magnets-grid">
+    <div class="magnet-card">
+      <div class="magnet-num">01</div>
+      <h3 class="magnet-title">"Tu Pausa de Poder"</h3>
+      <p class="magnet-desc">Audio guiado de 10 minutos para regularte antes de que empiece la tormenta. Activa: 21 Mar.</p>
+      <span class="magnet-cta">DM: PAUSA</span>
+    </div>
+    <div class="magnet-card">
+      <div class="magnet-num">02</div>
+      <h3 class="magnet-title">"Tu Calma, Su Refugio"</h3>
+      <p class="magnet-desc">PDF: 5 claves para sobrevivir las crisis sin perder la tuya. Activa: 19 Mar.</p>
+      <span class="magnet-cta">Comentar: CALMA</span>
+    </div>
+    <div class="magnet-card">
+      <div class="magnet-num">03</div>
+      <h3 class="magnet-title">"¿Qué emoción esconde esa rabieta?"</h3>
+      <p class="magnet-desc">Mapa visual: emociones en niños de 2 a 8 años. Qué las genera y qué necesitan. Activa: 25 Mar.</p>
+      <span class="magnet-cta">Comentar: MAPA</span>
+    </div>
+    <div class="magnet-card">
+      <div class="magnet-num">04</div>
+      <h3 class="magnet-title">"Qué decir (y qué NO decir) en una crisis"</h3>
+      <p class="magnet-desc">Hoja de referencia rápida con frases reales. Activa: 31 Mar.</p>
+      <span class="magnet-cta">Comentar la edad</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ HISTORIAS ══════════════════ -->
+<div class="section">
+  <p class="section-label">Historias · 3 diarias · todos los días</p>
+  <h2 class="section-title">Planificación completa de los 35 días</h2>
+
+  <div class="stories-grid">
+    <!-- Header -->
+    <div style="background:var(--dark);color:#F8F2EC;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:14px 16px;">Semana</div>
+    <div style="background:var(--dark);color:#F8F2EC;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:14px 16px;">☀️ H1 — 8–9am · Conexión mañana</div>
+    <div style="background:var(--dark);color:#F8F2EC;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:14px 16px;">🌿 H2 — 12pm · Tip / Recordatorio</div>
+    <div style="background:var(--dark);color:#F8F2EC;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:14px 16px;">🌙 H3 — 7pm · CTA / Comunidad</div>
+
+    <!-- SAB 14 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">SAB 14 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>"Hola 🌿 Empezamos de nuevo por aquí. ¿Tienes hijos de qué edad?" — Sticker pregunta</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Re-compartir el primer carrusel con texto: "Si esto resuena, guárdalo 🌿"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>"¿Estás por aquí? Cuéntame: ¿cuál es tu mayor reto de crianza HOY?" — Sticker pregunta abierta</div>
+
+    <!-- DOM 15 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">DOM 15 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Frase del día: "La crianza no te enseñan antes. La aprendes mientras la vives." Playfair. Fondo beige.</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Encuesta: "¿Qué describe mejor tu estilo de crianza? A) Consciente B) Sobreviviendo C) Aprendiendo"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Re-compartir carrusel del domingo con: "¿El mejor momento para leer esto? Ahora. Desliza. 👆"</div>
+
+    <!-- LUN 16 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">LUN 16 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>"Buenos días 🌱 Pregunta de semana: ¿Cuál es la situación de crianza que más te saca de tus casillas?" Sticker</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Mini-tip: "Cuando sientas que vas a explotar: PARA. Respira 4 tiempos. Después habla." Diseño tipográfico simple.</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>"Si quieres saber más sobre cómo trabajamos juntos: link en mi bio 🌿" + encuesta "¿Tienes consulta conmigo?" Sí/No/Quiero saber</div>
+
+    <!-- MAR 17 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MAR 17 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Detrás de cámaras: foto de Ingrid en su consultorio o espacio de trabajo. "Aquí es donde pasa la magia 🌿"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Re-compartir carrusel del día: "¿Tienes dudas sobre qué hacemos en consulta? Escríbeme 👇"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>"Agenda tu consulta: link en bio o escríbeme por WhatsApp 📱" — con botón de acción</div>
+
+    <!-- MIÉ 18 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MIÉ 18 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,232,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Frase de impacto: "Las rabietas no son el problema. La falta de herramientas sí." Tipografía bold. Fondo lavanda.</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir el carrusel del día: "¿Lo guardaste? Te vas a querer acordar de esto 👆"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Sticker pregunta: "Número de rabietas de tu hijo/a esta semana: A) 1–3 B) 4–7 C) Perdí la cuenta 😅"</div>
+
+    <!-- JUE 19 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">JUE 19 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Encuesta rápida: "¿Cuánto tiempo de pantalla tiene tu hijo/a al día? A) 0–1h B) 1–3h C) +3h" — sin juicio</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Mini-tip de pantallas: "Una regla simple: antes de darle la pantalla, 10 minutos de juego libre con contacto físico."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>🎁 ACTIVAR LM 2: "Tengo algo gratis para ti: mi guía '5 claves para sobrevivir las crisis sin perder la tuya'. Comenta CALMA."</div>
+
+    <!-- VIE 20 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">VIE 20 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>🌍 Día Felicidad: "Feliz Día Mundial de la Felicidad. Hoy pregúntale a tu hijo/a qué lo hace feliz. Y escúchalo de verdad."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel del día: "Uno de mis favoritos de la semana ☁️ ¿Lo guardaste?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Sticker pregunta: "¿Para ti, qué es la felicidad como papá/mamá?" — abierta, invitar respuestas</div>
+
+    <!-- SAB 21 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">SAB 21 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>🎀 Síndrome Down: "Hoy es un día para recordar que el amor incondicional no es teoría. Es práctica diaria. 🎀"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel del día + 🎁 recordatorio: "Escríbeme 'PAUSA' y te mando mi audio guiado gratis."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Encuesta: "¿Conoces a alguien con síndrome de Down? ¿Qué te ha enseñado esa persona?" Sticker pregunta</div>
+
+    <!-- DOM 22 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">DOM 22 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Frase reflexiva dominical: "Los domingos son para respirar. Hoy no tienes que hacer nada perfecto." — tipografía script</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel "Para el papá agotado" — texto: "Este lo escribí con el corazón. ¿Llegó a donde tenía que llegar?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Sticker deslizante: "¿Cómo fue tu semana como papá/mamá?" 😩 ← → 🌟</div>
+
+    <!-- LUN 23 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">LUN 23 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>⏳ COUNTDOWN: "Esta semana llega algo que vengo construyendo hace tiempo. ¿Ya estás siguiendo?" — countdown sticker</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Mini-dato: "Co-regulación: cuando tú respiras, el sistema nervioso de tu hijo/a lo siente." — texto + gráfico simple</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Teaser: "Esta semana te presento algo creado desde 15 años de consulta. Para el momento exacto en que más lo necesitas. 🌿"</div>
+
+    <!-- MAR 24 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MAR 24 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Compartir el carrusel teaser: "¿Sientes que la teoría no te alcanza en el momento de la crisis? Sigue aquí 👆"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>🎁 ACTIVAR LM 3: "Descarga gratis mi mapa visual: qué emoción esconde la rabieta. Comenta MAPA."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Countdown: "Faltan 2 días. ¿Estás lista/o?" — sticker countdown + pregunta "¿Ya sigues mi cuenta?"</div>
+
+    <!-- MIÉ 25 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MIÉ 25 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Frase: "Tu calma es la herramienta más poderosa que tienes. Mañana te enseño cómo encontrarla." — tipografía Playfair</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Mini-preview del producto: imagen parcial blureada + "Mañana lo puedes tener tú."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Countdown MAÑANA: "Mañana llega. ¿Ya me tienes activadas las notificaciones?" — urgencia suave</div>
+
+    <!-- JUE 26 — LAUNCH -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:rgba(61,43,36,.06);border-right:1px solid rgba(176,174,176,.1);">🚀 JUE 26 MAR · LANZAMIENTO</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(61,43,36,.04);"><span class="time-badge t-morning">8am</span><br>🚀 "HOY. Mi Cuaderno de Calma ya está aquí. El link está en mi bio." — imagen del producto con texto de lanzamiento</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(61,43,36,.06);"><span class="time-badge t-noon">12pm</span><br>Re-compartir el carrusel de lanzamiento: "¿Lo viste ya? ¿Tienes preguntas? Estoy aquí respondiendo todo." Sticker pregunta.</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(61,43,36,.04);"><span class="time-badge t-evening">7pm</span><br>"Hoy lancé algo que construí con 15 años de trabajo. Si tienes dudas, escríbeme por WhatsApp 📱" — link directo</div>
+
+    <!-- VIE 27 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">VIE 27 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Gracias: "Ayer fue un día increíble. Gracias por el amor 🌿 ¿Tienes el cuaderno ya? Link en bio."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel "Soy psicóloga y..." — "¿Cuál de estas te movió más? Cuéntame 💬"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Reminder producto: "Por si no lo viste ayer: Mi Cuaderno de Calma. $37 USD. Tuyo para siempre. Link en bio 🌿"</div>
+
+    <!-- DOM 29 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">DOM 28 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Reflexión dominical: "¿Cuándo fue la última vez que te pediste perdón a ti mismo/a?" — Frase visual beige</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel "La peor madre del mundo": "Este fue el más compartido de la semana. ¿Lo leíste?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Pregunta abierta: "¿Ya tienes el Cuaderno? ¿Qué módulo te parece más necesario?" — Sticker</div>
+
+    <!-- LUN 30 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">LUN 30 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Preview del Reel: "Hoy subo algo que te va a hacer reír Y sentir muy acompañada/o 😅 Activa notificaciones."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir el Reel: "¿Te reconociste? Cuéntame cuál fue la tuya hoy 😂"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>🎁 ACTIVAR LM 4: "Esta semana lanzo mi guía de frases para crisis. Comenta la edad de tu hijo/a y te la mando personalizada."</div>
+
+    <!-- MAR 31 -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MAR 31 MAR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Encuesta: "¿Sabes qué es normal para la edad de tu hijo/a? A) Sí bastante B) A veces dudo C) Para nada, ayuda"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel por edades: "Guárdalo. Es de los que vas a volver a leer 📌"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Reminder consulta + producto: "¿Quieres trabajo personalizado? Agenda conmigo: link en bio 🌿"</div>
+
+    <!-- MIÉ 1 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MIÉ 1 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>🌿 Semana Santa: "Esta semana hay más tiempo en familia. Úsalo bien. 3 ideas simples vienen hoy."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir Reel Semana Santa: "Guarda esto y hazlo esta semana con ellos. Cuéntame cómo les fue."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Encuesta: "¿Qué planes tienen para Semana Santa? A) Viaje B) En casa C) Aún sin definir"</div>
+
+    <!-- JUE 2 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">JUE 2 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>🧩 Día Autismo: "Hoy recordamos que todos los niños son diferentes. Todos merecen ser entendidos. 🧩"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel del día + "¿Tienes un hijo/a con diagnóstico? ¿O conoces a alguien? Cuéntame."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Pregunta: "¿Qué cambiaría en la crianza si entendiéramos que cada niño procesa diferente?" — Sticker respuesta</div>
+
+    <!-- VIE 3 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">VIE 3 ABR · Semana Santa</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Descanso intencional: "Que esta Semana Santa sea de conexión, no de perfección. 🌿" — frase visual beige</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Carrusel "simplemente estar" — "¿Ya lo leíste? Es el carrusel perfecto para esta semana."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>"Feliz Semana Santa 🌱 Este finde: sin agenda. Solo presencia." — imagen tranquila, no CTA de venta</div>
+
+    <!-- DOM 6 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">DOM 6 ABR · Pascua</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>🌸 Pascua: "Feliz domingo. Que este día de paz empiece contigo. ¿Dormiste bien?" — Encuesta Sí/No con corazón</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel Pascua: "¿Cómo fue la semana? ¿Lograron conectar?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Encuesta: "¿Cuánto tiempo estuvieron juntos sin pantallas esta semana? A) Casi nada B) Un poco C) Bastante"</div>
+
+    <!-- LUN 7 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">LUN 7 ABR · Día Salud</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>💚 "Hoy es el Día Mundial de la Salud. ¿Cuándo fue la última vez que preguntaste cómo está su corazón, no solo su cuerpo?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel: "La salud emocional también es salud. ¿Lo guardaste? 📌"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Reminder consulta: "Si quieres cuidar la salud emocional de tu familia: psicolaingridnunez.lovable.app 🌿"</div>
+
+    <!-- MAR 8 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MAR 8 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Preview Reel: "Hoy subo un reel con el que te vas a identificar muchísimo. Especialmente si alguna vez no supiste qué decir."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir el Reel 3: "¿Te reconociste en algún momento? Link en bio para la herramienta que te ayuda."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Cuaderno reminder: "Si el reel de hoy resonó: Mi Cuaderno de Calma tiene el paso a paso para ese momento. Link en bio."</div>
+
+    <!-- MIÉ 9 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MIÉ 9 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Frase: "Los límites no son paredes. Son estructuras que le dicen a tu hijo/a que alguien lo cuida." — tipografía Playfair</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel límites: "¿Cuál es el límite que más te cuesta mantener? Te leo sin juzgar."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Sticker encuesta: "¿Poner límites te genera culpa? A) Siempre B) A veces C) Ya aprendí a no sentirla"</div>
+
+    <!-- JUE 10 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">JUE 10 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Pop culture: "¿Ya viste Inside Out 2? Las emociones nuevas que aparecen... te van a decir mucho de tu adolescente." 🎬</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel Inside Out: "¿Con cuál te identificas? Comenta el personaje y te cuento qué dice de ti 😉"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Encuesta: "¿Cuál es tu emoción dominante como papá/mamá?" A) Alegría B) Miedo C) Ira D) Tristeza</div>
+
+    <!-- VIE 11 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">VIE 11 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Humanización: "Soy psicóloga y... a veces también me cuesta la crianza. Hoy quiero que me conozcas mejor 🌿"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel "completa la frase": "Tu turno 👇 'Soy mamá/papá y...' Cuéntame en comentarios."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Sticker respuesta: "¿Hay algo que te gustaría preguntarme como psicóloga?" — abierto, invitar DMs</div>
+
+    <!-- DOM 13 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">DOM 13 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Reflexión cierre de mes: "Un mes compartiendo esto contigo. Y lo mejor está por venir. Gracias por estar aquí 🌿"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel "empezar de nuevo": "Los domingos son para esto. ¿Ya lo leíste?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Sticker deslizante: "¿Cómo fue tu mes como papá/mamá?" 😩 ← → 🌟 — invitar reflexión</div>
+
+    <!-- LUN 14 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">LUN 14 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Preview Reel 4: "Hoy comparto una actividad de 10 minutos que cambia el ambiente en casa. Activa notificaciones 🌱"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir Reel: "Haz esto HOY. Cuéntame mañana cómo les fue." — urgencia positiva</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Testimonial (si hay): "Alguien que ya tiene el Cuaderno me escribió esto..." — captura de mensaje real o simulada</div>
+
+    <!-- MAR 15 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MAR 15 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Frase poderosa: "La rabia que sientes no siempre viene de él/ella. A veces viene de ti mismo/a. Y eso se puede sanar." 🌱</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel heridas de infancia: "¿Te reconociste? Sin juicio. Solo curiosidad 🌿"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>CTA sesión: "Si este carrusel tocó algo tuyo... quizás vale la pena conversarlo. Escríbeme por WhatsApp 📱"</div>
+
+    <!-- MIÉ 16 ABR -->
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">MIÉ 16 ABR</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>Challenge mañana: "Hoy: 15 minutos COMPLETAMENTE presente con tu hijo/a. Sin teléfono. Sin nada más. ¿Lo intentas?"</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir carrusel "presencia vs tiempo": "¿Lo pusiste en práctica esta mañana? Cuéntame cómo estuvo."</div>
+    <div style="padding:12px 16px;border-bottom:1px solid rgba(176,174,176,.15);font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Encuesta resultado: "¿Lograste los 15 minutos? A) Sí, fue increíble B) Intenté C) Mañana lo intento" + celebrar</div>
+
+    <!-- JUE 17 ABR -->
+    <div style="padding:12px 16px;font-weight:600;font-size:11px;color:var(--marron);background:white;border-right:1px solid rgba(176,174,176,.1);">JUE 17 ABR · CIERRE</div>
+    <div style="padding:12px 16px;font-size:13px;font-weight:300;"><span class="time-badge t-morning">8am</span><br>🎬 Preview Reel final: "Hoy subo el último reel del mes. Un mes aprendiendo juntos. Gracias por estar aquí." — personal</div>
+    <div style="padding:12px 16px;font-size:13px;font-weight:300;background:rgba(217,201,227,.07);"><span class="time-badge t-noon">12pm</span><br>Compartir el Reel 5: "¿Cuál fue el post del mes que más te marcó? Cuéntame 💬 Me muero de curiosidad."</div>
+    <div style="padding:12px 16px;font-size:13px;font-weight:300;"><span class="time-badge t-evening">7pm</span><br>Cierre + CTA: "Esto fue el inicio. El Cuaderno de Calma sigue disponible. Y yo sigo aquí. Link en bio 🌿 Hasta el mes que viene."</div>
+  </div>
+</div>
+
+<!-- ══════════════════ PLATAFORMA ══════════════════ -->
+<div class="section">
+  <p class="section-label">Venta del producto digital</p>
+  <h2 class="section-title">Plataforma recomendada</h2>
+  <div class="platform-grid">
+    <div class="platform-card recommended">
+      <div class="platform-tag">⭐ Recomendada ahora</div>
+      <h3 class="platform-name">Hotmart</h3>
+      <p class="platform-fee">~9.9% + $0.50 por venta</p>
+      <p class="platform-why">La plataforma #1 en Colombia y Latam. Acepta PSE, tarjetas colombianas y pagos internacionales. Rápida de configurar antes del 26 de marzo. Se integra con ManyChat para envío automático de links.</p>
+    </div>
+    <div class="platform-card">
+      <h3 class="platform-name">Gumroad</h3>
+      <p class="platform-fee">10% gratis / 0% en plan $10/mes</p>
+      <p class="platform-why">Muy simple, descarga directa. Ideal si el mercado es más internacional (USD). Menos conocido en Colombia.</p>
+    </div>
+    <div class="platform-card">
+      <h3 class="platform-name">Web propia</h3>
+      <p class="platform-fee">Solo fees Stripe ~2.9% + $0.30</p>
+      <p class="platform-why">La más barata y con mejor branding. Integrar en psicolaingridnunez.lovable.app con Stripe. Recomendada a largo plazo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<div class="footer">
+  <div class="footer-brand">D'Lyra Studio</div>
+  <div class="footer-note">Estrategia confidencial · Ingrid Núñez · Mar–Abr 2026 · v2.0</div>
+</div>
+
+</body>
+</html>

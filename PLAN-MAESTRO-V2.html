@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plan Maestro Ingrid Núñez — Mar 14 – Apr 17, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Montserrat',sans-serif;background:#F8F2EC;color:#3D2B24;font-size:13px}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:#3D2B24;display:flex;gap:0;overflow-x:auto}
+.nav a{color:#D9C9E3;padding:14px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;border-right:1px solid rgba(217,201,227,.15)}
+.nav a:hover{background:#806357;color:#F8F2EC}
+
+/* SECTIONS */
+section{padding:60px 48px;max-width:1400px;margin:0 auto}
+.sec-title{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#3D2B24;margin-bottom:8px}
+.sec-sub{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#B0AEB0;margin-bottom:40px}
+
+/* HERO */
+.hero{background:#3D2B24;padding:72px 48px;text-align:center}
+.hero .script{font-family:'Arizonia',cursive;font-size:40px;color:#D9C9E3;opacity:.8;margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#F8F2EC;line-height:1.1;margin-bottom:12px}
+.hero p{font-size:14px;color:rgba(217,201,227,.7);letter-spacing:2px;margin-bottom:48px}
+.stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:#D9C9E3;line-height:1}
+.stat-l{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(248,242,236,.5);margin-top:4px}
+
+/* PHASES */
+.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:48px}
+.phase-card{background:#3D2B24;color:#F8F2EC;border-radius:12px;padding:20px;text-align:center}
+.phase-card .ph-dates{font-size:10px;letter-spacing:2px;color:#D9C9E3;opacity:.6;margin-bottom:6px;text-transform:uppercase}
+.phase-card .ph-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;margin-bottom:4px}
+.phase-card .ph-desc{font-size:11px;color:rgba(217,201,227,.7);line-height:1.4}
+
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.cal-day{border-radius:10px;padding:14px 12px;min-height:120px;display:flex;flex-direction:column;gap:6px}
+.cal-day.carousel{background:#fff;border:1px solid rgba(61,43,36,.08)}
+.cal-day.reel{background:#D9C9E3}
+.cal-day.launch{background:#3D2B24;color:#F8F2EC}
+.cal-day.nopost{background:#f0ede8;opacity:.5}
+.cal-day.rest{background:#f0ede8;border:1px dashed #B0AEB0}
+.cal-date{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B0AEB0}
+.cal-day.carousel .cal-date{color:#B0AEB0}
+.cal-day.reel .cal-date{color:#806357}
+.cal-day.launch .cal-date{color:rgba(217,201,227,.6)}
+.cal-badge{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;padding:3px 8px;border-radius:20px;width:fit-content}
+.badge-c{background:rgba(61,43,36,.08);color:#806357}
+.badge-r{background:#806357;color:#F8F2EC}
+.badge-launch{background:#D9C9E3;color:#3D2B24}
+.badge-lm{background:#F8F2EC;color:#3D2B24;border:1px solid #D9C9E3}
+.cal-title{font-size:12px;font-weight:500;line-height:1.35;color:#3D2B24;flex:1}
+.cal-day.reel .cal-title{color:#3D2B24}
+.cal-day.launch .cal-title{color:#F8F2EC}
+.cal-day.nopost .cal-title{color:#B0AEB0;font-style:italic}
+.cal-day.rest .cal-title{color:#B0AEB0;font-style:italic;font-size:11px}
+.cal-icon{font-size:18px;margin-bottom:2px}
+
+/* WEEK LABELS */
+.week-label{grid-column:1/-1;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#B0AEB0;padding:16px 0 4px;border-top:1px solid rgba(61,43,36,.08);margin-top:8px}
+.week-label:first-child{border-top:none;margin-top:0;padding-top:0}
+
+/* STORIES TABLE */
+.stories-wrap{overflow-x:auto}
+table.stories{width:100%;border-collapse:collapse;font-size:12px}
+table.stories th{background:#3D2B24;color:#D9C9E3;padding:12px 16px;text-align:left;font-weight:500;letter-spacing:1px;font-size:11px;white-space:nowrap}
+table.stories td{padding:12px 16px;vertical-align:top;border-bottom:1px solid rgba(61,43,36,.06);line-height:1.5}
+table.stories tr:nth-child(even) td{background:rgba(217,201,227,.08)}
+.td-date{font-weight:600;color:#3D2B24;white-space:nowrap;min-width:90px}
+.td-day{font-size:10px;color:#B0AEB0;letter-spacing:1px;text-transform:uppercase}
+.td-post{font-size:10px;padding:2px 8px;border-radius:10px;white-space:nowrap;display:inline-block;margin-top:3px}
+.post-c{background:rgba(61,43,36,.08);color:#806357}
+.post-r{background:#D9C9E3;color:#3D2B24}
+.post-rest{background:#f0ede8;color:#B0AEB0}
+.post-nopost{background:transparent;color:#B0AEB0;border:1px solid #e0dbd5}
+.h-tag{display:inline-block;font-size:9px;font-weight:600;letter-spacing:1px;padding:1px 6px;border-radius:3px;margin-bottom:3px;text-transform:uppercase}
+.h1-tag{background:#3D2B24;color:#D9C9E3}
+.h2-tag{background:#806357;color:#F8F2EC}
+.h3-tag{background:#D9C9E3;color:#3D2B24}
+.story-text{font-size:11.5px;color:#5C4A42;line-height:1.5}
+
+/* LEAD MAGNETS */
+.lm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:900px){.lm-grid{grid-template-columns:1fr}}
+.lm-card{border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.lm-header{padding:40px 36px 32px;flex:1}
+.lm-num{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;opacity:.5;margin-bottom:16px}
+.lm-type{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;opacity:.7}
+.lm-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;line-height:1.2;margin-bottom:12px}
+.lm-desc{font-size:13px;font-weight:300;line-height:1.6;opacity:.8;margin-bottom:20px}
+.lm-keyword{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:2px;padding:8px 16px;border-radius:20px}
+.lm-footer{padding:20px 36px;display:flex;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:1px}
+.lm-items{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.lm-item{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.4}
+.lm-item-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* LM Color Schemes */
+.lm-1{background:#D9C9E3}.lm-1 .lm-header{color:#3D2B24}.lm-1 .lm-keyword{background:#3D2B24;color:#D9C9E3}.lm-1 .lm-footer{background:#c4b1d1;color:#3D2B24}
+.lm-2{background:#F8F2EC}.lm-2 .lm-header{color:#3D2B24;background:#F8F2EC}.lm-2 .lm-keyword{background:#3D2B24;color:#F8F2EC}.lm-2 .lm-footer{background:#ede5db;color:#806357}
+.lm-3{background:#3D2B24}.lm-3 .lm-header{color:#F8F2EC}.lm-3 .lm-keyword{background:#D9C9E3;color:#3D2B24}.lm-3 .lm-footer{background:#2c1e19;color:#D9C9E3}
+.lm-4{background:#806357}.lm-4 .lm-header{color:#F8F2EC}.lm-4 .lm-keyword{background:#F8F2EC;color:#3D2B24}.lm-4 .lm-footer{background:#6e5248;color:#F8F2EC}
+
+/* COURSE CARD */
+.course-card{background:#3D2B24;border-radius:20px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.course-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#D9C9E3;opacity:.6;margin-bottom:12px}
+.course-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#F8F2EC;line-height:1.1;margin-bottom:16px}
+.course-tagline{font-size:15px;font-weight:300;color:rgba(217,201,227,.8);line-height:1.6;margin-bottom:32px}
+.course-price-wrap{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.course-price{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:#D9C9E3;line-height:1}
+.course-price-label{font-size:13px;color:rgba(217,201,227,.5);letter-spacing:2px}
+.course-note{font-size:11px;color:rgba(217,201,227,.4);letter-spacing:1px;margin-bottom:32px}
+.course-cta{background:#D9C9E3;color:#3D2B24;padding:18px 36px;border-radius:100px;font-size:14px;font-weight:600;display:inline-block}
+.modules{display:flex;flex-direction:column;gap:16px}
+.module{background:rgba(248,242,236,.06);border-radius:12px;padding:20px 24px;border-left:3px solid #D9C9E3}
+.module-n{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#D9C9E3;opacity:.5;margin-bottom:4px}
+.module-title{font-size:15px;font-weight:600;color:#F8F2EC;margin-bottom:4px}
+.module-sub{font-size:12px;font-weight:300;color:rgba(217,201,227,.6)}
+.includes-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:24px}
+.inc-item{font-size:12px;color:rgba(217,201,227,.6);display:flex;align-items:center;gap:8px}
+.inc-icon{color:#D9C9E3}
+
+/* DIVIDERS */
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(61,43,36,.1),transparent);margin:0 48px}
+
+/* PRINT */
+@media print{.nav{display:none}section{padding:40px 32px}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#calendario">📅 Calendario</a>
+  <a href="#historias">📖 Historias</a>
+  <a href="#guias">🎁 Guías Gratuitas</a>
+  <a href="#curso">🚀 Curso</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="script">@ingridnunezpsi</div>
+  <h1>Plan Maestro de Contenido</h1>
+  <p>14 MARZO – 17 ABRIL 2026 · D'LYRA STUDIO PARA INGRID NÚÑEZ</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">20</div><div class="stat-l">Carruseles</div></div>
+    <div class="stat"><div class="stat-n">10</div><div class="stat-l">Reels</div></div>
+    <div class="stat"><div class="stat-n">105</div><div class="stat-l">Historias</div></div>
+    <div class="stat"><div class="stat-n">4</div><div class="stat-l">Guías Gratis</div></div>
+    <div class="stat"><div class="stat-n">$29</div><div class="stat-l">Curso Digital</div></div>
+  </div>
+</div>
+
+<!-- FASES -->
+<section>
+  <div class="sec-title">Estructura del Mes</div>
+  <div class="sec-sub">5 fases · estrategia progresiva</div>
+  <div class="phases">
+    <div class="phase-card"><div class="ph-dates">Mar 14–20</div><div class="ph-name">Presentación</div><div class="ph-desc">¿Quién es Ingrid? Reactivar cuenta y conectar con la audiencia</div></div>
+    <div class="phase-card"><div class="ph-dates">Mar 21–27</div><div class="ph-name">Valor + Lanzamiento</div><div class="ph-desc">Educación, lead magnets y lanzamiento del curso $29</div></div>
+    <div class="phase-card"><div class="ph-dates">Mar 28–Apr 3</div><div class="ph-name">Post-lanzamiento</div><div class="ph-desc">Social proof, reels relacionables y Semana Santa</div></div>
+    <div class="phase-card"><div class="ph-dates">Apr 4–11</div><div class="ph-name">Autoridad + Semana Santa</div><div class="ph-desc">Temas de crianza profundos + CTA sostenido al curso</div></div>
+    <div class="phase-card"><div class="ph-dates">Apr 12–17</div><div class="ph-name">Consolidación</div><div class="ph-desc">Comunidad, reflexión final y cierre del primer mes</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CALENDARIO -->
+<section id="calendario">
+  <div class="sec-title">Calendario de Publicación</div>
+  <div class="sec-sub">20 carruseles + 10 reels · Lun–Vie + Dom · Sin sábados (exc. 14 Mar)</div>
+
+  <div class="cal-grid">
+
+    <!-- SEMANA 1: Mar 14–20 -->
+    <div class="week-label">⬛ Semana 1 — Presentación (Mar 14–20)</div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">💌</div>
+      <div class="cal-date">Sáb 14 Mar ★</div>
+      <span class="cal-badge badge-c">C1 · Carrusel</span>
+      <div class="cal-title">"Hola. Por si no nos conocemos todavía." — Presentación personal cálida</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🌱</div>
+      <div class="cal-date">Dom 15 Mar</div>
+      <span class="cal-badge badge-c">C2 · Carrusel</span>
+      <div class="cal-title">"Nadie te dijo que criar también te iba a sanar."</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🚩</div>
+      <div class="cal-date">Lun 16 Mar</div>
+      <span class="cal-badge badge-c">C3 · Carrusel</span>
+      <div class="cal-title">"Las rabietas no son manipulación. Son un llamado de auxilio."</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">⚡</div>
+      <div class="cal-date">Mar 17 Mar</div>
+      <span class="cal-badge badge-c">C4 · Carrusel</span>
+      <span class="cal-badge badge-lm">🎁 LM2 CALMA</span>
+      <div class="cal-title">"Más entretenimiento que nunca. Y más frustración también." — Pantallas</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">☀️</div>
+      <div class="cal-date">Mié 18 Mar</div>
+      <span class="cal-badge badge-c">C5 · Carrusel</span>
+      <div class="cal-title">🌍 Día Mundial Felicidad — "Un niño feliz no es el que nunca llora."</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">💙</div>
+      <div class="cal-date">Jue 19 Mar</div>
+      <span class="cal-badge badge-c">C6 · Carrusel</span>
+      <span class="cal-badge badge-lm">🎁 LM1 PAUSA</span>
+      <div class="cal-title">Día Síndrome Down — "Todos nuestros hijos necesitan lo mismo: ser vistos."</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">💌</div>
+      <div class="cal-date">Vie 20 Mar</div>
+      <span class="cal-badge badge-c">C7 · Carrusel</span>
+      <div class="cal-title">"Para el papá o la mamá que hoy está agotado/a y no sabe cómo más seguir."</div>
+    </div>
+
+    <!-- SEMANA 2: Mar 22–27 -->
+    <div class="week-label">⬛ Semana 2 — Valor + Lanzamiento (Mar 22–27)</div>
+
+    <div class="cal-day nopost">
+      <div class="cal-date">Sáb 21 Mar</div>
+      <div class="cal-title">Sin publicación en feed · Solo historias</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🛠️</div>
+      <div class="cal-date">Dom 22 Mar</div>
+      <span class="cal-badge badge-c">C8 · Carrusel</span>
+      <div class="cal-title">"Algo que creé pensando en ti." — Teaser del curso</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🧠</div>
+      <div class="cal-date">Lun 23 Mar</div>
+      <span class="cal-badge badge-c">C9 · Carrusel</span>
+      <span class="cal-badge badge-lm">🎁 LM3 MAPA</span>
+      <div class="cal-title">"Tú eres el termostato emocional de tu hijo/a." — Co-regulación</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🪞</div>
+      <div class="cal-date">Mar 24 Mar</div>
+      <span class="cal-badge badge-c">C10 · Carrusel</span>
+      <div class="cal-title">"¿Te reconoces en esto?" — 5 señales de que el curso es para ti</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">📖</div>
+      <div class="cal-date">Mié 25 Mar</div>
+      <span class="cal-badge badge-c">C11 · Carrusel</span>
+      <div class="cal-title">"Los 3 módulos del curso." — Preview completo antes del lanzamiento</div>
+    </div>
+
+    <div class="cal-day launch">
+      <div class="cal-icon">🚀</div>
+      <div class="cal-date">Jue 26 Mar</div>
+      <span class="cal-badge badge-launch">C12 · LANZAMIENTO</span>
+      <div class="cal-title">"De la frustración a la calma: El método para criar sin gritos" — $29 USD · Link en bio</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">💬</div>
+      <div class="cal-date">Vie 27 Mar</div>
+      <span class="cal-badge badge-c">C13 · Carrusel</span>
+      <div class="cal-title">Post-lanzamiento — FAQ + "¿Ya lo tienes?" Social proof inicial</div>
+    </div>
+
+    <!-- SEMANA 3: Mar 28 – Apr 3 -->
+    <div class="week-label">🎬 Semana 3 — Post-lanzamiento + Reels (Mar 29–Apr 3)</div>
+
+    <div class="cal-day nopost">
+      <div class="cal-date">Sáb 28 Mar</div>
+      <div class="cal-title">Sin publicación · Solo historias</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Dom 29 Mar</div>
+      <span class="cal-badge badge-r">R1 · Reel</span>
+      <div class="cal-title">"Antes de las 9am ya viví esto..." — Situaciones cotidianas de crianza 😅</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">📊</div>
+      <div class="cal-date">Lun 30 Mar</div>
+      <span class="cal-badge badge-c">C14 · Carrusel</span>
+      <span class="cal-badge badge-lm">🎁 LM4</span>
+      <div class="cal-title">"Lo que es normal a los 3, 5 y 7 años (y que no tiene nada de malo)."</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Mar 31 Mar</div>
+      <span class="cal-badge badge-r">R2 · Reel</span>
+      <div class="cal-title">"3 actividades para Semana Santa que conectan y no cuestan nada."</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🧩</div>
+      <div class="cal-date">Mié 1 Abr</div>
+      <span class="cal-badge badge-c">C15 · Carrusel</span>
+      <div class="cal-title">💙 Día Autismo — "La diferencia entre 'portarse mal' y 'procesar diferente'."</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Jue 2 Abr</div>
+      <span class="cal-badge badge-r">R3 · Reel</span>
+      <div class="cal-title">"¿Para qué sirve ir a psicología si mi hijo 'parece' estar bien?" — Ingrid responde</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🌸</div>
+      <div class="cal-date">Vie 3 Abr</div>
+      <span class="cal-badge badge-c">C16 · Carrusel</span>
+      <div class="cal-title">Semana Santa — "Esta semana, permítete simplemente estar."</div>
+    </div>
+
+    <!-- SEMANA 4: Semana Santa Apr 4–10 -->
+    <div class="week-label">🌸 Semana 4 — Semana Santa (Abr 5–10)</div>
+
+    <div class="cal-day nopost">
+      <div class="cal-date">Sáb 4 Abr</div>
+      <div class="cal-title">Sin publicación · Solo historias</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Dom 5 Abr</div>
+      <span class="cal-badge badge-r">R4 · Reel</span>
+      <div class="cal-title">"La peor madre del mundo." — Humanización Ingrid: los errores que nadie nombra</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">💚</div>
+      <div class="cal-date">Lun 6 Abr</div>
+      <span class="cal-badge badge-c">C17 · Carrusel</span>
+      <div class="cal-title">Día Mundial Salud — "¿Cuándo fue la última vez que revisaste la salud emocional de tu hijo/a?"</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Mar 7 Abr</div>
+      <span class="cal-badge badge-r">R5 · Reel</span>
+      <div class="cal-title">"Cuando tu hijo/a llora y no sabes qué hacer..." — Identificación emocional</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🛡️</div>
+      <div class="cal-date">Mié 8 Abr</div>
+      <span class="cal-badge badge-c">C18 · Carrusel</span>
+      <div class="cal-title">"Poner límites no es hacer sufrir. Es enseñarle que el mundo tiene estructura."</div>
+    </div>
+
+    <div class="cal-day rest">
+      <div class="cal-date">Jue 9 Abr 🕊️</div>
+      <div class="cal-title">Jueves Santo — Descanso del feed. Solo historias.</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Vie 10 Abr</div>
+      <span class="cal-badge badge-r">R6 · Reel</span>
+      <div class="cal-title">🥚 Viernes Santo — "El descanso que más necesitan tus hijos no es el que crees."</div>
+    </div>
+
+    <!-- SEMANA 5: Apr 12–17 -->
+    <div class="week-label">🌟 Semana 5 — Consolidación + Cierre (Abr 12–17)</div>
+
+    <div class="cal-day nopost">
+      <div class="cal-date">Sáb 11 Abr</div>
+      <div class="cal-title">Sin publicación · Solo historias</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Dom 12 Abr</div>
+      <span class="cal-badge badge-r">R7 · Reel</span>
+      <div class="cal-title">🌸 Domingo Pascua — "Inside Out nos enseñó algo que los adultos todavía aprendemos."</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Lun 13 Abr</div>
+      <span class="cal-badge badge-r">R8 · Reel</span>
+      <div class="cal-title">"Soy psicóloga y..." — Confesiones. El reel participativo del mes.</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">🪞</div>
+      <div class="cal-date">Mar 14 Abr</div>
+      <span class="cal-badge badge-c">C19 · Carrusel</span>
+      <div class="cal-title">"A veces la rabia que sientes con tu hijo/a no tiene que ver con él/ella." — Heridas de infancia</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Mié 15 Abr</div>
+      <span class="cal-badge badge-r">R9 · Reel</span>
+      <div class="cal-title">"Una actividad de 10 minutos para conectar con tu hijo/a esta noche."</div>
+    </div>
+
+    <div class="cal-day carousel">
+      <div class="cal-icon">⚡</div>
+      <div class="cal-date">Jue 16 Abr</div>
+      <span class="cal-badge badge-c">C20 · Carrusel</span>
+      <div class="cal-title">"No necesitas más tiempo con tus hijos. Necesitas mejor presencia."</div>
+    </div>
+
+    <div class="cal-day reel">
+      <div class="cal-icon">🎬</div>
+      <div class="cal-date">Vie 17 Abr</div>
+      <span class="cal-badge badge-r">R10 · Reel Cierre</span>
+      <div class="cal-title">"Lo que aprendí siendo psicóloga Y mamá." — Ingrid en cámara. Cierre del mes.</div>
+    </div>
+
+  </div><!-- end cal-grid -->
+</section>
+
+<div class="divider"></div>
+
+<!-- HISTORIAS -->
+<section id="historias">
+  <div class="sec-title">Plan Completo de Historias</div>
+  <div class="sec-sub">35 días · 3 historias diarias · 105 historias en total</div>
+
+  <div class="stories-wrap">
+  <table class="stories">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>H1 · 8–9am · Buenos días + Encuesta</th>
+        <th>H2 · 12–1pm · Dato + Recordatorio</th>
+        <th>H3 · 6–8pm · CTA + Comunidad</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- MAR 14 -->
+      <tr>
+        <td class="td-date">Sáb 14 Mar<div class="td-day">★ Arranque</div><span class="td-post post-c">C1 Presentación</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Llevas tanto tiempo criando en modo supervivencia. Hoy empieza algo diferente. ✨<br><b>[Encuesta]</b> ¿Cuántos hijos tienes? · 1 · 2 · 3+</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">DATO: El cerebro de un niño no termina de desarrollarse hasta los 25 años. La impulsividad NO es capricho. Es biología. 🧠<br>→ Ve el post de hoy.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Cuál es tu mayor reto en la crianza hoy? Escríbeme por DM. Te leo personalmente. 💙<br><b>[Caja de preguntas]</b></div></td>
+      </tr>
+
+      <!-- MAR 15 -->
+      <tr>
+        <td class="td-date">Dom 15 Mar<div class="td-day">Domingo</div><span class="td-post post-c">C2 "Nadie te dijo"</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Cómo llegaste a este domingo? <br><b>[Encuesta]</b> ☀️ Con energía · 😴 Necesito dormir 100 horas</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Los domingos son para conectar. ¿Cuándo fue la última vez que le preguntaste a tu hijo/a: "¿qué fue lo mejor de esta semana?" 🌿<br>→ Nuevo carrusel en el feed.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Guarda el post de hoy para cuando lo necesites. Esas palabras son para ti. 💜<br><b>[Compartir historia]</b></div></td>
+      </tr>
+
+      <!-- MAR 16 -->
+      <tr>
+        <td class="td-date">Lun 16 Mar<div class="td-day">Lunes</div><span class="td-post post-c">C3 Rabietas</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Lunes. Nuevo comienzo. ¿Tu hijo/a cómo llegó hoy?<br><b>[Encuesta]</b> ⚡ Con pilas · 😅 Fue batalla</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Las rabietas NO son manipulación. Son el sistema nervioso de tu hijo/a buscando regularse. 🧠 Más en el feed hoy.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Si hoy perdiste la calma con tu hijo/a... no eres mal padre/madre. Eres humano/a. Y eso también se repara. 🫂<br><b>[Sticker corazón]</b></div></td>
+      </tr>
+
+      <!-- MAR 17 -->
+      <tr>
+        <td class="td-date">Mar 17 Mar<div class="td-day">Martes</div><span class="td-post post-c">C4 Pantallas+LM2</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Ya pensaste cuánto amor le das hoy a ti mismo/a?<br><b>[Encuesta]</b> Mucho 💙 · Cero, lo olvidé</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El aburrimiento no es el enemigo. Es la puerta a la creatividad y la autorregulación. → El carrusel de hoy te explica por qué. 📱</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">🎁 Comenta <b>CALMA</b> aquí o en el post de hoy y te mando gratis: <b>"Tu Calma, Su Refugio"</b> — 5 claves para sobrevivir las crisis sin perder la tuya.</div></td>
+      </tr>
+
+      <!-- MAR 18 -->
+      <tr>
+        <td class="td-date">Mié 18 Mar<div class="td-day">Miércoles</div><span class="td-post post-c">C5 Felicidad</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">HOY es el Día Mundial de la Felicidad 🌍<br><b>[Caja]</b> ¿Qué hace feliz a tu hijo/a? Cuéntame.</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">La felicidad real no es no tener emociones difíciles. Es saber que no estás solo/a cuando las tienes. 🌱 → Feed de hoy.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Comparte esta historia con una mamá que necesite escuchar esto hoy. 💜<br><b>[Botón compartir]</b></div></td>
+      </tr>
+
+      <!-- MAR 19 -->
+      <tr>
+        <td class="td-date">Jue 19 Mar<div class="td-day">Jueves</div><span class="td-post post-c">C6 Down+LM1</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Viernes se acerca. ¿Cómo va la semana?<br><b>[Slider]</b> 1 = en el piso · 10 = imparable 💪</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Todos nuestros hijos, con o sin diagnóstico, necesitan lo mismo: ser vistos tal como son. 💙 Post de hoy.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">🎧 Escríbeme <b>PAUSA</b> por DM y te mando un audio guiado de 10 minutos para regularte ANTES de que empiece la tormenta. Gratis. 🎁</div></td>
+      </tr>
+
+      <!-- MAR 20 -->
+      <tr>
+        <td class="td-date">Vie 20 Mar<div class="td-day">Viernes</div><span class="td-post post-c">C7 Papá agotado</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Viernes. ¿Cómo llegamos?<br><b>[Encuesta]</b> 💪 Sobreviví · 😂 Necesito el fin de semana YA</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El carrusel de hoy es para el papá/mamá que ama con todo pero que hoy simplemente no puede más. 💙 Para ti.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Este fin de semana: 10 minutos solo para ti. Sin culpa. ¿Puedes hacer eso?<br><b>[Encuesta]</b> Sí, lo intento · Me cuesta mucho</div></td>
+      </tr>
+
+      <!-- MAR 21 -->
+      <tr>
+        <td class="td-date">Sáb 21 Mar<div class="td-day">Sábado</div><span class="td-post post-nopost">Solo historias</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Sábado. Respira. ¿Cuántas veces esta semana te felicitaste a ti mismo/a?<br><b>[Encuesta]</b> Ninguna 😅 · Una o dos veces 💙</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">La crianza perfecta no existe. La crianza suficientemente buena sí. Y ya la estás haciendo. 🌿</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Mañana comparto algo especial en el feed. Solo para los domingos. 💌 ¿Ya me sigues para no perdértelo?<br><b>[Sticker seguir]</b></div></td>
+      </tr>
+
+      <!-- MAR 22 -->
+      <tr>
+        <td class="td-date">Dom 22 Mar<div class="td-day">Domingo</div><span class="td-post post-c">C8 Teaser</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Domingo de reflexión.<br><b>[Caja]</b> ¿Qué fue lo más difícil esta semana en la crianza?</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Esta semana te presento algo que creé para el momento en que todo se desborda. → Ve el carrusel de hoy. 🌿</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Cuál de estas frases te representa más?<br>A: "Entiendo la teoría pero no puedo en el momento"<br>B: "Luego me siento culpable"<br>C: "No sé cómo reparar"<br><b>[Caja]</b> Comenta A, B o C.</div></td>
+      </tr>
+
+      <!-- MAR 23 -->
+      <tr>
+        <td class="td-date">Lun 23 Mar<div class="td-day">Lunes</div><span class="td-post post-c">C9 Termostato+LM3</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Sabías que tu calma LITERALMENTE calma a tu hijo/a? La neurociencia lo confirma. 🧠<br><b>[Encuesta]</b> Lo sabía · No, cuéntame más</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">🗺️ Comenta <b>MAPA</b> en el post de hoy y te mando gratis: el mapa visual de las emociones detrás de las rabietas. Niños de 2 a 8 años.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Esta semana se viene algo grande para ti. Quédate cerca. 🌙<br><b>[Countdown: 3 días]</b></div></td>
+      </tr>
+
+      <!-- MAR 24 -->
+      <tr>
+        <td class="td-date">Mar 24 Mar<div class="td-day">Martes</div><span class="td-post post-c">C10 ¿Te reconoces?</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Qué módulo del curso te llama más?<br><b>[Encuesta]</b> 🧠 Entender la rabieta · 🫁 Mi propia regulación · 🗺️ El protocolo paso a paso</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Ve el carrusel de hoy: ¿te reconoces en alguna de estas situaciones? Si dices sí a 3 o más, el curso es para ti. 💙</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">PASADO MAÑANA. El link estará en mi bio. $29 USD · Acceso de por vida. 🌿<br><b>[Countdown: 2 días]</b></div></td>
+      </tr>
+
+      <!-- MAR 25 -->
+      <tr>
+        <td class="td-date">Mié 25 Mar<div class="td-day">Miércoles</div><span class="td-post post-c">C11 Preview módulos</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">MAÑANA llega. ¿Estás lista/o?<br><b>[Encuesta]</b> ¡Sí! Ya lo esperaba · Tengo dudas, cuéntame</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">3 módulos. Videos HD. Meditaciones guiadas. Cuaderno digital. Todo por $29 una sola vez. → Ve el preview en el feed.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Tienes preguntas sobre el curso antes de que salga? Escríbeme aquí. Te respondo personalmente. 💙<br><b>[Caja de preguntas]</b><br><b>[Countdown: 1 día]</b></div></td>
+      </tr>
+
+      <!-- MAR 26 — LANZAMIENTO -->
+      <tr style="background:rgba(61,43,36,.03)">
+        <td class="td-date">Jue 26 Mar<div class="td-day" style="color:#D9C9E3;font-weight:600">🚀 LANZAMIENTO</div><span class="td-post" style="background:#3D2B24;color:#D9C9E3;padding:2px 8px;border-radius:10px;font-size:10px">C12 CURSO $29</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text"><b>HOY ES EL DÍA.</b> ✨ "De la frustración a la calma: El método para criar sin gritos" ya está disponible.<br>→ Link en bio · $29 USD · Acceso de por vida</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">3 módulos. Videos HD. Meditaciones. Cuaderno digital. Soporte WhatsApp. Garantía 7 días. Todo por $29 una sola vez. 🎯<br>→ Link en bio.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Ya lo tienes? Cuéntame. ¿Tienes preguntas? Escríbeme. Garantía de 7 días si no te transforma: te devuelvo el dinero completo. 💙<br><b>[Link al curso]</b></div></td>
+      </tr>
+
+      <!-- MAR 27 -->
+      <tr>
+        <td class="td-date">Vie 27 Mar<div class="td-day">Viernes</div><span class="td-post post-c">C13 Post-lanzamiento</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Gracias a los que ya entraron al curso ayer. 💙 ¿Cómo te fue con el primer módulo?<br><b>[Caja de preguntas]</b></div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">RECUERDA: el curso tiene garantía de 7 días. Si no te cambia la dinámica con tu hijo/a → te devuelvo el dinero. Sin preguntas. → Link en bio.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Este fin de semana es tu momento. $29 una sola vez. → Link en bio. 🌿<br><b>[Sticker link]</b></div></td>
+      </tr>
+
+      <!-- MAR 28 -->
+      <tr>
+        <td class="td-date">Sáb 28 Mar<div class="td-day">Sábado</div><span class="td-post post-nopost">Solo historias</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Sábado de descanso. ¿Lograste conectar con tu hijo/a esta semana?<br><b>[Encuesta]</b> Sí, bastante 💙 · Fue una semana difícil</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">¿Ya tienes la guía gratuita? Comenta <b>CALMA</b> o escríbeme por DM y te la mando ahora. 🎁</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Mañana regresamos con algo que te va a hacer reír. 😅 ¿Qué tema de crianza quieres que hable próximamente?<br><b>[Caja de preguntas]</b></div></td>
+      </tr>
+
+      <!-- MAR 29 -->
+      <tr>
+        <td class="td-date">Dom 29 Mar<div class="td-day">Domingo</div><span class="td-post post-r">R1 Reel cotidiano</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Domingo. El reel de hoy es para que te rías y te reconozcas. 😂<br><b>[Caja]</b> ¿Cuántas situaciones de las que nombro viviste esta semana?</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El humor también es crianza consciente. → Ve el reel de hoy y comenta cuál fue la tuya. 😅</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Comparte este reel con esa mamá que lo necesita. Sabes quién es. 💜<br><b>[Botón compartir]</b></div></td>
+      </tr>
+
+      <!-- MAR 30 -->
+      <tr>
+        <td class="td-date">Lun 30 Mar<div class="td-day">Lunes</div><span class="td-post post-c">C14 Etapas+LM4</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Cuántos años tiene tu hijo/a?<br><b>[Encuesta]</b> 0–3 años · 4–6 años · 7–10 años · Más de uno 😅</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Comenta la edad de tu hijo/a en el post de hoy y te mando el recurso de frases para esa etapa. 🎁 El LM4 te espera.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">DATO: A los 3 años los "no quiero" son desarrollo cognitivo normal. Las mentiritas a los 5 también. No es mala crianza. Es evolución. 🧠</div></td>
+      </tr>
+
+      <!-- MAR 31 -->
+      <tr>
+        <td class="td-date">Mar 31 Mar<div class="td-day">Martes</div><span class="td-post post-r">R2 Reel SS</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Semana Santa se acerca. ¿Qué planes tienen con los niños?<br><b>[Encuesta]</b> 🏖️ Viaje · 🏠 Casa · Todavía sin plan</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy: 3 actividades que conectan, no cuestan nada y funcionan de verdad. Guárdalo. 🌿</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Toma nota: cocinar juntos, la hora sin pantallas, decirse algo que admiran del otro. Simple. Poderoso. 💙</div></td>
+      </tr>
+
+      <!-- APR 1 -->
+      <tr>
+        <td class="td-date">Mié 1 Abr<div class="td-day">Miércoles</div><span class="td-post post-c">C15 Autismo</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">💙 Día Mundial del Autismo. ¿Alguien en tu entorno tiene autismo?<br><b>[Encuesta]</b> Sí · No · No sé</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">"¿Portarse mal o procesar diferente?" Es la pregunta que todos los padres deberían hacerse. → Feed de hoy. 🌱</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Si tienes un hijo/a con TEA o sospechas una diferencia neurológica y quieres orientación, escríbeme. Puedo ayudarte. 💙<br><b>[Link DM]</b></div></td>
+      </tr>
+
+      <!-- APR 2 -->
+      <tr>
+        <td class="td-date">Jue 2 Abr<div class="td-day">Jueves</div><span class="td-post post-r">R3 Reel FAQ</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Alguna vez dudaste si tu hijo/a necesitaba psicología?<br><b>[Encuesta]</b> Sí, lo pensé · No, no lo había considerado</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy: respondo una de las preguntas que más me hacen. → Ve y cuéntame qué opinas. 🎬</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Tienes preguntas sobre cuándo buscar ayuda psicológica para tu familia? Escríbeme. Aquí estoy. 💙<br><b>[Caja de preguntas]</b></div></td>
+      </tr>
+
+      <!-- APR 3 -->
+      <tr>
+        <td class="td-date">Vie 3 Abr<div class="td-day">Viernes</div><span class="td-post post-c">C16 Semana Santa</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Mañana empieza Semana Santa. ¿Cómo se sienten?<br><b>[Encuesta]</b> Con ganas de descansar 🙌 · Ya con los niños encima 😅</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Un recordatorio para esta semana: no necesitas llenarla de actividades. Solo necesitas ESTAR. → El carrusel de hoy.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Me tomo un pequeño descanso del feed esta semana. Pero las historias siguen 💙 ¿Qué quieres que hablemos cuando regrese?<br><b>[Caja]</b></div></td>
+      </tr>
+
+      <!-- APR 4 -->
+      <tr>
+        <td class="td-date">Sáb 4 Abr<div class="td-day">Sábado Santo</div><span class="td-post post-nopost">Solo historias</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Sábado Santo. ¿Ya están en modo vacaciones?<br><b>[Encuesta]</b> 🏖️ Sí · 🏠 Descansando en casa</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Semana Santa es perfecta para el juego libre. Sin pantallas, sin agenda. Observa a tu hijo/a jugar solo/a. Es magia. 🌿</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Este fin de semana: desconéctalos de todo. Y reconéctalos con ustedes. 💙</div></td>
+      </tr>
+
+      <!-- APR 5 -->
+      <tr>
+        <td class="td-date">Dom 5 Abr<div class="td-day">Domingo Ramos</div><span class="td-post post-r">R4 Reel paradoja</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Feliz Domingo de Ramos 🌿 ¿Cómo van las vacaciones?<br><b>[Encuesta]</b> Genial 😍 · Es trabajo con otro nombre 😂</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy: el descanso que MÁS necesitan tus hijos no es el que crees. 👀 → Feed.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Un niño que se sintió VISTO esta semana regresa al colegio más tranquilo. ¿Lo lograron?<br><b>[Caja]</b> Cuéntame. 💙</div></td>
+      </tr>
+
+      <!-- APR 6 -->
+      <tr>
+        <td class="td-date">Lun 6 Abr<div class="td-day">Lunes</div><span class="td-post post-c">C17 Salud</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">💚 HOY: Día Mundial de la Salud. ¿Con qué frecuencia revisas la salud EMOCIONAL de tu hijo/a?<br><b>[Encuesta]</b> Seguido · Nunca · No sé cómo</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">La salud emocional no aparece en un examen. Pero se nota en cómo duerme, come y se relaciona. → Post de hoy. ↗️</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">HOY: Pregúntale a tu hijo/a: "¿Cómo estás TÚ, de verdad?" Y escucha sin interrumpir. Cuéntame qué te dijo. 🫂<br><b>[Caja]</b></div></td>
+      </tr>
+
+      <!-- APR 7 -->
+      <tr>
+        <td class="td-date">Mar 7 Abr<div class="td-day">Martes</div><span class="td-post post-r">R5 Reel "Cuando llora"</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Qué haces cuando tu hijo/a llora y no sabes qué hacer?<br><b>[Encuesta]</b> Me congelo 😶 · Intento hablarle · Quiero que pare ya</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy es un espejo. Es posible que te reconozcas. Eso está bien. → Feed. ↗️</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Querer hacer mejor las cosas NO es fracasar. Es exactamente la señal de que eres el padre/madre que tu hijo/a necesita. 💙</div></td>
+      </tr>
+
+      <!-- APR 8 -->
+      <tr>
+        <td class="td-date">Mié 8 Abr<div class="td-day">Miércoles</div><span class="td-post post-c">C18 Límites</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Te cuesta poner límites a tus hijos?<br><b>[Encuesta]</b> Mucho 😔 · A veces · Soy buena en eso 💪</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Un límite desde el amor NO daña el vínculo. Lo fortalece. → El carrusel de hoy te explica cómo. 🌿</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Frase para el fin de semana: "Primero conecta. Luego redirige. Siempre desde la calma." 💙 Guarda esto.<br><b>[Sticker guardar]</b></div></td>
+      </tr>
+
+      <!-- APR 9 — JUEVES SANTO -->
+      <tr style="background:rgba(176,174,176,.05)">
+        <td class="td-date">Jue 9 Abr<div class="td-day" style="color:#B0AEB0">🕊️ Jueves Santo</div><span class="td-post" style="background:#f0ede8;color:#B0AEB0;padding:2px 8px;border-radius:10px;font-size:10px">Descanso del feed</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Jueves Santo. Hoy el feed descansa. ✨ Pero yo sigo aquí. ¿Cómo están?<br><b>[Caja]</b></div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Reflexión de hoy: ¿qué cosa pequeña hiciste esta semana que se te olvidó celebrar? Cuéntame.<br><b>[Caja]</b></div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Mañana regresamos. Mientras tanto: ve, abraza a tu hijo/a. Sin motivo. Solo porque sí. 💙</div></td>
+      </tr>
+
+      <!-- APR 10 -->
+      <tr>
+        <td class="td-date">Vie 10 Abr<div class="td-day">Viernes Santo</div><span class="td-post post-r">R6 Reel descanso</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Viernes Santo. ¿Lograron desconectarse esta semana?<br><b>[Encuesta]</b> Sí, fue bonito 🌸 · Fue intensa la semana 😅</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy: una reflexión para cerrar Semana Santa. Sobre el descanso real. → Feed. 🌿</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Qué momento de esta Semana Santa vas a recordar? Cuéntame el más pequeño y más bonito. 💜<br><b>[Caja]</b></div></td>
+      </tr>
+
+      <!-- APR 11 -->
+      <tr>
+        <td class="td-date">Sáb 11 Abr<div class="td-day">Sábado</div><span class="td-post post-nopost">Solo historias</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Sábado. ¿Cómo cerramos la semana?<br><b>[Encuesta]</b> Mejor de lo esperado 💪 · Más o menos · Fue dura 💙</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Recuerda: los $29 que inviertes en el curso son la inversión más directa que puedes hacer en tu familia. 🌿 → Link en bio.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Cuál fue el momento de conexión más pequeño pero más bonito que tuviste con tu hijo/a esta semana? Cuéntame. 💜<br><b>[Caja]</b></div></td>
+      </tr>
+
+      <!-- APR 12 -->
+      <tr>
+        <td class="td-date">Dom 12 Abr<div class="td-day">Domingo Pascua</div><span class="td-post post-r">R7 Reel Inside Out</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">🌸 Feliz Domingo de Pascua. Hoy comparto algo en el feed que va desde el corazón. No te lo pierdas.</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy: Inside Out, la película más honesta sobre emociones que jamás se ha hecho. → Feed. 🎬</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">¿Con qué personaje de Inside Out te identificas más como papá/mamá?<br><b>[Caja]</b> Te leo. 💙</div></td>
+      </tr>
+
+      <!-- APR 13 -->
+      <tr>
+        <td class="td-date">Lun 13 Abr<div class="td-day">Lunes</div><span class="td-post post-r">R8 Reel confesiones</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Lunes post-vacaciones. ¿Cómo amaneciste hoy?<br><b>[Encuesta]</b> Lista para empezar 💪 · Necesito otro día 😅</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">"Soy psicóloga y..." — El reel de hoy. Confesiones que pocas veces se dicen en voz alta. → Feed. 🎬</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Ahora tú: completa la frase. "Soy mamá/papá y..." → Comenta en el post. Te leo. 💙</div></td>
+      </tr>
+
+      <!-- APR 14 -->
+      <tr>
+        <td class="td-date">Mar 14 Abr<div class="td-day">Martes</div><span class="td-post post-c">C19 Heridas infancia</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Alguna vez reaccionaste de forma exagerada a algo pequeño y luego no entendiste por qué?<br><b>[Encuesta]</b> Sí, me ha pasado · No creo</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Muchas veces la rabia que sentimos con nuestros hijos no viene del presente. Viene del pasado. → Post de hoy. 🌱</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Sanar tu historia es el acto de crianza más poderoso que puedes hacer. 💙 ¿Quieres acompañamiento? → Link en bio.</div></td>
+      </tr>
+
+      <!-- APR 15 -->
+      <tr>
+        <td class="td-date">Mié 15 Abr<div class="td-day">Miércoles</div><span class="td-post post-r">R9 Reel actividad</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Le dedicas 10 minutos de presencia TOTAL a tu hijo/a cada día?<br><b>[Encuesta]</b> Sí, a diario 🌟 · Intento · Casi nunca 😔</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">El reel de hoy: una actividad de 10 minutos para esta noche. Fácil. Gratis. Funciona. → Feed. ↗️</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Hazla esta noche y cuéntame cómo les fue. 💙 Quiero saber.<br><b>[Caja de respuesta]</b></div></td>
+      </tr>
+
+      <!-- APR 16 -->
+      <tr>
+        <td class="td-date">Jue 16 Abr<div class="td-day">Jueves</div><span class="td-post post-c">C20 Presencia</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">¿Cuándo fue la última vez que estuviste 100% presente con tu hijo/a, sin teléfono?<br><b>[Encuesta]</b> Hoy 🌟 · Hace días · No recuerdo 😔</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">20 minutos de presencia real valen más que 3 horas en la misma habitación mirando el teléfono. → Post de hoy. ↗️</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">HOY: 15 minutos. Solo tú y él/ella. Sin teléfono. Sin agenda. ¿Lo intentas?<br><b>[Encuesta]</b> Sí, hoy lo hago · Voy a intentarlo 💙</div></td>
+      </tr>
+
+      <!-- APR 17 — CIERRE -->
+      <tr style="background:rgba(61,43,36,.03)">
+        <td class="td-date">Vie 17 Abr<div class="td-day" style="color:#D9C9E3;font-weight:600">✨ Cierre del mes</div><span class="td-post post-r">R10 Reel cierre</span></td>
+        <td><span class="h-tag h1-tag">H1</span><div class="story-text">Un mes. 💙 ¿Aprendiste algo nuevo sobre la crianza o sobre ti mismo/a en estas semanas?<br><b>[Caja]</b> Cuéntame.</div></td>
+        <td><span class="h-tag h2-tag">H2</span><div class="story-text">Hoy cierra el primer mes de este espacio. El reel de cierre ya está en el feed. 🌿 No te lo pierdas.</div></td>
+        <td><span class="h-tag h3-tag">H3</span><div class="story-text">Gracias por estar aquí. Por leer. Por querer criar mejor. 💙 ¿Ya tienes el curso? → Link en bio: $29 · Acceso de por vida.<br><b>[Sticker link]</b></div></td>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- GUÍAS GRATUITAS -->
+<section id="guias">
+  <div class="sec-title">Guías Gratuitas — Lead Magnets</div>
+  <div class="sec-sub">4 recursos gratuitos · captura de leads · distribuidos vía ManyChat + DM</div>
+
+  <div class="lm-grid">
+
+    <!-- LM1 -->
+    <div class="lm-card lm-1">
+      <div class="lm-header">
+        <div class="lm-num">Guía 01 de 04</div>
+        <div class="lm-type">🎧 Audio guiado · 10 minutos</div>
+        <div class="lm-title">"Tu Pausa<br>de Poder"</div>
+        <div class="lm-desc">Un audio de regulación emocional para hacer en los 5 minutos antes de que empiece la tormenta. Para el papá/mamá que siente que va a explotar y quiere aprender a parar.</div>
+        <div class="lm-items">
+          <div class="lm-item"><span class="lm-item-icon">🫁</span><span>Técnica de respiración en 4 tiempos</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🧠</span><span>Cómo bajar el cortisol en 90 segundos</span></div>
+          <div class="lm-item"><span class="lm-item-icon">💙</span><span>Frase de anclaje para el momento exacto</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🌿</span><span>Ejercicio de relajación muscular progresiva</span></div>
+        </div>
+        <div class="lm-keyword">Escríbeme "PAUSA" por DM ✦</div>
+      </div>
+      <div class="lm-footer">
+        <span>📅 Activa: Jue 19 Mar</span>
+        <span>@ingridnunezpsi</span>
+      </div>
+    </div>
+
+    <!-- LM2 -->
+    <div class="lm-card lm-2">
+      <div class="lm-header">
+        <div class="lm-num">Guía 02 de 04</div>
+        <div class="lm-type">📄 PDF · 5 páginas</div>
+        <div class="lm-title">"Tu Calma,<br>Su Refugio"</div>
+        <div class="lm-desc">5 claves para sobrevivir las crisis emocionales de tu hijo/a sin perder la tuya. Para padres que llegan agotados a las crisis y no saben qué hacer en el momento exacto.</div>
+        <div class="lm-items">
+          <div class="lm-item"><span class="lm-item-icon">🔑</span><span>Clave 1: Lo que NO debes decir (y qué decir en cambio)</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🔑</span><span>Clave 2: Tu cuerpo primero — regular antes de hablar</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🔑</span><span>Clave 3: La postura física que calma (de verdad)</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🔑</span><span>Clave 4: Validar sin ceder — cómo se hace</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🔑</span><span>Clave 5: Cómo reparar después del desborde</span></div>
+        </div>
+        <div class="lm-keyword">Comenta "CALMA" en el post ✦</div>
+      </div>
+      <div class="lm-footer">
+        <span>📅 Activa: Mar 17 Mar</span>
+        <span>@ingridnunezpsi</span>
+      </div>
+    </div>
+
+    <!-- LM3 -->
+    <div class="lm-card lm-3">
+      <div class="lm-header">
+        <div class="lm-num">Guía 03 de 04</div>
+        <div class="lm-type">🗺️ PDF Visual · Mapa de emociones</div>
+        <div class="lm-title">"¿Qué emoción<br>esconde esa rabieta?"</div>
+        <div class="lm-desc">Mapa visual de las emociones más comunes en niños de 2 a 8 años: qué las desencadena y qué necesitan. Para padres que quieren entender qué hay detrás de la conducta, no solo reaccionar a ella.</div>
+        <div class="lm-items">
+          <div class="lm-item"><span class="lm-item-icon">👶</span><span>2–3 años: las 5 emociones clave + qué las dispara</span></div>
+          <div class="lm-item"><span class="lm-item-icon">🧒</span><span>4–5 años: emociones sociales + miedos comunes</span></div>
+          <div class="lm-item"><span class="lm-item-icon">👦</span><span>6–8 años: vergüenza, frustración y comparación</span></div>
+          <div class="lm-item"><span class="lm-item-icon">💡</span><span>Qué necesita en cada caso (guía de respuesta)</span></div>
+          <div class="lm-item"><span class="lm-item-icon">📌</span><span>Para pegar en la nevera o guardar en el teléfono</span></div>
+        </div>
+        <div class="lm-keyword">Comenta "MAPA" en el post ✦</div>
+      </div>
+      <div class="lm-footer">
+        <span>📅 Activa: Lun 23 Mar</span>
+        <span>@ingridnunezpsi</span>
+      </div>
+    </div>
+
+    <!-- LM4 -->
+    <div class="lm-card lm-4">
+      <div class="lm-header">
+        <div class="lm-num">Guía 04 de 04</div>
+        <div class="lm-type">📋 Hoja de referencia rápida · Frases</div>
+        <div class="lm-title">"Qué decirle<br>(y qué NO decirle)"</div>
+        <div class="lm-desc">Guía de frases reales para usar durante una crisis emocional, más las frases que hacen más daño del que creemos. Para el padre/madre que en el momento se congela o dice lo primero que le sale.</div>
+        <div class="lm-items">
+          <div class="lm-item"><span class="lm-item-icon">✅</span><span>"Veo que estás muy enojado/a. Estoy aquí contigo."</span></div>
+          <div class="lm-item"><span class="lm-item-icon">✅</span><span>"No tienes que calmarte ya. Yo me quedo."</span></div>
+          <div class="lm-item"><span class="lm-item-icon">❌</span><span>"Para de llorar ya." / "No es para tanto."</span></div>
+          <div class="lm-item"><span class="lm-item-icon">❌</span><span>"Si sigues así, te dejo aquí."</span></div>
+          <div class="lm-item"><span class="lm-item-icon">📌</span><span>20 frases SÍ + 10 frases NO — laminada para imprimir</span></div>
+        </div>
+        <div class="lm-keyword">Comenta la edad de tu hijo/a ✦</div>
+      </div>
+      <div class="lm-footer">
+        <span>📅 Activa: Lun 30 Mar</span>
+        <span>@ingridnunezpsi</span>
+      </div>
+    </div>
+
+  </div><!-- end lm-grid -->
+</section>
+
+<div class="divider"></div>
+
+<!-- CURSO -->
+<section id="curso">
+  <div class="sec-title">El Producto Principal</div>
+  <div class="sec-sub">Lanzamiento · Jue 26 Marzo · Link en bio</div>
+
+  <div class="course-card">
+    <div>
+      <div class="course-tag">Curso Digital · Acceso Inmediato</div>
+      <div class="course-title">De la frustración<br>a la calma</div>
+      <div class="course-tagline">El método para criar sin gritos.<br>Transforma los desbordes emocionales de tus hijos en momentos de conexión.</div>
+      <div class="course-price-wrap">
+        <div class="course-price">$29</div>
+        <div class="course-price-label">USD</div>
+      </div>
+      <div class="course-note">Pago único · Acceso de por vida · Garantía 7 días</div>
+      <a class="course-cta" href="https://psicolaingridnunez.lovable.app/curso" target="_blank">Ver página del curso →</a>
+      <div class="includes-list">
+        <div class="inc-item"><span class="inc-icon">▸</span> Videos explicativos HD</div>
+        <div class="inc-item"><span class="inc-icon">▸</span> Meditaciones guiadas</div>
+        <div class="inc-item"><span class="inc-icon">▸</span> Cuaderno digital</div>
+        <div class="inc-item"><span class="inc-icon">▸</span> Recursos descargables</div>
+        <div class="inc-item"><span class="inc-icon">▸</span> Soporte por WhatsApp</div>
+        <div class="inc-item"><span class="inc-icon">▸</span> +200 familias transformadas</div>
+      </div>
+    </div>
+    <div>
+      <div class="modules">
+        <div class="module">
+          <div class="module-n">Módulo 1</div>
+          <div class="module-title">Comprendiendo la Tormenta</div>
+          <div class="module-sub">Neurobiología y Conexión — Por qué tu hijo reacciona así y cómo leerlo</div>
+        </div>
+        <div class="module">
+          <div class="module-n">Módulo 2</div>
+          <div class="module-title">Tu Ancla en la Tormenta</div>
+          <div class="module-sub">Autocuidado y Auto-regulación — Regúlate tú primero para sostener a tu familia</div>
+        </div>
+        <div class="module">
+          <div class="module-n">Módulo 3</div>
+          <div class="module-title">Navegando la Tormenta</div>
+          <div class="module-sub">Estrategias de Conexión y Límites — Protocolo paso a paso para cada crisis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:#3D2B24;padding:32px 48px;display:flex;justify-content:space-between;align-items:center;margin-top:60px">
+  <span style="font-family:'Arizonia',cursive;font-size:24px;color:#D9C9E3">Ingrid Núñez</span>
+  <span style="font-size:11px;letter-spacing:2px;color:rgba(217,201,227,.4)">D'LYRA STUDIO · PLAN MAESTRO V2 · MARZO 2026</span>
+  <span style="font-size:12px;color:rgba(217,201,227,.5)">psicolaingridnunez.lovable.app</span>
+</div>
+
+</body>
+</html>
