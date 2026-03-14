@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingrid Núñez Psi — Carruseles + Historias Marzo–Abril 2026</title>
+<title>Ingrid Núñez Psi — Hub de Contenido Marzo–Abril 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -20,18 +20,42 @@ body { background:var(--beige); font-family:'Montserrat',sans-serif; color:var(-
 header { background:var(--dark); padding:48px 40px 40px; text-align:center; }
 .header-script { font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:var(--lavanda); opacity:.7; margin-bottom:8px; letter-spacing:1px; }
 header h1 { font-family:'Playfair Display',serif; font-size:clamp(26px,5vw,46px); color:var(--beige); font-weight:700; line-height:1.1; margin-bottom:12px; }
-header p { font-size:12px; color:var(--gris); letter-spacing:3px; text-transform:uppercase; }
+.header-stats { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-bottom:8px; }
+.h-stat { text-align:center; }
+.h-stat-num { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--lavanda); line-height:1; }
+.h-stat-lbl { font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gris); margin-top:3px; }
 .header-accent { width:48px; height:2px; background:var(--lavanda); margin:20px auto 0; border-radius:2px; }
+.header-dlyra { font-size:11px; color:rgba(176,174,176,.5); letter-spacing:2px; text-transform:uppercase; margin-top:14px; }
 
 /* NAV */
-.nav-pills { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:24px; background:var(--dark); border-top:1px solid rgba(217,201,227,.1); }
-.nav-pill { background:rgba(217,201,227,.1); border:1px solid rgba(217,201,227,.2); border-radius:100px; padding:6px 14px; font-size:10px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); cursor:pointer; text-decoration:none; transition:all .2s; }
+.nav-wrap { background:var(--dark); border-top:1px solid rgba(217,201,227,.08); padding:0 24px; }
+.nav-group { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; padding:14px 0; }
+.nav-group + .nav-group { border-top:1px solid rgba(217,201,227,.07); }
+.nav-label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(176,174,176,.35); display:flex; align-items:center; padding:6px 4px; white-space:nowrap; }
+.nav-pill { background:rgba(217,201,227,.08); border:1px solid rgba(217,201,227,.15); border-radius:100px; padding:6px 14px; font-size:10px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); cursor:pointer; text-decoration:none; transition:all .2s; white-space:nowrap; }
 .nav-pill:hover { background:var(--lavanda); color:var(--dark); border-color:var(--lavanda); }
+.nav-pill.accent { background:rgba(217,201,227,.15); border-color:rgba(217,201,227,.3); color:var(--lavanda); }
+.nav-pill.accent:hover { background:var(--lavanda); color:var(--dark); }
 
 /* MAIN */
 main { max-width:1280px; margin:0 auto; padding:48px 24px 80px; }
 
-/* SECTION */
+/* QUICK DOCS */
+.quick-docs { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:64px; }
+.doc-card { background:var(--dark); border-radius:16px; padding:28px 28px 24px; display:flex; flex-direction:column; gap:12px; text-decoration:none; transition:transform .2s, box-shadow .2s; }
+.doc-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(61,43,36,.2); }
+.doc-card .dc-icon { font-size:28px; }
+.doc-card .dc-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--beige); line-height:1.2; }
+.doc-card .dc-desc { font-size:12px; color:var(--gris); line-height:1.6; }
+.doc-card .dc-link { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--lavanda); margin-top:4px; }
+
+/* SECTION DIVIDER */
+.sec-divider { margin:56px 0 36px; display:flex; align-items:center; gap:20px; scroll-margin-top:80px; }
+.sec-divider .sdl { flex:1; height:1px; background:rgba(61,43,36,.12); }
+.sec-divider .sdt { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--dark); white-space:nowrap; }
+.sec-divider .sds { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gris); white-space:nowrap; }
+
+/* CAROUSEL SECTION */
 .carousel-section { margin-bottom:60px; scroll-margin-top:80px; }
 .carousel-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid rgba(61,43,36,.1); }
 .carousel-meta { display:flex; align-items:center; gap:14px; }
@@ -40,7 +64,7 @@ main { max-width:1280px; margin:0 auto; padding:48px 24px 80px; }
 .carousel-date { font-size:11px; letter-spacing:2.5px; text-transform:uppercase; color:var(--marron); margin-top:4px; }
 .slide-count-badge { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--gris); background:rgba(61,43,36,.06); border-radius:100px; padding:6px 16px; white-space:nowrap; }
 
-/* STRIP */
+/* SLIDES STRIP */
 .slides-strip { display:flex; gap:12px; overflow-x:auto; padding-bottom:12px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; cursor:grab; }
 .slides-strip:active { cursor:grabbing; }
 .slides-strip::-webkit-scrollbar { height:4px; }
@@ -63,13 +87,6 @@ main { max-width:1280px; margin:0 auto; padding:48px 24px 80px; }
 #lightbox-close { position:absolute; top:20px; right:24px; background:none; border:none; color:var(--gris); font-size:26px; cursor:pointer; padding:8px; transition:color .2s; }
 #lightbox-close:hover { color:var(--beige); }
 
-/* SECTION DIVIDER */
-.section-divider { margin:60px 0 40px; display:flex; align-items:center; gap:20px; }
-.section-divider .div-line { flex:1; height:1px; background:rgba(61,43,36,.12); }
-.section-divider .div-label { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--dark); white-space:nowrap; }
-.section-divider .div-sub { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gris); }
-.section-divider-wrap { text-align:center; }
-
 /* STORIES SECTION */
 .stories-section { margin-bottom:56px; scroll-margin-top:80px; }
 .stories-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid rgba(61,43,36,.1); }
@@ -81,6 +98,25 @@ main { max-width:1280px; margin:0 auto; padding:48px 24px 80px; }
 .story-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
 .story-slot-label { position:absolute; top:0; left:0; right:0; background:linear-gradient(to bottom,rgba(61,43,36,.75),transparent); color:#fff; font-size:9px; letter-spacing:1.5px; font-weight:600; padding:10px 8px 16px; text-align:center; text-transform:uppercase; }
 
+/* REELS SECTION */
+#reels-section { scroll-margin-top:80px; }
+.reels-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
+.reel-card { background:var(--dark); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s; }
+.reel-card:hover { transform:translateY(-3px); box-shadow:0 12px 36px rgba(61,43,36,.25); }
+.reel-cover { height:180px; background:linear-gradient(135deg,#2A1B16 0%,#3D2B24 50%,#1E1218 100%); position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.reel-cover::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(217,201,227,.06) 1px,transparent 1px); background-size:28px 28px; }
+.reel-play { width:60px; height:60px; border-radius:50%; background:rgba(248,242,236,.15); border:2px solid rgba(248,242,236,.3); display:flex; align-items:center; justify-content:center; font-size:22px; position:relative; z-index:2; }
+.reel-num-overlay { position:absolute; top:14px; left:18px; font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:rgba(217,201,227,.2); line-height:1; z-index:1; }
+.reel-date-overlay { position:absolute; bottom:14px; right:18px; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(217,201,227,.5); z-index:2; }
+.reel-body { padding:20px 22px 22px; flex:1; display:flex; flex-direction:column; gap:10px; }
+.reel-badge { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--lavanda); opacity:.7; }
+.reel-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--beige); line-height:1.25; }
+.reel-hook { font-size:12px; font-weight:300; color:rgba(248,242,236,.5); line-height:1.5; font-style:italic; flex:1; }
+.reel-footer { display:flex; align-items:center; justify-content:space-between; margin-top:6px; padding-top:12px; border-top:1px solid rgba(217,201,227,.08); }
+.reel-script-link { background:rgba(217,201,227,.12); border:1px solid rgba(217,201,227,.2); border-radius:100px; padding:7px 16px; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--lavanda); text-decoration:none; transition:all .2s; }
+.reel-script-link:hover { background:var(--lavanda); color:var(--dark); }
+.reel-type { font-size:10px; color:rgba(176,174,176,.4); letter-spacing:1px; }
+
 /* FOOTER */
 footer { text-align:center; padding:36px 24px; background:var(--dark); color:var(--gris); font-size:11px; letter-spacing:2px; }
 footer strong { color:var(--lavanda); }
@@ -90,40 +126,102 @@ footer strong { color:var(--lavanda); }
 
 <header>
   <p class="header-script">para ti,</p>
-  <h1>Ingrid Núñez Psi<br>Contenido Marzo–Abril 2026</h1>
-  <p>20 carruseles · 131 slides · 105 historias · D'Lyra Studio</p>
+  <h1>Ingrid Núñez Psi<br>Hub de Contenido Marzo–Abril 2026</h1>
+  <div class="header-stats">
+    <div class="h-stat"><div class="h-stat-num">20</div><div class="h-stat-lbl">Carruseles</div></div>
+    <div class="h-stat"><div class="h-stat-num">10</div><div class="h-stat-lbl">Reels</div></div>
+    <div class="h-stat"><div class="h-stat-num">105</div><div class="h-stat-lbl">Historias</div></div>
+    <div class="h-stat"><div class="h-stat-num">4</div><div class="h-stat-lbl">Lead Magnets</div></div>
+  </div>
   <div class="header-accent"></div>
+  <p class="header-dlyra">Preparado por D'Lyra Studio · @ingridnunezpsi</p>
 </header>
 
-<nav class="nav-pills">
-  <a class="nav-pill" href="#c01">C01 Mar 14</a>
-  <a class="nav-pill" href="#c02">C02 Mar 15</a>
-  <a class="nav-pill" href="#c03">C03 Mar 16</a>
-  <a class="nav-pill" href="#c04">C04 Mar 17</a>
-  <a class="nav-pill" href="#c05">C05 Mar 18</a>
-  <a class="nav-pill" href="#c06">C06 Mar 19</a>
-  <a class="nav-pill" href="#c07">C07 Mar 20</a>
-  <a class="nav-pill" href="#c08">C08 Mar 22</a>
-  <a class="nav-pill" href="#c09">C09 Mar 23</a>
-  <a class="nav-pill" href="#c10">C10 Mar 24</a>
-  <a class="nav-pill" href="#c11">C11 Mar 25</a>
-  <a class="nav-pill" href="#c12">C12 Mar 26</a>
-  <a class="nav-pill" href="#c13">C13 Mar 27</a>
-  <a class="nav-pill" href="#c14">C14 Mar 30</a>
-  <a class="nav-pill" href="#c15">C15 Abr 1</a>
-  <a class="nav-pill" href="#c16">C16 Abr 3</a>
-  <a class="nav-pill" href="#c17">C17 Abr 6</a>
-  <a class="nav-pill" href="#c18">C18 Abr 8</a>
-  <a class="nav-pill" href="#c19">C19 Abr 14</a>
-  <a class="nav-pill" href="#c20">C20 Abr 16</a>
-  <span style="color:rgba(217,201,227,.3);margin:0 4px">│</span>
-  <a class="nav-pill" href="#historias-section">📱 Historias</a>
-  <a class="nav-pill" href="ESTRATEGIA-MACRO-PRINT.html" target="_blank">📄 Estrategia PDF</a>
+<nav class="nav-wrap">
+  <div class="nav-group">
+    <span class="nav-label">documentos &nbsp;→&nbsp;</span>
+    <a class="nav-pill accent" href="ESTRATEGIA-MACRO-PRINT.html" target="_blank">📄 Estrategia</a>
+    <a class="nav-pill accent" href="GUIONES-REELS.html" target="_blank">🎬 Guiones Reels</a>
+    <a class="nav-pill accent" href="PLANTILLAS-SHOWCASE.html" target="_blank">🎨 Plantillas</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-label">ir a &nbsp;→&nbsp;</span>
+    <a class="nav-pill" href="#carruseles-section">🎠 Carruseles</a>
+    <a class="nav-pill" href="#historias-section">📱 Historias</a>
+    <a class="nav-pill" href="#reels-section">🎬 Reels</a>
+  </div>
+  <div class="nav-group">
+    <span class="nav-label">carruseles &nbsp;→&nbsp;</span>
+    <a class="nav-pill" href="#c01">C01</a>
+    <a class="nav-pill" href="#c02">C02</a>
+    <a class="nav-pill" href="#c03">C03</a>
+    <a class="nav-pill" href="#c04">C04</a>
+    <a class="nav-pill" href="#c05">C05</a>
+    <a class="nav-pill" href="#c06">C06</a>
+    <a class="nav-pill" href="#c07">C07</a>
+    <a class="nav-pill" href="#c08">C08</a>
+    <a class="nav-pill" href="#c09">C09</a>
+    <a class="nav-pill" href="#c10">C10</a>
+    <a class="nav-pill" href="#c11">C11</a>
+    <a class="nav-pill" href="#c12">C12</a>
+    <a class="nav-pill" href="#c13">C13</a>
+    <a class="nav-pill" href="#c14">C14</a>
+    <a class="nav-pill" href="#c15">C15</a>
+    <a class="nav-pill" href="#c16">C16</a>
+    <a class="nav-pill" href="#c17">C17</a>
+    <a class="nav-pill" href="#c18">C18</a>
+    <a class="nav-pill" href="#c19">C19</a>
+    <a class="nav-pill" href="#c20">C20</a>
+  </div>
 </nav>
 
 <main>
+
+  <!-- QUICK ACCESS DOCS -->
+  <div class="quick-docs">
+    <a class="doc-card" href="ESTRATEGIA-MACRO-PRINT.html" target="_blank">
+      <div class="dc-icon">📄</div>
+      <div class="dc-title">Estrategia Macro<br>Marzo–Abril 2026</div>
+      <div class="dc-desc">Objetivos, fases, calendario completo, lead magnets y estructura del curso. Versión imprimible / PDF.</div>
+      <div class="dc-link">Abrir estrategia →</div>
+    </a>
+    <a class="doc-card" href="GUIONES-REELS.html" target="_blank">
+      <div class="dc-icon">🎬</div>
+      <div class="dc-title">Guiones de Reels<br>R01 – R10</div>
+      <div class="dc-desc">Scripts completos de los 10 reels: hook, escenas con timing, caption de Instagram y CTA de cada uno.</div>
+      <div class="dc-link">Ver guiones →</div>
+    </a>
+    <a class="doc-card" href="PLANTILLAS-SHOWCASE.html" target="_blank">
+      <div class="dc-icon">🎨</div>
+      <div class="dc-title">Plantillas Aprobadas<br>6 Carrusel · 3 Historias · 1 Reel</div>
+      <div class="dc-desc">Diseños visuales aprobados: tipos de slide para carruseles, historias H1/H2/H3 y cover de reels.</div>
+      <div class="dc-link">Ver plantillas →</div>
+    </a>
+  </div>
+
+  <!-- CARRUSELES -->
+  <div class="sec-divider" id="carruseles-section">
+    <div class="sdl"></div>
+    <div class="sdt">Carruseles</div>
+    <div class="sds">20 carruseles · 131 slides</div>
+    <div class="sdl"></div>
+  </div>
+
   <div id="gallery"></div>
+
+  <!-- HISTORIAS -->
   <div id="historias-section"></div>
+
+  <!-- REELS -->
+  <div class="sec-divider" id="reels-section">
+    <div class="sdl"></div>
+    <div class="sdt">Reels</div>
+    <div class="sds">10 reels · Mar 29 – Abr 17</div>
+    <div class="sdl"></div>
+  </div>
+
+  <div class="reels-grid" id="reels-grid"></div>
+
 </main>
 
 <div id="lightbox">
@@ -138,10 +236,11 @@ footer strong { color:var(--lavanda); }
 </div>
 
 <footer>
-  Preparado por <strong>D'Lyra Studio</strong> para <strong>@ingridnunezpsi</strong> · Marzo 2026
+  Preparado por <strong>D'Lyra Studio</strong> para <strong>@ingridnunezpsi</strong> · Marzo–Abril 2026
 </footer>
 
 <script>
+/* ─── CARRUSELES ─────────────────────────────────────────────────────────── */
 const CARRUSELES = [
   { id:"c01", num:"01", folder:"C01-MAR14-PRESENTACION", title:"Hola, por si no nos conocemos", date:"Sábado 14 Mar", slides:7, type:"💌 Carta" },
   { id:"c02", num:"02", folder:"C02-MAR15-CRIAR-SANAR", title:"Criar también es sanar", date:"Domingo 15 Mar", slides:7, type:"💌 Carta dominical" },
@@ -200,7 +299,7 @@ document.querySelectorAll('.slides-strip').forEach(strip => {
   strip.addEventListener('mousemove',e=>{if(!down)return; e.preventDefault(); strip.scrollLeft=scrollL-(e.pageX-strip.offsetLeft-startX);});
 });
 
-// Lightbox
+/* ─── LIGHTBOX ───────────────────────────────────────────────────────────── */
 let lbImages=[], lbIdx=0;
 
 function openLightbox(folder, idx) {
@@ -218,6 +317,7 @@ function openLightbox(folder, idx) {
 function showLb() {
   const item=lbImages[lbIdx];
   document.getElementById('lightbox-img').src=item.src;
+  document.getElementById('lightbox-img').style.maxHeight='82vh';
   document.getElementById('lightbox-caption').textContent=item.caption;
   document.getElementById('lightbox-counter').textContent=`${item.num} de ${item.total}`;
 }
@@ -238,7 +338,7 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape')closeLb();
 });
 
-// ─── HISTORIAS ────────────────────────────────────────────────────────────────
+/* ─── HISTORIAS ──────────────────────────────────────────────────────────── */
 const HISTORIAS_DIAS = [
   {key:"Sáb_14_Mar", fecha:"Sáb 14 Mar", feed:"C1 · Presentación"},
   {key:"Dom_15_Mar", fecha:"Dom 15 Mar", feed:"C2 · Criar también es sanar"},
@@ -285,17 +385,17 @@ const SLOTS = [
 
 const hSection = document.getElementById('historias-section');
 
-// Divider
 hSection.innerHTML = `
-  <div style="margin:60px 0 32px;text-align:center;padding:40px 0;border-top:1px solid rgba(61,43,36,.1);border-bottom:1px solid rgba(61,43,36,.1)">
-    <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gris);margin-bottom:8px">Plan completo de</p>
-    <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:var(--dark);margin-bottom:6px">Historias de Instagram</h2>
-    <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--marron)">35 días · 3 historias diarias · 105 historias en total</p>
-    <div style="display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap">
-      <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">📱 H1 · 8–9am · Buenos días + Encuesta</span>
-      <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">📊 H2 · 12–1pm · Dato + Recordatorio</span>
-      <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">💙 H3 · 6–8pm · CTA + Comunidad</span>
-    </div>
+  <div class="sec-divider">
+    <div class="sdl"></div>
+    <div class="sdt">Historias</div>
+    <div class="sds">35 días · 3 por día · 105 historias</div>
+    <div class="sdl"></div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:36px">
+    <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">📱 H1 · 8–9am · Buenos días + Encuesta</span>
+    <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">📊 H2 · 12–1pm · Dato + Recordatorio</span>
+    <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">💙 H3 · 6–8pm · CTA + Comunidad</span>
   </div>`;
 
 let allStoryImages = [];
@@ -325,27 +425,71 @@ let storyLbIdx = 0;
 
 function openStoryLightbox(idx) {
   storyLbIdx = idx;
-  showStoryLb();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  lbImages = allStoryImages; // reuse lightbox with story images
+  lbImages = allStoryImages;
   lbIdx = idx;
-}
-
-function showStoryLb() {
-  const item = allStoryImages[storyLbIdx];
+  const item = allStoryImages[idx];
   document.getElementById('lightbox-img').src = item.src;
   document.getElementById('lightbox-img').style.maxHeight = '80vh';
   document.getElementById('lightbox-caption').textContent = item.day + ' · ' + item.slot;
-  document.getElementById('lightbox-counter').textContent = (storyLbIdx + 1) + ' de ' + allStoryImages.length;
+  document.getElementById('lightbox-counter').textContent = (idx + 1) + ' de ' + allStoryImages.length;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-// override lightbox prev/next to support stories too
 document.getElementById('lb-prev').addEventListener('click', () => {
-  if(lbImages === allStoryImages){ storyLbIdx=(storyLbIdx-1+allStoryImages.length)%allStoryImages.length; showStoryLb(); }
+  if(lbImages === allStoryImages){
+    storyLbIdx=(storyLbIdx-1+allStoryImages.length)%allStoryImages.length;
+    lbIdx=storyLbIdx;
+    const item=allStoryImages[storyLbIdx];
+    document.getElementById('lightbox-img').src=item.src;
+    document.getElementById('lightbox-caption').textContent=item.day+' · '+item.slot;
+    document.getElementById('lightbox-counter').textContent=(storyLbIdx+1)+' de '+allStoryImages.length;
+  }
 });
 document.getElementById('lb-next').addEventListener('click', () => {
-  if(lbImages === allStoryImages){ storyLbIdx=(storyLbIdx+1)%allStoryImages.length; showStoryLb(); }
+  if(lbImages === allStoryImages){
+    storyLbIdx=(storyLbIdx+1)%allStoryImages.length;
+    lbIdx=storyLbIdx;
+    const item=allStoryImages[storyLbIdx];
+    document.getElementById('lightbox-img').src=item.src;
+    document.getElementById('lightbox-caption').textContent=item.day+' · '+item.slot;
+    document.getElementById('lightbox-counter').textContent=(storyLbIdx+1)+' de '+allStoryImages.length;
+  }
+});
+
+/* ─── REELS ──────────────────────────────────────────────────────────────── */
+const REELS = [
+  { id:"r01", num:"R01", date:"Dom 29 Mar", title:"\"Antes de las 9am ya viví esto...\"", hook:"Lista de situaciones cotidianas de crianza 😅 — relatable, humor real", tipo:"🎬 Texto en pantalla + Voz IA · 30–45 seg" },
+  { id:"r02", num:"R02", date:"Mar 31 Mar", title:"\"3 actividades para Semana Santa\"", hook:"Actividades que conectan, no cuestan nada y funcionan de verdad 🌿", tipo:"🎬 Texto en pantalla + Voz IA · 45–55 seg" },
+  { id:"r03", num:"R03", date:"Jue 2 Abr",  title:"\"¿Para qué sirve ir a psicología?\"", hook:"Ingrid responde la pregunta que más le hacen 🧠", tipo:"🎬 Texto en pantalla + Voz IA · 45–60 seg" },
+  { id:"r04", num:"R04", date:"Dom 5 Abr",  title:"\"La peor madre del mundo\"", hook:"Humanización: la psicóloga también tiene días difíciles 💙", tipo:"🎬 Texto en pantalla + Voz IA · 45–60 seg" },
+  { id:"r05", num:"R05", date:"Mar 7 Abr",  title:"\"Cuando tu hijo llora y no sabes qué hacer\"", hook:"3 pasos prácticos para ese momento de congelamiento 🌿", tipo:"🎬 Texto en pantalla + Voz IA · 45–55 seg" },
+  { id:"r06", num:"R06", date:"Vie 10 Abr", title:"\"El descanso que más necesitan tus hijos\"", hook:"Viernes Santo: lo que más descansa a un niño no es el sueño 🥚", tipo:"🎬 Texto en pantalla + Voz IA · 40–50 seg" },
+  { id:"r07", num:"R07", date:"Dom 12 Abr", title:"\"Inside Out nos enseñó 3 cosas\"", hook:"La película más honesta sobre emociones — y lo que aún aprendemos 🎬", tipo:"🎬 Texto en pantalla + Voz IA · 45–60 seg" },
+  { id:"r08", num:"R08", date:"Lun 13 Abr", title:"\"Soy psicóloga y...\"", hook:"Confesiones reales. Reel participativo — el público completa la frase 💙", tipo:"🎬 Texto en pantalla + Voz IA · 30–45 seg" },
+  { id:"r09", num:"R09", date:"Mié 15 Abr", title:"\"Actividad de 10 minutos para conectar\"", hook:"El juego del detective de emociones — fácil, gratis, funciona 🌿", tipo:"🎬 Texto en pantalla + Voz IA · 45–55 seg" },
+  { id:"r10", num:"R10", date:"Vie 17 Abr ✨", title:"\"Lo que aprendí siendo psicóloga Y mamá\"", hook:"Cierre del mes — Ingrid en cámara, reflexión personal y agradecimiento 💙", tipo:"📹 Ingrid en cámara · 45–60 seg" },
+];
+
+const reelsGrid = document.getElementById('reels-grid');
+REELS.forEach(r => {
+  reelsGrid.innerHTML += `
+    <div class="reel-card">
+      <div class="reel-cover">
+        <div class="reel-num-overlay">${r.num}</div>
+        <div class="reel-play">▶</div>
+        <div class="reel-date-overlay">${r.date}</div>
+      </div>
+      <div class="reel-body">
+        <div class="reel-badge">${r.num} · ${r.date}</div>
+        <div class="reel-title">${r.title}</div>
+        <div class="reel-hook">${r.hook}</div>
+        <div class="reel-footer">
+          <a class="reel-script-link" href="GUIONES-REELS.html#${r.id}" target="_blank">Ver guión →</a>
+          <div class="reel-type">${r.tipo}</div>
+        </div>
+      </div>
+    </div>`;
 });
 </script>
 </body>

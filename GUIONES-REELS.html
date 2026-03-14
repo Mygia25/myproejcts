@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guiones de Reels — @ingridnunezpsi · Marzo–Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --lavanda: #D9C9E3;
+  --beige: #F8F2EC;
+  --marron: #806357;
+  --gris: #B0AEB0;
+  --dark: #3D2B24;
+  --page-bg: #0E0A09;
+  --card-bg: #1A1109;
+}
+
+body {
+  background: var(--page-bg);
+  font-family: 'Montserrat', sans-serif;
+  color: var(--beige);
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: var(--dark);
+  padding: 48px 40px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  background: rgba(217,201,227,.1);
+  border: 1px solid rgba(217,201,227,.25);
+  border-radius: 100px;
+  padding: 7px 18px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gris);
+  text-decoration: none;
+  transition: all .2s;
+}
+.back-link:hover {
+  background: var(--lavanda);
+  color: var(--dark);
+  border-color: var(--lavanda);
+}
+
+.header-script {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--lavanda);
+  opacity: .7;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 40px);
+  color: var(--beige);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.header-sub {
+  font-size: 11px;
+  color: var(--gris);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.header-accent {
+  width: 48px;
+  height: 2px;
+  background: var(--lavanda);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+/* NAV */
+.nav-wrap {
+  background: var(--dark);
+  border-top: 1px solid rgba(217,201,227,.08);
+  padding: 16px 24px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-pills {
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  min-width: 100%;
+}
+.nav-pill {
+  background: rgba(217,201,227,.08);
+  border: 1px solid rgba(217,201,227,.2);
+  border-radius: 100px;
+  padding: 7px 18px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--lavanda);
+  text-decoration: none;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.nav-pill:hover {
+  background: var(--lavanda);
+  color: var(--dark);
+  border-color: var(--lavanda);
+}
+
+/* MAIN */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+/* REEL CARD */
+.reel-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(217,201,227,.12);
+  border-radius: 16px;
+  padding: 48px;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.reel-card + .reel-card::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: rgba(217,201,227,.07);
+  position: absolute;
+  top: -24px;
+  left: 48px;
+  right: 48px;
+}
+
+/* CARD TOP ROW */
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  margin-bottom: 20px;
+}
+.reel-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--lavanda);
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: .85;
+}
+.card-meta {
+  padding-top: 8px;
+}
+.card-date {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--marron);
+  margin-bottom: 8px;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--beige);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.card-tipo {
+  font-size: 12px;
+  color: var(--gris);
+  font-weight: 300;
+}
+
+/* PRODUCTION BADGE */
+.prod-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(128,99,87,.18);
+  border: 1px solid rgba(128,99,87,.35);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--marron);
+  letter-spacing: .5px;
+  margin-bottom: 36px;
+}
+
+/* SECTION LABELS */
+.section {
+  margin-bottom: 28px;
+}
+.section-label {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.label-hook {
+  background: rgba(217,201,227,.12);
+  color: var(--lavanda);
+  border: 1px solid rgba(217,201,227,.25);
+}
+.label-escenas {
+  background: rgba(248,242,236,.08);
+  color: var(--beige);
+  border: 1px solid rgba(248,242,236,.18);
+}
+.label-caption {
+  background: rgba(128,99,87,.12);
+  color: var(--marron);
+  border: 1px solid rgba(128,99,87,.3);
+}
+.label-cta {
+  background: rgba(176,174,176,.1);
+  color: var(--gris);
+  border: 1px solid rgba(176,174,176,.2);
+}
+
+/* HOOK TEXT */
+.hook-text {
+  font-size: 17px;
+  color: var(--lavanda);
+  font-weight: 400;
+  line-height: 1.55;
+  padding-left: 16px;
+  border-left: 2px solid var(--lavanda);
+}
+
+/* ESCENAS */
+.escenas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.escena-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: rgba(248,242,236,.03);
+  border: 1px solid rgba(248,242,236,.07);
+  border-left: 3px solid rgba(248,242,236,.35);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+}
+.escena-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--gris);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  min-width: 64px;
+  padding-top: 2px;
+}
+.escena-timing {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--marron);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  min-width: 54px;
+  padding-top: 3px;
+}
+.escena-text {
+  font-size: 14px;
+  color: var(--beige);
+  line-height: 1.6;
+}
+.escena-text em {
+  color: var(--lavanda);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* CAPTION BLOCK */
+.caption-block {
+  background: rgba(0,0,0,.4);
+  border: 1px solid rgba(217,201,227,.1);
+  border-radius: 10px;
+  padding: 20px 22px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  color: var(--beige);
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* CTA TEXT */
+.cta-text {
+  font-size: 15px;
+  color: var(--gris);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* MEDIA PLACEHOLDER */
+.media-placeholder {
+  margin-top: 32px;
+  background: rgba(217,201,227,.04);
+  border: 1.5px dashed rgba(217,201,227,.2);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  color: var(--gris);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.media-placeholder span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 24px 56px;
+  border-top: 1px solid rgba(217,201,227,.08);
+  color: var(--gris);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .reel-card { padding: 28px 20px; }
+  .card-top { flex-direction: column; gap: 8px; }
+  .reel-number { font-size: 48px; }
+  .card-title { font-size: 22px; }
+  .escena-item { flex-wrap: wrap; gap: 8px; }
+  .escena-num, .escena-timing { min-width: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="back-link" href="index.html">← Inicio</a>
+  <p class="header-script">Producción de contenido</p>
+  <h1>Guiones de Reels</h1>
+  <p class="header-sub">@ingridnunezpsi &nbsp;·&nbsp; Marzo–Abril 2026 &nbsp;·&nbsp; D'Lyra Studio</p>
+  <div class="header-accent"></div>
+</header>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-pills">
+    <a class="nav-pill" href="#r01">R01</a>
+    <a class="nav-pill" href="#r02">R02</a>
+    <a class="nav-pill" href="#r03">R03</a>
+    <a class="nav-pill" href="#r04">R04</a>
+    <a class="nav-pill" href="#r05">R05</a>
+    <a class="nav-pill" href="#r06">R06</a>
+    <a class="nav-pill" href="#r07">R07</a>
+    <a class="nav-pill" href="#r08">R08</a>
+    <a class="nav-pill" href="#r09">R09</a>
+    <a class="nav-pill" href="#r10">R10</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- ======== R01 ======== -->
+  <div class="reel-card" id="r01">
+    <div class="card-top">
+      <div class="reel-number">R01</div>
+      <div class="card-meta">
+        <div class="card-date">Dom · 29 Mar 2026</div>
+        <div class="card-title">"Antes de las 9am ya viví esto..."</div>
+        <div class="card-tipo">Situaciones cotidianas de crianza</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">Texto animado en pantalla: "Antes de las 9am ya..." — corte rápido</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–12s]</span>
+          <span class="escena-text">Lista en pantalla, texto aparece uno a uno:<br>
+            ☕ El café se derramó.<br>
+            👟 El zapato no aparecía.<br>
+            😭 Lloró porque el pan estaba partido en dos.<br>
+            🍽️ "No tengo hambre" — 5 min después del desayuno.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[12–25s]</span>
+          <span class="escena-text">Texto grande centrado: <em>"Si llegaste a las 9am habiendo sobrevivido todo esto... eres un héroe/heroína sin capa."</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[25–45s]</span>
+          <span class="escena-text">Voz/texto: "La crianza de verdad no sale en los libros. Sale en esos momentos donde das lo mejor de ti aunque estés agotada/o. Y eso vale mucho."</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[45–55s]</span>
+          <span class="escena-text"><em>"Comenta la tuya 👇 ¿Cuál fue tu situación de esta semana?"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Antes de las 9am ya sobreviví todo esto... 😅
+
+La crianza real no sale en los libros. Sale en esos lunes imposibles donde das lo mejor de ti aunque estés agotada/o.
+
+Comenta la tuya 👇 Me muero por leerlas.
+
+#crianzaconsciente #mamás #papás #ingridnunezpsi #criarsingritos</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Comenta la tuya 👇 ¿Cuál fue tu situación de esta semana?</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R02 ======== -->
+  <div class="reel-card" id="r02">
+    <div class="card-top">
+      <div class="reel-number">R02</div>
+      <div class="card-meta">
+        <div class="card-date">Mar · 31 Mar 2026</div>
+        <div class="card-title">"3 actividades para Semana Santa"</div>
+        <div class="card-tipo">Actividades que conectan, no cuestan nada</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"Semana Santa con niños en casa. Sin plan. Aquí van 3 actividades que conectan de verdad."</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–18s]</span>
+          <span class="escena-text">🍳 <em>Actividad 1: Cocinen algo juntos.</em> No importa qué. Cada quien aporta un ingrediente. El proceso es la conexión.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[18–33s]</span>
+          <span class="escena-text">📵 <em>Actividad 2: Una hora sin pantallas.</em> Pongan música. Hagan algo con las manos. Dibujar, armar, construir.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[33–48s]</span>
+          <span class="escena-text">💬 <em>Actividad 3: Díganle algo que admiran del otro.</em> Un adulto empieza. El niño/a sigue. Simple. Poderoso.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[48–58s]</span>
+          <span class="escena-text"><em>"Guarda este reel 🌿 Y cuéntame cuál van a hacer."</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Semana Santa con niños en casa 🌸
+
+No necesitas un plan perfecto. Solo 3 actividades que conectan de verdad — y no cuestan nada.
+
+🍳 Cocinar juntos
+📵 Una hora sin pantallas
+💬 Decirse algo que admiran
+
+Guarda esto. Y cuéntame cuál hicieron 👇
+
+#SemanaSanta #crianzaconsciente #actividadesinfantiles #ingridnunezpsi</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Guarda este reel 🌿 Y cuéntame cuál van a hacer.</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R03 ======== -->
+  <div class="reel-card" id="r03">
+    <div class="card-top">
+      <div class="reel-number">R03</div>
+      <div class="card-meta">
+        <div class="card-date">Jue · 2 Abr 2026</div>
+        <div class="card-title">"¿Para qué sirve ir a psicología?"</div>
+        <div class="card-tipo">Ingrid responde FAQ — educativo</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"¿Para qué llevo a mi hijo al psicólogo si parece estar bien?" — texto en pantalla</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–18s]</span>
+          <span class="escena-text">Para que aprenda a <em>nombrar lo que siente</em> ANTES de que lo exprese con conductas. Un niño que sabe decir "estoy frustrado" no necesita golpear.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[18–33s]</span>
+          <span class="escena-text">Para <em>intervenir temprano.</em> Un patrón de 3 años es mucho más fácil de trabajar que uno de 13.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[33–48s]</span>
+          <span class="escena-text">Para que tenga <em>un espacio donde expresarse sin miedo al juicio.</em> A veces los niños necesitan decirle a alguien más que no eres tú.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[48–58s]</span>
+          <span class="escena-text"><em>"¿Tienes dudas sobre si tu hijo/a necesita apoyo psicológico? Escríbeme. Te oriento sin costo. 💙"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">¿Para qué va mi hijo al psicólogo si "parece" estar bien? 🧠
+
+La psicología no es solo para las crisis. Es prevención, es herramienta, es inversión.
+
+Si tienes dudas sobre tu hijo/a — escríbeme por DM. Te oriento sin costo.
+
+#psicologiainfantil #saludemocional #crianzaconsciente #ingridnunezpsi</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">¿Tienes dudas sobre si tu hijo/a necesita apoyo psicológico? Escríbeme. Te oriento sin costo. 💙</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R04 ======== -->
+  <div class="reel-card" id="r04">
+    <div class="card-top">
+      <div class="reel-number">R04</div>
+      <div class="card-meta">
+        <div class="card-date">Dom · 5 Abr 2026</div>
+        <div class="card-title">"La peor madre del mundo"</div>
+        <div class="card-tipo">Humanización Ingrid — emocional</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"Soy psicóloga. Y más de una vez pensé que era la peor madre del mundo." — voz en off / texto lento</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–20s]</span>
+          <span class="escena-text">Hubo una tarde que grité. Cerré una puerta de más. Me fui al baño a llorar. Y pensé: ¿cómo puedo hablarle a otros de crianza consciente si yo misma no puedo?</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[20–38s]</span>
+          <span class="escena-text">Y ahí entendí algo que cambió todo: <em>La crianza consciente no es no equivocarse. Es poder REPARAR después.</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[38–52s]</span>
+          <span class="escena-text">Entrar al cuarto. Arrodillarse. Decir: <em>"Me equivoqué. Lo siento. Te quiero."</em> Eso es crianza consciente.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[52–60s]</span>
+          <span class="escena-text"><em>"Si hoy sentiste que eres el/la peor... escríbeme. No estás sola/o. 💙"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Soy psicóloga. Y más de una vez pensé que era la peor madre del mundo. 💙
+
+La crianza consciente no es ser perfecta.
+Es poder reparar después de equivocarte.
+
+Si hoy lo sientes — escríbeme. No estás sola/o.
+
+#crianzareal #mamásreales #ingridnunezpsi #criarsingritos #psicologiainfantil</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Si hoy sentiste que eres el/la peor... escríbeme. No estás sola/o. 💙</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R05 ======== -->
+  <div class="reel-card" id="r05">
+    <div class="card-top">
+      <div class="reel-number">R05</div>
+      <div class="card-meta">
+        <div class="card-date">Mar · 7 Abr 2026</div>
+        <div class="card-title">"Cuando tu hijo llora y no sabes qué hacer"</div>
+        <div class="card-tipo">Tutorial práctico — 3 pasos</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"Tu hijo llora. Tú te congelas. No sabes qué hacer. Aquí van 3 pasos."</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–18s]</span>
+          <span class="escena-text"><em>Paso 1: Para lo que estás haciendo.</em> Solo para. El cerebro de un niño en crisis necesita una señal de que el adulto está presente.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[18–33s]</span>
+          <span class="escena-text"><em>Paso 2: Baja a su nivel físicamente.</em> Ponte a su altura. Míralo a los ojos.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[33–48s]</span>
+          <span class="escena-text"><em>Paso 3: Nombra lo que ves.</em> "Veo que estás muy triste/enojado. Aquí estoy." No resuelvas. Solo nombra y acompaña.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[48–58s]</span>
+          <span class="escena-text"><em>"Guarda este reel para cuando lo necesites 🌿"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Tu hijo llora. Tú te congelas. No sabes qué hacer. 💙
+
+3 pasos para estar presente en ese momento:
+
+1. Para lo que estás haciendo
+2. Baja a su nivel físicamente
+3. Nombra lo que ves: "Aquí estoy"
+
+Guarda esto 🌿
+
+#regulacionemocional #crianzaconsciente #ingridnunezpsi #psicologiainfantil</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Guarda este reel para cuando lo necesites 🌿</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R06 ======== -->
+  <div class="reel-card" id="r06">
+    <div class="card-top">
+      <div class="reel-number">R06</div>
+      <div class="card-meta">
+        <div class="card-date">Vie · 10 Abr 2026</div>
+        <div class="card-title">"El descanso que más necesitan tus hijos"</div>
+        <div class="card-tipo">Viernes Santo — reflexión</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"El descanso que más necesitan tus hijos este Viernes Santo no es el sueño."</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–20s]</span>
+          <span class="escena-text">No es dormir más. No es más pantallas. No es más actividades.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[20–38s]</span>
+          <span class="escena-text">Lo que más descansa a un niño emocionalmente es <em>co-regularse con un adulto tranquilo.</em> 20 minutos contigo. Sin teléfono. Sin agenda.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[38–52s]</span>
+          <span class="escena-text">No necesitas nada especial. Solo estar. Presente de verdad. <em>Eso recarga su sistema nervioso más que cualquier siesta.</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[52–60s]</span>
+          <span class="escena-text"><em>"Comparte esto con una familia que lo necesite 🌿"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Viernes Santo 🥚
+
+El descanso que más necesitan tus hijos no es el sueño.
+
+Es co-regularse contigo.
+20 minutos. Sin teléfono. Sin agenda.
+Solo estar.
+
+Comparte con una familia que necesite escuchar esto hoy 🌿
+
+#SemanaSanta #coregulacion #crianzaconsciente #ingridnunezpsi</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Comparte esto con una familia que lo necesite 🌿</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R07 ======== -->
+  <div class="reel-card" id="r07">
+    <div class="card-top">
+      <div class="reel-number">R07</div>
+      <div class="card-meta">
+        <div class="card-date">Dom · 12 Abr 2026</div>
+        <div class="card-title">"Inside Out"</div>
+        <div class="card-tipo">Cultura pop + crianza — Domingo de Pascua</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"Inside Out es la película más honesta sobre emociones que existe. Y nos enseñó 3 cosas que los adultos todavía aprendemos."</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–18s]</span>
+          <span class="escena-text"><em>1. Todas las emociones tienen un propósito.</em> Incluso la tristeza. Especialmente la tristeza. Sin ella no hay conexión real.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[18–33s]</span>
+          <span class="escena-text"><em>2. No puedes ser feliz siempre. Y no deberías.</em> Las emociones difíciles también son parte de una mente sana.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[33–50s]</span>
+          <span class="escena-text"><em>3. Reprimir no es lo mismo que regular.</em> Riley casi se rompe por dentro cuando le dijeron "sé feliz". ¿Cuántas veces le decimos eso a nuestros hijos?</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[50–60s]</span>
+          <span class="escena-text"><em>"¿La viste con tus hijos? Cuéntame qué fue lo más difícil de explicarles 🎬"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Inside Out nos enseñó algo que los adultos todavía aprendemos 🎬
+
+1. Todas las emociones tienen propósito — incluso la tristeza
+2. No puedes ser feliz siempre. Y no deberías.
+3. Reprimir ≠ regular
+
+¿La viste con tus hijos? 👇
+
+#InsideOut #educacionemocional #crianzaconsciente #ingridnunezpsi</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">¿La viste con tus hijos? Cuéntame qué fue lo más difícil de explicarles 🎬</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R08 ======== -->
+  <div class="reel-card" id="r08">
+    <div class="card-top">
+      <div class="reel-number">R08</div>
+      <div class="card-meta">
+        <div class="card-date">Lun · 13 Abr 2026</div>
+        <div class="card-title">"Soy psicóloga y..." — Confesiones</div>
+        <div class="card-tipo">Participativo — humanización</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"Soy psicóloga. Y." — pausa — texto aparece lento</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–15s]</span>
+          <span class="escena-text"><em>...también pierdo la calma con mis hijos.</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[15–27s]</span>
+          <span class="escena-text"><em>...también me siento culpable después.</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[27–39s]</span>
+          <span class="escena-text"><em>...también hay días que solo quiero que alguien me cuide a MÍ.</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 4</span>
+          <span class="escena-timing">[39–50s]</span>
+          <span class="escena-text">Ser profesional de la salud mental no te hace inmune. Te hace <em>más consciente.</em> Y eso a veces duele más.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[50–60s]</span>
+          <span class="escena-text"><em>"Ahora tú. 'Soy [mamá/papá] y...' Complétalo en comentarios 💙"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Soy psicóloga y...
+
+...también pierdo la calma con mis hijos.
+...también me siento culpable después.
+...también hay días que solo quiero que alguien me cuide a MÍ.
+
+Ahora tú 👇
+"Soy [mamá/papá] y..."
+
+#mamásreales #psicologiareal #crianzaconsciente #ingridnunezpsi</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Ahora tú. "Soy [mamá/papá] y..." Complétalo en comentarios 💙</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R09 ======== -->
+  <div class="reel-card" id="r09">
+    <div class="card-top">
+      <div class="reel-number">R09</div>
+      <div class="card-meta">
+        <div class="card-date">Mié · 15 Abr 2026</div>
+        <div class="card-title">"Actividad de 10 minutos"</div>
+        <div class="card-tipo">Tutorial — actividad práctica</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Texto en pantalla + Voz IA</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">"10 minutos. Esta noche. Sin gastar nada. Aquí va la actividad."</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–15s]</span>
+          <span class="escena-text">Se llama: <em>"El detective de emociones."</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[15–28s]</span>
+          <span class="escena-text"><em>Paso 1:</em> Siéntate con tu hijo/a. Sin teléfono. Solo ustedes dos.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[28–41s]</span>
+          <span class="escena-text"><em>Paso 2:</em> Pregunta: "¿Cuál fue el momento más difícil del día para ti?" Y solo escucha. Sin resolver. Sin corregir.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 4</span>
+          <span class="escena-timing">[41–52s]</span>
+          <span class="escena-text">Eso es co-regulación. Eso es crianza consciente. <em>10 minutos que valen más que una hora de actividades.</em></span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[52–60s]</span>
+          <span class="escena-text"><em>"Cuéntame cómo les fue 💙 ¿Lo intentan esta noche?"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">10 minutos. Esta noche. Sin gastar nada. 🌿
+
+"El detective de emociones"
+
+1. Siéntense juntos. Sin teléfono.
+2. Pregunta: "¿Cuál fue el momento más difícil del día para ti?"
+3. Solo escucha. No resuelvas.
+
+¿Lo intentan esta noche? Cuéntame 💙
+
+#crianzaconsciente #actividadesconhijos #coregulacion #ingridnunezpsi</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">Cuéntame cómo les fue 💙 ¿Lo intentan esta noche?</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: foto / video de fondo
+    </div>
+  </div>
+
+  <!-- ======== R10 ======== -->
+  <div class="reel-card" id="r10">
+    <div class="card-top">
+      <div class="reel-number">R10</div>
+      <div class="card-meta">
+        <div class="card-date">Vie · 17 Abr 2026</div>
+        <div class="card-title">"Lo que aprendí siendo psicóloga Y mamá"</div>
+        <div class="card-tipo">Cierre emocional del mes</div>
+      </div>
+    </div>
+    <div class="prod-badge">🎬 30–60 seg &nbsp;·&nbsp; Ingrid en cámara</div>
+
+    <div class="section">
+      <span class="section-label label-hook">Hook &nbsp;0–3s</span>
+      <p class="hook-text">Ingrid a cámara: "Un mes. Y lo que verdaderamente aprendí siendo psicóloga Y mamá."</p>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-escenas">Escenas</span>
+      <div class="escenas-list">
+        <div class="escena-item">
+          <span class="escena-num">Esc. 1</span>
+          <span class="escena-timing">[3–18s]</span>
+          <span class="escena-text">Aprendí que <em>la teoría nunca es suficiente hasta que la vives.</em> Que los libros de crianza son guías, no contratos.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 2</span>
+          <span class="escena-timing">[18–33s]</span>
+          <span class="escena-text">Aprendí que <em>la reparación es tan importante como la prevención.</em> Que "lo siento" dicho de verdad vale más que mil técnicas.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Esc. 3</span>
+          <span class="escena-timing">[33–48s]</span>
+          <span class="escena-text">Y aprendí que <em>criar no es hacer todo perfecto.</em> Es estar presente cuando importa. Y levantarte después de caer.</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">Cierre</span>
+          <span class="escena-timing">[48–58s]</span>
+          <span class="escena-text">"Gracias por este mes. Por confiarme sus historias, sus dudas y su amor enorme. Nos seguimos viendo aquí."</span>
+        </div>
+        <div class="escena-item">
+          <span class="escena-num">CTA</span>
+          <span class="escena-timing">[58–60s]</span>
+          <span class="escena-text"><em>"→ Si quieres seguir este camino, el curso ya está disponible. $29. Acceso de por vida. Link en bio 💙"</em></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-caption">Caption</span>
+      <div class="caption-block">Un mes. Y lo que aprendí siendo psicóloga Y mamá. 💙
+
+La teoría no es suficiente hasta que la vives.
+La reparación vale más que la perfección.
+Criar es estar presente cuando importa.
+
+Gracias por este mes. Por confiarme sus historias.
+
+El curso sigue disponible → Link en bio 🌿 $29 · Acceso de por vida.
+
+#crianzaconsciente #psicologiainfantil #ingridnunezpsi #criarsingritos</div>
+    </div>
+
+    <div class="section">
+      <span class="section-label label-cta">CTA</span>
+      <p class="cta-text">El curso ya está disponible. $29. Acceso de por vida. Link en bio 💙</p>
+    </div>
+
+    <div class="media-placeholder">
+      <span>🎥</span>
+      Pendiente: grabación de Ingrid en cámara
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  Preparado por D'Lyra Studio para @ingridnunezpsi &nbsp;·&nbsp; 2026
+</footer>
+
+</body>
+</html>

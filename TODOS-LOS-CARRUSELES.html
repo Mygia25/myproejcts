@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todos los Carruseles — Ingrid Núñez Psi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--lavanda:#D9C9E3;--beige:#F8F2EC;--marron:#806357;--gris:#B0AEB0;--dark:#3D2B24;}
+body{background:#0E0A09;font-family:'Montserrat',sans-serif;color:#fff;}
+
+/* HEADER */
+header{background:var(--dark);padding:48px 48px 0;}
+.h-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-bottom:32px;border-bottom:1px solid rgba(217,201,227,.1);margin-bottom:24px;}
+.h-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--beige);}
+.h-sub{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gris);margin-top:8px;}
+.h-stats{display:flex;gap:32px;}
+.stat-item{text-align:right;}
+.stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--lavanda);line-height:1;}
+.stat-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-top:4px;}
+
+/* NAV */
+.nav-wrap{display:flex;flex-wrap:wrap;gap:8px;padding:20px 0;}
+.npill{background:rgba(217,201,227,.08);border:1px solid rgba(217,201,227,.15);border-radius:100px;padding:6px 14px;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);text-decoration:none;transition:all .2s;white-space:nowrap;}
+.npill:hover{background:var(--lavanda);color:var(--dark);border-color:var(--lavanda);}
+
+/* MAIN */
+main{max-width:1400px;margin:0 auto;padding:48px 40px 100px;}
+
+/* CAROUSEL BLOCK */
+.carousel-block{margin-bottom:72px;scroll-margin-top:80px;}
+.carousel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(217,201,227,.1);}
+.c-meta{display:flex;align-items:center;gap:20px;}
+.c-code{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--lavanda);line-height:1;min-width:64px;}
+.c-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--beige);}
+.c-date{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--marron);margin-top:4px;}
+.c-count{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gris);background:rgba(61,43,36,.3);border-radius:100px;padding:6px 16px;}
+
+/* SLIDES ROW */
+.slides-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;}
+.slides-row::-webkit-scrollbar{height:4px;}
+.slides-row::-webkit-scrollbar-track{background:rgba(217,201,227,.06);border-radius:4px;}
+.slides-row::-webkit-scrollbar-thumb{background:var(--lavanda);border-radius:4px;}
+
+/* SLIDE CARD */
+.slide-card{flex-shrink:0;display:flex;flex-direction:column;gap:8px;}
+.slide-img-wrap{position:relative;width:180px;height:225px;border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.5);}
+.slide-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s;}
+.slide-img-wrap:hover img{transform:scale(1.03);}
+.cover-card .slide-img-wrap{box-shadow:0 6px 28px rgba(217,201,227,.2);}
+.slide-num{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(176,174,176,.5);text-align:center;}
+
+/* BADGES */
+.badge{position:absolute;top:10px;left:10px;border-radius:100px;padding:5px 12px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.badge.cover{background:rgba(217,201,227,.9);color:var(--dark);}
+.badge.cta{background:rgba(248,242,236,.9);color:var(--dark);}
+.badge.inner{background:rgba(61,43,36,.7);color:rgba(248,242,236,.7);}
+
+/* PRINT */
+@media print{
+  body{background:#fff;color:#000;}
+  header{background:#f0ebe5;}
+  .npill{display:none;}
+  .nav-wrap{display:none;}
+  .h-title,.h-sub,.stat-num,.c-title{color:#000!important;}
+  .c-code,.stat-num{color:var(--marron)!important;}
+  .carousel-block{page-break-inside:avoid;break-inside:avoid;}
+  .slide-img-wrap{box-shadow:0 2px 8px rgba(0,0,0,.15);}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="h-top">
+    <div>
+      <div class="h-title">Ingrid Núñez Psi — Todos los Carruseles</div>
+      <div class="h-sub">Marzo 14 · Abril 17, 2026 · D'Lyra Studio</div>
+    </div>
+    <div class="h-stats">
+      <div class="stat-item"><div class="stat-num">20</div><div class="stat-lbl">Carruseles</div></div>
+      <div class="stat-item"><div class="stat-num">131</div><div class="stat-lbl">Slides totales</div></div>
+    </div>
+  </div>
+  <nav class="nav-wrap">
+    <a class="npill" href="#c01">C01 · MAR 14</a>
+<a class="npill" href="#c02">C02 · MAR 15</a>
+<a class="npill" href="#c03">C03 · MAR 16</a>
+<a class="npill" href="#c04">C04 · MAR 17</a>
+<a class="npill" href="#c05">C05 · MAR 18</a>
+<a class="npill" href="#c06">C06 · MAR 19</a>
+<a class="npill" href="#c07">C07 · MAR 20</a>
+<a class="npill" href="#c08">C08 · MAR 22</a>
+<a class="npill" href="#c09">C09 · MAR 23</a>
+<a class="npill" href="#c10">C10 · MAR 24</a>
+<a class="npill" href="#c11">C11 · MAR 25</a>
+<a class="npill" href="#c12">C12 · MAR 26</a>
+<a class="npill" href="#c13">C13 · MAR 27</a>
+<a class="npill" href="#c14">C14 · MAR 30</a>
+<a class="npill" href="#c15">C15 · ABR 01</a>
+<a class="npill" href="#c16">C16 · ABR 03</a>
+<a class="npill" href="#c17">C17 · ABR 06</a>
+<a class="npill" href="#c18">C18 · ABR 08</a>
+<a class="npill" href="#c19">C19 · ABR 14</a>
+<a class="npill" href="#c20">C20 · ABR 16</a>
+
+  </nav>
+</header>
+
+<main>
+
+  <div class="carousel-block" id="c01">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C01</span>
+        <div class="c-info">
+          <div class="c-title">Presentación</div>
+          <div class="c-date">MAR 14 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C01-MAR14-PRESENTACION/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c02">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C02</span>
+        <div class="c-info">
+          <div class="c-title">Criar y Sanar</div>
+          <div class="c-date">MAR 15 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C02-MAR15-CRIAR-SANAR/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c03">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C03</span>
+        <div class="c-info">
+          <div class="c-title">Rabietas</div>
+          <div class="c-date">MAR 16 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C03-MAR16-RABIETAS/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C03-MAR16-RABIETAS/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C03-MAR16-RABIETAS/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C03-MAR16-RABIETAS/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C03-MAR16-RABIETAS/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C03-MAR16-RABIETAS/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c04">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C04</span>
+        <div class="c-info">
+          <div class="c-title">Pantallas</div>
+          <div class="c-date">MAR 17 · 8 slides</div>
+        </div>
+      </div>
+      <div class="c-count">8 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge inner">Slide 7</span>
+          </div>
+          <div class="slide-num">7/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C04-MAR17-PANTALLAS/slide-08.png" alt="Slide 8" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">8/8</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c05">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C05</span>
+        <div class="c-info">
+          <div class="c-title">Felicidad</div>
+          <div class="c-date">MAR 18 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C05-MAR18-FELICIDAD/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c06">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C06</span>
+        <div class="c-info">
+          <div class="c-title">Síndrome Down</div>
+          <div class="c-date">MAR 19 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C06-MAR19-SINDROME-DOWN/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C06-MAR19-SINDROME-DOWN/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C06-MAR19-SINDROME-DOWN/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C06-MAR19-SINDROME-DOWN/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C06-MAR19-SINDROME-DOWN/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C06-MAR19-SINDROME-DOWN/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c07">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C07</span>
+        <div class="c-info">
+          <div class="c-title">Papá/Mamá Agotado</div>
+          <div class="c-date">MAR 20 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C07-MAR20-PAPA-AGOTADO/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C07-MAR20-PAPA-AGOTADO/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C07-MAR20-PAPA-AGOTADO/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C07-MAR20-PAPA-AGOTADO/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C07-MAR20-PAPA-AGOTADO/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C07-MAR20-PAPA-AGOTADO/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c08">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C08</span>
+        <div class="c-info">
+          <div class="c-title">Teaser Curso</div>
+          <div class="c-date">MAR 22 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C08-MAR22-TEASER/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C08-MAR22-TEASER/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C08-MAR22-TEASER/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C08-MAR22-TEASER/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C08-MAR22-TEASER/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C08-MAR22-TEASER/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c09">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C09</span>
+        <div class="c-info">
+          <div class="c-title">Termostato Emocional</div>
+          <div class="c-date">MAR 23 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C09-MAR23-TERMOSTATO/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c10">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C10</span>
+        <div class="c-info">
+          <div class="c-title">¿Te Reconoces?</div>
+          <div class="c-date">MAR 24 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C10-MAR24-RECONOCES/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C10-MAR24-RECONOCES/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C10-MAR24-RECONOCES/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C10-MAR24-RECONOCES/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C10-MAR24-RECONOCES/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C10-MAR24-RECONOCES/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c11">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C11</span>
+        <div class="c-info">
+          <div class="c-title">Preview Módulos</div>
+          <div class="c-date">MAR 25 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C11-MAR25-PREVIEW-MODULOS/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C11-MAR25-PREVIEW-MODULOS/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C11-MAR25-PREVIEW-MODULOS/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C11-MAR25-PREVIEW-MODULOS/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C11-MAR25-PREVIEW-MODULOS/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C11-MAR25-PREVIEW-MODULOS/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c12">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C12</span>
+        <div class="c-info">
+          <div class="c-title">🚀 Lanzamiento</div>
+          <div class="c-date">MAR 26 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C12-MAR26-LANZAMIENTO/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c13">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C13</span>
+        <div class="c-info">
+          <div class="c-title">Post-Lanzamiento</div>
+          <div class="c-date">MAR 27 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C13-MAR27-POST-LANZAMIENTO/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C13-MAR27-POST-LANZAMIENTO/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C13-MAR27-POST-LANZAMIENTO/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C13-MAR27-POST-LANZAMIENTO/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C13-MAR27-POST-LANZAMIENTO/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C13-MAR27-POST-LANZAMIENTO/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c14">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C14</span>
+        <div class="c-info">
+          <div class="c-title">Etapas del Desarrollo</div>
+          <div class="c-date">MAR 30 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C14-MAR30-ETAPAS/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c15">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C15</span>
+        <div class="c-info">
+          <div class="c-title">Autismo</div>
+          <div class="c-date">ABR 01 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C15-ABR01-AUTISMO/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C15-ABR01-AUTISMO/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C15-ABR01-AUTISMO/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C15-ABR01-AUTISMO/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C15-ABR01-AUTISMO/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C15-ABR01-AUTISMO/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c16">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C16</span>
+        <div class="c-info">
+          <div class="c-title">Semana Santa</div>
+          <div class="c-date">ABR 03 · 7 slides</div>
+        </div>
+      </div>
+      <div class="c-count">7 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/7</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C16-ABR03-SEMANA-SANTA/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">7/7</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c17">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C17</span>
+        <div class="c-info">
+          <div class="c-title">Salud Emocional</div>
+          <div class="c-date">ABR 06 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C17-ABR06-SALUD/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C17-ABR06-SALUD/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C17-ABR06-SALUD/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C17-ABR06-SALUD/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C17-ABR06-SALUD/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C17-ABR06-SALUD/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c18">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C18</span>
+        <div class="c-info">
+          <div class="c-title">Límites</div>
+          <div class="c-date">ABR 08 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C18-ABR08-LIMITES/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C18-ABR08-LIMITES/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C18-ABR08-LIMITES/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C18-ABR08-LIMITES/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C18-ABR08-LIMITES/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C18-ABR08-LIMITES/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c19">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C19</span>
+        <div class="c-info">
+          <div class="c-title">Heridas de Infancia</div>
+          <div class="c-date">ABR 14 · 8 slides</div>
+        </div>
+      </div>
+      <div class="c-count">8 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge inner">Slide 6</span>
+          </div>
+          <div class="slide-num">6/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-07.png" alt="Slide 7" loading="lazy">
+            <span class="badge inner">Slide 7</span>
+          </div>
+          <div class="slide-num">7/8</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C19-ABR14-HERIDAS/slide-08.png" alt="Slide 8" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">8/8</div>
+        </div>
+    </div>
+  </div>
+  <div class="carousel-block" id="c20">
+    <div class="carousel-header">
+      <div class="c-meta">
+        <span class="c-code">C20</span>
+        <div class="c-info">
+          <div class="c-title">Presencia</div>
+          <div class="c-date">ABR 16 · 6 slides</div>
+        </div>
+      </div>
+      <div class="c-count">6 slides</div>
+    </div>
+    <div class="slides-row">
+      
+        <div class="slide-card cover-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C20-ABR16-PRESENCIA/slide-01.png" alt="Slide 1" loading="lazy">
+            <span class="badge cover">COVER</span>
+          </div>
+          <div class="slide-num">1/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C20-ABR16-PRESENCIA/slide-02.png" alt="Slide 2" loading="lazy">
+            <span class="badge inner">Slide 2</span>
+          </div>
+          <div class="slide-num">2/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C20-ABR16-PRESENCIA/slide-03.png" alt="Slide 3" loading="lazy">
+            <span class="badge inner">Slide 3</span>
+          </div>
+          <div class="slide-num">3/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C20-ABR16-PRESENCIA/slide-04.png" alt="Slide 4" loading="lazy">
+            <span class="badge inner">Slide 4</span>
+          </div>
+          <div class="slide-num">4/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C20-ABR16-PRESENCIA/slide-05.png" alt="Slide 5" loading="lazy">
+            <span class="badge inner">Slide 5</span>
+          </div>
+          <div class="slide-num">5/6</div>
+        </div>
+        <div class="slide-card">
+          <div class="slide-img-wrap">
+            <img src="CARRUSELES-PNG/C20-ABR16-PRESENCIA/slide-06.png" alt="Slide 6" loading="lazy">
+            <span class="badge cta">CTA</span>
+          </div>
+          <div class="slide-num">6/6</div>
+        </div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

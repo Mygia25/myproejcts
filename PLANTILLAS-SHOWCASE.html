@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plantillas Rediseñadas — Ingrid Núñez Psi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&family=Arizonia&display=swap" rel="stylesheet">
+<style>
+/* ========== PAGE ========== */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--lavanda:#D9C9E3;--beige:#F8F2EC;--marron:#806357;--gris:#B0AEB0;--dark:#3D2B24;}
+body{background:#110D0B;font-family:'Montserrat',sans-serif;color:#fff;}
+.page{max-width:1480px;margin:0 auto;padding:64px 40px 120px;}
+.page-header{margin-bottom:72px;border-bottom:1px solid rgba(217,201,227,.1);padding-bottom:40px;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--beige);margin-bottom:8px;}
+.page-header p{font-size:13px;color:var(--gris);letter-spacing:2px;text-transform:uppercase;}
+
+.section{margin-bottom:96px;}
+.section-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--lavanda);margin-bottom:6px;}
+.section-desc{font-size:13px;color:rgba(176,174,176,.7);margin-bottom:36px;line-height:1.7;}
+.section-desc strong{color:var(--gris);}
+
+.row{display:flex;flex-wrap:wrap;gap:40px;}
+.card{display:flex;flex-direction:column;gap:14px;}
+.card-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gris);text-align:center;}
+.card-desc{font-size:11px;color:rgba(176,174,176,.5);text-align:center;line-height:1.5;max-width:280px;}
+.badge-new{display:inline-block;background:rgba(217,201,227,.15);border:1px solid rgba(217,201,227,.3);border-radius:100px;padding:3px 10px;font-size:10px;letter-spacing:2px;color:var(--lavanda);margin-left:8px;}
+.badge-fix{display:inline-block;background:rgba(255,180,100,.1);border:1px solid rgba(255,180,100,.3);border-radius:100px;padding:3px 10px;font-size:10px;letter-spacing:2px;color:#FFB464;margin-left:8px;}
+
+/* ===== PREVIEW WRAPPERS ===== */
+.preview-c{width:360px;height:450px;overflow:hidden;border-radius:14px;box-shadow:0 12px 48px rgba(0,0,0,.6);position:relative;flex-shrink:0;}
+.preview-c>div{transform:scale(0.3333);transform-origin:top left;position:absolute;top:0;left:0;}
+.preview-s{width:270px;height:480px;overflow:hidden;border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.6);position:relative;flex-shrink:0;}
+.preview-s>div{transform:scale(0.25);transform-origin:top left;position:absolute;top:0;left:0;}
+
+/* ============================================================
+   CAROUSEL SLIDE TEMPLATES (1080 × 1350)
+   ============================================================ */
+
+/* ---- T1: COVER — hero foto + overlay gradient ---- */
+.t-cover{width:1080px;height:1350px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;}
+.t-cover .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.t-cover .ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,43,36,.2) 0%,rgba(61,43,36,.5) 40%,rgba(61,43,36,.93) 75%,rgba(61,43,36,.99) 100%);}
+.t-cover .tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(217,201,227,.28) 0%,transparent 42%);}
+.t-cover .ct{position:relative;z-index:3;width:100%;padding:0 90px 96px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.t-cover .sc{font-family:'Arizonia',cursive;font-size:54px;color:var(--lavanda);opacity:.9;margin-bottom:20px;}
+.t-cover .dv{display:flex;align-items:center;gap:18px;margin-bottom:36px;}
+.t-cover .dl{width:60px;height:1px;background:rgba(217,201,227,.5);}
+.t-cover .dd{width:6px;height:6px;border-radius:50%;background:var(--lavanda);opacity:.6;}
+.t-cover .ttl{font-family:'Playfair Display',serif;font-size:86px;font-weight:700;line-height:1.05;color:var(--beige);}
+.t-cover .num{position:absolute;top:52px;right:80px;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,.35);z-index:4;}
+
+/* ---- T2: SPLIT — texto izq / foto der ---- */
+.t-split{width:1080px;height:1350px;background:var(--beige);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.t-split .bar{position:absolute;left:0;top:80px;bottom:80px;width:5px;background:linear-gradient(to bottom,var(--lavanda),var(--marron),var(--lavanda));border-radius:3px;}
+.t-split .lft{padding:90px 56px 90px 80px;display:flex;flex-direction:column;justify-content:space-between;}
+.t-split .tag{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gris);margin-bottom:16px;}
+.t-split .ttl{font-family:'Playfair Display',serif;font-size:70px;font-weight:700;line-height:1.06;color:var(--dark);margin-bottom:48px;}
+.t-split .ttl em{font-style:italic;color:var(--marron);display:block;}
+.t-split .items{display:flex;flex-direction:column;gap:28px;flex:1;}
+.t-split .itm{display:flex;align-items:flex-start;gap:18px;}
+.t-split .ico{font-size:56px;line-height:1;min-width:68px;text-align:center;}
+.t-split .ib{padding-top:8px;}
+.t-split .it{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:600;color:var(--dark);margin-bottom:6px;}
+.t-split .is{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:300;color:var(--marron);line-height:1.5;}
+.t-split .hdl{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:2px;color:var(--gris);}
+.t-split .rgt{position:relative;overflow:hidden;}
+.t-split .rgt img{width:100%;height:100%;object-fit:cover;display:block;}
+.t-split .rgt::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(248,242,236,.3) 0%,transparent 40%),linear-gradient(to bottom,rgba(217,201,227,.2) 0%,transparent 50%);}
+.t-split .snum{position:absolute;top:60px;right:40px;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,.6);z-index:3;writing-mode:vertical-rl;}
+
+/* ---- T3: BIG PHOTO TOP + EMOJI ---- */
+.t-bigphoto{width:1080px;height:1350px;background:var(--lavanda);display:flex;flex-direction:column;overflow:hidden;position:relative;}
+.t-bigphoto .iw{height:660px;position:relative;flex-shrink:0;overflow:hidden;}
+.t-bigphoto .iw img{width:100%;height:100%;object-fit:cover;display:block;}
+.t-bigphoto .iw::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(217,201,227,1) 100%);}
+.t-bigphoto .eb{position:absolute;bottom:-32px;left:80px;z-index:5;font-size:110px;line-height:1;filter:drop-shadow(0 8px 20px rgba(61,43,36,.2));}
+.t-bigphoto .it{position:absolute;top:40px;left:80px;z-index:5;background:rgba(248,242,236,.92);backdrop-filter:blur(8px);border-radius:100px;padding:10px 24px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--marron);}
+.t-bigphoto .sn{position:absolute;top:40px;right:80px;z-index:5;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,.7);}
+.t-bigphoto .bt{flex:1;padding:60px 80px;display:flex;flex-direction:column;justify-content:space-between;}
+.t-bigphoto .mt{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;line-height:1.05;color:var(--dark);margin-bottom:18px;}
+.t-bigphoto .mt em{font-style:italic;color:var(--marron);}
+.t-bigphoto .sb{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:300;color:#5C4A42;line-height:1.5;margin-bottom:32px;}
+.t-bigphoto .cr{display:flex;align-items:center;justify-content:space-between;}
+.t-bigphoto .cp{background:var(--dark);border-radius:100px;padding:18px 36px;font-family:'Montserrat',sans-serif;font-size:17px;font-weight:500;color:var(--beige);}
+.t-bigphoto .hdl{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:2px;color:var(--marron);opacity:.7;}
+
+/* ---- T4: SCRAPBOOK / COLLAGE (NUEVO — reemplaza slides planas) ---- */
+.t-scrap{width:1080px;height:1350px;background:var(--beige);position:relative;overflow:hidden;}
+/* fondo de puntos decorativos */
+.t-scrap::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(128,99,87,.12) 1.5px,transparent 1.5px);background-size:32px 32px;z-index:0;}
+/* fotos en estilo polaroid */
+.t-scrap .p1{position:absolute;top:60px;right:40px;width:400px;height:500px;background:#fff;padding:14px 14px 54px;transform:rotate(5deg);box-shadow:0 12px 40px rgba(61,43,36,.25),0 3px 10px rgba(61,43,36,.15);z-index:2;}
+.t-scrap .p1 img{width:100%;height:100%;object-fit:cover;display:block;}
+.t-scrap .p2{position:absolute;bottom:80px;right:120px;width:300px;height:370px;background:#fff;padding:10px 10px 44px;transform:rotate(-7deg);box-shadow:0 10px 36px rgba(61,43,36,.3),0 2px 8px rgba(61,43,36,.2);z-index:3;}
+.t-scrap .p2 img{width:100%;height:100%;object-fit:cover;display:block;}
+/* stickers/emojis sobre fotos */
+.t-scrap .stk1{position:absolute;top:50px;right:390px;font-size:80px;z-index:5;transform:rotate(-15deg);filter:drop-shadow(0 4px 10px rgba(61,43,36,.25));}
+.t-scrap .stk2{position:absolute;bottom:370px;right:80px;font-size:70px;z-index:6;transform:rotate(12deg);filter:drop-shadow(0 4px 10px rgba(61,43,36,.3));}
+.t-scrap .stk3{position:absolute;top:460px;right:430px;font-size:52px;z-index:5;transform:rotate(-8deg);}
+/* cinta washi decorativa */
+.t-scrap .tape1{position:absolute;top:32px;right:160px;width:120px;height:28px;background:rgba(217,201,227,.55);transform:rotate(-8deg);z-index:4;border-radius:3px;}
+.t-scrap .tape2{position:absolute;bottom:410px;right:235px;width:90px;height:22px;background:rgba(128,99,87,.25);transform:rotate(6deg);z-index:6;border-radius:3px;}
+/* texto */
+.t-scrap .txt{position:relative;z-index:4;padding:96px 80px 80px;max-width:620px;display:flex;flex-direction:column;height:100%;}
+.t-scrap .sc{font-family:'Arizonia',cursive;font-size:48px;color:var(--marron);opacity:.75;margin-bottom:20px;}
+.t-scrap .qt{font-family:'Playfair Display',serif;font-size:68px;font-weight:700;line-height:1.1;color:var(--dark);margin-bottom:28px;}
+.t-scrap .qt em{font-style:italic;color:var(--marron);}
+.t-scrap .sb{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:300;color:#6B5248;line-height:1.6;margin-bottom:auto;}
+.t-scrap .br{display:flex;align-items:center;gap:20px;margin-top:auto;padding-top:40px;}
+.t-scrap .pill{background:var(--lavanda);border-radius:100px;padding:12px 28px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;color:var(--dark);}
+.t-scrap .hdl{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:2px;color:var(--gris);}
+.t-scrap .num{position:absolute;top:44px;left:80px;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:3px;color:rgba(61,43,36,.35);z-index:5;}
+
+/* ---- T5: DATO / STAT — fondo oscuro + imagen tenue + número grande ---- */
+.t-dato{width:1080px;height:1350px;background:var(--dark);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.t-dato .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;mix-blend-mode:luminosity;display:block;}
+/* grain overlay */
+.t-dato::before{content:'';position:absolute;inset:0;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");opacity:.5;pointer-events:none;}
+.t-dato .ct{position:relative;z-index:3;padding:0 100px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.t-dato .tag{background:rgba(217,201,227,.12);border:1px solid rgba(217,201,227,.28);border-radius:100px;padding:14px 36px;margin-bottom:56px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--lavanda);}
+.t-dato .big-em{font-size:150px;margin-bottom:36px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));}
+.t-dato .stat{font-family:'Playfair Display',serif;font-size:100px;font-weight:700;line-height:1;color:var(--beige);margin-bottom:20px;}
+.t-dato .stat span{color:var(--lavanda);}
+.t-dato .fact{font-family:'Playfair Display',serif;font-size:52px;font-weight:400;font-style:italic;color:rgba(248,242,236,.85);line-height:1.25;margin-bottom:44px;max-width:800px;}
+.t-dato .src{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:300;color:rgba(176,174,176,.55);letter-spacing:2px;}
+.t-dato .ll{position:absolute;left:60px;top:50%;transform:translateY(-50%);width:4px;height:220px;background:linear-gradient(to bottom,transparent,var(--lavanda),transparent);}
+.t-dato .rl{position:absolute;right:60px;top:50%;transform:translateY(-50%);width:4px;height:220px;background:linear-gradient(to bottom,transparent,var(--lavanda),transparent);}
+.t-dato .snum{position:absolute;top:52px;right:80px;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,.28);z-index:4;}
+
+/* ---- T6: CTA BEIGE (último slide) ---- */
+.t-cta{width:1080px;height:1350px;background:var(--beige);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+.t-cta .bar{position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(to bottom,var(--lavanda),var(--marron),var(--lavanda));}
+.t-cta .ce{position:absolute;top:56px;right:64px;font-size:80px;opacity:.25;}
+.t-cta .ce2{position:absolute;bottom:80px;left:80px;font-size:60px;opacity:.2;}
+.t-cta .inn{padding:0 120px;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.t-cta .sc{font-family:'Arizonia',cursive;font-size:56px;color:var(--lavanda);margin-bottom:28px;}
+.t-cta .ttl{font-family:'Playfair Display',serif;font-size:68px;font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:32px;max-width:800px;}
+.t-cta .ttl em{font-style:italic;color:var(--marron);}
+.t-cta .sb{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:300;color:var(--marron);margin-bottom:56px;}
+.t-cta .btn{background:var(--dark);border-radius:100px;padding:26px 60px;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:500;color:var(--beige);margin-bottom:44px;}
+.t-cta .row{display:flex;gap:32px;align-items:center;font-family:'Montserrat',sans-serif;font-size:16px;letter-spacing:2px;color:var(--gris);}
+
+/* ============================================================
+   STORY TEMPLATES (1080 × 1920)
+   ============================================================ */
+
+/* ---- H1: MAÑANA — encuesta, cálido ---- */
+.s-h1{width:1080px;height:1920px;background:linear-gradient(155deg,#F8F2EC 0%,#EDE4F0 55%,#F8F2EC 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;}
+.s-h1 .dc1{position:absolute;top:-180px;right:-180px;width:560px;height:560px;border-radius:50%;background:rgba(217,201,227,.22);}
+.s-h1 .dc2{position:absolute;bottom:-120px;left:-140px;width:420px;height:420px;border-radius:50%;background:rgba(128,99,87,.07);}
+.s-h1 .dc3{position:absolute;top:300px;left:-60px;width:200px;height:200px;border-radius:50%;background:rgba(217,201,227,.15);}
+.s-h1 .top{position:relative;z-index:3;padding-top:140px;display:flex;flex-direction:column;align-items:center;flex:1;width:100%;}
+.s-h1 .grt{font-family:'Arizonia',cursive;font-size:80px;color:var(--marron);opacity:.75;margin-bottom:32px;}
+.s-h1 .ec{display:flex;gap:12px;align-items:center;margin-bottom:72px;}
+.s-h1 .el{font-size:130px;line-height:1;}
+.s-h1 .em{font-size:90px;line-height:1;transform:translateY(-14px);}
+.s-h1 .es{font-size:64px;line-height:1;transform:translateY(12px);}
+.s-h1 .q{font-family:'Playfair Display',serif;font-size:76px;font-weight:700;line-height:1.15;color:var(--dark);text-align:center;padding:0 80px;margin-bottom:32px;}
+.s-h1 .q em{font-style:italic;color:var(--marron);}
+.s-h1 .sq{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:300;color:var(--marron);text-align:center;margin-bottom:80px;padding:0 80px;}
+/* poll */
+.s-h1 .pw{width:900px;display:flex;flex-direction:column;gap:22px;}
+.s-h1 .po{background:rgba(255,255,255,.72);backdrop-filter:blur(12px);border:2px solid rgba(217,201,227,.5);border-radius:100px;padding:28px 48px;display:flex;align-items:center;gap:20px;font-family:'Montserrat',sans-serif;font-size:30px;font-weight:500;color:var(--dark);}
+.s-h1 .pi{font-size:44px;}
+/* handle */
+.s-h1 .hdl{position:absolute;bottom:80px;font-family:'Montserrat',sans-serif;font-size:26px;letter-spacing:3px;color:var(--gris);z-index:3;}
+
+/* ---- H2: MEDIODÍA — dato, foto de fondo ---- */
+.s-h2{width:1080px;height:1920px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+.s-h2 .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.s-h2 .ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,43,36,.12) 0%,rgba(61,43,36,.42) 38%,rgba(61,43,36,.88) 65%,rgba(61,43,36,.97) 100%);}
+.s-h2 .tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(217,201,227,.28) 0%,transparent 30%);}
+.s-h2 .ct{position:relative;z-index:3;padding:0 84px 120px;display:flex;flex-direction:column;}
+.s-h2 .dp{background:var(--lavanda);border-radius:100px;padding:16px 40px;width:fit-content;margin-bottom:40px;display:flex;align-items:center;gap:14px;font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dark);}
+.s-h2 .mt{font-family:'Playfair Display',serif;font-size:82px;font-weight:700;line-height:1.1;color:var(--beige);margin-bottom:28px;}
+.s-h2 .mt em{font-style:italic;color:var(--lavanda);}
+.s-h2 .st{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:300;color:rgba(248,242,236,.78);line-height:1.5;margin-bottom:52px;}
+.s-h2 .fa{display:flex;align-items:center;gap:20px;font-family:'Montserrat',sans-serif;font-size:26px;font-weight:500;color:var(--lavanda);}
+.s-h2 .al{width:70px;height:3px;background:var(--lavanda);border-radius:2px;}
+.s-h2 .snum{position:absolute;top:60px;right:84px;font-family:'Montserrat',sans-serif;font-size:20px;letter-spacing:3px;color:rgba(255,255,255,.3);z-index:4;}
+
+/* ---- H3: NOCHE — CTA emocional, oscuro ---- */
+.s-h3{width:1080px;height:1920px;background:linear-gradient(165deg,#2A1B16 0%,#3D2B24 45%,#1A0E12 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+/* estrellas decorativas */
+.s-h3 .stars{position:absolute;top:80px;left:0;right:0;text-align:center;font-size:28px;letter-spacing:28px;opacity:.5;}
+.s-h3 .moon{position:absolute;top:90px;right:90px;font-size:130px;opacity:.2;filter:blur(2px);}
+/* glow radial */
+.s-h3 .glow{position:absolute;top:22%;left:50%;transform:translateX(-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(217,201,227,.11) 0%,transparent 70%);}
+/* pattern puntitos */
+.s-h3::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(217,201,227,.06) 1px,transparent 1px);background-size:40px 40px;z-index:0;}
+.s-h3 .cc{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 80px;text-align:center;}
+.s-h3 .te{font-size:110px;margin-bottom:48px;}
+.s-h3 .qt{font-family:'Playfair Display',serif;font-size:80px;font-weight:700;font-style:italic;line-height:1.15;color:var(--beige);margin-bottom:32px;}
+.s-h3 .qt em{color:var(--lavanda);font-style:normal;}
+.s-h3 .st{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:300;color:rgba(248,242,236,.58);line-height:1.5;margin-bottom:72px;}
+.s-h3 .btn{background:linear-gradient(135deg,var(--lavanda),#C5B1D5);border-radius:100px;padding:34px 80px;font-family:'Montserrat',sans-serif;font-size:28px;font-weight:600;color:var(--dark);display:flex;align-items:center;gap:16px;box-shadow:0 8px 32px rgba(217,201,227,.22);}
+.s-h3 .bs{position:relative;z-index:3;width:100%;padding:0 84px 84px;display:flex;align-items:center;justify-content:space-between;}
+.s-h3 .hdl{font-family:'Montserrat',sans-serif;font-size:22px;letter-spacing:3px;color:rgba(176,174,176,.45);}
+.s-h3 .hts{font-size:36px;opacity:.7;}
+
+/* ---- REEL: Cover de Reel 9:16 ---- */
+.s-reel{width:1080px;height:1920px;background:var(--dark);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;}
+.s-reel .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.s-reel .ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,43,36,.10) 0%,rgba(61,43,36,.25) 30%,rgba(61,43,36,.80) 65%,rgba(61,43,36,.97) 100%);}
+.s-reel .bar-top{position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(to right,var(--lavanda),var(--marron),var(--lavanda));}
+/* play icon */
+.s-reel .play-wrap{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:20px;}
+.s-reel .play{width:130px;height:130px;border-radius:50%;background:rgba(248,242,236,.18);backdrop-filter:blur(10px);border:3px solid rgba(248,242,236,.4);display:flex;align-items:center;justify-content:center;font-size:60px;}
+.s-reel .reel-tag{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:rgba(248,242,236,.6);}
+.s-reel .ct{position:relative;z-index:3;width:100%;padding:0 84px 100px;display:flex;flex-direction:column;align-items:flex-start;}
+.s-reel .topic{background:rgba(217,201,227,.15);border:1px solid rgba(217,201,227,.3);border-radius:100px;padding:12px 32px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--lavanda);margin-bottom:28px;}
+.s-reel .ttl{font-family:'Playfair Display',serif;font-size:88px;font-weight:700;line-height:1.05;color:var(--beige);margin-bottom:28px;}
+.s-reel .ttl em{font-style:italic;color:var(--lavanda);}
+.s-reel .sb{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:300;color:rgba(248,242,236,.7);margin-bottom:44px;}
+.s-reel .row{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.s-reel .hdl{font-family:'Montserrat',sans-serif;font-size:22px;letter-spacing:3px;color:rgba(176,174,176,.5);}
+.s-reel .dv{display:flex;align-items:center;gap:16px;}
+.s-reel .dvl{width:48px;height:1px;background:rgba(217,201,227,.4);}
+.s-reel .dvd{width:5px;height:5px;border-radius:50%;background:var(--lavanda);opacity:.5;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-header">
+    <h1>Plantillas Rediseñadas — Ingrid Núñez Psi</h1>
+    <p>Aprueba las plantillas antes de regenerar los archivos · 6 tipos carrusel · 3 tipos historia · 1 tipo reel</p>
+  </div>
+
+  <!-- ====================== SECCIÓN 1: CARRUSELES ====================== -->
+  <div class="section">
+    <div class="section-title">Carruseles <span style="font-size:18px;font-weight:400;color:var(--gris);">1080 × 1350 px</span></div>
+    <div class="section-desc">
+      <strong>Problema actual:</strong> slides 2–6 usan la misma foto repetida, y los slides "dark/lavanda" son fondo sólido + texto sin elementos visuales.<br>
+      <strong>Solución:</strong> 6 tipos de slide con distintas estructuras visuales. Cada carrusel rota entre estos tipos para que nunca haya dos slides iguales.
+    </div>
+    <div class="row">
+
+      <!-- T1: COVER -->
+      <div class="card">
+        <div class="preview-c">
+          <div class="t-cover">
+            <img class="bg" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="">
+            <div class="ov"></div><div class="tint"></div>
+            <span class="num">01 / 07</span>
+            <div class="ct">
+              <div class="sc">para la mamá que lo da todo</div>
+              <div class="dv"><div class="dl"></div><div class="dd"></div><div class="dl"></div></div>
+              <h1 class="ttl">Criar sin<br>perder<br>la calma.</h1>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">T1 — Cover / Portada</div>
+        <div class="card-desc">Foto hero + overlay gradiente oscuro + título grande. Siempre slide 1.</div>
+      </div>
+
+      <!-- T2: SPLIT -->
+      <div class="card">
+        <div class="preview-c">
+          <div class="t-split">
+            <div class="bar"></div>
+            <div class="lft">
+              <div>
+                <p class="tag">Crianza consciente</p>
+                <h2 class="ttl">Lo que es<br><em>normal</em><br>a cada edad</h2>
+              </div>
+              <div class="items">
+                <div class="itm"><span class="ico">🎯</span><div class="ib"><div class="it">3 años</div><div class="is">Rabietas + todo "no". Es biológico.</div></div></div>
+                <div class="itm"><span class="ico">🌱</span><div class="ib"><div class="it">5 años</div><div class="is">Mentiras + querer ser el mejor.</div></div></div>
+                <div class="itm"><span class="ico">💫</span><div class="ib"><div class="it">7 años</div><div class="is">Alta sensibilidad + ser aceptado.</div></div></div>
+              </div>
+              <p class="hdl">@ingridnunezpsi</p>
+            </div>
+            <div class="rgt">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&q=85&fit=crop" alt="">
+              <span class="snum">02/07</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">T2 — Split Educativo</div>
+        <div class="card-desc">Texto/lista izquierda + foto derecha. Para listas, pasos, datos.</div>
+      </div>
+
+      <!-- T3: BIG PHOTO + EMOJI -->
+      <div class="card">
+        <div class="preview-c">
+          <div class="t-bigphoto">
+            <div class="iw">
+              <img src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=1080&q=85&fit=crop&crop=top" alt="">
+              <span class="it">¿Te reconoces?</span>
+              <span class="sn">03/07</span>
+              <div class="eb">😅</div>
+            </div>
+            <div class="bt">
+              <div>
+                <h2 class="mt">Antes de las 9am<br><em>ya sobreviví</em> esto.</h2>
+                <p class="sb">El vaso derramado. El zapato perdido.<br>"Tengo hambre" 5 min después de comer. 🥲</p>
+              </div>
+              <div class="cr">
+                <div class="cp">¿Cuál fue la tuya hoy? 💬</div>
+                <span class="hdl">@ingridnunezpsi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">T3 — Foto Grande + Emoji</div>
+        <div class="card-desc">Foto ocupa 55% superior, emoji flotante, texto abajo. Momentos relatables.</div>
+      </div>
+
+      <!-- T4: SCRAPBOOK -->
+      <div class="card">
+        <div class="preview-c">
+          <div class="t-scrap">
+            <span class="num">04/07</span>
+            <div class="tape1"></div>
+            <div class="tape2"></div>
+            <div class="p1"><img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=400&q=85&fit=crop" alt=""></div>
+            <div class="p2"><img src="https://images.unsplash.com/photo-1534671186-037ecca47f50?w=400&q=85&fit=crop" alt=""></div>
+            <div class="stk1">🫶</div>
+            <div class="stk2">💜</div>
+            <div class="stk3">✨</div>
+            <div class="txt">
+              <div class="sc">recuerda esto:</div>
+              <h2 class="qt">La teoría la aprendí<br>en la universidad.<br><em>El peso, en casa.</em></h2>
+              <p class="sb">No hay manual perfecto. Solo una mamá/papá haciendo lo mejor que puede cada día.</p>
+              <div class="br">
+                <span class="pill">crianza real 💙</span>
+                <span class="hdl">@ingridnunezpsi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">T4 — Scrapbook / Collage <span class="badge-new">NUEVO</span></div>
+        <div class="card-desc">Dos fotos estilo polaroid rotadas + stickers/emojis + cinta washi. Emotional, visual, memorable.</div>
+      </div>
+
+      <!-- T5: DATO CARD -->
+      <div class="card">
+        <div class="preview-c">
+          <div class="t-dato">
+            <img class="bg" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1080&q=85&fit=crop" alt="">
+            <div class="ll"></div><div class="rl"></div>
+            <span class="snum">05/07</span>
+            <div class="ct">
+              <div class="tag">📊 Neurociencia</div>
+              <div class="big-em">🧠</div>
+              <div class="stat"><span>87%</span> del cerebro</div>
+              <div class="fact">se forma antes de los 5 años. Lo que vive hoy, le da forma para siempre.</div>
+              <div class="src">Asociación Americana de Pediatría</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">T5 — Dato / Stat <span class="badge-fix">REEMPLAZA slides planas</span></div>
+        <div class="card-desc">Fondo oscuro + foto tenue + emoji grande + número/stat + fuente. Para datos científicos.</div>
+      </div>
+
+      <!-- T6: CTA -->
+      <div class="card">
+        <div class="preview-c">
+          <div class="t-cta">
+            <div class="bar"></div>
+            <span class="ce">💙</span>
+            <span class="ce2">✨</span>
+            <div class="inn">
+              <div class="sc">cuéntame:</div>
+              <h2 class="ttl">¿Cuál fue tu mayor<br><em>victoria</em> esta semana<br>como mamá/papá?</h2>
+              <p class="sb">Sin juicio. Te leo en comentarios.</p>
+              <div class="btn">Comenta abajo 💬</div>
+              <div class="row">
+                <span>@ingridnunezpsi</span>
+                <span>·</span>
+                <span>psicolaingridnunez.lovable.app</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">T6 — CTA Beige (último slide)</div>
+        <div class="card-desc">Fondo crema + pregunta para comentarios + handle + link al curso.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====================== SECCIÓN 2: HISTORIAS ====================== -->
+  <div class="section">
+    <div class="section-title">Historias <span style="font-size:18px;font-weight:400;color:var(--gris);">1080 × 1920 px</span></div>
+    <div class="section-desc">
+      <strong>Problema actual:</strong> demasiado simples — solo texto sobre fondo sólido o gradiente plano, sin elementos visuales ricos.<br>
+      <strong>Solución:</strong> 3 tipos rediseñados con emojis grandes como elementos de diseño, fotos de fondo, poll gráfico visual, y CTA atractivo nocturno.
+    </div>
+    <div class="row">
+
+      <!-- H1: MAÑANA -->
+      <div class="card">
+        <div class="preview-s">
+          <div class="s-h1">
+            <div class="dc1"></div><div class="dc2"></div><div class="dc3"></div>
+            <div class="top">
+              <div class="grt">buenos días,</div>
+              <div class="ec">
+                <span class="el">☀️</span>
+                <span class="em">🌸</span>
+                <span class="es">✨</span>
+              </div>
+              <h2 class="q">¿Cómo amaneciste <em>hoy</em>, mamá?</h2>
+              <p class="sq">Sé honesta. Este es tu espacio.</p>
+              <div class="pw">
+                <div class="po"><span class="pi">💪</span> Con energía, vamos</div>
+                <div class="po"><span class="pi">😴</span> Necesito 10 horas más</div>
+              </div>
+            </div>
+            <div class="hdl">@ingridnunezpsi</div>
+          </div>
+        </div>
+        <div class="card-label">H1 — Mañana (8–9am) <span class="badge-fix">REDISEÑADO</span></div>
+        <div class="card-desc">Lavanda-beige degradado · emojis grandes como diseño · poll visual · cálido y energético</div>
+      </div>
+
+      <!-- H2: MEDIODÍA -->
+      <div class="card">
+        <div class="preview-s">
+          <div class="s-h2">
+            <img class="bg" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="">
+            <div class="ov"></div><div class="tint"></div>
+            <span class="snum">H2</span>
+            <div class="ct">
+              <div class="dp">🧠 DATO DEL DÍA</div>
+              <h2 class="mt">El cerebro de tu hijo<br>no miente — <em>aún no puede.</em></h2>
+              <p class="st">La impulsividad hasta los 3 años no es capricho. Es biología pura. La corteza prefrontal todavía no está lista.</p>
+              <div class="fa">
+                <div class="al"></div>
+                <span>Más en el feed de hoy →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">H2 — Mediodía (12–1pm) <span class="badge-fix">REDISEÑADO</span></div>
+        <div class="card-desc">Foto de fondo · pill "DATO DEL DÍA" en lavanda · texto educativo · flecha al feed</div>
+      </div>
+
+      <!-- H3: NOCHE -->
+      <div class="card">
+        <div class="preview-s">
+          <div class="s-h3">
+            <div class="stars">✦ ✦ ✦ ✦ ✦</div>
+            <div class="moon">🌙</div>
+            <div class="glow"></div>
+            <div class="cc">
+              <div class="te">💙</div>
+              <h2 class="qt">Si hoy perdiste la calma<br>con tu hijo/a...</h2>
+              <p class="st">No eres mal padre ni mala madre. Eres humano/a. Y eso también se repara.</p>
+              <div class="btn">Escríbeme por DM 💌</div>
+            </div>
+            <div class="bs">
+              <span class="hdl">@ingridnunezpsi</span>
+              <span class="hts">💜 💜 💜</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">H3 — Noche (6–8pm) <span class="badge-fix">REDISEÑADO</span></div>
+        <div class="card-desc">Dark gradient marrón-oscuro · luna + estrellas · quote emocional · CTA en lavanda suave</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====================== SECCIÓN 3: REEL COVER ====================== -->
+  <div class="section">
+    <div class="section-title">Reels <span style="font-size:18px;font-weight:400;color:var(--gris);">1080 × 1920 px — Cover + Thumbnail</span></div>
+    <div class="section-desc">
+      Template para la miniatura/portada de cada reel. Foto de fondo + overlay + icono play + título impactante.
+    </div>
+    <div class="row">
+
+      <!-- REEL -->
+      <div class="card">
+        <div class="preview-s">
+          <div class="s-reel">
+            <img class="bg" src="https://images.unsplash.com/photo-1524503033411-c9566986fc8f?w=1080&q=85&fit=crop" alt="">
+            <div class="ov"></div>
+            <div class="bar-top"></div>
+            <div class="play-wrap">
+              <div class="play">▶</div>
+              <div class="reel-tag">Reel · @ingridnunezpsi</div>
+            </div>
+            <div class="ct">
+              <div class="topic">Crianza real</div>
+              <h2 class="ttl">La peor madre<br>del <em>mundo</em></h2>
+              <p class="sb">Spoiler: no lo eres. Te lo explico en 60 seg. 😅</p>
+              <div class="row">
+                <span class="hdl">@ingridnunezpsi</span>
+                <div class="dv"><div class="dvl"></div><div class="dvd"></div><div class="dvl"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-label">Reel — Cover / Miniatura</div>
+        <div class="card-desc">Foto hero · barra lavanda arriba · play icon · topic pill · título impactante</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Nota final -->
+  <div style="border-top:1px solid rgba(217,201,227,.1);padding-top:48px;text-align:center;">
+    <p style="font-family:'Playfair Display',serif;font-size:24px;color:var(--lavanda);margin-bottom:12px;">¿Apruebas estas plantillas?</p>
+    <p style="font-size:13px;color:var(--gris);max-width:600px;margin:0 auto;line-height:1.7;">
+      Una vez aprobadas, regenero todos los carruseles usando estos 6 tipos rotativos,
+      y regenro las 105 historias con los 3 nuevos diseños H1/H2/H3.
+      También creo los 10 covers de reels.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
