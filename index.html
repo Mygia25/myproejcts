@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingrid Núñez Psi — Carruseles Marzo–Abril 2026</title>
+<title>Ingrid Núñez Psi — Carruseles + Historias Marzo–Abril 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -63,6 +63,24 @@ main { max-width:1280px; margin:0 auto; padding:48px 24px 80px; }
 #lightbox-close { position:absolute; top:20px; right:24px; background:none; border:none; color:var(--gris); font-size:26px; cursor:pointer; padding:8px; transition:color .2s; }
 #lightbox-close:hover { color:var(--beige); }
 
+/* SECTION DIVIDER */
+.section-divider { margin:60px 0 40px; display:flex; align-items:center; gap:20px; }
+.section-divider .div-line { flex:1; height:1px; background:rgba(61,43,36,.12); }
+.section-divider .div-label { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--dark); white-space:nowrap; }
+.section-divider .div-sub { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gris); }
+.section-divider-wrap { text-align:center; }
+
+/* STORIES SECTION */
+.stories-section { margin-bottom:56px; scroll-margin-top:80px; }
+.stories-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid rgba(61,43,36,.1); }
+.stories-date { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--dark); }
+.stories-feed-badge { font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--gris); background:rgba(61,43,36,.06); border-radius:100px; padding:5px 14px; }
+.stories-strip { display:flex; gap:12px; }
+.story-thumb { flex-shrink:0; width:120px; height:213px; border-radius:12px; overflow:hidden; cursor:pointer; position:relative; box-shadow:0 4px 16px rgba(61,43,36,.12); transition:transform .2s, box-shadow .2s; }
+.story-thumb:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(61,43,36,.2); }
+.story-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.story-slot-label { position:absolute; top:0; left:0; right:0; background:linear-gradient(to bottom,rgba(61,43,36,.75),transparent); color:#fff; font-size:9px; letter-spacing:1.5px; font-weight:600; padding:10px 8px 16px; text-align:center; text-transform:uppercase; }
+
 /* FOOTER */
 footer { text-align:center; padding:36px 24px; background:var(--dark); color:var(--gris); font-size:11px; letter-spacing:2px; }
 footer strong { color:var(--lavanda); }
@@ -72,8 +90,8 @@ footer strong { color:var(--lavanda); }
 
 <header>
   <p class="header-script">para ti,</p>
-  <h1>Ingrid Núñez Psi<br>Carruseles Marzo–Abril 2026</h1>
-  <p>20 carruseles · 131 slides · D'Lyra Studio</p>
+  <h1>Ingrid Núñez Psi<br>Contenido Marzo–Abril 2026</h1>
+  <p>20 carruseles · 131 slides · 105 historias · D'Lyra Studio</p>
   <div class="header-accent"></div>
 </header>
 
@@ -98,9 +116,14 @@ footer strong { color:var(--lavanda); }
   <a class="nav-pill" href="#c18">C18 Abr 8</a>
   <a class="nav-pill" href="#c19">C19 Abr 14</a>
   <a class="nav-pill" href="#c20">C20 Abr 16</a>
+  <span style="color:rgba(217,201,227,.3);margin:0 4px">│</span>
+  <a class="nav-pill" href="#historias-section">📱 Historias</a>
 </nav>
 
-<main id="gallery"></main>
+<main>
+  <div id="gallery"></div>
+  <div id="historias-section"></div>
+</main>
 
 <div id="lightbox">
   <button id="lightbox-close">✕</button>
@@ -212,6 +235,116 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')document.getElementById('lb-prev').click();
   if(e.key==='ArrowRight')document.getElementById('lb-next').click();
   if(e.key==='Escape')closeLb();
+});
+
+// ─── HISTORIAS ────────────────────────────────────────────────────────────────
+const HISTORIAS_DIAS = [
+  {key:"Sáb_14_Mar", fecha:"Sáb 14 Mar", feed:"C1 · Presentación"},
+  {key:"Dom_15_Mar", fecha:"Dom 15 Mar", feed:"C2 · Criar también es sanar"},
+  {key:"Lun_16_Mar", fecha:"Lun 16 Mar", feed:"C3 · Rabietas"},
+  {key:"Mar_17_Mar", fecha:"Mar 17 Mar", feed:"C4 · Pantallas + LM2 CALMA"},
+  {key:"Mié_18_Mar", fecha:"Mié 18 Mar", feed:"C5 · Día Mundial Felicidad"},
+  {key:"Jue_19_Mar", fecha:"Jue 19 Mar", feed:"C6 · Síndrome Down + LM1 PAUSA"},
+  {key:"Vie_20_Mar", fecha:"Vie 20 Mar", feed:"C7 · Papá/mamá agotado"},
+  {key:"Sáb_21_Mar", fecha:"Sáb 21 Mar", feed:"Solo historias"},
+  {key:"Dom_22_Mar", fecha:"Dom 22 Mar", feed:"C8 · Teaser del curso"},
+  {key:"Lun_23_Mar", fecha:"Lun 23 Mar", feed:"C9 · El termostato emocional + LM3 MAPA"},
+  {key:"Mar_24_Mar", fecha:"Mar 24 Mar", feed:"C10 · ¿Te reconoces?"},
+  {key:"Mié_25_Mar", fecha:"Mié 25 Mar", feed:"C11 · Preview módulos"},
+  {key:"Jue_26_Mar", fecha:"Jue 26 Mar 🚀", feed:"C12 · LANZAMIENTO $29"},
+  {key:"Vie_27_Mar", fecha:"Vie 27 Mar", feed:"C13 · Post-lanzamiento FAQ"},
+  {key:"Sáb_28_Mar", fecha:"Sáb 28 Mar", feed:"Solo historias"},
+  {key:"Dom_29_Mar", fecha:"Dom 29 Mar", feed:"R1 · Situaciones cotidianas"},
+  {key:"Lun_30_Mar", fecha:"Lun 30 Mar", feed:"C14 · Etapas desarrollo + LM4"},
+  {key:"Mar_31_Mar", fecha:"Mar 31 Mar", feed:"R2 · Actividades Semana Santa"},
+  {key:"Mié_1_Abr",  fecha:"Mié 1 Abr",  feed:"C15 · Día Mundial Autismo"},
+  {key:"Jue_2_Abr",  fecha:"Jue 2 Abr",  feed:"R3 · ¿Para qué sirve la psicología?"},
+  {key:"Vie_3_Abr",  fecha:"Vie 3 Abr",  feed:"C16 · Semana Santa"},
+  {key:"Sáb_4_Abr",  fecha:"Sáb 4 Abr",  feed:"Sábado Santo · Solo historias"},
+  {key:"Dom_5_Abr",  fecha:"Dom 5 Abr",  feed:"R4 · La peor madre del mundo"},
+  {key:"Lun_6_Abr",  fecha:"Lun 6 Abr",  feed:"C17 · Día Mundial Salud"},
+  {key:"Mar_7_Abr",  fecha:"Mar 7 Abr",  feed:"R5 · Cuando tu hijo llora"},
+  {key:"Mié_8_Abr",  fecha:"Mié 8 Abr",  feed:"C18 · Límites como acto de amor"},
+  {key:"Jue_9_Abr",  fecha:"Jue 9 Abr 🕊️",feed:"Jueves Santo · Descanso del feed"},
+  {key:"Vie_10_Abr", fecha:"Vie 10 Abr", feed:"R6 · Viernes Santo"},
+  {key:"Sáb_11_Abr", fecha:"Sáb 11 Abr", feed:"Solo historias"},
+  {key:"Dom_12_Abr", fecha:"Dom 12 Abr 🌸",feed:"R7 · Inside Out"},
+  {key:"Lun_13_Abr", fecha:"Lun 13 Abr", feed:"R8 · Soy psicóloga y..."},
+  {key:"Mar_14_Abr", fecha:"Mar 14 Abr", feed:"C19 · Heridas de infancia"},
+  {key:"Mié_15_Abr", fecha:"Mié 15 Abr", feed:"R9 · Actividad 10 minutos"},
+  {key:"Jue_16_Abr", fecha:"Jue 16 Abr", feed:"C20 · Presencia real"},
+  {key:"Vie_17_Abr", fecha:"Vie 17 Abr ✨",feed:"R10 · Cierre del mes"},
+];
+
+const SLOTS = [
+  {code:"H1", label:"H1 · 8am", title:"Buenos días + Encuesta"},
+  {code:"H2", label:"H2 · 12pm", title:"Dato + Recordatorio"},
+  {code:"H3", label:"H3 · 7pm", title:"CTA + Comunidad"},
+];
+
+const hSection = document.getElementById('historias-section');
+
+// Divider
+hSection.innerHTML = `
+  <div style="margin:60px 0 32px;text-align:center;padding:40px 0;border-top:1px solid rgba(61,43,36,.1);border-bottom:1px solid rgba(61,43,36,.1)">
+    <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gris);margin-bottom:8px">Plan completo de</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:var(--dark);margin-bottom:6px">Historias de Instagram</h2>
+    <p style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--marron)">35 días · 3 historias diarias · 105 historias en total</p>
+    <div style="display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap">
+      <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">📱 H1 · 8–9am · Buenos días + Encuesta</span>
+      <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">📊 H2 · 12–1pm · Dato + Recordatorio</span>
+      <span style="font-size:11px;letter-spacing:2px;color:var(--gris)">💙 H3 · 6–8pm · CTA + Comunidad</span>
+    </div>
+  </div>`;
+
+let allStoryImages = [];
+
+HISTORIAS_DIAS.forEach((dia, dIdx) => {
+  const slotThumbs = SLOTS.map((slot, sIdx) => {
+    const imgSrc = `HISTORIAS-PNG/${dia.key}_${slot.code}.png`;
+    const globalIdx = dIdx * 3 + sIdx;
+    allStoryImages.push({src: imgSrc, caption: `${dia.fecha} · ${slot.label}`, day: dia.fecha, slot: slot.title, total: 105});
+    return `<div class="story-thumb" onclick="openStoryLightbox(${globalIdx})">
+      <img src="${imgSrc}" alt="${dia.fecha} ${slot.label}" loading="lazy">
+      <div class="story-slot-label">${slot.label}</div>
+    </div>`;
+  }).join('');
+
+  hSection.innerHTML += `
+    <section class="stories-section" id="h-${dia.key}">
+      <div class="stories-header">
+        <div class="stories-date">${dia.fecha}</div>
+        <div class="stories-feed-badge">${dia.feed}</div>
+      </div>
+      <div class="stories-strip">${slotThumbs}</div>
+    </section>`;
+});
+
+let storyLbIdx = 0;
+
+function openStoryLightbox(idx) {
+  storyLbIdx = idx;
+  showStoryLb();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  lbImages = allStoryImages; // reuse lightbox with story images
+  lbIdx = idx;
+}
+
+function showStoryLb() {
+  const item = allStoryImages[storyLbIdx];
+  document.getElementById('lightbox-img').src = item.src;
+  document.getElementById('lightbox-img').style.maxHeight = '80vh';
+  document.getElementById('lightbox-caption').textContent = item.day + ' · ' + item.slot;
+  document.getElementById('lightbox-counter').textContent = (storyLbIdx + 1) + ' de ' + allStoryImages.length;
+}
+
+// override lightbox prev/next to support stories too
+document.getElementById('lb-prev').addEventListener('click', () => {
+  if(lbImages === allStoryImages){ storyLbIdx=(storyLbIdx-1+allStoryImages.length)%allStoryImages.length; showStoryLb(); }
+});
+document.getElementById('lb-next').addEventListener('click', () => {
+  if(lbImages === allStoryImages){ storyLbIdx=(storyLbIdx+1)%allStoryImages.length; showStoryLb(); }
 });
 </script>
 </body>
