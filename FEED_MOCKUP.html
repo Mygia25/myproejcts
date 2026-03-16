@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ingridnunezpsi — Instagram Feed Mockup</title>
+  <style>
+    /* ===== PAGE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #F8F2EC;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 16px 80px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* ===== PHONE FRAME ===== */
+    .phone-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .phone-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #806357;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .phone-frame {
+      width: 393px;
+      background: #121212;
+      border-radius: 54px;
+      box-shadow:
+        0 0 0 2px #2a2a2a,
+        0 0 0 6px #1a1a1a,
+        0 0 0 8px #333,
+        0 30px 80px rgba(0,0,0,0.55),
+        0 8px 24px rgba(0,0,0,0.35);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Status bar notch area */
+    .phone-notch-area {
+      background: #121212;
+      height: 52px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 6px;
+      position: relative;
+    }
+
+    .dynamic-island {
+      width: 120px;
+      height: 34px;
+      background: #000;
+      border-radius: 20px;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .status-bar {
+      width: 100%;
+      padding: 0 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 20px;
+      margin-top: 4px;
+    }
+
+    .status-time {
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.01em;
+    }
+
+    .status-icons {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .status-icons svg {
+      fill: #fff;
+      display: block;
+    }
+
+    /* ===== INSTAGRAM APP SCREEN ===== */
+    .ig-screen {
+      width: 100%;
+      height: 780px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #121212;
+      scroll-behavior: smooth;
+    }
+
+    /* Hide scrollbar but keep scroll */
+    .ig-screen::-webkit-scrollbar { width: 0; }
+    .ig-screen { scrollbar-width: none; }
+
+    /* IG Top Nav */
+    .ig-topnav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #121212;
+      border-bottom: 1px solid #262626;
+      padding: 12px 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .ig-topnav-handle {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .ig-topnav-handle svg {
+      width: 12px;
+      height: 12px;
+      fill: #fff;
+    }
+
+    .ig-topnav-actions {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .ig-topnav-actions svg {
+      fill: #fff;
+    }
+
+    /* ===== PROFILE HEADER ===== */
+    .ig-profile {
+      padding: 16px 16px 0;
+    }
+
+    .ig-profile-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .ig-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .ig-avatar-ring {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      padding: 2.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ig-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #121212;
+      padding: 2.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ig-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ig-stats {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding-top: 4px;
+    }
+
+    .ig-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .ig-stat-num {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .ig-stat-label {
+      font-size: 12px;
+      color: #a8a8a8;
+      line-height: 1;
+    }
+
+    .ig-profile-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .ig-profile-bio {
+      font-size: 12px;
+      color: #e0e0e0;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    .ig-profile-bio span.highlight {
+      color: #D9C9E3;
+      font-weight: 600;
+    }
+
+    .ig-profile-link {
+      font-size: 12px;
+      color: #D9C9E3;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* Profile action buttons */
+    .ig-profile-actions {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .ig-btn {
+      flex: 1;
+      height: 30px;
+      border-radius: 8px;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .ig-btn-follow {
+      background: #0095f6;
+      color: #fff;
+    }
+
+    .ig-btn-message {
+      background: #262626;
+      color: #fff;
+    }
+
+    .ig-btn-more {
+      flex: 0 0 30px;
+      width: 30px;
+      background: #262626;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    /* ===== STORY HIGHLIGHTS ===== */
+    .ig-highlights {
+      display: flex;
+      gap: 12px;
+      padding: 4px 16px 16px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .ig-highlights::-webkit-scrollbar { display: none; }
+
+    .ig-highlight {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .ig-highlight-ring {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 1.5px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1e1e1e;
+      overflow: hidden;
+    }
+
+    .ig-highlight-ring span {
+      font-size: 26px;
+    }
+
+    .ig-highlight-label {
+      font-size: 10.5px;
+      color: #e0e0e0;
+      text-align: center;
+      max-width: 66px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ===== TAB BAR ===== */
+    .ig-tabs {
+      display: flex;
+      border-bottom: 1px solid #262626;
+      margin-bottom: 1px;
+    }
+
+    .ig-tab {
+      flex: 1;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .ig-tab.active {
+      border-bottom: 2px solid #fff;
+    }
+
+    .ig-tab svg {
+      fill: #a8a8a8;
+    }
+    .ig-tab.active svg {
+      fill: #fff;
+    }
+
+    /* ===== PHOTO GRID ===== */
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .ig-grid-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      cursor: pointer;
+      background: #1e1e1e;
+    }
+
+    .ig-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.25s ease;
+    }
+
+    /* Carousel multi-image icon */
+    .ig-carousel-badge {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      width: 20px;
+      height: 20px;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));
+    }
+
+    /* Hover overlay */
+    .ig-grid-item:hover img {
+      filter: brightness(0.55);
+    }
+
+    .ig-grid-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 8px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .ig-grid-item:hover .ig-grid-overlay {
+      opacity: 1;
+    }
+
+    .ig-overlay-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .ig-overlay-date {
+      font-size: 10px;
+      color: #D9C9E3;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .ig-overlay-slides {
+      position: absolute;
+      bottom: 7px;
+      left: 7px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.5);
+      border-radius: 4px;
+      padding: 2px 5px;
+      font-weight: 600;
+      display: none;
+    }
+
+    .ig-grid-item:hover .ig-overlay-slides {
+      display: block;
+    }
+
+    /* ===== HOME INDICATOR ===== */
+    .phone-home {
+      background: #121212;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .phone-home-bar {
+      width: 130px;
+      height: 5px;
+      background: #555;
+      border-radius: 3px;
+    }
+
+    /* ===== BOTTOM CAPTION ===== */
+    .page-caption {
+      margin-top: 24px;
+      text-align: center;
+      color: #806357;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .page-caption strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #3D2B24;
+      margin-bottom: 3px;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* ===== LEGEND ===== */
+    .legend {
+      margin-top: 32px;
+      width: 393px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    .legend-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #806357;
+      margin-bottom: 14px;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .legend-num {
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff;
+      background: #3D2B24;
+      border-radius: 4px;
+      padding: 2px 5px;
+      flex-shrink: 0;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .legend-text {
+      font-size: 11px;
+      color: #3D2B24;
+      line-height: 1.4;
+    }
+
+    .legend-date {
+      font-size: 10px;
+      color: #806357;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone-wrapper">
+
+    <p class="phone-label">Feed Mockup &mdash; @ingridnunezpsi &mdash; 20 Carruseles</p>
+
+    <!-- PHONE FRAME -->
+    <div class="phone-frame">
+
+      <!-- Notch / Dynamic Island -->
+      <div class="phone-notch-area">
+        <div class="dynamic-island"></div>
+        <div class="status-bar" style="margin-top: 42px; position: absolute; top: 0; left: 0; right: 0; height: 52px; display: flex; align-items: flex-end; padding-bottom: 8px;">
+          <span class="status-time">9:41</span>
+          <div class="status-icons">
+            <!-- Signal -->
+            <svg width="17" height="12" viewBox="0 0 17 12"><rect x="0" y="6" width="3" height="6" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+            <!-- WiFi -->
+            <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0-3.5a6 6 0 0 1 4.24 1.76l-1.41 1.41A4 4 0 0 0 8 8a4 4 0 0 0-2.83 1.17L3.76 7.76A6 6 0 0 1 8 6zm0-4a9.5 9.5 0 0 1 6.72 2.78L13.3 6.2A7.5 7.5 0 0 0 8 4a7.5 7.5 0 0 0-5.3 2.2L1.28 4.78A9.5 9.5 0 0 1 8 2z" opacity="0.85"/></svg>
+            <!-- Battery -->
+            <svg width="25" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="21" height="10" rx="2.5" stroke="#fff" stroke-width="1" fill="none"/><rect x="22" y="3.5" width="2.5" height="5" rx="1" fill="#fff" opacity="0.4"/><rect x="1.5" y="2.5" width="15" height="7" rx="1.5" fill="#fff"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instagram Screen -->
+      <div class="ig-screen">
+
+        <!-- Top Nav -->
+        <div class="ig-topnav">
+          <div class="ig-topnav-handle">
+            ingridnunezpsi
+            <svg viewBox="0 0 10 6" width="10" height="6"><path d="M0 0l5 6 5-6z"/></svg>
+          </div>
+          <div class="ig-topnav-actions">
+            <!-- Plus / New post -->
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm0 2a7 7 0 110 14A7 7 0 0112 5zm0 3a1 1 0 00-1 1v2H9a1 1 0 000 2h2v2a1 1 0 002 0v-2h2a1 1 0 000-2h-2V9a1 1 0 00-1-1z"/></svg>
+            <!-- Menu -->
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+          </div>
+        </div>
+
+        <!-- Profile Header -->
+        <div class="ig-profile">
+
+          <div class="ig-profile-top">
+            <!-- Avatar -->
+            <div class="ig-avatar-wrap">
+              <div class="ig-avatar-ring">
+                <div class="ig-avatar-inner">
+                  <img class="ig-avatar"
+                    src="RECURSOS VISUALES/IMG_2853.jpeg"
+                    alt="Ingrid Nunez"
+                    onerror="this.style.background='#D9C9E3'; this.style.display='flex'; this.alt='IN'">
+                </div>
+              </div>
+            </div>
+            <!-- Stats -->
+            <div class="ig-stats">
+              <div class="ig-stat">
+                <span class="ig-stat-num">20</span>
+                <span class="ig-stat-label">publicaciones</span>
+              </div>
+              <div class="ig-stat">
+                <span class="ig-stat-num">---</span>
+                <span class="ig-stat-label">seguidores</span>
+              </div>
+              <div class="ig-stat">
+                <span class="ig-stat-num">---</span>
+                <span class="ig-stat-label">seguidos</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="ig-profile-name">Ingrid Núñez</p>
+          <p class="ig-profile-bio">
+            Psicóloga infantil y familiar | 15+ años | Mamá |
+            Crianza real, sin filtros |
+            <span class="highlight">Curso: De la frustración a la calma</span>
+          </p>
+          <a class="ig-profile-link" href="#">psicolaingridnunez.lovable.app/curso</a>
+
+          <!-- Action buttons -->
+          <div class="ig-profile-actions">
+            <button class="ig-btn ig-btn-follow">Seguir</button>
+            <button class="ig-btn ig-btn-message">Mensaje</button>
+            <button class="ig-btn ig-btn-more">&#8942;</button>
+          </div>
+        </div>
+
+        <!-- Story Highlights -->
+        <div class="ig-highlights">
+          <div class="ig-highlight">
+            <div class="ig-highlight-ring"><span>&#x2753;</span></div>
+            <span class="ig-highlight-label">Preguntas</span>
+          </div>
+          <div class="ig-highlight">
+            <div class="ig-highlight-ring"><span>&#127979;</span></div>
+            <span class="ig-highlight-label">Curso</span>
+          </div>
+          <div class="ig-highlight">
+            <div class="ig-highlight-ring"><span>&#128161;</span></div>
+            <span class="ig-highlight-label">Tips</span>
+          </div>
+          <div class="ig-highlight">
+            <div class="ig-highlight-ring"><span>&#128107;</span></div>
+            <span class="ig-highlight-label">Sobre m&iacute;</span>
+          </div>
+        </div>
+
+        <!-- Grid Tabs -->
+        <div class="ig-tabs">
+          <div class="ig-tab active">
+            <!-- Grid icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M2 2h9v9H2zm11 0h9v9h-9zm0 11h9v9h-9zM2 13h9v9H2z"/></svg>
+          </div>
+          <div class="ig-tab">
+            <!-- Reels icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm2.5 2H8l1.5 3H7.5L6 5h1.5zm3.5 0h1l1.5 3H11L9.5 5H11zm3.5 0H16l1.5 3H15L13.5 5H14zM5 9.5h14v9.5H5V9.5zM10 12v5l4-2.5-4-2.5z" opacity="0.7"/></svg>
+          </div>
+          <div class="ig-tab">
+            <!-- Tag icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M21 3H3v2h18V3zm-8 4H3v2h10V7zm8 0h-6v2h6V7zM3 11h18v2H3zm0 4h8v2H3zm10 0h8v2h-8z" opacity="0.5"/></svg>
+          </div>
+        </div>
+
+        <!-- Photo Grid — newest at top means C20→C01 (chronological newest first) -->
+        <div class="ig-grid">
+
+          <!-- C20 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_32_MIE_15_ABR/CARRUSEL/C20_slide_01.png"
+              alt="C20 — Presencia" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C20 — Presencia</span>
+              <span class="ig-overlay-date">Mie 15 Abr 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C19 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_31_MAR_14_ABR/CARRUSEL/C19_slide_01.png"
+              alt="C19 — Heridas" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C19 — Heridas</span>
+              <span class="ig-overlay-date">Mar 14 Abr 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C18 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_25_MIE_08_ABR/CARRUSEL/C18_slide_01.png"
+              alt="C18 — Limites" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C18 — L&iacute;mites</span>
+              <span class="ig-overlay-date">Mie 08 Abr 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C17 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_23_LUN_06_ABR/CARRUSEL/C17_slide_01.png"
+              alt="C17 — Salud" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C17 — Salud</span>
+              <span class="ig-overlay-date">Lun 06 Abr 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C16 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_19_JUE_02_ABR/CARRUSEL/C16_slide_01.png"
+              alt="C16 — Semana Santa" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C16 — Semana Santa</span>
+              <span class="ig-overlay-date">Jue 02 Abr 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C15 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_17_MAR_31_MAR/CARRUSEL/C15_slide_01.png"
+              alt="C15 — Autismo" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C15 — Autismo</span>
+              <span class="ig-overlay-date">Mar 31 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C14 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_14_SAB_28_MAR/CARRUSEL/C14_slide_01.png"
+              alt="C14 — Etapas 3, 5, 7" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C14 — Etapas 3, 5, 7</span>
+              <span class="ig-overlay-date">Sab 28 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">7 slides</span>
+          </div>
+
+          <!-- C13 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_13_VIE_27_MAR/CARRUSEL/C13_slide_01.png"
+              alt="C13 — Post-lanzamiento" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C13 — Post-lanzamiento</span>
+              <span class="ig-overlay-date">Vie 27 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C12 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_12_JUE_26_MAR/CARRUSEL/C12_slide_01.png"
+              alt="C12 — Lanzamiento" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C12 — Lanzamiento</span>
+              <span class="ig-overlay-date">Jue 26 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">7 slides</span>
+          </div>
+
+          <!-- C11 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_11_MIE_25_MAR/CARRUSEL/C11_slide_01.png"
+              alt="C11 — Preview modulos" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C11 — Preview m&oacute;dulos</span>
+              <span class="ig-overlay-date">Mie 25 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C10 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_10_MAR_24_MAR/CARRUSEL/C10_slide_01.png"
+              alt="C10 — 5 señales" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C10 — 5 se&ntilde;ales</span>
+              <span class="ig-overlay-date">Mar 24 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C09 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_09_LUN_23_MAR/CARRUSEL/C09_slide_01.png"
+              alt="C09 — Termostato emocional" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C09 — Termostato emocional</span>
+              <span class="ig-overlay-date">Lun 23 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">7 slides</span>
+          </div>
+
+          <!-- C08 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_08_DOM_22_MAR/CARRUSEL/C08_slide_01.png"
+              alt="C08 — Teaser curso" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C08 — Teaser curso</span>
+              <span class="ig-overlay-date">Dom 22 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C07 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_07_SAB_21_MAR/CARRUSEL/C07_slide_01.png"
+              alt="C07 — Papa/mama agotado" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C07 — Pap&aacute;/mam&aacute; agotado</span>
+              <span class="ig-overlay-date">Sab 21 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C06 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_06_VIE_20_MAR/CARRUSEL/C06_slide_01.png"
+              alt="C06 — Sindrome de Down" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C06 — S&iacute;ndrome de Down</span>
+              <span class="ig-overlay-date">Vie 20 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C05 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_05_JUE_19_MAR/CARRUSEL/C05_slide_01.png"
+              alt="C05 — Felicidad" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C05 — Felicidad</span>
+              <span class="ig-overlay-date">Jue 19 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">7 slides</span>
+          </div>
+
+          <!-- C04 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_04_MIE_18_MAR/CARRUSEL/C04_slide_01.png"
+              alt="C04 — Pantallas" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C04 — Pantallas</span>
+              <span class="ig-overlay-date">Mie 18 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">8 slides</span>
+          </div>
+
+          <!-- C03 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_03_MAR_17_MAR/CARRUSEL/C03_slide_01.png"
+              alt="C03 — Rabietas" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C03 — Rabietas</span>
+              <span class="ig-overlay-date">Mar 17 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C02 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_02_LUN_16_MAR/CARRUSEL/C02_slide_01.png"
+              alt="C02 — Criar con consciencia te sana" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C02 — Criar con consciencia te sana</span>
+              <span class="ig-overlay-date">Lun 16 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">6 slides</span>
+          </div>
+
+          <!-- C01 -->
+          <div class="ig-grid-item">
+            <img src="PUBLICACIONES/DIA_01_SAB_14_MAR/CARRUSEL/C01_slide_01.png"
+              alt="C01 — Presentacion" loading="lazy">
+            <img class="ig-carousel-badge" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2' y='6' width='14' height='14' rx='2' fill='white'/%3E%3Crect x='6' y='2' width='14' height='14' rx='2' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E" alt="">
+            <div class="ig-grid-overlay">
+              <span class="ig-overlay-title">C01 — Presentaci&oacute;n</span>
+              <span class="ig-overlay-date">Sab 14 Mar 2026</span>
+            </div>
+            <span class="ig-overlay-slides">7 slides</span>
+          </div>
+
+        </div><!-- /ig-grid -->
+
+        <!-- Extra padding so last row is not clipped -->
+        <div style="height: 24px;"></div>
+
+      </div><!-- /ig-screen -->
+
+      <!-- Home indicator -->
+      <div class="phone-home">
+        <div class="phone-home-bar"></div>
+      </div>
+
+    </div><!-- /phone-frame -->
+
+    <!-- Caption below phone -->
+    <p class="page-caption">
+      <strong>@ingridnunezpsi — Feed completo</strong>
+      20 carruseles | 14 Mar &mdash; 15 Abr 2026 | Producido por D'Lyra Studio
+    </p>
+
+    <!-- Legend table -->
+    <div class="legend">
+      <p class="legend-title">Indice de carruseles</p>
+      <div class="legend-grid">
+
+        <div class="legend-item">
+          <span class="legend-num">C20</span>
+          <div>
+            <div class="legend-text">Presencia</div>
+            <div class="legend-date">Mie 15 Abr &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C19</span>
+          <div>
+            <div class="legend-text">Heridas</div>
+            <div class="legend-date">Mar 14 Abr &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C18</span>
+          <div>
+            <div class="legend-text">L&iacute;mites</div>
+            <div class="legend-date">Mie 08 Abr &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C17</span>
+          <div>
+            <div class="legend-text">Salud</div>
+            <div class="legend-date">Lun 06 Abr &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C16</span>
+          <div>
+            <div class="legend-text">Semana Santa</div>
+            <div class="legend-date">Jue 02 Abr &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C15</span>
+          <div>
+            <div class="legend-text">Autismo</div>
+            <div class="legend-date">Mar 31 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C14</span>
+          <div>
+            <div class="legend-text">Etapas 3, 5, 7</div>
+            <div class="legend-date">Sab 28 Mar &bull; 7 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C13</span>
+          <div>
+            <div class="legend-text">Post-lanzamiento</div>
+            <div class="legend-date">Vie 27 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C12</span>
+          <div>
+            <div class="legend-text">Lanzamiento</div>
+            <div class="legend-date">Jue 26 Mar &bull; 7 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C11</span>
+          <div>
+            <div class="legend-text">Preview m&oacute;dulos</div>
+            <div class="legend-date">Mie 25 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C10</span>
+          <div>
+            <div class="legend-text">5 se&ntilde;ales</div>
+            <div class="legend-date">Mar 24 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C09</span>
+          <div>
+            <div class="legend-text">Termostato emocional</div>
+            <div class="legend-date">Lun 23 Mar &bull; 7 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C08</span>
+          <div>
+            <div class="legend-text">Teaser curso</div>
+            <div class="legend-date">Dom 22 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C07</span>
+          <div>
+            <div class="legend-text">Pap&aacute;/mam&aacute; agotado</div>
+            <div class="legend-date">Sab 21 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C06</span>
+          <div>
+            <div class="legend-text">S&iacute;ndrome de Down</div>
+            <div class="legend-date">Vie 20 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C05</span>
+          <div>
+            <div class="legend-text">Felicidad</div>
+            <div class="legend-date">Jue 19 Mar &bull; 7 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C04</span>
+          <div>
+            <div class="legend-text">Pantallas</div>
+            <div class="legend-date">Mie 18 Mar &bull; 8 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C03</span>
+          <div>
+            <div class="legend-text">Rabietas</div>
+            <div class="legend-date">Mar 17 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C02</span>
+          <div>
+            <div class="legend-text">Criar con consciencia</div>
+            <div class="legend-date">Lun 16 Mar &bull; 6 slides</div>
+          </div>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-num">C01</span>
+          <div>
+            <div class="legend-text">Presentaci&oacute;n</div>
+            <div class="legend-date">Sab 14 Mar &bull; 7 slides</div>
+          </div>
+        </div>
+
+      </div><!-- /legend-grid -->
+    </div><!-- /legend -->
+
+  </div><!-- /phone-wrapper -->
+
+</body>
+</html>

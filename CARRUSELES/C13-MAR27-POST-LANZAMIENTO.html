@@ -15,12 +15,13 @@
     position: relative;
     margin-bottom: 8px;
   }
-  .bg-photo {
+  .bg-img {
     position: absolute;
     inset: 0;
-    background-image: url('../RECURSOS VISUALES/IMG_3284.jpeg');
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     opacity: 0.15;
   }
   .slide-counter {
@@ -41,6 +42,10 @@
     align-items: center;
     justify-content: center;
     gap: 36px;
+  }
+  .s1 > *:not(.bg-img):not(.logo-wm) {
+    position: relative;
+    z-index: 2;
   }
   .s1-icon {
     font-size: 80px;
@@ -237,6 +242,7 @@
 
 <!-- SLIDE 1 -->
 <div class="slide s1">
+  <img class="bg-img" src="../RECURSOS VISUALES/IMG_3284.jpeg" alt="Ingrid Núñez" style="opacity:0.18;">
   <div class="s1-icon">💙</div>
   <div class="s1-line"></div>
   <div class="s1-title">Ya está<br>disponible.</div>

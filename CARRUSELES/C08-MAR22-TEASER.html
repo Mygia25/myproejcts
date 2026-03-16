@@ -21,12 +21,13 @@
     flex-direction: column;
   }
 
-  .bg-photo {
+  .bg-img {
     position: absolute;
     inset: 0;
-    background-image: url('../RECURSOS VISUALES/IMG_3276.jpeg');
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   /* ===== SLIDE 1 — PORTADA ===== */
@@ -83,7 +84,7 @@
   #s2 {
     background: #1e140d;
   }
-  #s2 .bg-photo { opacity: 0.22; filter: blur(1px); }
+  #s2 .bg-img { opacity: 0.22; filter: blur(1px); }
   #s2 .overlay {
     position: absolute;
     inset: 0;
@@ -415,6 +416,8 @@
 
 <!-- ===== SLIDE 1 — PORTADA ===== -->
 <div class="slide" id="s1">
+  <img class="bg-img" src="../RECURSOS VISUALES/IMG_3276.jpeg" alt="Ingrid Núñez" style="opacity:0.35;filter:brightness(0.6);">
+  <div style="position:absolute;inset:0;background:rgba(61,43,36,0.7);"></div>
   <div class="content">
     <div class="script-label">algo que creé</div>
     <h1>pensando en ti.</h1>
@@ -426,7 +429,7 @@
 
 <!-- ===== SLIDE 2 ===== -->
 <div class="slide" id="s2">
-  <div class="bg-photo"></div>
+  <img class="bg-img" src="../RECURSOS VISUALES/IMG_3276.jpeg" alt="Ingrid Núñez">
   <div class="overlay"></div>
   <div class="content">
     <div class="years-badge">

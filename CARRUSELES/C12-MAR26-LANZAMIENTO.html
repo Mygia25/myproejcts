@@ -20,10 +20,15 @@
   .s1 {
     background: #3D2B24;
   }
-  .s1-bg {
+  .bg-img {
     position: absolute;
     inset: 0;
-    background: url('../RECURSOS VISUALES/IMG_2853.jpeg') center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .s1-bg-img {
     filter: brightness(0.35);
   }
   .s1-overlay {
@@ -415,7 +420,7 @@
 
 <!-- SLIDE 1 -->
 <div class="slide s1">
-  <div class="s1-bg"></div>
+  <img class="bg-img s1-bg-img" src="../RECURSOS VISUALES/IMG_2853.jpeg" alt="Ingrid Núñez">
   <div class="s1-overlay"></div>
   <div class="s1-content">
     <div class="s1-ribbon">✦ Ya disponible ✦</div>

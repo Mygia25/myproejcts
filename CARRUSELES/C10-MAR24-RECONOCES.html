@@ -21,12 +21,14 @@
     flex-direction: column;
   }
 
-  .bg-photo {
+  .bg-img {
     position: absolute;
     inset: 0;
-    background-image: url('../RECURSOS VISUALES/IMG_1458.jpeg');
-    background-size: cover;
-    background-position: center top;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
   /* ===== SLIDE 1 — PORTADA ===== */
@@ -38,7 +40,7 @@
     top: 0; left: 0; right: 0;
     height: 60%;
   }
-  #s1 .img-area .bg-photo {
+  #s1 .img-area .bg-img {
     height: 100%;
     bottom: auto;
     opacity: 0.50;
@@ -310,7 +312,7 @@
 <!-- ===== SLIDE 1 — PORTADA ===== -->
 <div class="slide" id="s1">
   <div class="img-area">
-    <div class="bg-photo"></div>
+    <img class="bg-img" src="../RECURSOS VISUALES/IMG_1458.jpeg" alt="Ingrid Núñez">
     <div class="img-fade"></div>
   </div>
   <div class="content">
