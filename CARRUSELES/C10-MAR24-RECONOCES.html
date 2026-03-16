@@ -24,7 +24,7 @@
   .bg-photo {
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?w=1080&q=85&fit=crop');
+    background-image: url('../RECURSOS VISUALES/IMG_1458.jpeg');
     background-size: cover;
     background-position: center top;
   }
@@ -290,6 +290,19 @@
     color: rgba(61,43,36,0.50);
     letter-spacing: 1px;
   }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
@@ -306,6 +319,7 @@
     <h1>5 señales de que el curso es para ti.</h1>
   </div>
   <div class="handle">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 2 — SEÑAL 01 ===== -->
@@ -317,6 +331,7 @@
     <p class="signal-note">El cerebro sabe.<br>El cuerpo no puede.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 3 — SEÑAL 02 ===== -->
@@ -328,6 +343,7 @@
     <p class="signal-note">Y ese peso lo cargas solo/a.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 4 — SEÑAL 03 ===== -->
@@ -339,6 +355,7 @@
     <p class="signal-note">No es falta de voluntad.<br>Es falta de herramientas.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 5 — SEÑALES 04 + 05 ===== -->
@@ -356,6 +373,7 @@
     </div>
   </div>
   <div class="handle-bottom-dark">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 6 — CTA ===== -->
@@ -369,6 +387,7 @@
     <div class="handle-big">@ingridnunezpsi</div>
     <p class="web">psicolaingridnunez.lovable.app</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 </body>

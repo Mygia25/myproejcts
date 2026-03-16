@@ -21,11 +21,10 @@
     flex-direction: column;
   }
 
-  /* Shared bg image helper */
+  /* Shared bg image helper — base styles only, images per slide */
   .bg-photo {
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1080&q=85&fit=crop');
     background-size: cover;
     background-position: center;
   }
@@ -384,13 +383,26 @@
     letter-spacing: 0.5px;
     font-style: italic;
   }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
 
 <!-- ===== SLIDE 1 — PORTADA ===== -->
 <div class="slide" id="s1">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1587654780290-9d8f8d3f3a1d?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <div class="pill">Hoy · Día Mundial del Síndrome de Down 💙</div>
@@ -398,22 +410,24 @@
     <div class="italic-line">ser vistos tal como son.</div>
   </div>
   <div class="handle">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 2 ===== -->
 <div class="slide" id="s2">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1080&q=85&fit=crop');"></div>
   <div class="content">
     <div class="accent-line"></div>
     <h2>Sin importar si tu hijo/a tiene un diagnóstico o ninguna etiqueta.</h2>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
   <div class="slide-num">2 / 6</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 3 ===== -->
 <div class="slide" id="s3">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <div class="deco-heart">💙</div>
@@ -421,11 +435,12 @@
     <p class="sub">No por lo que <strong>logran.</strong><br>Sino por <strong>quienes son.</strong></p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 4 ===== -->
 <div class="slide" id="s4">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <div class="divider"></div>
@@ -433,10 +448,12 @@
     <p class="answer">Hoy es buen día para preguntárselo.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 5 — LEAD MAGNET ===== -->
 <div class="slide" id="s5">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=1080&q=85&fit=crop');opacity:0.10;"></div>
   <div class="content">
     <div class="gift-icon">🎧</div>
     <h2>Para ti, gratis:</h2>
@@ -444,10 +461,12 @@
     <div class="cta-pill">Escríbeme PAUSA por DM 🎁</div>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 6 — CTA ===== -->
 <div class="slide" id="s6">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=1080&q=85&fit=crop');opacity:0.10;"></div>
   <div class="content">
     <div class="swipe-row">
       <span class="arrow-text">Vuelve al inicio</span>
@@ -459,6 +478,7 @@
     <div class="deco-line"></div>
     <p class="tagline">Psicóloga · Crianza con conciencia</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 </body>

@@ -207,7 +207,7 @@ body { width:1080px; background:#1a1a1a; }
 
 /* ─── SLIDE 5: Quote ─── */
 .slide-quote {
-  background:#F8F2EC;
+  background: linear-gradient(to bottom, rgba(248,242,236,0.88), rgba(248,242,236,0.92)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1080&q=85&fit=crop') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -309,6 +309,19 @@ body { width:1080px; background:#1a1a1a; }
 }
 .div-line { width:60px; height:1px; background:rgba(128,99,87,.3); }
 .div-dot { width:6px; height:6px; border-radius:50%; background:#806357; opacity:.4; }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
@@ -322,16 +335,18 @@ body { width:1080px; background:#1a1a1a; }
     <p class="s1-saludo">para ti,</p>
     <h1 class="s1-title">Esta semana, permítete simplemente estar.</h1>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 — Full-bleed photo -->
 <div class="slide slide-2">
-  <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=1080&q=85&fit=crop" alt="peaceful spring nature">
+  <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="family resting outdoors in nature">
   <div class="slide-2-overlay"></div>
   <span class="slide-num-light">02 / 06</span>
   <div class="slide-2-text">
     <p>Para muchos es vacaciones. Para los papás puede ser más de lo mismo... pero sin rutina.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 — Big insight beige -->
@@ -342,6 +357,7 @@ body { width:1080px; background:#1a1a1a; }
     <h2 class="big-insight">No necesitas llenar la semana de actividades.</h2>
     <p class="italic-lavanda">Solo necesitas estar.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 — Dark -->
@@ -352,6 +368,7 @@ body { width:1080px; background:#1a1a1a; }
     <div class="dark-divider"></div>
     <p class="dark-italic-lav">Solo tú y él/ella.</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 — Quote beige -->
@@ -362,6 +379,7 @@ body { width:1080px; background:#1a1a1a; }
     <p class="quote-mark">"</p>
     <p class="quote-text">Lo que un niño recuerda no es el parque de diversiones. Es el momento en que sentiste su mirada y no la soltaste.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 — CTA lavanda -->
@@ -380,6 +398,7 @@ body { width:1080px; background:#1a1a1a; }
     <span class="handle">@ingridnunezpsi</span>
     <span class="web">psicolaingridnunez.lovable.app</span>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

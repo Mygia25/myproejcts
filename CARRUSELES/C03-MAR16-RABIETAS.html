@@ -311,6 +311,32 @@ body { width:1080px; background:#1a1a1a; }
 }
 .div-line { width:60px; height:1px; background:rgba(217,201,227,.5); }
 .div-dot { width:6px; height:6px; border-radius:50%; background:#D9C9E3; opacity:.6; }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
+
+/* ─── BG IMAGE for solid-color slides ─── */
+.bg-img-abs {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bg-img-abs.faint { opacity: 0.18; filter: saturate(0.6); }
+.bg-img-abs.medium { opacity: 0.25; filter: saturate(0.6) brightness(0.9); }
+.bg-img-abs.dark-bg { opacity: 0.20; filter: saturate(0.5) brightness(0.7); }
+.bg-img-abs.lav-bg { opacity: 0.22; filter: saturate(0.5); }
 </style>
 </head>
 <body>
@@ -318,7 +344,7 @@ body { width:1080px; background:#1a1a1a; }
 <!-- SLIDE 1 — Portada: Split layout -->
 <div class="slide-split">
   <div class="split-top">
-    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1080&q=85&fit=crop" alt="child upset">
+    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1080&q=85&fit=crop" alt="upset toddler having tantrum">
     <div class="split-top-overlay"></div>
     <span class="slide-num-split">01 / 06</span>
   </div>
@@ -326,10 +352,12 @@ body { width:1080px; background:#1a1a1a; }
     <h1 class="cover-title">Las rabietas no son manipulación.</h1>
     <p class="cover-subtitle">Son un llamado de auxilio.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 — Beige + icon -->
 <div class="slide-beige">
+  <img class="bg-img-abs faint" src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1080&q=85&fit=crop" alt="frustrated child crying">
   <div class="accent-bar"></div>
   <span class="slide-num-beige">02 / 06</span>
   <div class="beige-content">
@@ -337,10 +365,12 @@ body { width:1080px; background:#1a1a1a; }
     <h2 class="beige-title">Su sistema nervioso está desbordado.</h2>
     <p class="beige-sub">No puede calmarse solo todavía.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 — Beige + icon -->
 <div class="slide-beige">
+  <img class="bg-img-abs faint" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="parent crouching to child level">
   <div class="accent-bar"></div>
   <span class="slide-num-beige">03 / 06</span>
   <div class="beige-content">
@@ -348,22 +378,26 @@ body { width:1080px; background:#1a1a1a; }
     <h2 class="beige-title">Lo que hace en ese momento no es elegido.</h2>
     <p class="beige-sub">Es automático. Es biológico.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 — Dark -->
 <div class="slide-dark">
+  <img class="bg-img-abs dark-bg" src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1080&q=85&fit=crop" alt="child brain neuroscience concept">
   <span class="slide-num-beige" style="color:rgba(248,242,236,.35);">04 / 06</span>
   <div class="dark-content">
     <p class="dark-quote">El problema no es la rabieta.</p>
     <div class="dark-divider"></div>
     <p class="dark-accent">Es que nadie nos enseñó qué hacer en ese momento.</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 — Lavanda -->
 <div class="slide-lavanda">
+  <img class="bg-img-abs lav-bg" src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1080&q=85&fit=crop" alt="parent comforting child">
   <span class="slide-num-beige" style="color:rgba(61,43,36,.35);">05 / 06</span>
-  <div style="display:flex;flex-direction:column;align-items:center;padding:0 100px;text-align:center;">
+  <div style="display:flex;flex-direction:column;align-items:center;padding:0 100px;text-align:center;position:relative;z-index:2;">
     <div class="divider" style="margin-bottom:40px;">
       <div class="div-line" style="background:rgba(61,43,36,.2);"></div>
       <div class="div-dot" style="background:#806357;opacity:.5;"></div>
@@ -372,12 +406,14 @@ body { width:1080px; background:#1a1a1a; }
     <p class="lav-title">Ni a ellos.<br>Ni a nosotros.</p>
     <p class="lav-sub">Y eso cambia ahora.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 — CTA Beige -->
 <div class="slide-cta">
-  <div class="accent-bar" style="background:linear-gradient(to bottom, #D9C9E3, #806357, #D9C9E3);"></div>
-  <div class="cta-content">
+  <img class="bg-img-abs faint" src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=1080&q=85&fit=crop" alt="calm parent with child">
+  <div class="accent-bar" style="background:linear-gradient(to bottom, #D9C9E3, #806357, #D9C9E3);position:relative;z-index:2;"></div>
+  <div class="cta-content" style="position:relative;z-index:2;">
     <div class="divider" style="margin-bottom:36px;">
       <div class="div-line" style="background:rgba(128,99,87,.3);"></div>
       <div class="div-dot" style="background:#806357;opacity:.4;"></div>
@@ -386,10 +422,11 @@ body { width:1080px; background:#1a1a1a; }
     <p class="cta-question">¿Cuántas veces esta semana tu hijo/a tuvo una crisis?</p>
     <p class="cta-sub">Sin juicio. Te leo en comentarios.</p>
   </div>
-  <div class="cta-footer">
+  <div class="cta-footer" style="position:relative;z-index:2;">
     <span class="handle">@ingridnunezpsi</span>
     <span class="no-judgment">psicolaingridnunez.lovable.app</span>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

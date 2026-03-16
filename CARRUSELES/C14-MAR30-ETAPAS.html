@@ -42,7 +42,7 @@
   }
   .s1-right {
     flex: 1;
-    background: url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1080&q=85&fit=crop') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1080&q=85&fit=crop') center/cover no-repeat;
     filter: brightness(0.75) saturate(0.8);
   }
   .s1-pill {
@@ -278,6 +278,19 @@
     background: #D9C9E3;
     opacity: 0.3;
   }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
@@ -285,11 +298,12 @@
 <!-- SLIDE 1 -->
 <div class="slide s1">
   <div class="s1-left">
-    <div class="s1-pill">Guia por etapas</div>
+    <div class="s1-pill">Guía por etapas</div>
     <div class="s1-title">Lo que es normal<br>a los 3, 5<br>y 7 años.</div>
     <div class="s1-sub">(y que no tiene nada de malo.)</div>
   </div>
   <div class="s1-right"></div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 -->
@@ -304,6 +318,7 @@
   <div class="age-label">NORMAL. Su cerebro está desarrollando<br>el control de impulsos.</div>
   <div class="age-num-bg">3</div>
   <div class="slide-counter" style="color:rgba(61,43,36,0.35);">02 / 07</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 -->
@@ -318,6 +333,7 @@
   <div class="age-label">NORMAL. Está aprendiendo<br>su lugar en el mundo.</div>
   <div class="age-num-bg">5</div>
   <div class="slide-counter">03 / 07</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 -->
@@ -332,6 +348,7 @@
   <div class="age-label">NORMAL. Su mundo social<br>ya le importa mucho.</div>
   <div class="age-num-bg">7</div>
   <div class="slide-counter" style="color:rgba(255,255,255,0.25);">04 / 07</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 -->
@@ -341,6 +358,7 @@
   <div class="s5-bold">El problema es cuando<br>no tienen a nadie que<br>les ayude a transitarlo.</div>
   <div class="s5-line"></div>
   <div class="slide-counter">05 / 07</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 -->
@@ -352,6 +370,7 @@
   <div class="s6-divider"></div>
   <div class="s6-pill">Comenta la edad de tu hijo/a en el post</div>
   <div class="slide-counter" style="color:rgba(61,43,36,0.35);">06 / 07</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 7 -->
@@ -361,6 +380,7 @@
   <div class="s7-line"></div>
   <div class="s7-handle">@ingridnunezpsi</div>
   <div class="s7-web">psicolaingridnunez.lovable.app</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

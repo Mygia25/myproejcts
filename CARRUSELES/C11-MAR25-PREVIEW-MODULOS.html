@@ -15,6 +15,14 @@
     position: relative;
     margin-bottom: 8px;
   }
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('../RECURSOS VISUALES/IMG_3281.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+  }
 
   /* ── SLIDE 1 ── */
   .s1 {
@@ -273,6 +281,19 @@
     background: #D9C9E3;
     opacity: 0.3;
   }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
@@ -285,6 +306,7 @@
   <div class="s1-title">Esto es lo que<br>hay adentro.</div>
   <div class="s1-sub">3 módulos. Para el momento exacto.</div>
   <div class="s1-deco-bottom"></div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 -->
@@ -295,6 +317,7 @@
   <div class="module-body">Por qué tu hijo reacciona así — y cómo dejar de pelear contra eso.</div>
   <div class="module-number-bg">1</div>
   <div class="slide-counter">02 / 06</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 -->
@@ -305,6 +328,7 @@
   <div class="module-body">No puedes regular a otro si primero no te regulas a ti.</div>
   <div class="module-number-bg" style="color:#3D2B24;">2</div>
   <div class="slide-counter" style="color:rgba(61,43,36,0.4);">03 / 06</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 -->
@@ -315,6 +339,7 @@
   <div class="module-body">El protocolo paso a paso para usar en el momento exacto.</div>
   <div class="module-number-bg">3</div>
   <div class="slide-counter">04 / 06</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 -->
@@ -347,6 +372,7 @@
     </div>
   </div>
   <div class="s5-handle">@ingridnunezpsi</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 -->
@@ -359,6 +385,7 @@
   <div class="s6-small">Garantía incondicional de 7 días</div>
   <div class="s6-divider"></div>
   <div class="s6-handle">@ingridnunezpsi &nbsp;·&nbsp; psicolaingridnunez.lovable.app</div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

@@ -24,7 +24,6 @@
   .bg-photo {
     position: absolute;
     inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1518756131217-31eb79b20e8f?w=1080&q=85&fit=crop');
     background-size: cover;
     background-position: center;
   }
@@ -352,13 +351,26 @@
     color: #B0AEB0;
     letter-spacing: 1px;
   }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
 
 <!-- ===== SLIDE 1 — PORTADA ===== -->
 <div class="slide" id="s1">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <div class="script-label">para ti,</div>
@@ -366,33 +378,36 @@
     <div class="heart">💙</div>
   </div>
   <div class="handle">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 2 ===== -->
 <div class="slide" id="s2">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <div class="quote-mark">"</div>
     <h2>Que pide perdón más veces de las que recuerda. Que ama con todo pero que hoy simplemente no puede más.</h2>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 3 ===== -->
 <div class="slide" id="s3">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <p class="big-text">No estás fallando.</p>
     <p class="sub">Estás creciendo.<br>Y crecer duele.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 4 ===== -->
 <div class="slide" id="s4">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1080&q=85&fit=crop');"></div>
   <div class="img-overlay"></div>
   <div class="content">
     <div class="deco-line"></div>
@@ -400,21 +415,24 @@
     <p class="note">Y eso ya es mucho.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 5 ===== -->
 <div class="slide" id="s5">
-  <div class="bg-photo"></div>
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1497515114507-42518f7a5e11?w=1080&q=85&fit=crop');"></div>
   <div class="overlay"></div>
   <div class="content">
     <p class="line1">El que se equivoca, repara, y sigue.<br><br>Y hoy, con leer esto, ya lo estás siendo.</p>
     <p class="line2">Ya lo estás siendo.</p>
   </div>
   <div class="handle-bottom">@ingridnunezpsi</div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- ===== SLIDE 6 — CTA ===== -->
 <div class="slide" id="s6">
+  <div class="bg-photo" style="background-image:url('https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=1080&q=85&fit=crop');opacity:0.10;"></div>
   <div class="content">
     <div class="script-label">guarda esto</div>
     <p class="question">¿Cómo estás hoy, de verdad?</p>
@@ -423,6 +441,7 @@
     <div class="handle-big">@ingridnunezpsi</div>
     <p class="web">psicolaingridnunez.lovable.app</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 </body>

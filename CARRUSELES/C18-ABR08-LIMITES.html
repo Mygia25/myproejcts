@@ -60,7 +60,7 @@ body { width:1080px; background:#1a1a1a; }
 
 /* ─── SLIDE 1: Portada beige ─── */
 .slide-1 {
-  background:#F8F2EC;
+  background: linear-gradient(to bottom, rgba(248,242,236,0.88), rgba(248,242,236,0.92)), url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1080&q=85&fit=crop') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -180,7 +180,7 @@ body { width:1080px; background:#1a1a1a; }
 
 /* ─── SLIDE 4: Beige — Framework ─── */
 .slide-beige {
-  background:#F8F2EC;
+  background: linear-gradient(to bottom, rgba(248,242,236,0.9), rgba(248,242,236,0.93)), url('https://images.unsplash.com/photo-1543342384-1f1350e27861?w=1080&q=85&fit=crop') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -333,6 +333,19 @@ body { width:1080px; background:#1a1a1a; }
   color:#B0AEB0;
   font-style:italic;
 }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
@@ -346,6 +359,7 @@ body { width:1080px; background:#1a1a1a; }
     <h1 class="s1-title">Poner límites no es hacer sufrir a tu hijo/a.</h1>
     <p class="s1-sub">Es enseñarle que el mundo tiene estructura.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 — Lavanda dispel myth -->
@@ -353,6 +367,7 @@ body { width:1080px; background:#1a1a1a; }
   <span class="slide-num" style="color:rgba(61,43,36,.35);">02 / 06</span>
   <p class="lav-main">Amamos tanto que no queremos verlos sufrir.</p>
   <p class="lav-italic">Y a veces confundimos "sufrir" con "sentir incomodidad".</p>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 — Dark -->
@@ -364,6 +379,7 @@ body { width:1080px; background:#1a1a1a; }
     <div class="dark-divider"></div>
     <p class="dark-quote">"El mundo tiene estructura, y yo te la enseño desde el amor."</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 — Framework beige -->
@@ -385,6 +401,7 @@ body { width:1080px; background:#1a1a1a; }
       <p class="step-text">Desde la calma.</p>
     </div>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 — Dark key difference -->
@@ -393,6 +410,7 @@ body { width:1080px; background:#1a1a1a; }
   <p class="s5-title">La diferencia entre un límite sano y uno dañino</p>
   <p class="s5-not">no está en la firmeza.</p>
   <p class="s5-accent">Está en la conexión que viene antes.</p>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 — CTA beige -->
@@ -411,6 +429,7 @@ body { width:1080px; background:#1a1a1a; }
     <span class="handle">@ingridnunezpsi</span>
     <span class="web">psicolaingridnunez.lovable.app</span>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

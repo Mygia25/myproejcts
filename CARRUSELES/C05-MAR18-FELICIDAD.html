@@ -332,13 +332,37 @@ body { width:1080px; background:#1a1a1a; }
 }
 .div-line { width:60px; height:1px; background:rgba(217,201,227,.5); }
 .div-dot { width:6px; height:6px; border-radius:50%; background:#D9C9E3; opacity:.6; }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
+
+/* ─── BG IMAGE for solid-color slides ─── */
+.bg-img-abs {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bg-img-abs.faint { opacity: 0.18; filter: saturate(0.6); }
+.bg-img-abs.dark-bg { opacity: 0.20; filter: saturate(0.5) brightness(0.7); }
 </style>
 </head>
 <body>
 
 <!-- SLIDE 1 — Portada -->
 <div class="slide">
-  <img class="bg-img" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="parent child warm">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1080&q=85&fit=crop" alt="child genuine laughter">
   <div class="tint"></div>
   <div class="overlay"></div>
   <span class="slide-num">01 / 07</span>
@@ -347,22 +371,24 @@ body { width:1080px; background:#1a1a1a; }
     <h1 class="cover-title">Un niño feliz no es el que nunca llora.</h1>
     <div class="lav-divider"></div>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 -->
 <div class="slide">
-  <img class="bg-img" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="parent child warm">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1509114397022-ed747cca3f65?w=1080&q=85&fit=crop" alt="child crying but being held">
   <div class="tint"></div>
   <div class="overlay"></div>
   <span class="slide-num">02 / 07</span>
   <div class="content-inner">
     <p class="quote">Cuando imaginas a tu hijo/a "feliz"...<br><br>¿qué ves exactamente?</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 -->
 <div class="slide">
-  <img class="bg-img" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="parent child warm">
+  <img class="bg-img" src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=1080&q=85&fit=crop" alt="child exploring nature">
   <div class="tint"></div>
   <div class="overlay"></div>
   <span class="slide-num">03 / 07</span>
@@ -370,33 +396,39 @@ body { width:1080px; background:#1a1a1a; }
     <p class="quote-normal">¿Lo ves sin llorar?<br>¿Sin rabietas? ¿Siempre contento?</p>
     <p class="quote-sub">Eso es bienestar aparente. No real.</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 — Dark panel -->
 <div class="slide-dark">
+  <img class="bg-img-abs dark-bg" src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop" alt="family moment genuine">
   <span class="slide-num" style="color:rgba(248,242,236,.3);">04 / 07</span>
-  <div class="dark-content">
+  <div class="dark-content" style="position:relative;z-index:2;">
     <p class="dark-quote">La felicidad real no viene de evitar las emociones difíciles.</p>
     <div class="dark-divider"></div>
     <p class="dark-accent">Viene de aprender a transitarlas.</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 — Big beige quote -->
 <div class="slide-beige">
-  <div class="accent-bar"></div>
+  <img class="bg-img-abs faint" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1080&q=85&fit=crop" alt="child with messy painting creative">
+  <div class="accent-bar" style="position:relative;z-index:2;"></div>
   <span class="slide-num-beige">05 / 07</span>
-  <div class="beige-content">
+  <div class="beige-content" style="position:relative;z-index:2;">
     <span class="quote-mark">"</span>
     <p class="big-quote">Un niño feliz no es el que nunca sufre.<br><br>Es el que sabe que no está solo cuando sufre.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 — Beige closing -->
 <div class="slide-beige">
-  <div class="accent-bar"></div>
+  <img class="bg-img-abs faint" src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=1080&q=85&fit=crop" alt="parent child warm embrace">
+  <div class="accent-bar" style="position:relative;z-index:2;"></div>
   <span class="slide-num-beige">06 / 07</span>
-  <div class="beige-content">
+  <div class="beige-content" style="position:relative;z-index:2;">
     <div class="divider" style="margin-bottom:40px;">
       <div class="div-line" style="background:rgba(128,99,87,.3);"></div>
       <div class="div-dot" style="background:#806357;opacity:.4;"></div>
@@ -404,6 +436,7 @@ body { width:1080px; background:#1a1a1a; }
     </div>
     <p class="closing-text">Eso es lo que construimos juntos aquí.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 7 — CTA -->
@@ -422,6 +455,7 @@ body { width:1080px; background:#1a1a1a; }
     <span class="handle">@ingridnunezpsi</span>
     <span class="web">psicolaingridnunez.lovable.app</span>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

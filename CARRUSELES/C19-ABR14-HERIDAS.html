@@ -200,7 +200,7 @@ body { width:1080px; background:#1a1a1a; }
 
 /* ─── SLIDE 5: Beige — origin ─── */
 .slide-5 {
-  background:#F8F2EC;
+  background: linear-gradient(to bottom, rgba(248,242,236,0.88), rgba(248,242,236,0.92)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1080&q=85&fit=crop') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -321,19 +321,33 @@ body { width:1080px; background:#1a1a1a; }
   color:#B0AEB0;
   font-style:italic;
 }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
 
 <!-- SLIDE 1 — Portada full-bleed -->
 <div class="slide slide-1">
-  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1080&q=85&fit=crop" alt="introspective reflection">
+  <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1080&q=85&fit=crop" alt="introspective woman in contemplation">
   <div class="slide-1-overlay"></div>
   <span class="slide-num-light">01 / 07</span>
   <div class="slide-1-text">
     <span class="s1-saludo">para ti,</span>
     <h1 class="s1-title">A veces la rabia que sientes con tu hijo/a no tiene que ver con él/ella.</h1>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 — Rhetorical question beige -->
@@ -343,6 +357,7 @@ body { width:1080px; background:#1a1a1a; }
   <div class="beige-content">
     <p class="beige-italic">¿Alguna vez te sorprendiste reaccionando de manera exagerada ante algo pequeño que hizo tu hijo/a?</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 — Lavanda moment -->
@@ -351,6 +366,7 @@ body { width:1080px; background:#1a1a1a; }
   <div class="lav-content">
     <p class="lav-main">Gritaste más de la cuenta. Te sentiste fuera de ti. Y después no entendiste por qué fue tan intenso.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 — Dark past vs present -->
@@ -361,6 +377,7 @@ body { width:1080px; background:#1a1a1a; }
     <div class="dark-divider"></div>
     <p class="dark-italic-lav">Viene del pasado.</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 — Beige origin -->
@@ -368,6 +385,7 @@ body { width:1080px; background:#1a1a1a; }
   <div class="accent-bar"></div>
   <span class="slide-num">05 / 07</span>
   <p class="s5-text">De cómo te criaron a ti. De las emociones que te enseñaron a esconder. De lo que aprendiste que era "portarse bien".</p>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 — Lavanda responsibility -->
@@ -377,6 +395,7 @@ body { width:1080px; background:#1a1a1a; }
   <div class="s6-divider"></div>
   <p class="s6-not-fault">Eso no es culpa tuya.</p>
   <p class="s6-responsibility">Pero sí es tu responsabilidad.</p>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 7 — CTA beige -->
@@ -394,6 +413,7 @@ body { width:1080px; background:#1a1a1a; }
     <span class="handle">@ingridnunezpsi</span>
     <span class="web">psicolaingridnunez.lovable.app</span>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

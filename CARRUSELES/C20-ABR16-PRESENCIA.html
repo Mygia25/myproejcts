@@ -60,7 +60,7 @@ body { width:1080px; background:#1a1a1a; }
 
 /* ─── SLIDE 1: Portada beige paradoja ─── */
 .slide-1 {
-  background:#F8F2EC;
+  background: linear-gradient(to bottom, rgba(248,242,236,0.85), rgba(248,242,236,0.9)), url('https://images.unsplash.com/photo-1484665009641-79fac0f96e58?w=1080&q=85&fit=crop') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -139,7 +139,7 @@ body { width:1080px; background:#1a1a1a; }
 
 /* ─── SLIDE 3: Beige — key contrast ─── */
 .slide-beige {
-  background:#F8F2EC;
+  background: linear-gradient(to bottom, rgba(248,242,236,0.88), rgba(248,242,236,0.92)), url('https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=1080&q=85&fit=crop') center/cover no-repeat;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -350,6 +350,19 @@ body { width:1080px; background:#1a1a1a; }
   color:rgba(248,242,236,.35);
   font-style:italic;
 }
+
+/* ─── LOGO WATERMARK ─────────────────────────────── */
+.logo-wm {
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+}
+.logo-wm.dark  { opacity: .55; }
+.logo-wm.light { opacity: .45; }
 </style>
 </head>
 <body>
@@ -363,6 +376,7 @@ body { width:1080px; background:#1a1a1a; }
     <h1 class="s1-title">No necesitas más tiempo con tus hijos.</h1>
     <p class="s1-sub">Necesitas mejor presencia.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 2 — Dark guilt -->
@@ -373,6 +387,7 @@ body { width:1080px; background:#1a1a1a; }
     <div class="dark-divider"></div>
     <p class="dark-quote-lav">"No tengo suficiente tiempo para mis hijos."</p>
   </div>
+  <img class="logo-wm dark"  src="../LOGOS/logo-oscuro-sm.png" alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 3 — Key contrast beige -->
@@ -384,6 +399,7 @@ body { width:1080px; background:#1a1a1a; }
     <div class="contrast-divider"></div>
     <p class="contrast-weak">valen más que 3 horas en la misma habitación con el teléfono en la mano.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 4 — Lavanda what presence means -->
@@ -404,6 +420,7 @@ body { width:1080px; background:#1a1a1a; }
       <p class="lav-point-text">No pensar en otra cosa.</p>
     </div>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 5 — Challenge beige -->
@@ -417,6 +434,7 @@ body { width:1080px; background:#1a1a1a; }
     <div class="s5-divider"></div>
     <p class="s5-instructions">Sin lista mental. Sin multitarea.<br>Solo estar ahí.</p>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 <!-- SLIDE 6 — CTA dark -->
@@ -434,6 +452,7 @@ body { width:1080px; background:#1a1a1a; }
     <span class="handle">@ingridnunezpsi</span>
     <span class="web">psicolaingridnunez.lovable.app</span>
   </div>
+  <img class="logo-wm light" src="../LOGOS/logo-claro-sm.png"  alt="Ingrid Núñez">
 </div>
 
 </body>

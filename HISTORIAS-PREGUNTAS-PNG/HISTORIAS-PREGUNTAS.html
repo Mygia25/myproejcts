@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historias Respuestas — @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; font-family:'Montserrat',sans-serif; width:1080px; }
+.slide { width:1080px; height:1920px; position:relative; overflow:hidden; display:block; margin-bottom:20px; }
+
+.logo-wm { position:absolute; bottom:48px; right:60px; height:42px; width:auto; z-index:10; pointer-events:none; }
+.logo-wm.on-light { opacity:.25; }
+.logo-wm.on-dark  { opacity:.30; }
+.handle { font-family:'Montserrat',sans-serif; font-size:20px; letter-spacing:3px; color:#B0AEB0; }
+
+/* ═══════════════════════════════════════════════════════ */
+/* INTRO                                                    */
+/* ═══════════════════════════════════════════════════════ */
+.intro { background:#3D2B24; }
+.intro-bg-top {
+  position:absolute; top:0; left:0;
+  width:100%; height:500px;
+  background:linear-gradient(135deg, #D9C9E3 0%, rgba(217,201,227,.4) 100%);
+  border-bottom-right-radius:120px;
+}
+.intro-stripe {
+  position:absolute; top:500px; left:0;
+  width:60%; height:8px;
+  background:#D9C9E3;
+}
+.intro-circle-1 {
+  position:absolute; top:350px; right:-60px;
+  width:250px; height:250px; border-radius:50%;
+  border:3px solid rgba(217,201,227,.2);
+}
+.intro-circle-2 {
+  position:absolute; bottom:250px; left:-80px;
+  width:300px; height:300px; border-radius:50%;
+  background:rgba(217,201,227,.06);
+}
+.intro-emoji-1 {
+  position:absolute; top:180px; right:100px;
+  font-size:200px; opacity:.1; pointer-events:none;
+  transform:rotate(10deg);
+}
+.intro-emoji-2 {
+  position:absolute; bottom:350px; right:80px;
+  font-size:100px; opacity:.06; pointer-events:none;
+}
+.intro-inner {
+  position:relative; z-index:2;
+  padding:180px 90px 120px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.intro-tag {
+  display:inline-block;
+  background:#F8F2EC; color:#3D2B24;
+  padding:16px 34px; border-radius:8px;
+  font-size:16px; font-weight:700; letter-spacing:4px; text-transform:uppercase;
+  transform:rotate(-2deg);
+  box-shadow:4px 5px 0 rgba(0,0,0,.15);
+}
+.intro-center { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.intro-big {
+  font-family:'Playfair Display',serif;
+  font-size:82px; font-weight:700; color:#F8F2EC;
+  line-height:1.1; margin-bottom:30px;
+}
+.intro-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:30px; font-weight:300; color:rgba(248,242,236,.6);
+  line-height:1.5; margin-bottom:40px;
+}
+.intro-arrow {
+  font-family:'Montserrat',sans-serif;
+  font-size:24px; font-weight:600; color:#D9C9E3;
+  letter-spacing:2px;
+}
+.intro-count {
+  display:flex; align-items:center; gap:20px;
+}
+.intro-num {
+  font-family:'Playfair Display',serif;
+  font-size:80px; font-weight:700; color:#D9C9E3;
+}
+.intro-label {
+  font-size:20px; font-weight:400; color:rgba(248,242,236,.4);
+  line-height:1.4; letter-spacing:1px;
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* R1: BEIGE — "Porque contigo se siente seguro"          */
+/* ═══════════════════════════════════════════════════════ */
+.r1 { background:#F8F2EC; }
+/* Bloque decorativo top-right */
+.r1 .deco-block-1 {
+  position:absolute; top:0; right:0;
+  width:420px; height:360px;
+  background:#D9C9E3;
+  border-bottom-left-radius:80px;
+}
+.r1 .deco-block-2 {
+  position:absolute; top:360px; right:0;
+  width:180px; height:120px;
+  background:rgba(217,201,227,.4);
+}
+/* Círculo decorativo */
+.r1 .deco-circle {
+  position:absolute; bottom:200px; left:-100px;
+  width:350px; height:350px; border-radius:50%;
+  border:3px solid rgba(217,201,227,.3);
+}
+/* Líneas decorativas */
+.r1 .deco-lines {
+  position:absolute; top:500px; left:60px;
+  width:3px; height:300px;
+  background: linear-gradient(to bottom, #D9C9E3, transparent);
+}
+.r1 .emoji-float {
+  position:absolute; font-size:120px; opacity:.08; pointer-events:none;
+}
+.r1 .emoji-1 { top:380px; right:80px; transform:rotate(15deg); }
+.r1 .emoji-2 { bottom:300px; left:40px; transform:rotate(-10deg); font-size:80px; }
+.r1-inner {
+  position:relative; z-index:2;
+  padding:420px 90px 120px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.r1 .tag {
+  display:inline-block;
+  background:#3D2B24; color:#F8F2EC;
+  padding:14px 30px; border-radius:6px;
+  font-size:14px; font-weight:700; letter-spacing:4px; text-transform:uppercase;
+  margin-bottom:50px;
+  transform:rotate(-1deg);
+}
+.r1 .headline {
+  font-family:'Playfair Display',serif;
+  font-size:64px; font-weight:700; color:#3D2B24;
+  line-height:1.15; margin-bottom:40px;
+}
+.r1 .headline em { color:#806357; font-style:italic; }
+.r1 .body-text {
+  font-size:30px; font-weight:300; color:#806357;
+  line-height:1.7; margin-bottom:30px;
+}
+.r1 .accent-bar {
+  width:80px; height:4px; background:#D9C9E3; margin-bottom:30px;
+}
+.r1 .callout {
+  background:rgba(217,201,227,.25);
+  border-left:4px solid #D9C9E3;
+  padding:24px 30px;
+  font-size:26px; font-weight:400; color:#3D2B24;
+  line-height:1.6;
+  border-radius:0 12px 12px 0;
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* R2: LAVANDA — "No necesitas justificar tu crianza"     */
+/* ═══════════════════════════════════════════════════════ */
+.r2 { background:#D9C9E3; }
+.r2 .deco-strip-top {
+  position:absolute; top:0; left:0; right:0;
+  height:8px; background:#3D2B24;
+}
+.r2 .deco-card {
+  position:absolute; top:120px; right:60px;
+  width:340px; height:440px;
+  background:#F8F2EC;
+  border-radius:16px;
+  transform:rotate(3deg);
+  box-shadow: 8px 12px 30px rgba(61,43,36,.1);
+}
+.r2 .deco-card-2 {
+  position:absolute; top:140px; right:80px;
+  width:340px; height:440px;
+  background:rgba(248,242,236,.5);
+  border-radius:16px;
+  transform:rotate(-2deg);
+}
+.r2 .deco-dots {
+  position:absolute; bottom:300px; right:100px;
+  display:grid; grid-template-columns:repeat(5,1fr); gap:20px;
+}
+.r2 .dot { width:8px; height:8px; border-radius:50%; background:rgba(61,43,36,.1); }
+.r2 .emoji-float { position:absolute; font-size:140px; opacity:.06; pointer-events:none; }
+.r2 .emoji-1 { bottom:100px; left:-20px; transform:rotate(-15deg); }
+.r2-inner {
+  position:relative; z-index:2;
+  padding:180px 90px 120px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.r2 .tag {
+  display:inline-block;
+  background:#F8F2EC; color:#3D2B24;
+  padding:14px 30px; border-radius:6px;
+  font-size:14px; font-weight:700; letter-spacing:4px; text-transform:uppercase;
+  margin-bottom:50px;
+  transform:rotate(1deg);
+  box-shadow:3px 4px 0 rgba(61,43,36,.08);
+}
+.r2 .headline {
+  font-family:'Playfair Display',serif;
+  font-size:58px; font-weight:700; color:#3D2B24;
+  line-height:1.15; margin-bottom:40px;
+}
+.r2 .body-text {
+  font-size:30px; font-weight:300; color:rgba(61,43,36,.75);
+  line-height:1.7; margin-bottom:30px;
+}
+.r2 .quote-box {
+  background:#F8F2EC;
+  padding:36px 40px;
+  border-radius:16px;
+  font-family:'Playfair Display',serif;
+  font-size:30px; font-style:italic; color:#3D2B24;
+  line-height:1.5;
+  box-shadow:4px 6px 20px rgba(61,43,36,.08);
+  transform:rotate(-0.5deg);
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* R3: DARK — "Nunca es tarde"                            */
+/* ═══════════════════════════════════════════════════════ */
+.r3 { background:#3D2B24; }
+.r3 .deco-arch {
+  position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+  width:600px; height:600px; border-radius:50%;
+  border:2px solid rgba(217,201,227,.1);
+}
+.r3 .deco-arch-2 {
+  position:absolute; top:-180px; left:50%; transform:translateX(-50%);
+  width:550px; height:550px; border-radius:50%;
+  border:1px solid rgba(217,201,227,.06);
+}
+.r3 .deco-glow {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.06) 0%, transparent 70%);
+}
+.r3 .deco-bar-bottom {
+  position:absolute; bottom:0; left:0; right:0;
+  height:6px; background:linear-gradient(90deg, transparent, #D9C9E3, transparent);
+  opacity:.3;
+}
+.r3 .emoji-float { position:absolute; font-size:180px; opacity:.04; pointer-events:none; }
+.r3 .emoji-1 { top:100px; right:-40px; transform:rotate(20deg); }
+.r3 .emoji-2 { bottom:200px; left:-30px; transform:rotate(-10deg); font-size:100px; }
+.r3-inner {
+  position:relative; z-index:2;
+  padding:200px 90px 120px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.r3 .tag {
+  display:inline-block;
+  background:rgba(217,201,227,.15); color:#D9C9E3;
+  border:1px solid rgba(217,201,227,.25);
+  padding:14px 30px; border-radius:6px;
+  font-size:14px; font-weight:700; letter-spacing:4px; text-transform:uppercase;
+  margin-bottom:60px;
+}
+.r3 .big-word {
+  font-family:'Playfair Display',serif;
+  font-size:110px; font-weight:700; color:#D9C9E3;
+  line-height:1; margin-bottom:20px; opacity:.9;
+}
+.r3 .headline {
+  font-family:'Playfair Display',serif;
+  font-size:44px; font-style:italic; color:#F8F2EC;
+  line-height:1.35; margin-bottom:40px;
+}
+.r3 .body-text {
+  font-size:28px; font-weight:300; color:rgba(248,242,236,.65);
+  line-height:1.7;
+}
+.r3 .body-text strong { color:#D9C9E3; font-weight:500; }
+.r3 .accent-line {
+  width:60px; height:3px; background:rgba(217,201,227,.3); margin-bottom:30px;
+}
+
+/* ═══════════════════════════════════════════════════════ */
+/* R4: SPLIT — "Es ideal, pero no obligatorio"            */
+/* ═══════════════════════════════════════════════════════ */
+.r4 { background:#F8F2EC; }
+.r4 .deco-top {
+  position:absolute; top:0; left:0; right:0;
+  height:650px; background:#3D2B24;
+}
+.r4 .deco-lavanda-strip {
+  position:absolute; top:650px; left:0; right:0;
+  height:10px; background:#D9C9E3;
+}
+.r4 .deco-circle-1 {
+  position:absolute; top:400px; right:-80px;
+  width:300px; height:300px; border-radius:50%;
+  background:rgba(217,201,227,.08);
+}
+.r4 .deco-scribble {
+  position:absolute; bottom:200px; left:60px;
+  width:200px; height:200px; border-radius:50%;
+  border:2px dashed rgba(217,201,227,.2);
+}
+.r4 .emoji-float { position:absolute; font-size:160px; opacity:.05; pointer-events:none; }
+.r4 .emoji-1 { top:80px; left:-30px; }
+.r4-inner {
+  position:relative; z-index:2;
+  padding:160px 90px 120px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.r4 .tag {
+  display:inline-block;
+  background:#D9C9E3; color:#3D2B24;
+  padding:14px 30px; border-radius:6px;
+  font-size:14px; font-weight:700; letter-spacing:4px; text-transform:uppercase;
+  margin-bottom:80px;
+}
+.r4 .top-text {
+  font-family:'Playfair Display',serif;
+  font-size:60px; font-weight:700; color:#F8F2EC;
+  line-height:1.15; margin-bottom:60px;
+}
+.r4 .top-text em { color:#D9C9E3; font-style:italic; }
+/* Below the split */
+.r4 .bottom-section {
+  margin-top:40px;
+}
+.r4 .body-text {
+  font-size:32px; font-weight:300; color:#806357;
+  line-height:1.7;
+}
+.r4 .highlight-box {
+  background:rgba(217,201,227,.2);
+  border-radius:16px;
+  padding:30px 36px;
+  margin-top:30px;
+  font-family:'Playfair Display',serif;
+  font-size:28px; font-style:italic; color:#3D2B24;
+  line-height:1.5;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- INTRO: "Me hicieron estas preguntas"                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide intro" id="intro">
+  <div class="intro-bg-top"></div>
+  <div class="intro-stripe"></div>
+  <div class="intro-circle-1"></div>
+  <div class="intro-circle-2"></div>
+  <div class="intro-emoji-1">💬</div>
+  <div class="intro-emoji-2">✨</div>
+  <div class="intro-inner">
+    <div>
+      <div class="intro-tag">Hoy respondo</div>
+    </div>
+    <div class="intro-center">
+      <div class="intro-big">Me hicieron<br>estas preguntas.</div>
+      <div class="intro-sub">Y las respuestas pueden servirte a ti también.</div>
+      <div class="intro-arrow">Desliza →</div>
+    </div>
+    <div>
+      <div class="intro-count">
+        <span class="intro-num">4</span>
+        <span class="intro-label">preguntas<br>respondidas</span>
+      </div>
+      <div style="margin-top:30px;"><span class="handle">@ingridnunezpsi</span></div>
+    </div>
+  </div>
+  <img class="logo-wm on-dark" src="LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- R1: "Porque contigo se siente seguro"                  -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide r1" id="r1">
+  <div class="deco-block-1"></div>
+  <div class="deco-block-2"></div>
+  <div class="deco-circle"></div>
+  <div class="deco-lines"></div>
+  <div class="emoji-float emoji-1">🫶</div>
+  <div class="emoji-float emoji-2">🧸</div>
+  <div class="r1-inner">
+    <div>
+      <div class="tag">Respuesta</div>
+      <div class="headline">Porque contigo<br>se siente <em>seguro.</em></div>
+      <div class="accent-bar"></div>
+      <p class="body-text">Muchos niños liberan con mamá o papá las emociones que han contenido todo el día.<br><br>No es falta de respeto. Es confianza.</p>
+    </div>
+    <div>
+      <div class="callout">Lo importante es acompañar esas emociones con límites claros y consistentes.</div>
+      <div style="margin-top:40px;"><span class="handle">@ingridnunezpsi</span></div>
+    </div>
+  </div>
+  <img class="logo-wm on-light" src="LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- R2: "No necesitas justificar tu crianza"               -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide r2" id="r2">
+  <div class="deco-strip-top"></div>
+  <div class="deco-card-2"></div>
+  <div class="deco-card"></div>
+  <div class="deco-dots">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+  <div class="emoji-float emoji-1">🌿</div>
+  <div class="r2-inner">
+    <div>
+      <div class="tag">Respuesta</div>
+      <div class="headline">No necesitas justificar tu crianza.</div>
+      <p class="body-text">Escucha si algo te aporta. Pero no le debes explicaciones a nadie sobre cómo decides criar.</p>
+    </div>
+    <div>
+      <div class="quote-box">"Criar con consciencia significa tomar decisiones informadas y alineadas con tus valores."</div>
+      <div style="margin-top:40px;"><span class="handle" style="color:rgba(61,43,36,.4);">@ingridnunezpsi</span></div>
+    </div>
+  </div>
+  <img class="logo-wm on-light" src="LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- R3: "Nunca es tarde"                                   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide r3" id="r3">
+  <div class="deco-arch"></div>
+  <div class="deco-arch-2"></div>
+  <div class="deco-glow"></div>
+  <div class="deco-bar-bottom"></div>
+  <div class="emoji-float emoji-1">🌱</div>
+  <div class="emoji-float emoji-2">✨</div>
+  <div class="r3-inner">
+    <div>
+      <div class="tag">Respuesta</div>
+    </div>
+    <div>
+      <div class="big-word">Nunca</div>
+      <div class="big-word" style="margin-bottom:40px;">es tarde.</div>
+      <div class="accent-line"></div>
+      <p class="headline">La crianza consciente empieza cuando el adulto decide escuchar más.</p>
+      <p class="body-text">Comprender las emociones del niño y poner límites desde el respeto.<br><br><strong>Los cambios pequeños y constantes generan grandes resultados.</strong></p>
+    </div>
+    <div><span class="handle" style="color:rgba(217,201,227,.3);">@ingridnunezpsi</span></div>
+  </div>
+  <img class="logo-wm on-dark" src="LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- R4: "Es ideal, pero no obligatorio"                    -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="slide r4" id="r4">
+  <div class="deco-top"></div>
+  <div class="deco-lavanda-strip"></div>
+  <div class="deco-circle-1"></div>
+  <div class="deco-scribble"></div>
+  <div class="emoji-float emoji-1">👶</div>
+  <div class="r4-inner">
+    <div>
+      <div class="tag">Respuesta</div>
+      <div class="top-text">Es ideal,<br>pero no <em>obligatorio.</em></div>
+    </div>
+    <div class="bottom-section">
+      <p class="body-text">Siempre estamos a tiempo de mejorar cómo nos relacionamos con nuestros hijos y fortalecer su desarrollo emocional.</p>
+      <div class="highlight-box">"No importa cuándo empieces. Importa que decidas empezar."</div>
+    </div>
+    <div><span class="handle">@ingridnunezpsi</span></div>
+  </div>
+  <img class="logo-wm on-light" src="LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+</body>
+</html>
