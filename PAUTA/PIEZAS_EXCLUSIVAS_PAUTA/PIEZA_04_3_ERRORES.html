@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PIEZA 04 — 3 Errores | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+.slide {
+  width:1080px;
+  height:1920px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.logo {
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  width:160px;
+  opacity:.28;
+  z-index:10;
+}
+
+.slide-num {
+  position:absolute;
+  top:60px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  letter-spacing:4px;
+  z-index:10;
+  text-transform:uppercase;
+}
+
+/* ─── SLIDE 1: Dark — hook ─── */
+.s1 { background:#3D2B24; }
+
+.s1-accent-line {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6px;
+  background:linear-gradient(to right, #D9C9E3 0%, #806357 100%);
+}
+
+.s1-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  padding:0 100px;
+}
+
+.s1-overline {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:#D9C9E3;
+  opacity:.6;
+  text-transform:uppercase;
+  margin-bottom:48px;
+}
+
+.s1-number {
+  font-family:'Playfair Display',serif;
+  font-size:240px;
+  font-weight:700;
+  font-style:italic;
+  color:#D9C9E3;
+  opacity:.08;
+  line-height:.8;
+  position:absolute;
+  right:60px;
+  top:50%;
+  transform:translateY(-50%);
+  user-select:none;
+}
+
+.s1-title {
+  font-family:'Playfair Display',serif;
+  font-size:76px;
+  font-weight:700;
+  font-style:italic;
+  color:#F8F2EC;
+  line-height:1.15;
+  margin-bottom:32px;
+  position:relative;
+  z-index:1;
+}
+
+.s1-subtitle {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px;
+  font-weight:300;
+  color:#D9C9E3;
+  opacity:.65;
+  line-height:1.6;
+  max-width:700px;
+}
+
+.num-dark { color:rgba(217,201,227,.35); }
+
+/* ─── SLIDE 2: Beige — Error 1 ─── */
+.s-beige { background:#F8F2EC; }
+
+.error-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  padding:0 100px;
+}
+
+.error-tag {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:52px;
+}
+
+.error-tag-dot {
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#B0AEB0;
+  flex-shrink:0;
+}
+
+.error-tag-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:#B0AEB0;
+  text-transform:uppercase;
+}
+
+.error-num-bg {
+  font-family:'Playfair Display',serif;
+  font-size:280px;
+  font-weight:700;
+  font-style:italic;
+  color:#D9C9E3;
+  opacity:.35;
+  line-height:.8;
+  position:absolute;
+  right:60px;
+  bottom:160px;
+  user-select:none;
+}
+
+.error-title {
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  font-weight:700;
+  font-style:italic;
+  color:#806357;
+  line-height:1.2;
+  margin-bottom:40px;
+  max-width:780px;
+  position:relative;
+  z-index:1;
+}
+
+.error-body {
+  font-family:'Montserrat',sans-serif;
+  font-size:26px;
+  font-weight:300;
+  color:#3D2B24;
+  line-height:1.65;
+  max-width:780px;
+  opacity:.8;
+}
+
+.num-beige { color:#B0AEB0; }
+
+/* ─── SLIDE 3: Lavanda — Error 2 ─── */
+.s-lav { background:#D9C9E3; }
+
+.error-tag-dot-lav { background:rgba(61,43,36,.35); }
+.error-tag-label-lav { color:rgba(61,43,36,.45); }
+.error-num-bg-lav { color:rgba(61,43,36,.07); opacity:1; }
+.error-title-lav { color:#3D2B24; }
+.error-body-lav { color:#3D2B24; opacity:.7; }
+.num-lav { color:rgba(61,43,36,.3); }
+
+/* ─── SLIDE 4: Dark — Error 3 ─── */
+.error-tag-dot-dark { background:#D9C9E3; opacity:.5; }
+.error-tag-label-dark { color:rgba(217,201,227,.55); }
+.error-num-bg-dark { color:#D9C9E3; opacity:.07; }
+.error-title-dark { color:#D9C9E3; }
+.error-body-dark { color:#F8F2EC; opacity:.65; }
+
+/* ─── SLIDE 5: Beige CTA ─── */
+.s5-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:0 100px;
+  text-align:center;
+}
+
+.s5-hook {
+  font-family:'Playfair Display',serif;
+  font-size:58px;
+  font-style:italic;
+  font-weight:400;
+  color:#3D2B24;
+  line-height:1.4;
+  margin-bottom:52px;
+}
+
+.s5-rule {
+  width:60px;
+  height:1px;
+  background:#D9C9E3;
+  margin-bottom:52px;
+}
+
+.s5-cta-block {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  margin-bottom:40px;
+}
+
+.s5-cta-main {
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  font-weight:700;
+  color:#3D2B24;
+}
+
+.s5-cta-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:18px;
+  font-weight:300;
+  color:#806357;
+  letter-spacing:2px;
+}
+
+.s5-price-pill {
+  background:#D9C9E3;
+  border-radius:60px;
+  padding:14px 40px;
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:600;
+  color:#3D2B24;
+  letter-spacing:1px;
+  margin-bottom:32px;
+}
+
+.s5-handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:3px;
+  color:#806357;
+  opacity:.7;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Dark hook -->
+<div class="slide s1">
+  <div class="s1-accent-line"></div>
+  <span class="slide-num num-dark">01 / 05</span>
+  <div class="s1-inner">
+    <p class="s1-overline">Para madres y padres</p>
+    <p class="s1-title">3 errores<br>que cometes<br>en las rabietas<br>de tu hijo/a</p>
+    <p class="s1-subtitle">Y cómo dejar de repetirlos<br>para siempre.</p>
+  </div>
+  <span class="s1-number">3</span>
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 2: Beige — Error 1 -->
+<div class="slide s-beige">
+  <span class="slide-num num-beige">02 / 05</span>
+  <div class="error-inner">
+    <div class="error-tag">
+      <div class="error-tag-dot"></div>
+      <span class="error-tag-label">Error 01</span>
+    </div>
+    <p class="error-title">Intentar razonar con él<br>cuando está desbordado</p>
+    <p class="error-body">Cuando el sistema nervioso<br>está en alarma, la lógica<br>no entra. Primero la calma,<br>después la conversación.</p>
+  </div>
+  <span class="error-num-bg">1</span>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 3: Lavanda — Error 2 -->
+<div class="slide s-lav">
+  <span class="slide-num num-lav">03 / 05</span>
+  <div class="error-inner">
+    <div class="error-tag">
+      <div class="error-tag-dot error-tag-dot-lav"></div>
+      <span class="error-tag-label error-tag-label-lav">Error 02</span>
+    </div>
+    <p class="error-title error-title-lav">Castigar la emoción<br>en vez de la conducta</p>
+    <p class="error-body error-body-lav">La rabia, el miedo, la tristeza<br>no se castigan. Se acompañan.<br>Lo que se puede corregir<br>es el comportamiento.</p>
+  </div>
+  <span class="error-num-bg error-num-bg-lav">2</span>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 4: Dark — Error 3 -->
+<div class="slide s1">
+  <span class="slide-num num-dark">04 / 05</span>
+  <div class="error-inner">
+    <div class="error-tag">
+      <div class="error-tag-dot error-tag-dot-dark"></div>
+      <span class="error-tag-label error-tag-label-dark">Error 03</span>
+    </div>
+    <p class="error-title error-title-dark">No regularte tú<br>antes de<br>regularlo a él</p>
+    <p class="error-body error-body-dark">No puedes dar calma<br>si no la tienes primero.<br>Tu sistema nervioso<br>regula el de tu hijo/a.</p>
+  </div>
+  <span class="error-num-bg error-num-bg-dark">3</span>
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 5: Beige CTA -->
+<div class="slide s-beige">
+  <span class="slide-num num-beige">05 / 05</span>
+  <div class="s5-inner">
+    <p class="s5-hook">Hay un método<br>para todo esto.</p>
+    <div class="s5-rule"></div>
+    <div class="s5-cta-block">
+      <p class="s5-cta-main">Link en bio.</p>
+      <p class="s5-cta-sub">El curso que cambia la dinámica</p>
+    </div>
+    <div class="s5-price-pill">$29 USD — Una sola vez</div>
+    <p class="s5-handle">@ingridnunezpsi</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PIEZA 02 — Antes vs Después | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+/* ─── SHARED ─── */
+.slide {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.logo {
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  width:160px;
+  opacity:.30;
+  z-index:10;
+}
+
+.slide-num {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  letter-spacing:3px;
+  z-index:10;
+}
+
+/* ─── SLIDE 1: Dark cover ─── */
+.s1 { background:#3D2B24; }
+
+.s1-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:0 80px;
+}
+
+.s1-eyebrow {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:5px;
+  color:#D9C9E3;
+  opacity:.7;
+  text-transform:uppercase;
+  margin-bottom:60px;
+}
+
+.s1-title-block {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0;
+}
+
+.s1-word-antes {
+  font-family:'Playfair Display',serif;
+  font-size:130px;
+  font-weight:700;
+  font-style:italic;
+  line-height:.9;
+  color:#B0AEB0;
+  opacity:.55;
+  letter-spacing:-2px;
+}
+
+.s1-vs {
+  font-family:'Montserrat',sans-serif;
+  font-size:18px;
+  font-weight:300;
+  letter-spacing:12px;
+  color:#D9C9E3;
+  opacity:.5;
+  margin:18px 0;
+}
+
+.s1-word-despues {
+  font-family:'Playfair Display',serif;
+  font-size:130px;
+  font-weight:700;
+  font-style:italic;
+  line-height:.9;
+  color:#D9C9E3;
+  letter-spacing:-2px;
+}
+
+.s1-subtitle {
+  margin-top:64px;
+  font-family:'Montserrat',sans-serif;
+  font-size:22px;
+  font-weight:300;
+  color:#F8F2EC;
+  opacity:.65;
+  text-align:center;
+  line-height:1.6;
+}
+
+.s1-num { color:rgba(217,201,227,.4); }
+
+/* ─── SLIDES 2 & 4: Beige split ─── */
+.s-beige { background:#F8F2EC; }
+
+.split-wrap {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.split-header {
+  display:flex;
+  align-items:stretch;
+  flex:1;
+}
+
+.split-col {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:0 56px;
+  gap:32px;
+}
+
+.split-col-antes {
+  background:#F8F2EC;
+  border-right:1px solid #D9C9E3;
+}
+
+.split-col-despues {
+  background:#F8F2EC;
+}
+
+.split-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  padding:8px 20px;
+  border-radius:40px;
+}
+
+.label-antes {
+  background:#B0AEB0;
+  color:#fff;
+  opacity:.6;
+}
+
+.label-despues {
+  background:#D9C9E3;
+  color:#3D2B24;
+}
+
+.split-icon {
+  font-size:48px;
+  line-height:1;
+}
+
+.split-text {
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-weight:400;
+  line-height:1.35;
+  text-align:center;
+}
+
+.text-antes {
+  color:#B0AEB0;
+}
+
+.text-despues {
+  color:#3D2B24;
+}
+
+.split-divider-row {
+  height:2px;
+  background:linear-gradient(to right, #B0AEB0 50%, #D9C9E3 50%);
+  opacity:.3;
+  margin:0 80px;
+  flex-shrink:0;
+}
+
+.split-cta-row {
+  height:160px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 80px;
+  flex-shrink:0;
+}
+
+.split-cta-text {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  color:#806357;
+  opacity:.7;
+  letter-spacing:1px;
+  text-align:center;
+}
+
+.num-beige { color:#B0AEB0; }
+
+/* ─── SLIDES 3: Lavanda split ─── */
+.s-lav { background:#D9C9E3; }
+
+.split-col-antes-lav {
+  background:#D9C9E3;
+  border-right:1px solid rgba(128,99,87,.2);
+}
+
+.split-col-despues-lav {
+  background:#D9C9E3;
+}
+
+.text-antes-lav {
+  color:rgba(61,43,36,.45);
+}
+
+.text-despues-lav {
+  color:#3D2B24;
+}
+
+.num-lav { color:rgba(61,43,36,.35); }
+
+/* ─── SLIDE 5: Dark CTA ─── */
+.s5 { background:#3D2B24; }
+
+.s5-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:0 100px;
+  text-align:center;
+  gap:0;
+}
+
+.s5-price {
+  font-family:'Playfair Display',serif;
+  font-size:110px;
+  font-weight:700;
+  font-style:italic;
+  color:#D9C9E3;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.s5-price-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:300;
+  letter-spacing:6px;
+  color:#D9C9E3;
+  opacity:.55;
+  text-transform:uppercase;
+  margin-bottom:52px;
+}
+
+.s5-rule {
+  width:80px;
+  height:1px;
+  background:#D9C9E3;
+  opacity:.25;
+  margin-bottom:52px;
+}
+
+.s5-body {
+  font-family:'Playfair Display',serif;
+  font-size:40px;
+  font-style:italic;
+  color:#F8F2EC;
+  line-height:1.45;
+  margin-bottom:52px;
+}
+
+.s5-handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:16px;
+  font-weight:400;
+  letter-spacing:3px;
+  color:#D9C9E3;
+  opacity:.55;
+}
+
+.s5-num { color:rgba(217,201,227,.35); }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Cover — dark, split typography -->
+<div class="slide s1">
+  <span class="slide-num s1-num">01 / 05</span>
+  <div class="s1-inner">
+    <p class="s1-eyebrow">El curso que lo cambia todo</p>
+    <div class="s1-title-block">
+      <span class="s1-word-antes">Antes</span>
+      <span class="s1-vs">del curso</span>
+      <span class="s1-word-despues">Después</span>
+    </div>
+    <p class="s1-subtitle">Una transformación real,<br>en tu manera de criar.</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 2: Beige — primer par -->
+<div class="slide s-beige">
+  <span class="slide-num num-beige">02 / 05</span>
+  <div class="split-wrap">
+    <div class="split-header">
+      <div class="split-col split-col-antes">
+        <span class="split-label label-antes">Antes</span>
+        <span class="split-icon">😔</span>
+        <p class="split-text text-antes">"Gritas y después te sientes terrible"</p>
+      </div>
+      <div class="split-col split-col-despues">
+        <span class="split-label label-despues">Después</span>
+        <span class="split-icon">🌿</span>
+        <p class="split-text text-despues">"Reconoces la señal antes de estallar"</p>
+      </div>
+    </div>
+    <div class="split-divider-row"></div>
+    <div class="split-cta-row">
+      <p class="split-cta-text">De la frustración a la calma — el método</p>
+    </div>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 3: Lavanda — segundo par -->
+<div class="slide s-lav">
+  <span class="slide-num num-lav">03 / 05</span>
+  <div class="split-wrap">
+    <div class="split-header">
+      <div class="split-col split-col-antes-lav">
+        <span class="split-label label-antes">Antes</span>
+        <span class="split-icon">😰</span>
+        <p class="split-text text-antes-lav">"No sabes qué hacer durante la rabieta"</p>
+      </div>
+      <div class="split-col split-col-despues-lav">
+        <span class="split-label label-despues">Después</span>
+        <span class="split-icon">📋</span>
+        <p class="split-text text-despues-lav">"Tienes un plan paso a paso"</p>
+      </div>
+    </div>
+    <div class="split-divider-row"></div>
+    <div class="split-cta-row">
+      <p class="split-cta-text" style="color:#3D2B24;opacity:.55;">Claridad cuando más lo necesitas</p>
+    </div>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 4: Beige — tercer par -->
+<div class="slide s-beige">
+  <span class="slide-num num-beige">04 / 05</span>
+  <div class="split-wrap">
+    <div class="split-header">
+      <div class="split-col split-col-antes">
+        <span class="split-label label-antes">Antes</span>
+        <span class="split-icon">😞</span>
+        <p class="split-text text-antes">"Te sientes solo/a en la crianza"</p>
+      </div>
+      <div class="split-col split-col-despues">
+        <span class="split-label label-despues">Después</span>
+        <span class="split-icon">💜</span>
+        <p class="split-text text-despues">"Tienes un recurso al que volver siempre"</p>
+      </div>
+    </div>
+    <div class="split-divider-row"></div>
+    <div class="split-cta-row">
+      <p class="split-cta-text">Tuyo para siempre, sin fecha de vencimiento</p>
+    </div>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 5: Dark CTA -->
+<div class="slide s5">
+  <span class="slide-num s5-num">05 / 05</span>
+  <div class="s5-inner">
+    <p class="s5-price">$29</p>
+    <p class="s5-price-label">USD · una sola vez</p>
+    <div class="s5-rule"></div>
+    <p class="s5-body">Link en bio.<br>Tu calma vale eso<br>y mucho más.</p>
+    <p class="s5-handle">@ingridnunezpsi</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+</body>
+</html>

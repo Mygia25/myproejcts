@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PIEZA 05 — Story Encuesta | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+.slide {
+  width:1080px;
+  height:1920px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.logo {
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  width:160px;
+  opacity:.28;
+  z-index:10;
+}
+
+/* ─── SLIDE 1: Lavanda — Poll slide ─── */
+.s1 { background:#D9C9E3; }
+
+/* Subtle texture-like radial pattern */
+.s1-bg-circle {
+  position:absolute;
+  width:900px;
+  height:900px;
+  border-radius:50%;
+  border:1px solid rgba(61,43,36,.06);
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  pointer-events:none;
+}
+
+.s1-bg-circle2 {
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  border:1px solid rgba(61,43,36,.05);
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  pointer-events:none;
+}
+
+/* Top section — above the poll zone */
+.s1-top {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:680px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  padding:0 100px 60px;
+  text-align:center;
+  z-index:5;
+}
+
+.s1-overline {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:rgba(61,43,36,.5);
+  text-transform:uppercase;
+  margin-bottom:36px;
+}
+
+.s1-question {
+  font-family:'Playfair Display',serif;
+  font-size:68px;
+  font-weight:700;
+  font-style:italic;
+  color:#3D2B24;
+  line-height:1.25;
+}
+
+/* Poll sticker zone — 300px empty zone in middle */
+.s1-poll-zone {
+  position:absolute;
+  top:680px;
+  left:0;
+  right:0;
+  height:560px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:5;
+  gap:0;
+}
+
+.poll-zone-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:4px;
+  color:rgba(61,43,36,.3);
+  text-transform:uppercase;
+  border:1px dashed rgba(61,43,36,.2);
+  padding:10px 24px;
+  border-radius:4px;
+}
+
+/* Poll visual mockup (visual only — not interactive) */
+.poll-visual {
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  width:700px;
+  margin-top:32px;
+}
+
+.poll-option {
+  background:rgba(255,255,255,.55);
+  border-radius:16px;
+  padding:22px 40px;
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:500;
+  color:#3D2B24;
+  text-align:center;
+  border:1px solid rgba(61,43,36,.1);
+  backdrop-filter:blur(4px);
+}
+
+/* Bottom section — below poll zone */
+.s1-bottom {
+  position:absolute;
+  bottom:160px;
+  left:0;
+  right:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  padding:0 100px;
+  z-index:5;
+}
+
+.s1-handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:15px;
+  font-weight:400;
+  letter-spacing:3px;
+  color:rgba(61,43,36,.45);
+}
+
+/* ─── SLIDE 2: Dark — reveal ─── */
+.s2 { background:#3D2B24; }
+
+.s2-accent {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:6px;
+  background:linear-gradient(to right, #D9C9E3 0%, #806357 60%, transparent 100%);
+}
+
+.s2-bg-glow {
+  position:absolute;
+  top:0;
+  left:-200px;
+  width:800px;
+  height:800px;
+  background:radial-gradient(ellipse at center, rgba(217,201,227,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.s2-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  padding:0 100px;
+  z-index:5;
+}
+
+.s2-reveal-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:#D9C9E3;
+  opacity:.5;
+  text-transform:uppercase;
+  margin-bottom:48px;
+}
+
+.s2-reveal {
+  font-family:'Playfair Display',serif;
+  font-size:72px;
+  font-weight:700;
+  font-style:italic;
+  color:#F8F2EC;
+  line-height:1.2;
+  margin-bottom:52px;
+}
+
+.s2-reveal em {
+  font-style:normal;
+  color:#D9C9E3;
+}
+
+.s2-rule {
+  width:60px;
+  height:1px;
+  background:#D9C9E3;
+  opacity:.25;
+  margin-bottom:52px;
+}
+
+.s2-course-block {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:52px;
+}
+
+.s2-course-name {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:3px;
+  color:#D9C9E3;
+  opacity:.7;
+  text-transform:uppercase;
+}
+
+.s2-price {
+  font-family:'Playfair Display',serif;
+  font-size:64px;
+  font-weight:700;
+  color:#D9C9E3;
+  line-height:1;
+}
+
+.s2-price-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:16px;
+  font-weight:300;
+  color:#D9C9E3;
+  opacity:.5;
+  letter-spacing:2px;
+}
+
+.s2-cta-pill {
+  background:#D9C9E3;
+  border-radius:60px;
+  padding:20px 56px;
+  font-family:'Montserrat',sans-serif;
+  font-size:18px;
+  font-weight:600;
+  color:#3D2B24;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  display:inline-block;
+  margin-bottom:40px;
+}
+
+.s2-swipe {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:300;
+  letter-spacing:3px;
+  color:#D9C9E3;
+  opacity:.4;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.s2-handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  letter-spacing:3px;
+  color:#D9C9E3;
+  opacity:.4;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Lavanda — Poll question -->
+<div class="slide s1">
+  <div class="s1-bg-circle"></div>
+  <div class="s1-bg-circle2"></div>
+
+  <div class="s1-top">
+    <p class="s1-overline">Una pregunta honesta</p>
+    <p class="s1-question">Cuando tu hijo/a<br>tiene una rabieta,<br>tú...</p>
+  </div>
+
+  <!-- 300px empty zone in middle for IG poll sticker -->
+  <div class="s1-poll-zone">
+    <span class="poll-zone-label">zona para sticker de encuesta</span>
+    <div class="poll-visual">
+      <div class="poll-option">Pierdes la calma también</div>
+      <div class="poll-option">Te quedas paralizado/a</div>
+    </div>
+  </div>
+
+  <div class="s1-bottom">
+    <span class="s1-handle">@ingridnunezpsi</span>
+  </div>
+
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 2: Dark — reveal + CTA -->
+<div class="slide s2">
+  <div class="s2-accent"></div>
+  <div class="s2-bg-glow"></div>
+
+  <div class="s2-inner">
+    <p class="s2-reveal-label">Lo que esto significa</p>
+    <p class="s2-reveal">Si elegiste<br>cualquiera de<br>las dos, necesitas<br><em>esto.</em></p>
+
+    <div class="s2-rule"></div>
+
+    <div class="s2-course-block">
+      <span class="s2-course-name">De la frustración a la calma</span>
+      <span class="s2-price">$29 USD</span>
+      <span class="s2-price-sub">Una sola vez · Tuyo para siempre</span>
+    </div>
+
+    <span class="s2-cta-pill">Desliza hacia arriba</span>
+    <span class="s2-handle">@ingridnunezpsi</span>
+  </div>
+
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+</body>
+</html>

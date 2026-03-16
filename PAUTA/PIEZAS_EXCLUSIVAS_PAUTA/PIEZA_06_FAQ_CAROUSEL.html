@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PIEZA 06 — FAQ Carousel | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+.slide {
+  width:1080px;
+  height:1350px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:8px;
+}
+
+.logo {
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  width:160px;
+  opacity:.28;
+  z-index:10;
+}
+
+.slide-num {
+  position:absolute;
+  top:52px;
+  right:80px;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  letter-spacing:4px;
+  z-index:10;
+}
+
+/* ─── SLIDE 1: Dark — cover ─── */
+.s-dark { background:#3D2B24; }
+
+.s1-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  padding:0 100px;
+}
+
+.s1-overline {
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:#D9C9E3;
+  opacity:.55;
+  text-transform:uppercase;
+  margin-bottom:40px;
+}
+
+.s1-title {
+  font-family:'Playfair Display',serif;
+  font-size:80px;
+  font-weight:700;
+  font-style:italic;
+  color:#F8F2EC;
+  line-height:1.15;
+  margin-bottom:32px;
+  max-width:780px;
+}
+
+.s1-sub {
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:300;
+  color:#D9C9E3;
+  opacity:.55;
+  letter-spacing:1px;
+  line-height:1.6;
+}
+
+/* Decorative question mark watermark */
+.s1-watermark {
+  position:absolute;
+  right:-20px;
+  bottom:-20px;
+  font-family:'Playfair Display',serif;
+  font-size:500px;
+  font-style:italic;
+  font-weight:700;
+  color:#D9C9E3;
+  opacity:.04;
+  line-height:1;
+  user-select:none;
+}
+
+.num-dark { color:rgba(217,201,227,.35); }
+
+/* ─── FAQ CARD SLIDES (2–5) ─── */
+.s-beige { background:#F8F2EC; }
+.s-lav { background:#D9C9E3; }
+
+.faq-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 100px;
+}
+
+/* Question block */
+.faq-q-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+
+.q-label-beige { color:#B0AEB0; }
+.q-label-lav { color:rgba(61,43,36,.4); }
+.q-label-dark { color:rgba(217,201,227,.45); }
+
+.faq-question {
+  font-family:'Playfair Display',serif;
+  font-weight:400;
+  font-style:italic;
+  line-height:1.35;
+  margin-bottom:48px;
+}
+
+.faq-q-beige { font-size:52px; color:#806357; }
+.faq-q-lav { font-size:52px; color:#3D2B24; }
+.faq-q-dark { font-size:52px; color:#D9C9E3; }
+
+/* Divider arrow */
+.faq-divider {
+  display:flex;
+  align-items:center;
+  gap:20px;
+  margin-bottom:48px;
+}
+
+.faq-div-line {
+  flex:1;
+  height:1px;
+}
+
+.div-line-beige { background:rgba(176,174,176,.3); }
+.div-line-lav { background:rgba(61,43,36,.15); }
+.div-line-dark { background:rgba(217,201,227,.2); }
+
+.faq-div-arrow {
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  flex-shrink:0;
+}
+
+.arrow-beige { background:#D9C9E3; color:#3D2B24; }
+.arrow-lav { background:rgba(61,43,36,.15); color:#3D2B24; }
+.arrow-dark { background:rgba(217,201,227,.15); color:#D9C9E3; }
+
+/* Answer block */
+.faq-a-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.a-label-beige { color:#D9C9E3; }
+.a-label-lav { color:rgba(61,43,36,.5); }
+.a-label-dark { color:#D9C9E3; opacity:.5; }
+
+.faq-answer {
+  font-family:'Montserrat',sans-serif;
+  font-size:32px;
+  font-weight:400;
+  line-height:1.55;
+}
+
+.faq-a-beige { color:#3D2B24; }
+.faq-a-lav { color:#3D2B24; opacity:.8; }
+.faq-a-dark { color:#F8F2EC; opacity:.8; }
+
+/* Card shadow for beige slides */
+.card-shadow {
+  position:absolute;
+  inset:60px;
+  background:transparent;
+  border-radius:4px;
+  box-shadow:inset 0 0 0 1px rgba(217,201,227,.4);
+  pointer-events:none;
+  z-index:8;
+}
+
+/* ─── SLIDE 6: CTA ─── */
+.s6-inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:0 100px;
+  text-align:center;
+}
+
+.s6-label {
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:6px;
+  color:#B0AEB0;
+  text-transform:uppercase;
+  margin-bottom:52px;
+}
+
+.s6-price {
+  font-family:'Playfair Display',serif;
+  font-size:120px;
+  font-weight:700;
+  font-style:italic;
+  color:#3D2B24;
+  line-height:.9;
+  margin-bottom:8px;
+}
+
+.s6-currency {
+  font-family:'Montserrat',sans-serif;
+  font-size:18px;
+  font-weight:300;
+  letter-spacing:5px;
+  color:#806357;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.s6-one-time {
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  font-style:italic;
+  color:#806357;
+  margin-bottom:56px;
+}
+
+.s6-rule {
+  width:60px;
+  height:1px;
+  background:#D9C9E3;
+  opacity:.6;
+  margin-bottom:56px;
+}
+
+.s6-cta {
+  font-family:'Montserrat',sans-serif;
+  font-size:20px;
+  font-weight:500;
+  color:#3D2B24;
+  letter-spacing:2px;
+  margin-bottom:20px;
+}
+
+.s6-handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:15px;
+  font-weight:300;
+  letter-spacing:3px;
+  color:#806357;
+  opacity:.65;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Dark — cover -->
+<div class="slide s-dark">
+  <span class="slide-num num-dark">01 / 06</span>
+  <div class="s1-inner">
+    <p class="s1-overline">Resolvemos tus dudas</p>
+    <p class="s1-title">Las preguntas<br>que más me<br>hacen sobre<br>el curso</p>
+    <p class="s1-sub">Respuestas directas.<br>Sin rodeos.</p>
+  </div>
+  <span class="s1-watermark">?</span>
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 2: Beige — FAQ 1 -->
+<div class="slide s-beige">
+  <div class="card-shadow"></div>
+  <span class="slide-num" style="color:#B0AEB0;">02 / 06</span>
+  <div class="faq-inner">
+    <p class="faq-q-label q-label-beige">Pregunta</p>
+    <p class="faq-question faq-q-beige">"¿Es para papás también<br>o solo mamás?"</p>
+    <div class="faq-divider">
+      <div class="faq-div-line div-line-beige"></div>
+      <div class="faq-div-arrow arrow-beige">↓</div>
+      <div class="faq-div-line div-line-beige"></div>
+    </div>
+    <p class="faq-a-label a-label-beige">Respuesta</p>
+    <p class="faq-answer faq-a-beige">Es para cualquier persona<br>que críe. Papás, mamás,<br>abuelos, cuidadores.</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 3: Lavanda — FAQ 2 -->
+<div class="slide s-lav">
+  <span class="slide-num" style="color:rgba(61,43,36,.35);">03 / 06</span>
+  <div class="faq-inner">
+    <p class="faq-q-label q-label-lav">Pregunta</p>
+    <p class="faq-question faq-q-lav">"¿Mi hijo tiene 8 meses,<br>me sirve?"</p>
+    <div class="faq-divider">
+      <div class="faq-div-line div-line-lav"></div>
+      <div class="faq-div-arrow arrow-lav">↓</div>
+      <div class="faq-div-line div-line-lav"></div>
+    </div>
+    <p class="faq-a-label a-label-lav">Respuesta</p>
+    <p class="faq-answer faq-a-lav">Sí. La regulación emocional<br>empieza desde el nacimiento.<br>Nunca es demasiado pronto.</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 4: Beige — FAQ 3 -->
+<div class="slide s-beige">
+  <div class="card-shadow"></div>
+  <span class="slide-num" style="color:#B0AEB0;">04 / 06</span>
+  <div class="faq-inner">
+    <p class="faq-q-label q-label-beige">Pregunta</p>
+    <p class="faq-question faq-q-beige">"¿Cuánto tiempo tengo<br>para hacerlo?"</p>
+    <div class="faq-divider">
+      <div class="faq-div-line div-line-beige"></div>
+      <div class="faq-div-arrow arrow-beige">↓</div>
+      <div class="faq-div-line div-line-beige"></div>
+    </div>
+    <p class="faq-a-label a-label-beige">Respuesta</p>
+    <p class="faq-answer faq-a-beige">Es tuyo para siempre.<br>Sin prisa. A tu ritmo.<br>Sin fechas de vencimiento.</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 5: Dark — FAQ 4 -->
+<div class="slide s-dark">
+  <span class="slide-num num-dark">05 / 06</span>
+  <div class="faq-inner">
+    <p class="faq-q-label q-label-dark">Pregunta</p>
+    <p class="faq-question faq-q-dark">"¿Solo son PDFs?"</p>
+    <div class="faq-divider">
+      <div class="faq-div-line div-line-dark"></div>
+      <div class="faq-div-arrow arrow-dark">↓</div>
+      <div class="faq-div-line div-line-dark"></div>
+    </div>
+    <p class="faq-a-label a-label-dark">Respuesta</p>
+    <p class="faq-answer faq-a-dark">Es un curso completo<br>con ejercicios prácticos,<br>no teoría. Aprendes haciendo.</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-oscuro.png" alt="Ingrid Núñez">
+</div>
+
+<!-- SLIDE 6: Beige — CTA final -->
+<div class="slide s-beige">
+  <div class="card-shadow"></div>
+  <span class="slide-num" style="color:#B0AEB0;">06 / 06</span>
+  <div class="s6-inner">
+    <p class="s6-label">El método para criar sin gritos</p>
+    <p class="s6-price">$29</p>
+    <p class="s6-currency">USD</p>
+    <p class="s6-one-time">Una sola vez.</p>
+    <div class="s6-rule"></div>
+    <p class="s6-cta">Link en bio.</p>
+    <p class="s6-handle">@ingridnunezpsi</p>
+  </div>
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+</body>
+</html>

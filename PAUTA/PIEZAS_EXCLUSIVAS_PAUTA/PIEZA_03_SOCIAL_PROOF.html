@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PIEZA 03 — Social Proof | @ingridnunezpsi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1080px; background:#1a1a1a; }
+
+.slide {
+  width:1080px;
+  height:1080px;
+  position:relative;
+  background:#F8F2EC;
+  overflow:hidden;
+}
+
+/* Subtle corner decoration */
+.corner-tl {
+  position:absolute;
+  top:0;
+  left:0;
+  width:320px;
+  height:320px;
+  background:radial-gradient(ellipse at top left, rgba(217,201,227,.35) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.corner-br {
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:360px;
+  height:360px;
+  background:radial-gradient(ellipse at bottom right, rgba(217,201,227,.22) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+/* Thin decorative top border */
+.top-bar {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(to right, transparent 0%, #D9C9E3 30%, #D9C9E3 70%, transparent 100%);
+  opacity:.6;
+}
+
+.inner {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:80px 100px 100px;
+}
+
+/* Big quote mark */
+.quote-marks {
+  font-family:'Playfair Display',serif;
+  font-size:180px;
+  font-weight:700;
+  color:#D9C9E3;
+  line-height:.65;
+  align-self:flex-start;
+  margin-left:20px;
+  margin-bottom:-10px;
+  user-select:none;
+}
+
+.testimonial-text {
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  font-style:italic;
+  font-weight:400;
+  color:#3D2B24;
+  line-height:1.5;
+  text-align:center;
+  margin-bottom:48px;
+  position:relative;
+  z-index:1;
+}
+
+/* Author row */
+.author-row {
+  display:flex;
+  align-items:center;
+  gap:24px;
+  margin-bottom:60px;
+}
+
+.author-photo {
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #D9C9E3;
+  flex-shrink:0;
+}
+
+.author-info {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.author-name {
+  font-family:'Montserrat',sans-serif;
+  font-size:16px;
+  font-weight:600;
+  color:#3D2B24;
+  letter-spacing:.5px;
+}
+
+.author-desc {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:300;
+  color:#806357;
+  letter-spacing:.5px;
+}
+
+/* Divider */
+.rule {
+  width:60px;
+  height:1px;
+  background:#D9C9E3;
+  margin-bottom:36px;
+  opacity:.7;
+}
+
+/* Course info row */
+.course-block {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+.course-name {
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:3px;
+  color:#806357;
+  text-transform:uppercase;
+  text-align:center;
+}
+
+.course-price-row {
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.course-price {
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-weight:700;
+  color:#3D2B24;
+}
+
+.course-divider {
+  width:1px;
+  height:28px;
+  background:#D9C9E3;
+  opacity:.6;
+}
+
+.course-handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  font-weight:400;
+  letter-spacing:2px;
+  color:#806357;
+  opacity:.75;
+}
+
+/* Logo */
+.logo {
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  width:160px;
+  opacity:.28;
+}
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+  <div class="top-bar"></div>
+
+  <div class="inner">
+    <span class="quote-marks">"</span>
+    <p class="testimonial-text">Por primera vez no grité<br>en una rabieta. Hice lo<br>del módulo 2 y funcionó.</p>
+
+    <div class="author-row">
+      <img class="author-photo" src="../../RECURSOS VISUALES/IMG_2853.jpeg" alt="María">
+      <div class="author-info">
+        <span class="author-name">María</span>
+        <span class="author-desc">Mamá de 2 niños</span>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="course-block">
+      <p class="course-name">De la frustración a la calma</p>
+      <div class="course-price-row">
+        <span class="course-price">$29 USD</span>
+        <div class="course-divider"></div>
+        <span class="course-handle">@ingridnunezpsi</span>
+      </div>
+    </div>
+  </div>
+
+  <img class="logo" src="../../LOGOS/logo-sobre-claro.png" alt="Ingrid Núñez">
+</div>
+
+</body>
+</html>
