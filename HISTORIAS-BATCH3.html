@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historias Batch 3 · Días 17–25 · Ingrid Núñez</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#111;
+  font-family:'Montserrat',sans-serif;
+}
+
+/* ── SLIDE BASE ── */
+.slide {
+  width:1080px;
+  height:1920px;
+  position:relative;
+  overflow:hidden;
+  display:block;
+}
+
+/* ────────────────────────────────────────────────
+   TEMPLATE 1: LAVANDA FULL
+   bg #D9C9E3, big centered italic, circle decoration
+──────────────────────────────────────────────── */
+.tpl-lavanda {
+  background: #D9C9E3;
+}
+.tpl-lavanda .lav-circle-top {
+  position:absolute;
+  width:700px; height:700px;
+  border-radius:50%;
+  background: rgba(61,43,36,.06);
+  top:-200px; right:-180px;
+  pointer-events:none;
+}
+.tpl-lavanda .lav-circle-bot {
+  position:absolute;
+  width:500px; height:500px;
+  border-radius:50%;
+  background: rgba(128,99,87,.08);
+  bottom:-120px; left:-100px;
+  pointer-events:none;
+}
+.tpl-lavanda .lav-inner {
+  position:relative; z-index:2;
+  height:100%;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  padding:130px 100px 100px;
+}
+.tpl-lavanda .lav-badge {
+  display:inline-flex; align-items:center;
+  padding:12px 30px;
+  border-radius:100px;
+  background:rgba(61,43,36,.12);
+  color:#3D2B24;
+  font-size:19px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  margin-bottom:20px; align-self:flex-start;
+}
+.tpl-lavanda .lav-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:40px; color:#806357;
+  letter-spacing:1px; margin-bottom:6px;
+}
+.tpl-lavanda .lav-tema {
+  font-size:20px; font-weight:500;
+  color:rgba(61,43,36,.45);
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:70px;
+}
+.tpl-lavanda .lav-main {
+  font-family:'Playfair Display',serif;
+  font-size:72px; line-height:1.2;
+  color:#3D2B24;
+  font-style:italic;
+  flex:1; display:flex; align-items:center;
+}
+.tpl-lavanda .lav-footer {
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+.tpl-lavanda .lav-handle {
+  font-size:22px; letter-spacing:3px; color:#806357; text-transform:lowercase;
+}
+.tpl-lavanda .lav-logo {
+  position:absolute;
+  bottom:52px; right:70px;
+  height:45px; opacity:.30;
+}
+
+/* ────────────────────────────────────────────────
+   TEMPLATE 2: BEIGE + BARRA LATERAL
+   bg #F8F2EC, accent bar left
+──────────────────────────────────────────────── */
+.tpl-beige {
+  background: #F8F2EC;
+}
+.tpl-beige .beige-bar {
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:16px;
+  background: linear-gradient(180deg, #D9C9E3 0%, #806357 100%);
+}
+.tpl-beige .beige-dot-accent {
+  position:absolute;
+  left:80px; top:160px;
+  width:220px; height:220px;
+  border-radius:50%;
+  border:2px solid rgba(217,201,227,.5);
+  pointer-events:none;
+}
+.tpl-beige .beige-dot-accent2 {
+  position:absolute;
+  right:60px; bottom:220px;
+  width:140px; height:140px;
+  border-radius:50%;
+  background: rgba(217,201,227,.18);
+  pointer-events:none;
+}
+.tpl-beige .beige-inner {
+  position:relative; z-index:2;
+  height:100%;
+  padding:130px 100px 100px 110px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+}
+.tpl-beige .beige-badge {
+  display:inline-flex; align-items:center;
+  padding:12px 30px;
+  border-radius:100px;
+  background:#D9C9E3;
+  color:#3D2B24;
+  font-size:19px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  margin-bottom:20px; align-self:flex-start;
+}
+.tpl-beige .beige-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:40px; color:#806357;
+  margin-bottom:6px;
+}
+.tpl-beige .beige-tema {
+  font-size:20px; font-weight:500;
+  color:#B0AEB0;
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:60px;
+  padding-left:16px;
+  border-left:3px solid #D9C9E3;
+}
+.tpl-beige .beige-main {
+  font-family:'Playfair Display',serif;
+  font-size:68px; line-height:1.22;
+  color:#3D2B24;
+  flex:1; display:flex; align-items:center;
+}
+.tpl-beige .beige-footer {
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+.tpl-beige .beige-handle {
+  font-size:22px; letter-spacing:3px; color:#B0AEB0; text-transform:lowercase;
+}
+.tpl-beige .beige-logo {
+  position:absolute;
+  bottom:52px; right:70px;
+  height:45px; opacity:.30;
+}
+
+/* ────────────────────────────────────────────────
+   TEMPLATE 3: DARK MARRÓN
+   bg #3D2B24, centered italic, glow
+──────────────────────────────────────────────── */
+.tpl-dark {
+  background: linear-gradient(150deg, #3D2B24 0%, #2a1e1a 60%, #1e1510 100%);
+}
+.tpl-dark .dark-glow {
+  position:absolute;
+  width:800px; height:800px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(217,201,227,.06) 0%, transparent 70%);
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.tpl-dark .dark-glow2 {
+  position:absolute;
+  width:400px; height:400px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(248,242,236,.04) 0%, transparent 70%);
+  top:15%; right:5%;
+  pointer-events:none;
+}
+.tpl-dark .dark-inner {
+  position:relative; z-index:2;
+  height:100%;
+  padding:130px 100px 100px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+}
+.tpl-dark .dark-badge {
+  display:inline-flex; align-items:center;
+  padding:12px 30px;
+  border-radius:100px;
+  background:rgba(217,201,227,.15);
+  border:1px solid rgba(217,201,227,.3);
+  color:#D9C9E3;
+  font-size:19px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  margin-bottom:20px; align-self:flex-start;
+}
+.tpl-dark .dark-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:40px; color:rgba(217,201,227,.7);
+  margin-bottom:6px;
+}
+.tpl-dark .dark-tema {
+  font-size:20px; font-weight:300;
+  color:rgba(217,201,227,.35);
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:60px;
+}
+.tpl-dark .dark-main {
+  font-family:'Playfair Display',serif;
+  font-size:72px; line-height:1.22;
+  color:#F8F2EC;
+  font-style:italic;
+  flex:1; display:flex; align-items:center;
+}
+.tpl-dark .dark-footer {
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+.tpl-dark .dark-handle {
+  font-size:22px; letter-spacing:3px; color:rgba(217,201,227,.5); text-transform:lowercase;
+}
+.tpl-dark .dark-web {
+  font-size:19px; color:rgba(217,201,227,.25); letter-spacing:1px;
+}
+.tpl-dark .dark-logo {
+  position:absolute;
+  bottom:52px; right:70px;
+  height:45px; opacity:.35;
+}
+
+/* ────────────────────────────────────────────────
+   TEMPLATE 4: SPLIT DARK/BEIGE
+   top dark (#3D2B24), bottom beige (#F8F2EC)
+──────────────────────────────────────────────── */
+.tpl-split {
+  background: #F8F2EC;
+}
+.tpl-split .split-top {
+  height:840px;
+  background: linear-gradient(150deg, #3D2B24 0%, #2a1e1a 100%);
+  position:relative;
+  display:flex; flex-direction:column;
+  justify-content:flex-end;
+  padding:80px 100px 70px;
+}
+.tpl-split .split-top-glow {
+  position:absolute;
+  width:500px; height:500px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(217,201,227,.05) 0%, transparent 70%);
+  top:0; right:0;
+  pointer-events:none;
+}
+.tpl-split .split-badge {
+  display:inline-flex; align-items:center;
+  padding:11px 28px;
+  border-radius:100px;
+  background:rgba(217,201,227,.2);
+  border:1px solid rgba(217,201,227,.35);
+  color:#D9C9E3;
+  font-size:18px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; align-self:flex-start;
+}
+.tpl-split .split-top-text {
+  font-family:'Playfair Display',serif;
+  font-size:62px; line-height:1.2;
+  color:#F8F2EC;
+  font-style:italic;
+}
+.tpl-split .split-top-sub {
+  font-size:22px; font-weight:300;
+  color:rgba(217,201,227,.55);
+  margin-top:16px; letter-spacing:1px;
+}
+.tpl-split .split-bottom {
+  padding:70px 100px 90px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+  flex:1;
+}
+.tpl-split .split-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:36px; color:#806357;
+  margin-bottom:6px;
+}
+.tpl-split .split-tema {
+  font-size:19px; font-weight:500;
+  color:#B0AEB0;
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:50px;
+}
+.tpl-split .split-bot-text {
+  font-family:'Playfair Display',serif;
+  font-size:58px; line-height:1.28;
+  color:#3D2B24;
+  flex:1; display:flex; align-items:center;
+}
+.tpl-split .split-footer {
+  display:flex; justify-content:flex-start;
+}
+.tpl-split .split-handle {
+  font-size:22px; letter-spacing:3px; color:#B0AEB0; text-transform:lowercase;
+}
+.tpl-split .split-logo {
+  position:absolute;
+  bottom:52px; right:70px;
+  height:45px; opacity:.30;
+}
+
+/* ────────────────────────────────────────────────
+   TEMPLATE 5: SCRAPBOOK
+   decorative elements, warm layered feel
+──────────────────────────────────────────────── */
+.tpl-scrapbook {
+  background: #F8F2EC;
+}
+.tpl-scrapbook .scrap-tape-top {
+  position:absolute;
+  top:0; left:0; right:0;
+  height:12px;
+  background: linear-gradient(90deg, #D9C9E3 0%, #806357 30%, #D9C9E3 60%, #3D2B24 100%);
+  opacity:.35;
+}
+.tpl-scrapbook .scrap-tape-bot {
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:12px;
+  background: linear-gradient(90deg, #3D2B24 0%, #D9C9E3 40%, #806357 70%, #D9C9E3 100%);
+  opacity:.35;
+}
+.tpl-scrapbook .scrap-bg-char {
+  position:absolute;
+  font-size:500px; line-height:1;
+  opacity:.045;
+  pointer-events:none; user-select:none;
+}
+.tpl-scrapbook .scrap-bg-char.pos1 { top:-60px; right:-80px; }
+.tpl-scrapbook .scrap-bg-char.pos2 { bottom:-80px; left:-60px; }
+.tpl-scrapbook .scrap-corner-tl {
+  position:absolute;
+  top:70px; left:70px;
+  width:80px; height:80px;
+  border-top:3px solid rgba(128,99,87,.25);
+  border-left:3px solid rgba(128,99,87,.25);
+}
+.tpl-scrapbook .scrap-corner-br {
+  position:absolute;
+  bottom:100px; right:100px;
+  width:80px; height:80px;
+  border-bottom:3px solid rgba(128,99,87,.25);
+  border-right:3px solid rgba(128,99,87,.25);
+}
+.tpl-scrapbook .scrap-inner {
+  position:relative; z-index:2;
+  height:100%;
+  padding:150px 110px 120px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+}
+.tpl-scrapbook .scrap-badge {
+  display:inline-flex; align-items:center;
+  padding:12px 30px;
+  border-radius:100px;
+  background:rgba(217,201,227,.5);
+  border:1.5px solid rgba(128,99,87,.2);
+  color:#3D2B24;
+  font-size:19px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  margin-bottom:20px; align-self:flex-start;
+}
+.tpl-scrapbook .scrap-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:40px; color:#806357;
+  margin-bottom:6px;
+}
+.tpl-scrapbook .scrap-tema {
+  font-size:20px; font-weight:500;
+  color:#B0AEB0;
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:60px;
+}
+.tpl-scrapbook .scrap-main {
+  font-family:'Playfair Display',serif;
+  font-size:68px; line-height:1.25;
+  color:#3D2B24;
+  font-style:italic;
+  flex:1; display:flex; align-items:center;
+}
+.tpl-scrapbook .scrap-footer {
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+.tpl-scrapbook .scrap-handle {
+  font-size:22px; letter-spacing:3px; color:#B0AEB0; text-transform:lowercase;
+}
+.tpl-scrapbook .scrap-logo {
+  position:absolute;
+  bottom:52px; right:70px;
+  height:45px; opacity:.30;
+}
+
+/* ────────────────────────────────────────────────
+   TEMPLATE 6: PHOTO OVERLAY
+   Ingrid's photo with gradient overlay
+──────────────────────────────────────────────── */
+.tpl-photo {
+  background: #3D2B24;
+}
+.tpl-photo .photo-bg {
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+}
+.tpl-photo .photo-gradient {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(61,43,36,.15) 0%,
+    rgba(61,43,36,.25) 30%,
+    rgba(61,43,36,.75) 65%,
+    rgba(29,19,15,.95) 100%
+  );
+}
+.tpl-photo .photo-inner {
+  position:relative; z-index:2;
+  height:100%;
+  padding:110px 100px 100px;
+  display:flex; flex-direction:column;
+  justify-content:space-between;
+}
+.tpl-photo .photo-badge {
+  display:inline-flex; align-items:center;
+  padding:12px 30px;
+  border-radius:100px;
+  background:rgba(248,242,236,.15);
+  border:1px solid rgba(248,242,236,.3);
+  color:#F8F2EC;
+  font-size:19px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  margin-bottom:20px; align-self:flex-start;
+}
+.tpl-photo .photo-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:40px; color:rgba(217,201,227,.8);
+  margin-bottom:6px;
+}
+.tpl-photo .photo-tema {
+  font-size:20px; font-weight:300;
+  color:rgba(248,242,236,.4);
+  letter-spacing:3px; text-transform:uppercase;
+}
+.tpl-photo .photo-main {
+  font-family:'Playfair Display',serif;
+  font-size:72px; line-height:1.22;
+  color:#F8F2EC;
+  font-style:italic;
+}
+.tpl-photo .photo-footer {
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+.tpl-photo .photo-handle {
+  font-size:22px; letter-spacing:3px; color:rgba(217,201,227,.65); text-transform:lowercase;
+}
+.tpl-photo .photo-web {
+  font-size:19px; color:rgba(248,242,236,.25); letter-spacing:1px;
+}
+.tpl-photo .photo-logo {
+  position:absolute;
+  bottom:52px; right:70px;
+  height:45px; opacity:.35;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     DIA 17 · Mar 31 Mar · C15 Autismo
+     H1=DARK  H2=LAVANDA  H3=SPLIT
+═══════════════════════════════════════════ -->
+
+<!-- DIA 17 H1 — DARK MARRÓN -->
+<div class="slide tpl-dark" data-dia="DIA_17" data-slot="H1">
+  <div class="dark-glow"></div>
+  <div class="dark-glow2"></div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H1 · Buenos días</div>
+      <div class="dark-fecha">Mar 31 Mar</div>
+      <div class="dark-tema">Día Mundial del Autismo</div>
+    </div>
+    <div class="dark-main">Hoy es el Día Mundial del Autismo. Y hay algo que necesitamos entender mejor.</div>
+    <div class="dark-footer">
+      <span class="dark-handle">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="dark-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+<!-- DIA 17 H2 — LAVANDA FULL -->
+<div class="slide tpl-lavanda" data-dia="DIA_17" data-slot="H2">
+  <div class="lav-circle-top"></div>
+  <div class="lav-circle-bot"></div>
+  <div class="lav-inner">
+    <div>
+      <div class="lav-badge">H2 · Dato del día</div>
+      <div class="lav-fecha">Mar 31 Mar</div>
+      <div class="lav-tema">Día Mundial del Autismo</div>
+    </div>
+    <div class="lav-main">Portarse mal y procesar diferente no son lo mismo. Hoy en el feed te lo explico.</div>
+    <div class="lav-footer">
+      <span class="lav-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="lav-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 17 H3 — SPLIT DARK/BEIGE -->
+<div class="slide tpl-split" data-dia="DIA_17" data-slot="H3">
+  <div class="split-top">
+    <div class="split-top-glow"></div>
+    <div class="split-badge">H3 · Reflexión</div>
+    <div class="split-top-text">Cada niño tiene su forma de comunicarse.</div>
+    <div class="split-top-sub">Mar 31 Mar · Día Mundial del Autismo</div>
+  </div>
+  <div class="split-bottom">
+    <div>
+      <div class="split-fecha">Mar 31 Mar</div>
+      <div class="split-tema">Día Mundial del Autismo</div>
+    </div>
+    <div class="split-bot-text">Nuestra tarea es aprender a escuchar.</div>
+    <div class="split-footer">
+      <span class="split-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="split-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 18 · Mié 01 Abr · Sin carrusel
+     H1=BEIGE+BARRA  H2=SCRAPBOOK  H3=DARK
+═══════════════════════════════════════════ -->
+
+<!-- DIA 18 H1 — BEIGE + BARRA LATERAL -->
+<div class="slide tpl-beige" data-dia="DIA_18" data-slot="H1">
+  <div class="beige-bar"></div>
+  <div class="beige-dot-accent"></div>
+  <div class="beige-dot-accent2"></div>
+  <div class="beige-inner">
+    <div>
+      <div class="beige-badge">H1 · Buenos días</div>
+      <div class="beige-fecha">Mié 01 Abr</div>
+      <div class="beige-tema">Mitad de semana</div>
+    </div>
+    <div class="beige-main">Mitad de semana. ¿Cómo vas con tu paciencia hoy?</div>
+    <div class="beige-footer">
+      <span class="beige-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="beige-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 18 H2 — SCRAPBOOK -->
+<div class="slide tpl-scrapbook" data-dia="DIA_18" data-slot="H2">
+  <div class="scrap-tape-top"></div>
+  <div class="scrap-tape-bot"></div>
+  <div class="scrap-bg-char pos1">🌿</div>
+  <div class="scrap-bg-char pos2">💙</div>
+  <div class="scrap-corner-tl"></div>
+  <div class="scrap-corner-br"></div>
+  <div class="scrap-inner">
+    <div>
+      <div class="scrap-badge">H2 · Recordatorio</div>
+      <div class="scrap-fecha">Mié 01 Abr</div>
+      <div class="scrap-tema">Mitad de semana</div>
+    </div>
+    <div class="scrap-main">Recuerda: no necesitas tener todas las respuestas. Solo necesitas estar dispuesto/a a aprender.</div>
+    <div class="scrap-footer">
+      <span class="scrap-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="scrap-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 18 H3 — DARK MARRÓN -->
+<div class="slide tpl-dark" data-dia="DIA_18" data-slot="H3">
+  <div class="dark-glow"></div>
+  <div class="dark-glow2"></div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H3 · Buenas noches</div>
+      <div class="dark-fecha">Mié 01 Abr</div>
+      <div class="dark-tema">Mitad de semana</div>
+    </div>
+    <div class="dark-main">Mañana hay contenido nuevo. Descansa esta noche.</div>
+    <div class="dark-footer">
+      <span class="dark-handle">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="dark-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 19 · Jue 02 Abr · C16 Semana Santa
+     H1=PHOTO(IMG_3287)  H2=LAVANDA  H3=BEIGE+BARRA
+═══════════════════════════════════════════ -->
+
+<!-- DIA 19 H1 — PHOTO OVERLAY (IMG_3287 café, reflexiva) -->
+<div class="slide tpl-photo" data-dia="DIA_19" data-slot="H1">
+  <div class="photo-bg" style="background-image:url('RECURSOS%20VISUALES/IMG_3287.jpeg')"></div>
+  <div class="photo-gradient"></div>
+  <div class="photo-inner">
+    <div>
+      <div class="photo-badge">H1 · Buenos días</div>
+      <div class="photo-fecha">Jue 02 Abr</div>
+      <div class="photo-tema">C16 Semana Santa</div>
+    </div>
+    <div class="photo-main">Semana Santa. Tiempo de parar, respirar y simplemente estar con los tuyos.</div>
+    <div class="photo-footer">
+      <span class="photo-handle">@ingridnunezpsi</span>
+      <span class="photo-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="photo-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+<!-- DIA 19 H2 — LAVANDA FULL -->
+<div class="slide tpl-lavanda" data-dia="DIA_19" data-slot="H2">
+  <div class="lav-circle-top"></div>
+  <div class="lav-circle-bot"></div>
+  <div class="lav-inner">
+    <div>
+      <div class="lav-badge">H2 · Feed del día</div>
+      <div class="lav-fecha">Jue 02 Abr</div>
+      <div class="lav-tema">C16 Semana Santa</div>
+    </div>
+    <div class="lav-main">El carrusel de hoy es una invitación a soltar el control. Ve al feed.</div>
+    <div class="lav-footer">
+      <span class="lav-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="lav-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 19 H3 — BEIGE + BARRA LATERAL -->
+<div class="slide tpl-beige" data-dia="DIA_19" data-slot="H3">
+  <div class="beige-bar"></div>
+  <div class="beige-dot-accent"></div>
+  <div class="beige-dot-accent2"></div>
+  <div class="beige-inner">
+    <div>
+      <div class="beige-badge">H3 · Buenas noches</div>
+      <div class="beige-fecha">Jue 02 Abr</div>
+      <div class="beige-tema">C16 Semana Santa</div>
+    </div>
+    <div class="beige-main">Esta semana, permítete simplemente estar. Sin listas. Sin metas. Solo presencia.</div>
+    <div class="beige-footer">
+      <span class="beige-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="beige-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 20 · Vie 03 Abr · Sin carrusel (Viernes Santo)
+     H1=SPLIT  H2=DARK  H3=SCRAPBOOK
+═══════════════════════════════════════════ -->
+
+<!-- DIA 20 H1 — SPLIT DARK/BEIGE -->
+<div class="slide tpl-split" data-dia="DIA_20" data-slot="H1">
+  <div class="split-top">
+    <div class="split-top-glow"></div>
+    <div class="split-badge">H1 · Buenos días</div>
+    <div class="split-top-text">Viernes Santo. Hoy no hay contenido en el feed.</div>
+    <div class="split-top-sub">Vie 03 Abr · Semana Santa</div>
+  </div>
+  <div class="split-bottom">
+    <div>
+      <div class="split-fecha">Vie 03 Abr</div>
+      <div class="split-tema">Viernes Santo</div>
+    </div>
+    <div class="split-bot-text">Solo silencio y gratitud.</div>
+    <div class="split-footer">
+      <span class="split-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="split-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 20 H2 — DARK MARRÓN -->
+<div class="slide tpl-dark" data-dia="DIA_20" data-slot="H2">
+  <div class="dark-glow"></div>
+  <div class="dark-glow2"></div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H2 · Reflexión</div>
+      <div class="dark-fecha">Vie 03 Abr</div>
+      <div class="dark-tema">Viernes Santo</div>
+    </div>
+    <div class="dark-main">Si hoy puedes abrazar a tu hijo sin prisa, hazlo. Eso ya es suficiente.</div>
+    <div class="dark-footer">
+      <span class="dark-handle">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="dark-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+<!-- DIA 20 H3 — SCRAPBOOK -->
+<div class="slide tpl-scrapbook" data-dia="DIA_20" data-slot="H3">
+  <div class="scrap-tape-top"></div>
+  <div class="scrap-tape-bot"></div>
+  <div class="scrap-bg-char pos1">🕊️</div>
+  <div class="scrap-bg-char pos2">🌿</div>
+  <div class="scrap-corner-tl"></div>
+  <div class="scrap-corner-br"></div>
+  <div class="scrap-inner">
+    <div>
+      <div class="scrap-badge">H3 · Buenas noches</div>
+      <div class="scrap-fecha">Vie 03 Abr</div>
+      <div class="scrap-tema">Viernes Santo</div>
+    </div>
+    <div class="scrap-main">Buenas noches. Feliz Semana Santa.</div>
+    <div class="scrap-footer">
+      <span class="scrap-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="scrap-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 21 · Sáb 04 Abr · Sin carrusel
+     H1=LAVANDA  H2=BEIGE+BARRA  H3=PHOTO(IMG_6189)
+═══════════════════════════════════════════ -->
+
+<!-- DIA 21 H1 — LAVANDA FULL -->
+<div class="slide tpl-lavanda" data-dia="DIA_21" data-slot="H1">
+  <div class="lav-circle-top"></div>
+  <div class="lav-circle-bot"></div>
+  <div class="lav-inner">
+    <div>
+      <div class="lav-badge">H1 · Buenos días</div>
+      <div class="lav-fecha">Sáb 04 Abr</div>
+      <div class="lav-tema">Sábado de descanso</div>
+    </div>
+    <div class="lav-main">Sábado de descanso. ¿Qué hiciste hoy con tus hijos que no tenía pantallas?</div>
+    <div class="lav-footer">
+      <span class="lav-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="lav-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 21 H2 — BEIGE + BARRA LATERAL -->
+<div class="slide tpl-beige" data-dia="DIA_21" data-slot="H2">
+  <div class="beige-bar"></div>
+  <div class="beige-dot-accent"></div>
+  <div class="beige-dot-accent2"></div>
+  <div class="beige-inner">
+    <div>
+      <div class="beige-badge">H2 · Reflexión</div>
+      <div class="beige-fecha">Sáb 04 Abr</div>
+      <div class="beige-tema">Sábado de descanso</div>
+    </div>
+    <div class="beige-main">Los mejores recuerdos de la infancia no cuestan dinero. Cuestan tiempo.</div>
+    <div class="beige-footer">
+      <span class="beige-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="beige-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 21 H3 — PHOTO OVERLAY (IMG_6189 embarazada) -->
+<div class="slide tpl-photo" data-dia="DIA_21" data-slot="H3">
+  <div class="photo-bg" style="background-image:url('RECURSOS%20VISUALES/IMG_6189.jpeg')"></div>
+  <div class="photo-gradient"></div>
+  <div class="photo-inner">
+    <div>
+      <div class="photo-badge">H3 · Buenas noches</div>
+      <div class="photo-fecha">Sáb 04 Abr</div>
+      <div class="photo-tema">Sábado de descanso</div>
+    </div>
+    <div class="photo-main">Mañana volvemos. Por ahora, disfruta esta noche.</div>
+    <div class="photo-footer">
+      <span class="photo-handle">@ingridnunezpsi</span>
+      <span class="photo-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="photo-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 22 · Dom 05 Abr · Sin carrusel
+     H1=DARK  H2=SPLIT  H3=LAVANDA
+═══════════════════════════════════════════ -->
+
+<!-- DIA 22 H1 — DARK MARRÓN -->
+<div class="slide tpl-dark" data-dia="DIA_22" data-slot="H1">
+  <div class="dark-glow"></div>
+  <div class="dark-glow2"></div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H1 · Buenos días</div>
+      <div class="dark-fecha">Dom 05 Abr</div>
+      <div class="dark-tema">Último día de Semana Santa</div>
+    </div>
+    <div class="dark-main">Último día de Semana Santa. ¿Cómo te sientes?</div>
+    <div class="dark-footer">
+      <span class="dark-handle">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="dark-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+<!-- DIA 22 H2 — SPLIT DARK/BEIGE -->
+<div class="slide tpl-split" data-dia="DIA_22" data-slot="H2">
+  <div class="split-top">
+    <div class="split-top-glow"></div>
+    <div class="split-badge">H2 · Anticipo</div>
+    <div class="split-top-text">Mañana arrancamos fuerte.</div>
+    <div class="split-top-sub">Dom 05 Abr · Semana Santa</div>
+  </div>
+  <div class="split-bottom">
+    <div>
+      <div class="split-fecha">Dom 05 Abr</div>
+      <div class="split-tema">Último día de Semana Santa</div>
+    </div>
+    <div class="split-bot-text">Tengo contenido importante para esta semana.</div>
+    <div class="split-footer">
+      <span class="split-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="split-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 22 H3 — LAVANDA FULL -->
+<div class="slide tpl-lavanda" data-dia="DIA_22" data-slot="H3">
+  <div class="lav-circle-top"></div>
+  <div class="lav-circle-bot"></div>
+  <div class="lav-inner">
+    <div>
+      <div class="lav-badge">H3 · Buenas noches</div>
+      <div class="lav-fecha">Dom 05 Abr</div>
+      <div class="lav-tema">Último día de Semana Santa</div>
+    </div>
+    <div class="lav-main">Que esta noche sea de calma. Mañana seguimos.</div>
+    <div class="lav-footer">
+      <span class="lav-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="lav-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 23 · Lun 06 Abr · C17 Salud emocional
+     H1=SCRAPBOOK  H2=PHOTO(IMG_3273)  H3=DARK
+═══════════════════════════════════════════ -->
+
+<!-- DIA 23 H1 — SCRAPBOOK -->
+<div class="slide tpl-scrapbook" data-dia="DIA_23" data-slot="H1">
+  <div class="scrap-tape-top"></div>
+  <div class="scrap-tape-bot"></div>
+  <div class="scrap-bg-char pos1">🩺</div>
+  <div class="scrap-bg-char pos2">💙</div>
+  <div class="scrap-corner-tl"></div>
+  <div class="scrap-corner-br"></div>
+  <div class="scrap-inner">
+    <div>
+      <div class="scrap-badge">H1 · Buenos días</div>
+      <div class="scrap-fecha">Lun 06 Abr</div>
+      <div class="scrap-tema">C17 Salud emocional</div>
+    </div>
+    <div class="scrap-main">Revisas el peso, la talla, las vacunas. ¿Cuándo revisaste su salud emocional?</div>
+    <div class="scrap-footer">
+      <span class="scrap-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="scrap-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 23 H2 — PHOTO OVERLAY (IMG_3273 oficina azul) -->
+<div class="slide tpl-photo" data-dia="DIA_23" data-slot="H2">
+  <div class="photo-bg" style="background-image:url('RECURSOS%20VISUALES/IMG_3273.jpeg')"></div>
+  <div class="photo-gradient"></div>
+  <div class="photo-inner">
+    <div>
+      <div class="photo-badge">H2 · Feed del día</div>
+      <div class="photo-fecha">Lun 06 Abr</div>
+      <div class="photo-tema">C17 Salud emocional</div>
+    </div>
+    <div class="photo-main">Hoy en el feed: una pregunta que pocos padres se hacen. Desliza el carrusel.</div>
+    <div class="photo-footer">
+      <span class="photo-handle">@ingridnunezpsi</span>
+      <span class="photo-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="photo-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+<!-- DIA 23 H3 — DARK MARRÓN -->
+<div class="slide tpl-dark" data-dia="DIA_23" data-slot="H3">
+  <div class="dark-glow"></div>
+  <div class="dark-glow2"></div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H3 · Buenas noches</div>
+      <div class="dark-fecha">Lun 06 Abr</div>
+      <div class="dark-tema">C17 Salud emocional</div>
+    </div>
+    <div class="dark-main">La salud emocional de tu hijo empieza con la tuya. Cuídate para cuidarlo.</div>
+    <div class="dark-footer">
+      <span class="dark-handle">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="dark-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 24 · Mar 07 Abr · Sin carrusel
+     H1=BEIGE+BARRA  H2=LAVANDA  H3=SPLIT
+═══════════════════════════════════════════ -->
+
+<!-- DIA 24 H1 — BEIGE + BARRA LATERAL -->
+<div class="slide tpl-beige" data-dia="DIA_24" data-slot="H1">
+  <div class="beige-bar"></div>
+  <div class="beige-dot-accent"></div>
+  <div class="beige-dot-accent2"></div>
+  <div class="beige-inner">
+    <div>
+      <div class="beige-badge">H1 · Buenos días</div>
+      <div class="beige-fecha">Mar 07 Abr</div>
+      <div class="beige-tema">Martes</div>
+    </div>
+    <div class="beige-main">Martes. ¿Hoy le preguntaste a tu hijo cómo se siente?</div>
+    <div class="beige-footer">
+      <span class="beige-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="beige-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 24 H2 — LAVANDA FULL -->
+<div class="slide tpl-lavanda" data-dia="DIA_24" data-slot="H2">
+  <div class="lav-circle-top"></div>
+  <div class="lav-circle-bot"></div>
+  <div class="lav-inner">
+    <div>
+      <div class="lav-badge">H2 · Reflexión</div>
+      <div class="lav-fecha">Mar 07 Abr</div>
+      <div class="lav-tema">Martes</div>
+    </div>
+    <div class="lav-main">A veces un "¿cómo fue tu día?" cambia todo.</div>
+    <div class="lav-footer">
+      <span class="lav-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="lav-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 24 H3 — SPLIT DARK/BEIGE -->
+<div class="slide tpl-split" data-dia="DIA_24" data-slot="H3">
+  <div class="split-top">
+    <div class="split-top-glow"></div>
+    <div class="split-badge">H3 · Buenas noches</div>
+    <div class="split-top-text">No necesitas ser terapeuta para conectar emocionalmente con tu hijo.</div>
+    <div class="split-top-sub">Mar 07 Abr</div>
+  </div>
+  <div class="split-bottom">
+    <div>
+      <div class="split-fecha">Mar 07 Abr</div>
+      <div class="split-tema">Martes</div>
+    </div>
+    <div class="split-bot-text">Solo necesitas preguntar.</div>
+    <div class="split-footer">
+      <span class="split-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="split-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     DIA 25 · Mié 08 Abr · C18 Límites
+     H1=DARK  H2=SCRAPBOOK  H3=PHOTO(IMG_3277)
+═══════════════════════════════════════════ -->
+
+<!-- DIA 25 H1 — DARK MARRÓN -->
+<div class="slide tpl-dark" data-dia="DIA_25" data-slot="H1">
+  <div class="dark-glow"></div>
+  <div class="dark-glow2"></div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H1 · Buenos días</div>
+      <div class="dark-fecha">Mié 08 Abr</div>
+      <div class="dark-tema">C18 Límites</div>
+    </div>
+    <div class="dark-main">Poner límites no es hacer sufrir a tu hijo. Es enseñarle a vivir en el mundo.</div>
+    <div class="dark-footer">
+      <span class="dark-handle">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="dark-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+<!-- DIA 25 H2 — SCRAPBOOK -->
+<div class="slide tpl-scrapbook" data-dia="DIA_25" data-slot="H2">
+  <div class="scrap-tape-top"></div>
+  <div class="scrap-tape-bot"></div>
+  <div class="scrap-bg-char pos1">🛡️</div>
+  <div class="scrap-bg-char pos2">💙</div>
+  <div class="scrap-corner-tl"></div>
+  <div class="scrap-corner-br"></div>
+  <div class="scrap-inner">
+    <div>
+      <div class="scrap-badge">H2 · Feed del día</div>
+      <div class="scrap-fecha">Mié 08 Abr</div>
+      <div class="scrap-tema">C18 Límites</div>
+    </div>
+    <div class="scrap-main">Hoy en el feed: cómo poner límites desde el amor y no desde el miedo. Desliza.</div>
+    <div class="scrap-footer">
+      <span class="scrap-handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="scrap-logo" src="LOGOS/logo-sobre-claro.png" alt="">
+</div>
+
+<!-- DIA 25 H3 — PHOTO OVERLAY (IMG_3277 blusa puntos, laptop) -->
+<div class="slide tpl-photo" data-dia="DIA_25" data-slot="H3">
+  <div class="photo-bg" style="background-image:url('RECURSOS%20VISUALES/IMG_3277.jpeg')"></div>
+  <div class="photo-gradient"></div>
+  <div class="photo-inner">
+    <div>
+      <div class="photo-badge">H3 · Buenas noches</div>
+      <div class="photo-fecha">Mié 08 Abr</div>
+      <div class="photo-tema">C18 Límites</div>
+    </div>
+    <div class="photo-main">Límites claros + amor incondicional = seguridad emocional.</div>
+    <div class="photo-footer">
+      <span class="photo-handle">@ingridnunezpsi</span>
+      <span class="photo-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="photo-logo" src="LOGOS/logo-sobre-oscuro.png" alt="">
+</div>
+
+
+</body>
+</html>

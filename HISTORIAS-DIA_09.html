@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historias DIA 09 — Lun 23 Mar — C09 Termostato emocional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
+.slide {
+  width:1080px; height:1920px;
+  position:relative; overflow:hidden; display:block;
+}
+
+/* ── TEMPLATE 3: DARK MARRÓN ── */
+.dark-slide {
+  background: linear-gradient(160deg,#3D2B24 0%,#2d1f1a 55%,#1a0f0c 100%);
+}
+.dark-glow {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:900px; height:900px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.08) 0%, transparent 65%);
+  pointer-events:none;
+}
+.dark-emoji-bg {
+  position:absolute; font-size:500px;
+  bottom:-100px; left:-100px; opacity:.06;
+  pointer-events:none; user-select:none;
+}
+.dark-inner {
+  position:relative; z-index:2;
+  padding:120px 90px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.dark-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:rgba(217,201,227,.2); color:#D9C9E3;
+  border:1px solid rgba(217,201,227,.3);
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; width:fit-content;
+}
+.dark-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:38px; color:#D9C9E3; opacity:.65; margin-bottom:6px;
+}
+.dark-topic {
+  font-size:20px; font-weight:300;
+  color:rgba(217,201,227,.35); letter-spacing:2px; text-transform:uppercase;
+}
+.dark-content {
+  font-family:'Playfair Display',serif;
+  font-size:62px; line-height:1.3;
+  color:#F8F2EC; flex:1; display:flex; align-items:center;
+  font-style:italic;
+}
+.dark-footer {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.dark-web { font-size:20px; color:rgba(217,201,227,.28); letter-spacing:1px; }
+
+/* ── TEMPLATE 6: PHOTO OVERLAY ── */
+.photo-slide { position:relative; background:#1a0f0c; }
+.photo-bg {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+}
+.photo-gradient {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background:linear-gradient(180deg,
+    rgba(26,15,12,.2) 0%,
+    rgba(26,15,12,.3) 25%,
+    rgba(26,15,12,.72) 58%,
+    rgba(26,15,12,.93) 100%
+  );
+}
+.photo-inner {
+  position:relative; z-index:3;
+  padding:120px 90px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.photo-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:rgba(217,201,227,.22); color:#D9C9E3;
+  border:1px solid rgba(217,201,227,.3);
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; width:fit-content;
+}
+.photo-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:38px; color:#D9C9E3; opacity:.7; margin-bottom:6px;
+}
+.photo-topic {
+  font-size:20px; font-weight:300;
+  color:rgba(217,201,227,.4); letter-spacing:2px; text-transform:uppercase;
+}
+.photo-content {
+  font-family:'Playfair Display',serif;
+  font-size:60px; line-height:1.3;
+  color:#F8F2EC; font-style:italic;
+  flex:1; display:flex; align-items:flex-end; padding-bottom:60px;
+}
+.photo-footer {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.photo-web { font-size:20px; color:rgba(217,201,227,.28); letter-spacing:1px; }
+
+/* ── TEMPLATE 4: SPLIT DARK/BEIGE ── */
+.split-slide { background:#F8F2EC; }
+.split-top {
+  height:820px; position:relative;
+  background:#3D2B24;
+  display:flex; flex-direction:column;
+  justify-content:flex-end; padding:70px 90px 60px;
+}
+.split-bg-glow {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.split-emoji {
+  position:absolute; font-size:340px;
+  top:30px; right:30px; opacity:.09;
+  pointer-events:none; user-select:none;
+}
+.split-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:#D9C9E3; color:#3D2B24;
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:28px; width:fit-content;
+}
+.split-headline {
+  font-family:'Playfair Display',serif;
+  font-size:54px; color:#F8F2EC; line-height:1.2;
+}
+.split-sub-dark {
+  font-size:24px; font-weight:300;
+  color:rgba(248,242,236,.45); margin-top:16px; letter-spacing:1px;
+}
+.split-bottom {
+  padding:70px 90px 80px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  flex:1;
+}
+.split-content {
+  font-family:'Playfair Display',serif;
+  font-size:52px; line-height:1.45;
+  color:#3D2B24; flex:1; display:flex; align-items:center;
+}
+.split-footer { display:flex; justify-content:flex-start; }
+
+/* ── LOGO WATERMARK ── */
+.logo-wm {
+  position:absolute; bottom:52px; right:70px;
+  height:45px; opacity:.30;
+  z-index:10; pointer-events:none;
+}
+.logo-wm-dark { opacity:.35; }
+
+/* ── HANDLE ── */
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px; letter-spacing:3px;
+  color:#B0AEB0; text-transform:lowercase;
+}
+.handle-light { color:rgba(217,201,227,.45); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     H1 — DARK MARRÓN — Buenos días — Termostato emocional
+═══════════════════════════════════════════════ -->
+<div class="slide dark-slide">
+  <div class="dark-glow"></div>
+  <div class="dark-emoji-bg">🌸</div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H1 · 8–9am · Buenos días</div>
+      <div class="dark-fecha">Lun 23 Mar</div>
+      <div class="dark-topic">C09 · Tú eres el termostato emocional</div>
+    </div>
+    <div class="dark-content">Nueva semana. Hoy empezamos hablando de algo que cambiará cómo ves las crisis de tu hijo.</div>
+    <div class="dark-footer">
+      <span class="handle handle-light">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="logo-wm logo-wm-dark" src="LOGOS/logo-sobre-oscuro.png" alt="logo">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     H2 — PHOTO OVERLAY (hf_escritorio) — Feed reminder — Termostato
+═══════════════════════════════════════════════ -->
+<div class="slide photo-slide">
+  <img class="photo-bg" src="RECURSOS VISUALES/hf_20260312_233812_10bbaa0d-0686-45cb-b96f-4175b0a8bf57.png" alt="Ingrid escritorio">
+  <div class="photo-gradient"></div>
+  <div class="photo-inner">
+    <div>
+      <div class="photo-badge">H2 · 12–1pm · Nuevo en el feed</div>
+      <div class="photo-fecha">Lun 23 Mar</div>
+      <div class="photo-topic">C09 · Termostato emocional</div>
+    </div>
+    <div class="photo-content">Tú eres el termostato emocional de tu hijo. Hoy te explico qué significa. Ve al feed.</div>
+    <div class="photo-footer">
+      <span class="handle handle-light">@ingridnunezpsi</span>
+      <span class="photo-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="logo-wm logo-wm-dark" src="LOGOS/logo-sobre-oscuro.png" alt="logo">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     H3 — SPLIT DARK/BEIGE — Buenas noches — Termostato
+═══════════════════════════════════════════════ -->
+<div class="slide split-slide">
+  <div class="split-top">
+    <div class="split-bg-glow"></div>
+    <div class="split-emoji">🌙</div>
+    <div class="split-badge">H3 · 6–8pm · Buenas noches</div>
+    <div class="split-headline">Si tú estás en calma, tu hijo encuentra la calma.</div>
+    <div class="split-sub-dark">Lun 23 Mar · C09 Termostato emocional</div>
+  </div>
+  <div class="split-bottom">
+    <div class="split-content">Así funciona la co-regulación. Así empieza el cambio que llevas buscando.</div>
+    <div class="split-footer"><span class="handle">@ingridnunezpsi</span></div>
+  </div>
+  <img class="logo-wm" src="LOGOS/logo-sobre-claro.png" alt="logo">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historias DIA 03 — Mar 17 Mar — C03 Rabietas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
+.slide {
+  width:1080px; height:1920px;
+  position:relative; overflow:hidden; display:block;
+}
+
+/* ── TEMPLATE 5: SCRAPBOOK ── */
+.scrapbook-slide { background:#F8F2EC; }
+.scrapbook-tape {
+  position:absolute; top:160px; left:-10px;
+  width:220px; height:36px;
+  background:rgba(217,201,227,.55);
+  transform:rotate(-2deg);
+  z-index:3;
+}
+.scrapbook-tape-2 {
+  position:absolute; top:152px; right:60px;
+  width:160px; height:30px;
+  background:rgba(128,99,87,.25);
+  transform:rotate(3deg);
+  z-index:3;
+}
+.scrapbook-circle-lg {
+  position:absolute; bottom:200px; left:-120px;
+  width:500px; height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.45) 0%, rgba(217,201,227,0) 70%);
+  pointer-events:none;
+}
+.scrapbook-circle-sm {
+  position:absolute; top:300px; right:-60px;
+  width:280px; height:280px;
+  border-radius:50%;
+  border:3px solid rgba(128,99,87,.2);
+  pointer-events:none;
+}
+.scrapbook-emoji-bg {
+  position:absolute; font-size:360px;
+  bottom:-40px; right:-40px;
+  opacity:.06; line-height:1;
+  pointer-events:none; user-select:none;
+}
+.scrapbook-card {
+  position:absolute; top:340px; left:80px;
+  right:80px;
+  background:#fff;
+  border-radius:12px;
+  padding:60px 70px;
+  box-shadow:0 8px 40px rgba(61,43,36,.1);
+  transform:rotate(-1deg);
+}
+.scrapbook-inner {
+  position:relative; z-index:4;
+  padding:100px 90px 80px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.scrapbook-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:#D9C9E3; color:#3D2B24;
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px;
+}
+.scrapbook-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:36px; color:#806357; margin-bottom:6px;
+}
+.scrapbook-topic {
+  font-size:20px; font-weight:500; color:#B0AEB0;
+  letter-spacing:3px; text-transform:uppercase;
+  border-left:4px solid #D9C9E3; padding-left:16px;
+  margin-bottom:0;
+}
+.scrapbook-main {
+  font-family:'Playfair Display',serif;
+  font-size:64px; line-height:1.2; color:#3D2B24;
+  font-style:italic;
+}
+.scrapbook-sub {
+  font-size:30px; font-weight:300; color:#806357;
+  line-height:1.7; margin-top:32px;
+}
+.scrapbook-footer { display:flex; justify-content:flex-start; align-items:center; }
+
+/* ── TEMPLATE 4: SPLIT DARK/BEIGE ── */
+.split-slide { background:#F8F2EC; }
+.split-top {
+  height:820px; position:relative;
+  background:#3D2B24;
+  display:flex; flex-direction:column;
+  justify-content:flex-end; padding:70px 90px 60px;
+}
+.split-bg-glow {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:700px; height:700px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.split-emoji {
+  position:absolute; font-size:340px;
+  top:30px; right:30px; opacity:.09;
+  pointer-events:none; user-select:none;
+}
+.split-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:#D9C9E3; color:#3D2B24;
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:28px; width:fit-content;
+}
+.split-headline {
+  font-family:'Playfair Display',serif;
+  font-size:56px; color:#F8F2EC; line-height:1.15;
+}
+.split-sub-dark {
+  font-size:24px; font-weight:300;
+  color:rgba(248,242,236,.5); margin-top:16px; letter-spacing:1px;
+}
+.split-bottom {
+  padding:70px 90px 80px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  flex:1;
+}
+.split-content {
+  font-family:'Playfair Display',serif;
+  font-size:52px; line-height:1.45;
+  color:#3D2B24; flex:1; display:flex; align-items:center;
+}
+.split-footer { display:flex; justify-content:flex-start; }
+
+/* ── TEMPLATE 3: DARK MARRÓN ── */
+.dark-slide {
+  background: linear-gradient(160deg,#3D2B24 0%,#2d1f1a 55%,#1a0f0c 100%);
+}
+.dark-glow {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:900px; height:900px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.07) 0%, transparent 65%);
+  pointer-events:none;
+}
+.dark-emoji-bg {
+  position:absolute; font-size:500px;
+  bottom:-100px; left:-100px; opacity:.06;
+  pointer-events:none; user-select:none;
+}
+.dark-inner {
+  position:relative; z-index:2;
+  padding:120px 90px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.dark-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:rgba(217,201,227,.2); color:#D9C9E3;
+  border:1px solid rgba(217,201,227,.3);
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; width:fit-content;
+}
+.dark-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:38px; color:#D9C9E3;
+  opacity:.65; margin-bottom:6px;
+}
+.dark-topic {
+  font-size:20px; font-weight:300;
+  color:rgba(217,201,227,.35);
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:0;
+}
+.dark-content {
+  font-family:'Playfair Display',serif;
+  font-size:64px; line-height:1.3;
+  color:#F8F2EC; flex:1; display:flex; align-items:center;
+  font-style:italic;
+}
+.dark-footer {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.dark-web {
+  font-size:20px; color:rgba(217,201,227,.28); letter-spacing:1px;
+}
+
+/* ── LOGO WATERMARK (todos los slides) ── */
+.logo-wm {
+  position:absolute; bottom:52px; right:70px;
+  height:45px; opacity:.30;
+  z-index:10; pointer-events:none;
+}
+.logo-wm-dark {
+  opacity:.35;
+}
+
+/* ── HANDLE ── */
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px; letter-spacing:3px;
+  color:#B0AEB0; text-transform:lowercase;
+}
+.handle-light {
+  color:rgba(217,201,227,.45);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     H1 — SCRAPBOOK — Buenos días — Rabietas
+═══════════════════════════════════════════════ -->
+<div class="slide scrapbook-slide">
+  <div class="scrapbook-tape"></div>
+  <div class="scrapbook-tape-2"></div>
+  <div class="scrapbook-circle-lg"></div>
+  <div class="scrapbook-circle-sm"></div>
+  <div class="scrapbook-emoji-bg">🌿</div>
+
+  <div class="scrapbook-inner">
+    <div>
+      <div class="scrapbook-badge">H1 · 8–9am · Buenos días</div>
+      <div class="scrapbook-fecha">Mar 17 Mar</div>
+      <div class="scrapbook-topic">C03 · Rabietas</div>
+    </div>
+
+    <div class="scrapbook-card">
+      <div class="scrapbook-main">Las rabietas no son el problema.<br>Son la señal de que algo necesita atención.</div>
+      <div class="scrapbook-sub">¿Cuántas veces esta semana sentiste que no sabías qué hacer con una rabieta?</div>
+    </div>
+
+    <div class="scrapbook-footer">
+      <span class="handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="logo-wm" src="LOGOS/logo-sobre-claro.png" alt="logo">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     H2 — SPLIT DARK/BEIGE — Feed reminder — Rabietas
+═══════════════════════════════════════════════ -->
+<div class="slide split-slide">
+  <div class="split-top">
+    <div class="split-bg-glow"></div>
+    <div class="split-emoji">🧠</div>
+    <div class="split-badge">H2 · 12–1pm · Nuevo en el feed</div>
+    <div class="split-headline">Hoy hablamos de lo que nadie te explicó sobre las rabietas.</div>
+    <div class="split-sub-dark">Mar 17 Mar · C03 Rabietas</div>
+  </div>
+  <div class="split-bottom">
+    <div class="split-content">Nuevo carrusel en el feed. Ve y desliza — te va a cambiar cómo lo ves todo.</div>
+    <div class="split-footer"><span class="handle">@ingridnunezpsi</span></div>
+  </div>
+  <img class="logo-wm" src="LOGOS/logo-sobre-claro.png" alt="logo">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     H3 — DARK MARRÓN — Buenas noches — Rabietas
+═══════════════════════════════════════════════ -->
+<div class="slide dark-slide">
+  <div class="dark-glow"></div>
+  <div class="dark-emoji-bg">🌙</div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H3 · 6–8pm · Buenas noches</div>
+      <div class="dark-fecha">Mar 17 Mar</div>
+      <div class="dark-topic">C03 · Rabietas</div>
+    </div>
+    <div class="dark-content">Esta noche, antes de dormir: recuerda que tu hijo no te está retando. Te está pidiendo ayuda.</div>
+    <div class="dark-footer">
+      <span class="handle handle-light">@ingridnunezpsi</span>
+      <span class="dark-web">psicolaingridnunez.lovable.app</span>
+    </div>
+  </div>
+  <img class="logo-wm logo-wm-dark" src="LOGOS/logo-sobre-oscuro.png" alt="logo">
+</div>
+
+</body>
+</html>

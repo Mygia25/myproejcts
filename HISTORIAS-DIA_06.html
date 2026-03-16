@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historias DIA 06 — Vie 20 Mar — C06 Síndrome de Down</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
+.slide {
+  width:1080px; height:1920px;
+  position:relative; overflow:hidden; display:block;
+}
+
+/* ── TEMPLATE 3: DARK MARRÓN ── */
+.dark-slide {
+  background: linear-gradient(160deg,#3D2B24 0%,#2d1f1a 55%,#1a0f0c 100%);
+}
+.dark-glow {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:900px; height:900px; border-radius:50%;
+  background:radial-gradient(circle, rgba(217,201,227,.08) 0%, transparent 65%);
+  pointer-events:none;
+}
+.dark-emoji-bg {
+  position:absolute; font-size:500px;
+  bottom:-100px; left:-100px; opacity:.06;
+  pointer-events:none; user-select:none;
+}
+.dark-inner {
+  position:relative; z-index:2;
+  padding:120px 90px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.dark-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:rgba(217,201,227,.2); color:#D9C9E3;
+  border:1px solid rgba(217,201,227,.3);
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; width:fit-content;
+}
+.dark-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:38px; color:#D9C9E3; opacity:.65; margin-bottom:6px;
+}
+.dark-topic {
+  font-size:20px; font-weight:300;
+  color:rgba(217,201,227,.35);
+  letter-spacing:2px; text-transform:uppercase;
+}
+.dark-content {
+  font-family:'Playfair Display',serif;
+  font-size:64px; line-height:1.3;
+  color:#F8F2EC; flex:1; display:flex; align-items:center;
+  font-style:italic;
+}
+.dark-footer {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.dark-web { font-size:20px; color:rgba(217,201,227,.28); letter-spacing:1px; }
+
+/* ── TEMPLATE 1: LAVANDA FULL ── */
+.lavanda-slide { background:#D9C9E3; }
+.lavanda-circle-deco {
+  position:absolute; bottom:-140px; left:-140px;
+  width:680px; height:680px; border-radius:50%;
+  background:rgba(128,99,87,.12); pointer-events:none;
+}
+.lavanda-circle-deco-2 {
+  position:absolute; top:-80px; right:-80px;
+  width:400px; height:400px; border-radius:50%;
+  background:rgba(61,43,36,.07); pointer-events:none;
+}
+.lavanda-emoji-bg {
+  position:absolute; font-size:420px;
+  top:-40px; right:-60px;
+  opacity:.08; line-height:1;
+  pointer-events:none; user-select:none;
+}
+.lavanda-inner {
+  position:relative; z-index:2;
+  padding:120px 90px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.lavanda-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:rgba(61,43,36,.15); color:#3D2B24;
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; width:fit-content;
+}
+.lavanda-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:38px; color:#806357; margin-bottom:6px;
+}
+.lavanda-topic {
+  font-size:20px; font-weight:500; color:rgba(61,43,36,.5);
+  letter-spacing:3px; text-transform:uppercase;
+  border-left:4px solid rgba(61,43,36,.25); padding-left:16px;
+}
+.lavanda-main {
+  font-family:'Playfair Display',serif;
+  font-size:70px; line-height:1.2;
+  color:#3D2B24; text-align:center; font-style:italic;
+}
+.lavanda-sub {
+  font-size:30px; font-weight:300;
+  color:#806357; text-align:center; line-height:1.7; margin-top:28px;
+}
+.lavanda-footer { display:flex; justify-content:flex-start; }
+
+/* ── TEMPLATE 2: BEIGE + BARRA LATERAL ── */
+.beige-slide { background:#F8F2EC; }
+.beige-bar {
+  position:absolute; top:0; left:0;
+  width:16px; height:100%;
+  background:linear-gradient(180deg,#D9C9E3 0%,#806357 100%);
+}
+.beige-accent-line {
+  position:absolute; bottom:280px; left:100px; right:90px;
+  height:2px;
+  background:linear-gradient(90deg,#D9C9E3,transparent);
+}
+.beige-emoji-bg {
+  position:absolute; font-size:380px;
+  top:-20px; right:-40px;
+  opacity:.055; line-height:1;
+  pointer-events:none; user-select:none;
+}
+.beige-inner {
+  position:relative; z-index:2;
+  padding:120px 90px 90px 116px;
+  height:100%; display:flex; flex-direction:column; justify-content:space-between;
+}
+.beige-badge {
+  display:inline-block;
+  padding:10px 28px; border-radius:100px;
+  background:#D9C9E3; color:#3D2B24;
+  font-size:20px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:24px; width:fit-content;
+}
+.beige-fecha {
+  font-family:'Playfair Display',serif;
+  font-size:38px; color:#806357; margin-bottom:6px;
+}
+.beige-topic {
+  font-size:20px; font-weight:500; color:#B0AEB0;
+  letter-spacing:3px; text-transform:uppercase;
+}
+.beige-quote {
+  font-family:'Playfair Display',serif;
+  font-size:60px; line-height:1.35;
+  color:#3D2B24; font-style:italic;
+  flex:1; display:flex; align-items:center;
+}
+.beige-sub {
+  font-size:28px; font-weight:300;
+  color:#806357; line-height:1.7; margin-bottom:48px;
+}
+.beige-footer { display:flex; justify-content:flex-start; }
+
+/* ── LOGO WATERMARK ── */
+.logo-wm {
+  position:absolute; bottom:52px; right:70px;
+  height:45px; opacity:.30;
+  z-index:10; pointer-events:none;
+}
+.logo-wm-dark { opacity:.35; }
+
+/* ── HANDLE ── */
+.handle {
+  font-family:'Montserrat',sans-serif;
+  font-size:22px; letter-spacing:3px;
+  color:#B0AEB0; text-transform:lowercase;
+}
+.handle-light { color:rgba(217,201,227,.45); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     H1 — DARK MARRÓN — Buenos días — Síndrome de Down
+═══════════════════════════════════════════════ -->
+<div class="slide dark-slide">
+  <div class="dark-glow"></div>
+  <div class="dark-emoji-bg">💙</div>
+  <div class="dark-inner">
+    <div>
+      <div class="dark-badge">H1 · 8–9am · Buenos días</div>
+      <div class="dark-fecha">Vie 20 Mar</div>
+      <div class="dark-topic">C06 · Día Mundial del Síndrome de Down</div>
+    </div>
+    <div class="dark-content">Todos nuestros hijos necesitan lo mismo: ser vistos tal como son.</div>
+    <div class="dark-footer">
+      <span class="handle handle-light">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="logo-wm logo-wm-dark" src="LOGOS/logo-sobre-oscuro.png" alt="logo">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     H2 — LAVANDA FULL — Feed reminder — Síndrome de Down
+═══════════════════════════════════════════════ -->
+<div class="slide lavanda-slide">
+  <div class="lavanda-circle-deco"></div>
+  <div class="lavanda-circle-deco-2"></div>
+  <div class="lavanda-emoji-bg">💛</div>
+  <div class="lavanda-inner">
+    <div>
+      <div class="lavanda-badge">H2 · 12–1pm · Nuevo en el feed</div>
+      <div class="lavanda-fecha">Vie 20 Mar</div>
+      <div class="lavanda-topic">C06 · Síndrome de Down</div>
+    </div>
+    <div>
+      <div class="lavanda-main">Hoy es el Día Mundial del Síndrome de Down. El carrusel de hoy es especial.</div>
+      <div class="lavanda-sub">Ve al feed y desliza. Es un carrusel que vale la pena leer con calma.</div>
+    </div>
+    <div class="lavanda-footer">
+      <span class="handle">@ingridnunezpsi</span>
+    </div>
+  </div>
+  <img class="logo-wm" src="LOGOS/logo-sobre-claro.png" alt="logo">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     H3 — BEIGE + BARRA LATERAL — Buenas noches — Síndrome de Down
+═══════════════════════════════════════════════ -->
+<div class="slide beige-slide">
+  <div class="beige-bar"></div>
+  <div class="beige-accent-line"></div>
+  <div class="beige-emoji-bg">🌸</div>
+  <div class="beige-inner">
+    <div>
+      <div class="beige-badge">H3 · 6–8pm · Buenas noches</div>
+      <div class="beige-fecha">Vie 20 Mar</div>
+      <div class="beige-topic">C06 · Síndrome de Down</div>
+    </div>
+    <div class="beige-quote">La diferencia no es lo que define a un niño. Es lo que lo hace único.</div>
+    <div>
+      <div class="beige-sub">Buenas noches a todos los que crían con amor incondicional.</div>
+      <div class="beige-footer"><span class="handle">@ingridnunezpsi</span></div>
+    </div>
+  </div>
+  <img class="logo-wm" src="LOGOS/logo-sobre-claro.png" alt="logo">
+</div>
+
+</body>
+</html>
