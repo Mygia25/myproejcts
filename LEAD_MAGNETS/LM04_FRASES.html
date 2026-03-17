@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Que Decirle y Que NO Decirle Durante una Crisis - Ingrid Nunez Psi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #F8F2EC;
+    color: #3D2B24;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 40px 50px;
+    background: #F8F2EC;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  /* --- Cover --- */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(165deg, #F8F2EC 0%, #D9C9E3 40%, #F4D9E8 70%, #F8F2EC 100%);
+  }
+  .cover .badge {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #806357;
+    margin-bottom: 30px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .cover .subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    color: #806357;
+    max-width: 440px;
+    margin-bottom: 50px;
+  }
+  .cover .author {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #3D2B24;
+    margin-bottom: 6px;
+  }
+  .cover .handle { font-size: 13px; color: #B0AEB0; letter-spacing: 1px; }
+  .cover .divider-line {
+    width: 60px;
+    height: 2px;
+    background: #806357;
+    margin: 30px auto;
+  }
+  .cover .free-label {
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1.5px solid #806357;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #806357;
+    margin-top: 20px;
+  }
+
+  /* --- Interior --- */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3D2B24;
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #806357;
+    margin-bottom: 10px;
+    margin-top: 26px;
+  }
+  p { font-size: 13.5px; margin-bottom: 14px; }
+  .intro-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #806357;
+    font-style: italic;
+    border-left: 3px solid #F4D9E8;
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+
+  /* --- Phrase Cards --- */
+  .phrase-section {
+    margin-bottom: 24px;
+  }
+  .phrase-section .section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #806357;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #D9C9E3;
+  }
+
+  .phrase-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .phrase-dont {
+    background: #f5e0e0;
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-left: 4px solid #c27a7a;
+    position: relative;
+  }
+  .phrase-dont .label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #9a5a5a;
+    margin-bottom: 6px;
+  }
+  .phrase-dont .text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #7a3a3a;
+    font-style: italic;
+  }
+  .phrase-dont .why {
+    font-size: 11px;
+    color: #9a5a5a;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .phrase-do {
+    background: #e8f0d4;
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-left: 4px solid #8a9a5b;
+  }
+  .phrase-do .label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #5a6b3a;
+    margin-bottom: 6px;
+  }
+  .phrase-do .text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #3a5a2a;
+    font-style: italic;
+  }
+  .phrase-do .why {
+    font-size: 11px;
+    color: #5a6b3a;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .golden-rule {
+    background: #D9C9E3;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .golden-rule p {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: #3D2B24;
+    margin: 0;
+  }
+
+  .age-section {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
+  }
+  .age-section .age-tag {
+    display: inline-block;
+    background: #D9C9E3;
+    color: #3D2B24;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .age-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #3D2B24;
+    margin-bottom: 8px;
+  }
+  .age-section p { font-size: 12.5px; color: #806357; margin-bottom: 8px; }
+  .age-section .phrase-example {
+    font-size: 13px;
+    font-style: italic;
+    color: #3D2B24;
+    background: #F8F2EC;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-top: 6px;
+  }
+
+  .quick-ref {
+    background: white;
+    border: 2px solid #D9C9E3;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .quick-ref h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: #3D2B24;
+    margin-bottom: 14px;
+  }
+  .quick-ref table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .quick-ref th {
+    text-align: left;
+    padding: 8px 10px;
+    background: #D9C9E3;
+    color: #3D2B24;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .quick-ref td {
+    padding: 10px;
+    border-bottom: 1px solid #F8F2EC;
+    vertical-align: top;
+  }
+  .quick-ref .no { color: #9a5a5a; }
+  .quick-ref .yes { color: #5a6b3a; }
+
+  /* --- CTA --- */
+  .cta-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(170deg, #D9C9E3 0%, #F8F2EC 50%, #F4D9E8 100%);
+  }
+  .cta-button {
+    display: inline-block;
+    background: #3D2B24;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  }
+  .cta-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #3D2B24;
+    margin: 20px 0 8px;
+  }
+  .cta-price-note { font-size: 12px; color: #B0AEB0; }
+
+  .page-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #B0AEB0;
+  }
+  .page-footer .brand { font-weight: 600; letter-spacing: 1px; }
+
+  @media screen {
+    body { background: #e0d8d0; padding: 20px; }
+    .page { margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="badge">Hoja de referencia rapida</div>
+  <h1>Que decirle<br>(y que NO decirle)<br>durante una crisis</h1>
+  <p class="subtitle">Frases reales para el momento exacto. Para el padre o la madre que se congela, dice lo primero que le sale, y luego se arrepiente.</p>
+  <div class="divider-line"></div>
+  <p class="author">Ingrid Nunez</p>
+  <p class="handle">@ingridnunezpsi &middot; Psicologa Infantil y Familiar</p>
+  <div class="free-label">Recurso gratuito</div>
+</div>
+
+<!-- ============ PAGE 2: INTRO + FIRST PHRASES ============ -->
+<div class="page">
+  <h2>Las palabras que usas durante una crisis quedan grabadas.</h2>
+
+  <p class="intro-text">
+    En 15 anos de consulta, he escuchado a adultos repetir frases que sus padres les dijeron en momentos de crisis hace 20, 30 anos. Las palabras que usas en el momento de mayor vulnerabilidad son las que mas profundo calan. Para bien o para mal.
+  </p>
+
+  <p>Esta guia es tu hoja de referencia para ESE momento. Imprimela. Pegala en la nevera. Tenla en tu telefono. Porque cuando la crisis llega, tu cerebro no piensa con claridad. Necesitas un guion preparado.</p>
+
+  <div class="golden-rule">
+    <p>"Antes de hablarle a tu hijo/a en una crisis, preguntate: si alguien me dijera esto a mi en mi peor momento, me ayudaria o me haria sentir peor?"</p>
+  </div>
+
+  <div class="phrase-section">
+    <p class="section-label">1. Cuando esta llorando desconsoladamente</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Ya deja de llorar."</p>
+        <p class="why">Le ensena que sus emociones no son validas. Que llorar es malo. Que debe esconder lo que siente.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Puedes llorar. Estoy aqui."</p>
+        <p class="why">Le dice que sus emociones son bienvenidas. Que no esta solo. Que tu presencia no depende de que se "calme."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phrase-section">
+    <p class="section-label">2. Cuando tiene una rabieta en publico</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Me estas haciendo pasar verguenza."</p>
+        <p class="why">Pone TU incomodidad por encima de SU crisis. Le ensena que las emociones son algo de lo que avergonzarse.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Vamos a un lugar tranquilo. Te acompano."</p>
+        <p class="why">Le ofreces un espacio seguro sin castigar la emocion. Ignora al publico. Tu hijo/a es la prioridad.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phrase-section">
+    <p class="section-label">3. Cuando pega o agrede</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Los ninos buenos no pegan."</p>
+        <p class="why">Ataca su identidad, no su conducta. Le dice que es "malo" como persona, no que su accion fue incorrecta.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Entiendo que estas enojado. Pegar no esta bien. Puedes golpear este cojin."</p>
+        <p class="why">Valida la emocion, pone limite a la conducta, y ofrece una alternativa. Las tres cosas en una frase.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand">@ingridnunezpsi</span>
+    <span>Frases para Crisis &middot; Pagina 1</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 3: MORE PHRASES ============ -->
+<div class="page">
+
+  <div class="phrase-section">
+    <p class="section-label">4. Cuando dice "no te quiero" o "te odio"</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Pues yo tampoco." / "Eso duele mucho."</p>
+        <p class="why">Responder emocionalmente escala la crisis. Tu hijo/a no te odia. Esta expresando frustracion con las unicas palabras que tiene.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Se que estas enojado/a conmigo. Yo sigo aqui. Te quiero aunque estemos molestos."</p>
+        <p class="why">Le enseña que el amor no se retira por enojo. Que puede sentir rabia sin perder la relacion.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phrase-section">
+    <p class="section-label">5. Cuando no quiere hacer algo (vestirse, comer, ir al colegio)</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Porque lo digo yo y punto."</p>
+        <p class="why">Corta la comunicacion. Le ensena que no tiene derecho a expresar lo que siente. La obediencia ciega no es crianza consciente.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Entiendo que no quieres. Necesitamos hacerlo. Que parte quieres elegir tu?"</p>
+        <p class="why">Reconoce su sentir sin ceder en el limite. Le da agencia dentro de la estructura. Cooperacion en vez de sumision.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phrase-section">
+    <p class="section-label">6. Cuando cometio un error o mintio</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Siempre haces lo mismo."</p>
+        <p class="why">"Siempre" y "nunca" generalizan y etiquetan. Le dice que no tiene capacidad de cambio. Destruye la autoestima.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Algo paso. Quiero que podamos hablar de esto sin que tengas miedo."</p>
+        <p class="why">Abre la puerta a la honestidad. Un nino que no teme castigo tiene mas probabilidad de decir la verdad.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phrase-section">
+    <p class="section-label">7. Despues de que TU perdiste la calma</p>
+    <div class="phrase-pair">
+      <div class="phrase-dont">
+        <p class="label">No digas</p>
+        <p class="text">"Es que tu me sacas de quicio."</p>
+        <p class="why">Le pone la responsabilidad de TU regulacion a el/ella. Un nino no es responsable de las emociones de un adulto.</p>
+      </div>
+      <div class="phrase-do">
+        <p class="label">Di esto</p>
+        <p class="text">"Me equivoque. Grite y no debi. Lo siento. Eso no es tu culpa."</p>
+        <p class="why">Reparar le ensena que los errores se reconocen y se arreglan. Eso vale mas que no equivocarse nunca.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand">@ingridnunezpsi</span>
+    <span>Frases para Crisis &middot; Pagina 2</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 4: QUICK REFERENCE + BY AGE ============ -->
+<div class="page">
+  <h2>Referencia rapida por edad</h2>
+  <p>Las mismas frases no funcionan igual a todas las edades. Aqui van ajustes especificos.</p>
+
+  <div class="age-section">
+    <span class="age-tag">2 a 3 anos</span>
+    <h4>Frases cortas. Tono bajo. Contacto fisico.</h4>
+    <p>A esta edad no entienden explicaciones largas. Necesitan sentir, no escuchar. Usa frases de 4-5 palabras maximo y acompanalas con contacto: mano en la espalda, abrazo si lo permite.</p>
+    <div class="phrase-example">"Estoy aqui." / "Eso duele, ya se." / "Te abrazo."</div>
+  </div>
+
+  <div class="age-section">
+    <span class="age-tag">4 a 5 anos</span>
+    <h4>Nombra la emocion. Ofrece opciones.</h4>
+    <p>Ya empiezan a entender emociones si se las nombras. Puedes dar 2 opciones concretas para canalizar lo que sienten.</p>
+    <div class="phrase-example">"Estas frustrado porque no te dejé. Puedes respirar o abrazar tu peluche. Tu eliges."</div>
+  </div>
+
+  <div class="age-section">
+    <span class="age-tag">6 a 8 anos</span>
+    <h4>Involucra su razon. Pregunta despues.</h4>
+    <p>Despues de que la tormenta pasa (no durante), puedes preguntarle que sintio y que necesitaba. Esto desarrolla su inteligencia emocional.</p>
+    <div class="phrase-example">"Ya paso. Que sentiste? Que crees que necesitabas en ese momento?"</div>
+  </div>
+
+  <div class="quick-ref">
+    <h4>Tabla rapida: pega esto en la nevera</h4>
+    <table>
+      <tr>
+        <th style="width:35%">Situacion</th>
+        <th style="width:32%; color:#9a5a5a;">No digas</th>
+        <th style="width:33%; color:#5a6b3a;">Di esto</th>
+      </tr>
+      <tr>
+        <td>Llora</td>
+        <td class="no">"Ya para."</td>
+        <td class="yes">"Puedes llorar. Aqui estoy."</td>
+      </tr>
+      <tr>
+        <td>Grita</td>
+        <td class="no">"Calmate YA."</td>
+        <td class="yes">"Veo que estas enojado."</td>
+      </tr>
+      <tr>
+        <td>Pega</td>
+        <td class="no">"Eres malo."</td>
+        <td class="yes">"Pegar no. Puedes golpear esto."</td>
+      </tr>
+      <tr>
+        <td>Dice "te odio"</td>
+        <td class="no">"Yo tampoco."</td>
+        <td class="yes">"Te quiero aunque estemos enojados."</td>
+      </tr>
+      <tr>
+        <td>Se niega</td>
+        <td class="no">"Porque lo digo yo."</td>
+        <td class="yes">"Entiendo. Que parte eliges tu?"</td>
+      </tr>
+      <tr>
+        <td>Tu gritaste</td>
+        <td class="no">"Tu me sacas..."</td>
+        <td class="yes">"Me equivoque. Lo siento."</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand">@ingridnunezpsi</span>
+    <span>Frases para Crisis &middot; Pagina 3</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 5: CTA ============ -->
+<div class="page cta-page">
+  <h2 style="font-size:28px;">Tener las frases es el primer paso.<br>Saber usarlas en el momento es el segundo.</h2>
+
+  <p style="max-width:440px; font-size:15px; color:#806357;">
+    "De la frustracion a la calma" no solo te da frases. Te da un metodo completo: como regularte antes de hablar, como leer la emocion detras de la conducta, como poner limites sin danar, y como reparar cuando te equivocas. 30+ ejercicios practicos para familias reales.
+  </p>
+
+  <div class="cta-price">$29 USD</div>
+  <p class="cta-price-note">Un solo pago. Acceso para siempre.</p>
+
+  <a href="https://psicolaingridnunez.lovable.app/curso" class="cta-button">QUIERO EL CUADERNO</a>
+
+  <div style="margin-top: 50px;">
+    <p style="font-family:'Playfair Display',serif; font-size:16px; color:#3D2B24;">Ingrid Nunez</p>
+    <p style="font-size:12px; color:#B0AEB0;">@ingridnunezpsi &middot; psicolaingridnunez.lovable.app</p>
+  </div>
+</div>
+
+</body>
+</html>

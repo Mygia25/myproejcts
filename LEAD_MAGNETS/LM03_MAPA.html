@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Emocional - Que Emocion Esconde Esa Rabieta - Ingrid Nunez Psi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #F8F2EC;
+    color: #3D2B24;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 40px 50px;
+    background: #F8F2EC;
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: avoid; }
+
+  /* --- Cover --- */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(155deg, #D9C9E3 0%, #F8F2EC 45%, #F4D9E8 75%, #F8F2EC 100%);
+  }
+  .cover .badge {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #806357;
+    margin-bottom: 30px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #3D2B24;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .cover .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #806357;
+    max-width: 420px;
+    margin-bottom: 50px;
+  }
+  .cover .author {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #3D2B24;
+    margin-bottom: 6px;
+  }
+  .cover .handle {
+    font-size: 13px;
+    color: #B0AEB0;
+    letter-spacing: 1px;
+  }
+  .cover .divider-line {
+    width: 60px;
+    height: 2px;
+    background: #806357;
+    margin: 30px auto;
+  }
+  .cover .free-label {
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1.5px solid #806357;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #806357;
+    margin-top: 20px;
+  }
+
+  /* --- Interior --- */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3D2B24;
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #806357;
+    margin-bottom: 10px;
+    margin-top: 24px;
+  }
+  p {
+    font-size: 13.5px;
+    margin-bottom: 14px;
+  }
+  .intro-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #806357;
+    font-style: italic;
+    border-left: 3px solid #D9C9E3;
+    padding-left: 20px;
+    margin-bottom: 28px;
+  }
+
+  /* --- Emotion Maps --- */
+  .emotion-map {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .emotion-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+  }
+  .emotion-map h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3D2B24;
+    margin-bottom: 6px;
+  }
+  .emotion-map .shows-as {
+    font-size: 12px;
+    color: #806357;
+    margin-bottom: 6px;
+  }
+  .emotion-map .shows-as strong { color: #3D2B24; }
+  .emotion-map .needs {
+    font-size: 12px;
+    background: #F8F2EC;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #806357;
+  }
+  .emotion-map .needs strong { color: #3D2B24; }
+  .emotion-map .say-this {
+    font-size: 12px;
+    background: #e8f0d4;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #5a6b3a;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .icon-rage { background: #c27a7a; }
+  .icon-fear { background: #8a9ac2; }
+  .icon-sad { background: #7aa4c2; }
+  .icon-frust { background: #c2a07a; }
+  .icon-shame { background: #a07ac2; }
+  .icon-jealous { background: #7ac2a0; }
+
+  .age-badge {
+    display: inline-block;
+    background: #D9C9E3;
+    color: #3D2B24;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .activity-box {
+    background: #D9C9E3;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .activity-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: #3D2B24;
+    margin-bottom: 12px;
+  }
+  .activity-box p { font-size: 13px; color: #3D2B24; }
+  .activity-box ol { padding-left: 20px; }
+  .activity-box ol li { font-size: 13px; margin-bottom: 8px; color: #3D2B24; }
+
+  .worksheet {
+    background: white;
+    border: 2px dashed #D9C9E3;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .worksheet h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: #3D2B24;
+    margin-bottom: 14px;
+  }
+  .worksheet label {
+    font-size: 12px;
+    color: #B0AEB0;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .worksheet .write-line {
+    border-bottom: 1px solid #D9C9E3;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+
+  /* --- CTA --- */
+  .cta-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(170deg, #F4D9E8 0%, #F8F2EC 50%, #D9C9E3 100%);
+  }
+  .cta-button {
+    display: inline-block;
+    background: #3D2B24;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-top: 20px;
+  }
+  .cta-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #3D2B24;
+    margin: 20px 0 8px;
+  }
+  .cta-price-note { font-size: 12px; color: #B0AEB0; }
+
+  .page-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #B0AEB0;
+  }
+  .page-footer .brand { font-weight: 600; letter-spacing: 1px; }
+
+  @media screen {
+    body { background: #e0d8d0; padding: 20px; }
+    .page { margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="badge">Guia visual gratuita</div>
+  <h1>Que emocion esconde<br>esa rabieta?</h1>
+  <p class="subtitle">Mapa emocional: lo que sienten los ninos de 2 a 8 anos, que los desencadena y que necesitan de ti.</p>
+  <div class="divider-line"></div>
+  <p class="author">Ingrid Nunez</p>
+  <p class="handle">@ingridnunezpsi &middot; Psicologa Infantil y Familiar</p>
+  <div class="free-label">Recurso gratuito</div>
+</div>
+
+<!-- ============ PAGE 2: INTRO + CONTEXT ============ -->
+<div class="page">
+  <h2>Detras de cada conducta hay una emocion que no puede salir con palabras.</h2>
+
+  <p class="intro-text">
+    Cuando un nino patalea, grita, tira cosas o se cierra por completo, no esta eligiendo "portarse mal." Esta comunicando algo que no sabe como decir de otra forma. Tu trabajo no es castigar la conducta. Es leer lo que hay debajo.
+  </p>
+
+  <p>Este mapa te ayuda a hacer exactamente eso: ver la emocion detras de la accion. Porque cuando entiendes que siente tu hijo/a, puedes responder a la necesidad real. Y ahi cambia todo.</p>
+
+  <h3>Como usar este mapa</h3>
+  <p>Cuando tu hijo/a tenga una crisis, mira la conducta y busca en este mapa cual emocion podria estar debajo. No necesitas acertar siempre. El simple acto de preguntarte "que estara sintiendo?" ya cambia como respondes.</p>
+
+  <p>Cada emocion tiene tres partes:</p>
+  <p><strong>1.</strong> Como se manifiesta (lo que ves por fuera)<br>
+  <strong>2.</strong> Que necesita de ti (lo que puedes hacer)<br>
+  <strong>3.</strong> Una frase que puedes usar en el momento</p>
+
+  <h2 style="margin-top:30px;">El mapa de las 6 emociones mas comunes</h2>
+  <p><span class="age-badge">Ninos de 2 a 8 anos</span></p>
+
+  <div class="emotion-map">
+    <div class="emotion-icon icon-rage">1</div>
+    <div>
+      <h4>Rabia / Enojo</h4>
+      <p class="shows-as"><strong>Se manifiesta como:</strong> Gritos, golpes, patadas, tirar objetos, "te odio", cerrar puertas con fuerza.</p>
+      <p class="needs"><strong>Lo que necesita:</strong> Espacio seguro para sentirla. NO minimizar ("no es para tanto"), NO castigar la emocion. Acompana la rabia, redirige la conducta.</p>
+      <p class="say-this">"Veo que estas muy enojado/a. Esta bien sentir rabia. No esta bien pegar. Estoy aqui."</p>
+    </div>
+  </div>
+
+  <div class="emotion-map">
+    <div class="emotion-icon icon-fear">2</div>
+    <div>
+      <h4>Miedo / Ansiedad</h4>
+      <p class="shows-as"><strong>Se manifiesta como:</strong> Aferrarse, no querer separarse, pesadillas, "no quiero ir", evitar cosas nuevas, dolor de estomago sin causa medica.</p>
+      <p class="needs"><strong>Lo que necesita:</strong> Validacion ("tiene sentido que sientas miedo"). Informacion sobre que va a pasar. Tu presencia como ancla de seguridad.</p>
+      <p class="say-this">"Parece que algo te asusta. Cuentame. Vamos juntos."</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand">@ingridnunezpsi</span>
+    <span>Mapa Emocional &middot; Pagina 1</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 3: EMOTIONS 3-6 ============ -->
+<div class="page">
+
+  <div class="emotion-map">
+    <div class="emotion-icon icon-sad">3</div>
+    <div>
+      <h4>Tristeza / Decepcion</h4>
+      <p class="shows-as"><strong>Se manifiesta como:</strong> Llanto prolongado, aislarse, "nadie me quiere", dejar de jugar, apegarse a un objeto, buscar consuelo fisico.</p>
+      <p class="needs"><strong>Lo que necesita:</strong> Permiso para llorar sin que nadie intente "arreglarlo." Tu presencia silenciosa. Contacto fisico si lo acepta (abrazo, mano).</p>
+      <p class="say-this">"Esta bien llorar. Estoy aqui. No tienes que parar."</p>
+    </div>
+  </div>
+
+  <div class="emotion-map">
+    <div class="emotion-icon icon-frust">4</div>
+    <div>
+      <h4>Frustracion</h4>
+      <p class="shows-as"><strong>Se manifiesta como:</strong> Rendirse rapido, romper lo que esta haciendo, "no puedo", "es muy dificil", tirar la tarea, crisis desproporcionada ante un obstaculo pequeno.</p>
+      <p class="needs"><strong>Lo que necesita:</strong> Que le digas que es normal sentirse frustrado. Ayuda para dividir el problema en partes pequenas. NO hacerlo por el/ella.</p>
+      <p class="say-this">"Es dificil y eso frustra. Podemos hacerlo paso a paso?"</p>
+    </div>
+  </div>
+
+  <div class="emotion-map">
+    <div class="emotion-icon icon-shame">5</div>
+    <div>
+      <h4>Verguenza / Culpa</h4>
+      <p class="shows-as"><strong>Se manifiesta como:</strong> Esconderse, no mirar a los ojos, negar lo que hizo, mentir para protegerse, autoagresion ("soy tonto/a"), silencio excesivo.</p>
+      <p class="needs"><strong>Lo que necesita:</strong> Separar lo que hizo de quien es. "Hiciste algo incorrecto" no es lo mismo que "eres malo." Reparacion guiada, no castigo humillante.</p>
+      <p class="say-this">"Todos nos equivocamos. Lo importante es como lo arreglamos. Puedo ayudarte?"</p>
+    </div>
+  </div>
+
+  <div class="emotion-map">
+    <div class="emotion-icon icon-jealous">6</div>
+    <div>
+      <h4>Celos / Inseguridad</h4>
+      <p class="shows-as"><strong>Se manifiesta como:</strong> Pedir atencion excesiva, interrumpir, conductas regresivas (chuparse el dedo, hablar como bebe), agredir al hermano/a, "tu quieres mas a el/ella."</p>
+      <p class="needs"><strong>Lo que necesita:</strong> Tiempo exclusivo contigo (10 min al dia). Afirmacion de que tu amor no se divide. Nunca comparar con el hermano/a.</p>
+      <p class="say-this">"Mi amor por ti no cambia. Hay espacio para todos. Quieres que hagamos algo solo tu y yo?"</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand">@ingridnunezpsi</span>
+    <span>Mapa Emocional &middot; Pagina 2</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 4: ACTIVITY + WORKSHEET ============ -->
+<div class="page">
+  <h2>Tu ejercicio de hoy: el diario de deteccion</h2>
+
+  <p>Durante los proximos 3 dias, cada vez que tu hijo/a tenga un momento dificil, anota lo que viste y lo que crees que sintio. No tienes que hacer nada distinto todavia. Solo observar.</p>
+
+  <div class="activity-box">
+    <h4>Como hacerlo</h4>
+    <ol>
+      <li><strong>Anota la conducta:</strong> Que hizo? (grito, lloro, tiro algo, se callo)</li>
+      <li><strong>Busca la emocion:</strong> Cual de las 6 emociones del mapa crees que estaba debajo?</li>
+      <li><strong>Observa tu reaccion:</strong> Que hiciste tu? (gritaste, te alejaste, razonaste, acompanaste)</li>
+      <li><strong>Nota la diferencia:</strong> Que habrias hecho si hubieras "leido" la emocion antes de reaccionar?</li>
+    </ol>
+  </div>
+
+  <div class="worksheet">
+    <h4>Mi diario de deteccion emocional</h4>
+
+    <p style="font-size:12px; color:#B0AEB0; margin-bottom:16px;">Dia 1</p>
+    <label>Que paso (conducta visible):</label>
+    <div class="write-line"></div>
+    <label style="margin-top:12px">Emocion que creo que habia debajo:</label>
+    <div class="write-line"></div>
+    <label style="margin-top:12px">Como reaccione yo:</label>
+    <div class="write-line"></div>
+    <label style="margin-top:12px">Que haria diferente ahora:</label>
+    <div class="write-line"></div>
+
+    <p style="font-size:12px; color:#B0AEB0; margin-bottom:16px; margin-top:24px;">Dia 2</p>
+    <label>Que paso (conducta visible):</label>
+    <div class="write-line"></div>
+    <label style="margin-top:12px">Emocion que creo que habia debajo:</label>
+    <div class="write-line"></div>
+    <label style="margin-top:12px">Como reaccione yo:</label>
+    <div class="write-line"></div>
+    <label style="margin-top:12px">Que haria diferente ahora:</label>
+    <div class="write-line"></div>
+  </div>
+
+  <div class="page-footer">
+    <span class="brand">@ingridnunezpsi</span>
+    <span>Mapa Emocional &middot; Pagina 3</span>
+  </div>
+</div>
+
+<!-- ============ PAGE 5: CTA ============ -->
+<div class="page cta-page">
+  <h2 style="font-size:30px;">Ahora que puedes leer sus emociones, aprende a responder a cada una.</h2>
+
+  <p style="max-width:440px; font-size:15px; color:#806357;">
+    El Mapa Emocional es solo el diagnostico. "De la frustracion a la calma" te da el tratamiento: 30+ ejercicios practicos para antes, durante y despues de cada crisis. Desde la regulacion tuya hasta la conexion con tu hijo/a.
+  </p>
+
+  <div class="cta-price">$29 USD</div>
+  <p class="cta-price-note">Un solo pago. Acceso para siempre.</p>
+
+  <a href="https://psicolaingridnunez.lovable.app/curso" class="cta-button">QUIERO EL CUADERNO</a>
+
+  <div style="margin-top: 50px;">
+    <p style="font-family:'Playfair Display',serif; font-size:16px; color:#3D2B24;">Ingrid Nunez</p>
+    <p style="font-size:12px; color:#B0AEB0;">@ingridnunezpsi &middot; psicolaingridnunez.lovable.app</p>
+  </div>
+</div>
+
+</body>
+</html>
