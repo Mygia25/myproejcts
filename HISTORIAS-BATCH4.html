@@ -58,14 +58,16 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .lavanda-main {
   font-family:'Playfair Display',serif;
-  font-size:72px; line-height:1.2;
+  font-size:56px; line-height:1.22;
   color:#3D2B24; text-align:center;
   font-style:italic;
+  word-break:break-word;
+  overflow:hidden;
 }
 .lavanda-sub {
-  font-size:30px; font-weight:300;
-  color:#806357; text-align:center; line-height:1.7;
-  margin-top:28px;
+  font-size:26px; font-weight:300;
+  color:#806357; text-align:center; line-height:1.6;
+  margin-top:24px;
 }
 .lavanda-footer { display:flex; justify-content:flex-start; }
 
@@ -113,10 +115,12 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .beige-quote {
   font-family:'Playfair Display',serif;
-  font-size:62px; line-height:1.3;
+  font-size:50px; line-height:1.3;
   color:#3D2B24;
   font-style:italic;
   flex:1; display:flex; align-items:center;
+  word-break:break-word;
+  overflow:hidden;
 }
 .beige-sub {
   font-size:28px; font-weight:300;
@@ -169,9 +173,11 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .dark-content {
   font-family:'Playfair Display',serif;
-  font-size:64px; line-height:1.3;
+  font-size:52px; line-height:1.3;
   color:#F8F2EC; flex:1; display:flex; align-items:center;
   font-style:italic;
+  word-break:break-word;
+  overflow:hidden;
 }
 .dark-footer {
   display:flex; justify-content:space-between; align-items:center;
@@ -212,7 +218,9 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .split-headline {
   font-family:'Playfair Display',serif;
-  font-size:56px; color:#F8F2EC; line-height:1.15;
+  font-size:46px; color:#F8F2EC; line-height:1.18;
+  word-break:break-word;
+  overflow:hidden;
 }
 .split-sub-dark {
   font-size:24px; font-weight:300;
@@ -225,8 +233,10 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .split-content {
   font-family:'Playfair Display',serif;
-  font-size:52px; line-height:1.45;
+  font-size:44px; line-height:1.35;
   color:#3D2B24; flex:1; display:flex; align-items:center;
+  word-break:break-word;
+  overflow:hidden;
 }
 .split-footer { display:flex; justify-content:flex-start; }
 
@@ -269,13 +279,17 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
   pointer-events:none; user-select:none;
 }
 .scrapbook-card {
-  position:absolute; top:340px; left:80px;
-  right:80px;
+  position:relative;
   background:#fff;
   border-radius:12px;
-  padding:60px 70px;
+  padding:50px 60px;
   box-shadow:0 8px 40px rgba(61,43,36,.1);
   transform:rotate(-1deg);
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin:30px 0;
 }
 .scrapbook-inner {
   position:relative; z-index:4;
@@ -302,12 +316,14 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .scrapbook-main {
   font-family:'Playfair Display',serif;
-  font-size:64px; line-height:1.2; color:#3D2B24;
+  font-size:48px; line-height:1.22; color:#3D2B24;
   font-style:italic;
+  word-break:break-word;
+  overflow:hidden;
 }
 .scrapbook-sub {
-  font-size:30px; font-weight:300; color:#806357;
-  line-height:1.7; margin-top:32px;
+  font-size:24px; font-weight:300; color:#806357;
+  line-height:1.6; margin-top:24px;
 }
 .scrapbook-footer { display:flex; justify-content:flex-start; align-items:center; }
 
@@ -318,6 +334,12 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 .photo-bg {
   position:absolute; top:0; left:0; width:100%; height:100%;
   object-fit:cover; object-position:center top;
+}
+.photo-bg-div {
+  position:absolute; inset:0;
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
 }
 .photo-gradient {
   position:absolute; top:0; left:0; width:100%; height:100%;
@@ -352,10 +374,12 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .photo-content {
   font-family:'Playfair Display',serif;
-  font-size:64px; line-height:1.3;
+  font-size:52px; line-height:1.28;
   color:#F8F2EC; font-style:italic;
   flex:1; display:flex; align-items:flex-end;
   padding-bottom:60px;
+  word-break:break-word;
+  overflow:hidden;
 }
 .photo-footer {
   display:flex; justify-content:space-between; align-items:center;
@@ -471,7 +495,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 
 <!-- DIA_27 H2 — PHOTO OVERLAY (IMG_3284) -->
 <div class="slide photo-slide" data-dia="DIA_27" data-slot="H2">
-  <img class="photo-bg" src="RECURSOS VISUALES/IMG_3284.jpeg" alt="Ingrid">
+  <div class="photo-bg-div" style="background-image:url('RECURSOS%20VISUALES/IMG_3284.jpeg')"></div>
   <div class="photo-gradient"></div>
   <div class="photo-inner">
     <div>
@@ -624,7 +648,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 
 <!-- DIA_29 H3 — PHOTO OVERLAY (IMG_3287) -->
 <div class="slide photo-slide" data-dia="DIA_29" data-slot="H3">
-  <img class="photo-bg" src="RECURSOS VISUALES/IMG_3287.jpeg" alt="Ingrid">
+  <div class="photo-bg-div" style="background-image:url('RECURSOS%20VISUALES/IMG_3287.jpeg')"></div>
   <div class="photo-gradient"></div>
   <div class="photo-inner">
     <div>
@@ -714,7 +738,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 
 <!-- DIA_31 H1 — PHOTO OVERLAY (IMG_2853) -->
 <div class="slide photo-slide" data-dia="DIA_31" data-slot="H1">
-  <img class="photo-bg" src="RECURSOS VISUALES/IMG_2853.jpeg" alt="Ingrid">
+  <div class="photo-bg-div" style="background-image:url('RECURSOS%20VISUALES/IMG_2853.jpeg')"></div>
   <div class="photo-gradient"></div>
   <div class="photo-inner">
     <div>
@@ -862,7 +886,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 
 <!-- DIA_33 H2 — PHOTO OVERLAY (IMG_3282) -->
 <div class="slide photo-slide" data-dia="DIA_33" data-slot="H2">
-  <img class="photo-bg" src="RECURSOS VISUALES/IMG_3282.jpeg" alt="Ingrid">
+  <div class="photo-bg-div" style="background-image:url('RECURSOS%20VISUALES/IMG_3282.jpeg')"></div>
   <div class="photo-gradient"></div>
   <div class="photo-inner">
     <div>
@@ -1016,7 +1040,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 
 <!-- DIA_35 H3 — PHOTO OVERLAY (IMG_3275) -->
 <div class="slide photo-slide" data-dia="DIA_35" data-slot="H3">
-  <img class="photo-bg" src="RECURSOS VISUALES/IMG_3275.jpeg" alt="Ingrid">
+  <div class="photo-bg-div" style="background-image:url('RECURSOS%20VISUALES/IMG_3275.jpeg')"></div>
   <div class="photo-gradient"></div>
   <div class="photo-inner">
     <div>

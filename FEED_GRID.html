@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed Preview — @ingridnunezpsi</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #FAFAFA;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 16px 48px;
+      color: #1a1a1a;
+    }
+
+    /* ── Wrapper ── */
+    .page-wrapper {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /* ── Page title ── */
+    .page-title {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    /* ── Profile header ── */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 4px 24px;
+      border-bottom: 1px solid #E8E0D8;
+      margin-bottom: 4px;
+    }
+
+    .profile-pic-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #D9C9E3 0%, #806357 50%, #D9C9E3 100%);
+      flex-shrink: 0;
+    }
+
+    .profile-pic-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid #FAFAFA;
+      display: block;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-handle {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+    }
+
+    .profile-name {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .profile-meta {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .profile-meta strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    /* ── Feed label ── */
+    .feed-label {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #aaa;
+      padding: 14px 0 10px;
+      border-bottom: 1.5px solid #1a1a1a;
+      margin-bottom: 4px;
+    }
+
+    /* ── Grid ── */
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      direction: rtl;
+    }
+    .grid-item {
+      direction: ltr;
+    }
+
+    /* ── Grid item ── */
+    .grid-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      cursor: pointer;
+      background: #D9C9E3;
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ── Hover date overlay ── */
+    .date-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.65);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      gap: 4px;
+    }
+
+    .grid-item:hover .date-overlay {
+      opacity: 1;
+    }
+
+    .date-overlay .date-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .date-overlay .id-text {
+      font-size: 11px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Type badge (carousel / reel) top-right ── */
+    .type-badge {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Carousel stacked-squares icon */
+    .icon-carousel {
+      width: 18px;
+      height: 18px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+    }
+
+    /* Reel film icon */
+    .icon-reel {
+      width: 18px;
+      height: 18px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+    }
+
+    /* ── Reel cover design ── */
+    .reel-cover {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .reel-play {
+      width: 0;
+      height: 0;
+      border-top: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 26px solid rgba(255,255,255,0.92);
+      margin-bottom: 12px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+      flex-shrink: 0;
+    }
+
+    .reel-title {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      max-width: 90%;
+    }
+
+    /* Brand-specific reel gradients */
+    .reel-r1 { background: linear-gradient(160deg, #3D2B24 0%, #806357 45%, #D9C9E3 100%); }
+    .reel-r2 { background: linear-gradient(160deg, #F8F2EC 0%, #D9C9E3 60%, #B0AEB0 100%); }
+    .reel-r3 { background: linear-gradient(160deg, #3D2B24 0%, #806357 100%); }
+    .reel-r4 { background: linear-gradient(160deg, #D9C9E3 0%, #B0AEB0 40%, #3D2B24 100%); }
+
+    /* Reel badge top-right */
+    .reel-badge {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #fff;
+      background: rgba(0,0,0,0.35);
+      border-radius: 3px;
+      padding: 2px 5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Row direction note ── */
+    .direction-note {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 2px 0;
+      font-size: 10.5px;
+      color: #aaa;
+      letter-spacing: 0.5px;
+    }
+
+    .direction-note .arrow {
+      font-size: 14px;
+    }
+
+    /* ── Legend ── */
+    .legend {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid #E8E0D8;
+      border-radius: 8px;
+    }
+
+    .legend-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .legend-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px 16px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      color: #444;
+      padding: 2px 0;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-carousel { background: #D9C9E3; }
+    .dot-reel { background: #806357; }
+
+    .legend-item .item-label {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-right: 2px;
+    }
+
+    .legend-item .item-date {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- Page title -->
+  <p class="page-title">Preview de Feed — D'Lyra Studio x Ingrid Nunez</p>
+
+  <!-- Profile header -->
+  <div class="profile-header">
+    <div class="profile-pic-wrap">
+      <img src="RECURSOS VISUALES/IMG_2853.jpeg" alt="Ingrid Nunez">
+    </div>
+    <div class="profile-info">
+      <div class="profile-handle">ingridnunezpsi</div>
+      <div class="profile-name">Ingrid Nunez · Psicóloga</div>
+      <div class="profile-meta">
+        <strong>20</strong> publicaciones &nbsp;&nbsp;
+        <strong>20 carruseles + 4 reels</strong> &nbsp;&nbsp;
+        Mar 14 – Abr 15, 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- Feed label -->
+  <div class="feed-label">Publicaciones</div>
+
+  <!-- Direction note -->
+  <div class="direction-note">
+    <span>Mas reciente (arriba)</span>
+    <span class="arrow">↑</span>
+    <span class="arrow">↓</span>
+    <span>Mas antiguo (abajo)</span>
+  </div>
+
+  <!-- Feed Grid — newest at top, oldest at bottom -->
+  <!-- Row 0 (top / newest): C19, R4, C20 -->
+  <div class="feed-grid">
+
+    <!-- Row 0 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_31_MAR_14_ABR/CARRUSEL/C19_slide_01.png" alt="C19">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C19</span>
+        <span class="date-text">Abr 14</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <div class="reel-cover reel-r4">
+        <div class="reel-play"></div>
+        <div class="reel-title">La Pausa de Poder: 60 segundos que cambian todo</div>
+      </div>
+      <div class="reel-badge">Reel</div>
+      <div class="type-badge">
+        <svg class="icon-reel" viewBox="0 0 24 24" fill="white" opacity="0.9">
+          <path d="M18 4H6C4.9 4 4 4.9 4 6v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM6 6h2v2H6V6zm0 4h2v2H6v-2zm0 4h2v2H6v-2zm12 4H6v-1h12v1zm0-4h-8v-2h8v2zm0-4h-8V8h8v2zm0-4h-2V6h2v2z"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">R4</span>
+        <span class="date-text">Abr 14</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_32_MIE_15_ABR/CARRUSEL/C20_slide_01.png" alt="C20">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C20</span>
+        <span class="date-text">Abr 15</span>
+      </div>
+    </div>
+
+    <!-- Row 1: C17, R3, C18 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_23_LUN_06_ABR/CARRUSEL/C17_slide_01.png" alt="C17">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C17</span>
+        <span class="date-text">Abr 6</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <div class="reel-cover reel-r3">
+        <div class="reel-play"></div>
+        <div class="reel-title">¿Por qué llora si "no le pasó nada"?</div>
+      </div>
+      <div class="reel-badge">Reel</div>
+      <div class="type-badge">
+        <svg class="icon-reel" viewBox="0 0 24 24" fill="white" opacity="0.9">
+          <path d="M18 4H6C4.9 4 4 4.9 4 6v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM6 6h2v2H6V6zm0 4h2v2H6v-2zm0 4h2v2H6v-2zm12 4H6v-1h12v1zm0-4h-8v-2h8v2zm0-4h-8V8h8v2zm0-4h-2V6h2v2z"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">R3</span>
+        <span class="date-text">Abr 8</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_25_MIE_08_ABR/CARRUSEL/C18_slide_01.png" alt="C18">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C18</span>
+        <span class="date-text">Abr 8</span>
+      </div>
+    </div>
+
+    <!-- Row 2: C15, R2, C16 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_17_MAR_31_MAR/CARRUSEL/C15_slide_01.png" alt="C15">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C15</span>
+        <span class="date-text">Mar 31</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <div class="reel-cover reel-r2">
+        <div class="reel-play"></div>
+        <div class="reel-title">3 actividades para Semana Santa sin pantallas</div>
+      </div>
+      <div class="reel-badge">Reel</div>
+      <div class="type-badge">
+        <svg class="icon-reel" viewBox="0 0 24 24" fill="white" opacity="0.9">
+          <path d="M18 4H6C4.9 4 4 4.9 4 6v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM6 6h2v2H6V6zm0 4h2v2H6v-2zm0 4h2v2H6v-2zm12 4H6v-1h12v1zm0-4h-8v-2h8v2zm0-4h-8V8h8v2zm0-4h-2V6h2v2z"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">R2</span>
+        <span class="date-text">Abr 1</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_19_JUE_02_ABR/CARRUSEL/C16_slide_01.png" alt="C16">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C16</span>
+        <span class="date-text">Abr 2</span>
+      </div>
+    </div>
+
+    <!-- Row 3: C13, C14, R1 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_13_VIE_27_MAR/CARRUSEL/C13_slide_01.png" alt="C13">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C13</span>
+        <span class="date-text">Mar 27</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_14_SAB_28_MAR/CARRUSEL/C14_slide_01.png" alt="C14">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C14</span>
+        <span class="date-text">Mar 28</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <div class="reel-cover reel-r1">
+        <div class="reel-play"></div>
+        <div class="reel-title">Cuando tu hijo llora y tu no sabes que hacer</div>
+      </div>
+      <div class="reel-badge">Reel</div>
+      <div class="type-badge">
+        <svg class="icon-reel" viewBox="0 0 24 24" fill="white" opacity="0.9">
+          <path d="M18 4H6C4.9 4 4 4.9 4 6v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM6 6h2v2H6V6zm0 4h2v2H6v-2zm0 4h2v2H6v-2zm12 4H6v-1h12v1zm0-4h-8v-2h8v2zm0-4h-8V8h8v2zm0-4h-2V6h2v2z"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">R1</span>
+        <span class="date-text">Mar 30</span>
+      </div>
+    </div>
+
+    <!-- Row 4: C10, C11, C12 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_10_MAR_24_MAR/CARRUSEL/C10_slide_01.png" alt="C10">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C10</span>
+        <span class="date-text">Mar 24</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_11_MIE_25_MAR/CARRUSEL/C11_slide_01.png" alt="C11">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C11</span>
+        <span class="date-text">Mar 25</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_12_JUE_26_MAR/CARRUSEL/C12_slide_01.png" alt="C12">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C12</span>
+        <span class="date-text">Mar 26</span>
+      </div>
+    </div>
+
+    <!-- Row 5: C07, C08, C09 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_07_SAB_21_MAR/CARRUSEL/C07_slide_01.png" alt="C07">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C07</span>
+        <span class="date-text">Mar 21</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_08_DOM_22_MAR/CARRUSEL/C08_slide_01.png" alt="C08">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C08</span>
+        <span class="date-text">Mar 22</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_09_LUN_23_MAR/CARRUSEL/C09_slide_01.png" alt="C09">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C09</span>
+        <span class="date-text">Mar 23</span>
+      </div>
+    </div>
+
+    <!-- Row 6: C04, C05, C06 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_04_MIE_18_MAR/CARRUSEL/C04_slide_01.png" alt="C04">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C04</span>
+        <span class="date-text">Mar 18</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_05_JUE_19_MAR/CARRUSEL/C05_slide_01.png" alt="C05">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C05</span>
+        <span class="date-text">Mar 19</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_06_VIE_20_MAR/CARRUSEL/C06_slide_01.png" alt="C06">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C06</span>
+        <span class="date-text">Mar 20</span>
+      </div>
+    </div>
+
+    <!-- Row 7 (bottom / oldest): C01, C02, C03 -->
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_01_SAB_14_MAR/CARRUSEL/C01_slide_01.png" alt="C01">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C01</span>
+        <span class="date-text">Mar 14</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_02_LUN_16_MAR/CARRUSEL/C02_slide_01.png" alt="C02">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C02</span>
+        <span class="date-text">Mar 16</span>
+      </div>
+    </div>
+
+    <div class="grid-item">
+      <img src="PUBLICACIONES/DIA_03_MAR_17_MAR/CARRUSEL/C03_slide_01.png" alt="C03">
+      <div class="type-badge">
+        <svg class="icon-carousel" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="7" width="14" height="14" rx="2" fill="white" opacity="0.9"/>
+          <rect x="7" y="3" width="14" height="14" rx="2" fill="white" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="date-overlay">
+        <span class="id-text">C03</span>
+        <span class="date-text">Mar 17</span>
+      </div>
+    </div>
+
+  </div>
+  <!-- /feed-grid -->
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-title">Indice de publicaciones</div>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C01</span><span class="item-date">Mar 14 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C11</span><span class="item-date">Mar 25 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C02</span><span class="item-date">Mar 16 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C12</span><span class="item-date">Mar 26 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C03</span><span class="item-date">Mar 17 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C13</span><span class="item-date">Mar 27 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C04</span><span class="item-date">Mar 18 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C14</span><span class="item-date">Mar 28 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C05</span><span class="item-date">Mar 19 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-reel"></span><span class="item-label">R1</span><span class="item-date">Mar 30 · Reel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C06</span><span class="item-date">Mar 20 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C15</span><span class="item-date">Mar 31 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C07</span><span class="item-date">Mar 21 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-reel"></span><span class="item-label">R2</span><span class="item-date">Abr 1 · Reel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C08</span><span class="item-date">Mar 22 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C16</span><span class="item-date">Abr 2 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C09</span><span class="item-date">Mar 23 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C17</span><span class="item-date">Abr 6 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C10</span><span class="item-date">Mar 24 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-reel"></span><span class="item-label">R3</span><span class="item-date">Abr 8 · Reel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C18</span><span class="item-date">Abr 8 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C19</span><span class="item-date">Abr 14 · Carrusel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-reel"></span><span class="item-label">R4</span><span class="item-date">Abr 14 · Reel</span></div>
+      <div class="legend-item"><span class="legend-dot dot-carousel"></span><span class="item-label">C20</span><span class="item-date">Abr 15 · Carrusel</span></div>
+    </div>
+  </div>
+
+</div>
+<!-- /page-wrapper -->
+
+</body>
+</html>
