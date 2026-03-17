@@ -307,6 +307,43 @@
   footer p { font-size: 14px; opacity: 0.6; margin: 4px 0; }
   footer a { color: var(--teal); text-decoration: none; }
 
+  /* SLIDES PREVIEW ROW */
+  .slides-row { display: flex; gap: 12px; overflow-x: auto; padding: 16px 0; }
+  .slides-row img { width: 250px; height: 312px; object-fit: cover; border-radius: 12px; flex-shrink: 0; cursor: pointer; box-shadow: 0 2px 12px rgba(0,0,0,0.1); transition: transform 0.2s; }
+  .slides-row img:hover { transform: scale(1.03); }
+  .slides-preview-label { font-size: 11px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 2px; margin: 20px 0 4px; }
+
+  /* CARRUSELES COMPLETOS SECTION */
+  .carousel-block { margin-bottom: 48px; }
+  .carousel-block-header { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .carousel-block-header h3 { font-size: 16px; font-weight: 800; color: var(--blue); }
+  .carousel-block-meta { font-size: 12px; color: #888; font-weight: 500; }
+
+  /* GUIONES DE REELS */
+  .reel-grid { display: flex; flex-direction: column; gap: 12px; }
+  details.reel-detail { border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; margin-bottom: 0; background: white; }
+  details.reel-detail summary { background: white; }
+  details.reel-detail[open] { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .reel-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .reel-scenes { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 10px; margin: 16px 0; }
+  .reel-scene { background: #f8fafc; border-radius: 10px; padding: 12px; border-left: 3px solid var(--blue); }
+  .reel-scene-num { font-size: 10px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .reel-scene p { font-size: 12px; color: #444; line-height: 1.5; }
+  .reel-avatar { background: rgba(0,207,186,0.06); border: 1px solid rgba(0,207,186,0.2); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: #333; margin-bottom: 12px; }
+  .reel-avatar strong { font-size: 11px; color: var(--teal); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 4px; }
+
+  /* DOCS DOWNLOAD */
+  .docs-grid { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 24px; }
+  .doc-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 20px; border-radius: 12px;
+    background: rgba(2,49,189,0.05); border: 1px solid rgba(2,49,189,0.12);
+    text-decoration: none; color: var(--blue); font-size: 13px; font-weight: 700;
+    transition: all 0.2s;
+  }
+  .doc-link:hover { background: rgba(2,49,189,0.1); transform: translateY(-1px); }
+  .doc-link .doc-icon { font-size: 18px; }
+
   /* PRINT */
   @media print {
     nav { display: none; }
@@ -332,6 +369,8 @@
     <a href="#estrategia">Estrategia</a>
     <a href="#calendario">Calendario</a>
     <a href="#contenido">Contenido</a>
+    <a href="#carruseles">Carruseles</a>
+    <a href="#reels">Reels</a>
     <a href="#historias">Historias</a>
     <a href="#pauta">Pauta</a>
     <a href="#kpis">KPIs</a>
@@ -703,6 +742,15 @@
           <div class="slide-row"><div class="slide-num">S6</div><div class="slide-text"><strong>NOTICIA 5:</strong> Otras noticias del sector salud / MinSalud de la semana.</div></div>
           <div class="slide-row"><div class="slide-num">S7</div><div class="slide-text"><strong>CTA:</strong> Degradado turquesa → azul. Logo Medplan grande centrado. "Siguenos para mantenerte informado cada semana." WhatsApp: 317 635 0542 | medplan.com.co</div></div>
         </div>
+        <div class="slides-preview-label">Vista previa — Slides producidos</div>
+        <div class="slides-row">
+          <img src="slides/noticias-s1/slide_01.png" alt="Slide 1 — Cover Noticias S1" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_02.png" alt="Slide 2 — Noticia 1 Urgente" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_03.png" alt="Slide 3 — Noticia 2" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_04.png" alt="Slide 4 — Noticia 3" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_05.png" alt="Slide 5 — Noticia 4" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_06.png" alt="Slide 6 — Noticia 5 / CTA" onclick="window.open(this.src)">
+        </div>
         <div class="copy-box">
           <strong>Copy del Post</strong>
           Un tribunal FRENO el traslado masivo de 6 millones de afiliados de EPS.<br><br>
@@ -799,6 +847,16 @@
           <div class="slide-row"><div class="slide-num">S6</div><div class="slide-text"><strong>OUTSOURCING NOMINA:</strong> Gestion integral para PYMEs. Garantia cero multas UGPP. Planillas diarias. Juridico incluido.</div></div>
           <div class="slide-row"><div class="slide-num">S7</div><div class="slide-text"><strong>CTA:</strong> "Plan completo desde $129,900/mes — Todo incluido." Logo + WhatsApp 317 635 0542 + medplan.com.co/cotizador</div></div>
         </div>
+        <div class="slides-preview-label">Vista previa — Slides producidos</div>
+        <div class="slides-row">
+          <img src="slides/servicios/slide_01.png" alt="Slide 1 — Cover Servicios" onclick="window.open(this.src)">
+          <img src="slides/servicios/slide_02.png" alt="Slide 2 — EPS" onclick="window.open(this.src)">
+          <img src="slides/servicios/slide_03.png" alt="Slide 3 — ARL" onclick="window.open(this.src)">
+          <img src="slides/servicios/slide_04.png" alt="Slide 4 — Pension" onclick="window.open(this.src)">
+          <img src="slides/servicios/slide_05.png" alt="Slide 5 — Caja" onclick="window.open(this.src)">
+          <img src="slides/servicios/slide_06.png" alt="Slide 6 — Outsourcing" onclick="window.open(this.src)">
+          <img src="slides/servicios/slide_07.png" alt="Slide 7 — CTA" onclick="window.open(this.src)">
+        </div>
         <div class="copy-box">
           <strong>Copy del Post</strong>
           Sabias que mas del 47% de los trabajadores en Colombia no tienen seguridad social completa?<br><br>
@@ -884,6 +942,15 @@
           <div class="slide-row"><div class="slide-num">S2–S6</div><div class="slide-text">Avances del Decreto 0182 (estado actual), nuevas EPS por municipio, noticias MinSalud, MinTrabajo, cambios en cotizacion. Una noticia por slide.</div></div>
           <div class="slide-row"><div class="slide-num">S7</div><div class="slide-text"><strong>CTA:</strong> "Guarda este post — la informacion cambia cada semana." Logo + "Lunes arrancamos con mas noticias frescas."</div></div>
         </div>
+        <div class="slides-preview-label">Vista previa — Slides producidos</div>
+        <div class="slides-row">
+          <img src="slides/noticias-s1/slide_01.png" alt="Slide 1 — Cover Resumen Semana" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_02.png" alt="Slide 2" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_03.png" alt="Slide 3" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_04.png" alt="Slide 4" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_05.png" alt="Slide 5" onclick="window.open(this.src)">
+          <img src="slides/noticias-s1/slide_06.png" alt="Slide 6 — CTA" onclick="window.open(this.src)">
+        </div>
         <div class="copy-box">
           <strong>Copy del Post</strong>
           Viernes de noticias.<br><br>
@@ -938,7 +1005,384 @@
   </div>
 </section>
 
-<!-- SECTION 5: HISTORIAS -->
+<!-- SECTION 5: CARRUSELES COMPLETOS -->
+<section id="carruseles" style="background:white">
+  <div class="container">
+    <div class="section-label">Produccion Visual</div>
+    <h2 class="section-title">Carruseles Completos</h2>
+    <p class="section-sub">Los 5 carruseles producidos para el Mes 1. Clic en cualquier slide para ver a tamano completo.</p>
+
+    <!-- Noticias S1 -->
+    <div class="carousel-block">
+      <div class="carousel-block-header">
+        <div class="accent-line" style="margin-bottom:0;margin-right:4px"></div>
+        <h3>Noticias S1: Tribunal frena traslado</h3>
+        <span class="carousel-block-meta">6 slides &nbsp;·&nbsp; Lun 17 Mar &nbsp;·&nbsp; Noticias</span>
+      </div>
+      <div class="slides-row">
+        <img src="slides/noticias-s1/slide_01.png" alt="Noticias S1 — Slide 1" onclick="window.open(this.src)">
+        <img src="slides/noticias-s1/slide_02.png" alt="Noticias S1 — Slide 2" onclick="window.open(this.src)">
+        <img src="slides/noticias-s1/slide_03.png" alt="Noticias S1 — Slide 3" onclick="window.open(this.src)">
+        <img src="slides/noticias-s1/slide_04.png" alt="Noticias S1 — Slide 4" onclick="window.open(this.src)">
+        <img src="slides/noticias-s1/slide_05.png" alt="Noticias S1 — Slide 5" onclick="window.open(this.src)">
+        <img src="slides/noticias-s1/slide_06.png" alt="Noticias S1 — Slide 6" onclick="window.open(this.src)">
+      </div>
+    </div>
+
+    <!-- Servicios -->
+    <div class="carousel-block">
+      <div class="carousel-block-header">
+        <div class="accent-line" style="margin-bottom:0;margin-right:4px"></div>
+        <h3>Los 5 servicios de Medplan</h3>
+        <span class="carousel-block-meta">7 slides &nbsp;·&nbsp; Mie 19 Mar &nbsp;·&nbsp; Ventas</span>
+      </div>
+      <div class="slides-row">
+        <img src="slides/servicios/slide_01.png" alt="Servicios — Slide 1" onclick="window.open(this.src)">
+        <img src="slides/servicios/slide_02.png" alt="Servicios — Slide 2" onclick="window.open(this.src)">
+        <img src="slides/servicios/slide_03.png" alt="Servicios — Slide 3" onclick="window.open(this.src)">
+        <img src="slides/servicios/slide_04.png" alt="Servicios — Slide 4" onclick="window.open(this.src)">
+        <img src="slides/servicios/slide_05.png" alt="Servicios — Slide 5" onclick="window.open(this.src)">
+        <img src="slides/servicios/slide_06.png" alt="Servicios — Slide 6" onclick="window.open(this.src)">
+        <img src="slides/servicios/slide_07.png" alt="Servicios — Slide 7" onclick="window.open(this.src)">
+      </div>
+    </div>
+
+    <!-- Riesgos -->
+    <div class="carousel-block">
+      <div class="carousel-block-header">
+        <div class="accent-line" style="margin-bottom:0;margin-right:4px"></div>
+        <h3>5 niveles de riesgo laboral</h3>
+        <span class="carousel-block-meta">6 slides &nbsp;·&nbsp; Jue 27 Mar &nbsp;·&nbsp; Educativo</span>
+      </div>
+      <div class="slides-row">
+        <img src="slides/riesgos/slide_01.png" alt="Riesgos — Slide 1" onclick="window.open(this.src)">
+        <img src="slides/riesgos/slide_02.png" alt="Riesgos — Slide 2" onclick="window.open(this.src)">
+        <img src="slides/riesgos/slide_03.png" alt="Riesgos — Slide 3" onclick="window.open(this.src)">
+        <img src="slides/riesgos/slide_04.png" alt="Riesgos — Slide 4" onclick="window.open(this.src)">
+        <img src="slides/riesgos/slide_05.png" alt="Riesgos — Slide 5" onclick="window.open(this.src)">
+        <img src="slides/riesgos/slide_06.png" alt="Riesgos — Slide 6" onclick="window.open(this.src)">
+      </div>
+    </div>
+
+    <!-- Pension vs -->
+    <div class="carousel-block">
+      <div class="carousel-block-header">
+        <div class="accent-line" style="margin-bottom:0;margin-right:4px"></div>
+        <h3>Colpensiones vs Fondo Privado</h3>
+        <span class="carousel-block-meta">6 slides &nbsp;·&nbsp; Mie 2 Abr &nbsp;·&nbsp; Educativo</span>
+      </div>
+      <div class="slides-row">
+        <img src="slides/pension-vs/slide_01.png" alt="Pension vs — Slide 1" onclick="window.open(this.src)">
+        <img src="slides/pension-vs/slide_02.png" alt="Pension vs — Slide 2" onclick="window.open(this.src)">
+        <img src="slides/pension-vs/slide_03.png" alt="Pension vs — Slide 3" onclick="window.open(this.src)">
+        <img src="slides/pension-vs/slide_04.png" alt="Pension vs — Slide 4" onclick="window.open(this.src)">
+        <img src="slides/pension-vs/slide_05.png" alt="Pension vs — Slide 5" onclick="window.open(this.src)">
+        <img src="slides/pension-vs/slide_06.png" alt="Pension vs — Slide 6" onclick="window.open(this.src)">
+      </div>
+    </div>
+
+    <!-- Por que Medplan -->
+    <div class="carousel-block">
+      <div class="carousel-block-header">
+        <div class="accent-line" style="margin-bottom:0;margin-right:4px"></div>
+        <h3>Por que elegir Medplan</h3>
+        <span class="carousel-block-meta">7 slides &nbsp;·&nbsp; Jue 10 Abr &nbsp;·&nbsp; Ventas</span>
+      </div>
+      <div class="slides-row">
+        <img src="slides/por-que-medplan/slide_01.png" alt="Por que Medplan — Slide 1" onclick="window.open(this.src)">
+        <img src="slides/por-que-medplan/slide_02.png" alt="Por que Medplan — Slide 2" onclick="window.open(this.src)">
+        <img src="slides/por-que-medplan/slide_03.png" alt="Por que Medplan — Slide 3" onclick="window.open(this.src)">
+        <img src="slides/por-que-medplan/slide_04.png" alt="Por que Medplan — Slide 4" onclick="window.open(this.src)">
+        <img src="slides/por-que-medplan/slide_05.png" alt="Por que Medplan — Slide 5" onclick="window.open(this.src)">
+        <img src="slides/por-que-medplan/slide_06.png" alt="Por que Medplan — Slide 6" onclick="window.open(this.src)">
+        <img src="slides/por-que-medplan/slide_07.png" alt="Por que Medplan — Slide 7" onclick="window.open(this.src)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: GUIONES DE REELS -->
+<section id="reels">
+  <div class="container">
+    <div class="section-label">Video</div>
+    <h2 class="section-title">Guiones de Reels — 8 Videos</h2>
+    <p class="section-sub">Guiones completos listos para produccion. Clic para expandir cada reel.</p>
+
+    <div class="reel-grid">
+
+      <!-- Reel 1 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 1</span> Mar 18 Mar — "Te cambiaron de EPS?" &nbsp;<span class="pill pill-gray" style="margin-left:6px">30s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">30 segundos</span>
+            <span class="pill pill-blue">Educativo</span>
+            <span class="pill pill-gray">6 escenas</span>
+            <span class="pill pill-gray">Publicar 9–11 AM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Profesional en camara — avatar asesor de Medplan. Tono: empacico, informativo, tranquilizador. Fondo: oficina limpia con branding Medplan.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Hook (0–3s)</div><p>Texto grande en pantalla: "El gobierno te cambio de EPS... y tu no lo sabias?" + audio trending de shock.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Contexto (3–8s)</div><p>"El Decreto 0182 genero confusion masiva. 6 millones de personas afectadas en todo el pais."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — Paso 1 (8–14s)</div><p>VERIFICA tu EPS en ADRES.gov.co — pantalla captura navegador con el paso a paso.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — Paso 2 (14–19s)</div><p>Revisa si tu municipio esta en la lista. Tu cobertura puede haber cambiado.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — Paso 3 (19–24s)</div><p>Conoce tus derechos — la continuidad de tratamientos esta GARANTIZADA por ley.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 6 — CTA (24–30s)</div><p>"No sabes si te afecta? Escribenos — verificamos tu caso sin costo." Logo Medplan + numero.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            El Decreto 0182 causo confusion masiva. Millones de colombianos no saben si su EPS cambio o que derechos tienen ahora.<br><br>
+            Esto es lo que debes hacer:<br>
+            1. Verifica en ADRES si tu EPS fue modificada<br>
+            2. Si cambiaste, tienes derecho a continuidad en todos tus tratamientos<br>
+            3. MedPlan te asesora gratis para entender tu situacion<br><br>
+            No dejes tu salud en el limbo. Escribenos.<br><br>
+            #Decreto0182 #EPS #SaludColombia #TrabajadorIndependiente #Medplan
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 2 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 2</span> Jue 20 Mar — "POV: Tu EPS te niega un servicio" &nbsp;<span class="pill pill-gray" style="margin-left:6px">25s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">25 segundos</span>
+            <span class="pill" style="background:rgba(124,58,237,0.1);color:#7c3aed">Entretenimiento</span>
+            <span class="pill pill-gray">5 escenas</span>
+            <span class="pill pill-gray">Publicar 7–10 PM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Formato trend / POV — texto overlay sobre video. Avatar actua como "tu EPS" primero (frustrante) y luego como "Medplan" (resolutivo). Tono: dramatico → aliviador.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Hook</div><p>Texto: "POV: Tu EPS te niega un servicio medico urgente" — cara de frustracion.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — La negativa</div><p>"EPS: Ese procedimiento no esta cubierto en su plan." + musica de tension.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — Medplan actua</div><p>"Medplan: Les presentamos derecho de peticion." — visual de documento legal.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — Resolucion</div><p>"EPS: El servicio fue aprobado." — check verde, musica de alivio.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — CTA</div><p>"Gestion juridica incluida en todos nuestros planes. Sin costo adicional." Logo Medplan.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            Tu EPS tiene la obligacion de cubrirte. Pero a veces "dicen que no."<br><br>
+            En Medplan la gestion juridica esta INCLUIDA — tutelas, derechos de peticion, reclamaciones ante la Supersalud. Si tu EPS te niega algo, nosotros peleamos por ti. Sin costo adicional.<br><br>
+            Tu EPS te ha negado algun servicio? Cuentanos en los comentarios.<br><br>
+            #EPS #DerechosLaborales #SeguridadSocial #Medplan #GestionJuridica
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 3 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 3</span> Mar 25 Mar — "Lo que cubre la ARL" &nbsp;<span class="pill pill-gray" style="margin-left:6px">30s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">30 segundos</span>
+            <span class="pill pill-blue">Educativo</span>
+            <span class="pill pill-gray">5 escenas</span>
+            <span class="pill pill-gray">Publicar 9–11 AM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Asesor Medplan — tono didactico, amigable. Puede usar pantalla dividida: "Lo que crees que cubre" vs "Lo que realmente cubre". Fondo ilustrado con iconos de trabajo.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Hook (0–4s)</div><p>"La ARL no es solo para accidentes. Cubre esto tambien..." + texto en pantalla con lista rapida.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Accidentes (4–10s)</div><p>Accidentes de trabajo: atencion medica completa, incapacidad pagada, rehabilitacion.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — Enfermedades (10–17s)</div><p>Enfermedades profesionales: dolor de columna, sindrome del tunel, estres laboral certificado.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — Prevencion (17–24s)</div><p>Capacitaciones de seguridad, dotacion EPP, examenes medicos ocupacionales. TODO incluido.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — CTA (24–30s)</div><p>"Cotiza tu ARL desde $79,900/mes. Link en bio o escribenos al DM." Logo Medplan.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            La ARL cubre mucho mas de lo que crees. No es solo para cuando te caes en el trabajo.<br><br>
+            Cubre: accidentes, enfermedades profesionales, incapacidades, rehabilitacion, dotacion de seguridad y examenes medicos.<br><br>
+            Como independiente, puedes cotizarla desde $79,900/mes. Y si ocurre algo, no sales del bolsillo.<br><br>
+            #ARL #RiesgosLaborales #TrabajadorIndependiente #SeguridadSocial #Medplan #Colombia
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 4 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 4</span> Mie 26 Mar — MEME "No necesito seguridad social" &nbsp;<span class="pill pill-gray" style="margin-left:6px">18s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">18 segundos</span>
+            <span class="pill" style="background:rgba(124,58,237,0.1);color:#7c3aed">Meme / Humor</span>
+            <span class="pill pill-gray">4 escenas</span>
+            <span class="pill pill-gray">Publicar 12–2 PM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Joven freelancer / persona comun — expresion excesivamente confiada al principio, luego cara de "momento de reflexion". Formato: "Mi cara cuando..." + twist humoristico.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Setup (0–5s)</div><p>Texto: "Mi cara cuando digo que no necesito seguridad social porque soy independiente" — cara super confiada con gafas de sol.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Reveal (5–10s)</div><p>Texto: "Y me cae un accidente / una enfermedad / un inspector de trabajo" — cara de panico + sonido de alarma.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — Dato (10–14s)</div><p>Texto: "Multa por no tener ARL: hasta $500M COP" + "Hospitalizacion sin EPS: desde $3M" — caras llorando.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — CTA (14–18s)</div><p>Texto: "O te afilias desde $79,900/mes con Medplan." Logo + "Link en bio." Musica risas.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            Todos hemos pensado "yo no lo necesito." Hasta que lo necesitas.<br><br>
+            La seguridad social no es un lujo. Es lo que evita que UN accidente te deje sin ahorros.<br><br>
+            Plan completo desde $79,900/mes. Sin enredos. Link en bio.<br><br>
+            #SeguridadSocial #TrabajadorIndependiente #Freelancer #Colombia #Medplan #Meme
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 5 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 5</span> Mar 1 Abr — "Pension a los 25" &nbsp;<span class="pill pill-gray" style="margin-left:6px">30s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">30 segundos</span>
+            <span class="pill pill-blue">Storytelling</span>
+            <span class="pill pill-gray">5 escenas</span>
+            <span class="pill pill-gray">Publicar 9–11 AM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Persona joven (25–30 anos) — relatable, tono reflexivo. Puede usar pantalla con linea de tiempo visual: "empieza a los 25" → "se pensiona a los 57" vs "empieza a los 45" → "nunca se pensiona". Musica motivacional.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Hook (0–5s)</div><p>"Tienes 25 anos y crees que la pension no te importa. Este reel es para ti."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Dato duro (5–12s)</div><p>"Solo 1 de cada 4 colombianos logra pensionarse. El otro 75% trabaja toda su vida sin retiro."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — La ventaja (12–20s)</div><p>"Si empiezas a los 25 y cotizas sin parar: a los 57 ya tendrias tu pension. 32 anos de trabajo, no 40."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — El costo (20–26s)</div><p>"Cotizar pension cuesta desde $62,500/mes si ganas el minimo. Menos que un plan de Netflix."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — CTA (26–30s)</div><p>"Quieres saber cuanto necesitas cotizar? Te calculamos gratis. Link en bio." Logo Medplan.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            A los 25, la pension parece algo lejano. Pero el sistema de pensiones en Colombia es matematico: si no cotizas 1,300 semanas, no te pensionas. Punto.<br><br>
+            Empieza hoy y llega antes. Cada mes que esperas es una semana menos.<br><br>
+            Te calculamos tu proyeccion gratis. Escribenos o link en bio.<br><br>
+            #Pension #Colpensiones #FondoPrivado #TrabajadorIndependiente #Medplan #Colombia
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 6 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 6</span> Jue 3 Abr — "1 de 4 se pensiona" &nbsp;<span class="pill pill-gray" style="margin-left:6px">25s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">25 segundos</span>
+            <span class="pill pill-blue">Dato impactante</span>
+            <span class="pill pill-gray">5 escenas</span>
+            <span class="pill pill-gray">Publicar 9–11 AM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Ejecutivo / profesional con experiencia — tono de autoridad empacica. Puede usar animacion de 4 personajes donde 3 quedan en sombra y solo 1 tiene color. Musica seria pero no depresiva.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Dato shock (0–5s)</div><p>Animacion: 4 figuras humanas. Texto: "1 de 4 colombianos se pensiona. Los otros 3..." — 3 figuras desaparecen.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Por que (5–10s)</div><p>"El 76% no llega a las 1,300 semanas cotizadas. La mayoria por informalidad o semanas perdidas."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — La solucion (10–16s)</div><p>"Medplan te ayuda a no perder semanas. Planillas procesadas TODOS LOS DIAS, sin excusas."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — Garantia (16–21s)</div><p>"Garantia cero multas UGPP. Si hay un error, lo resolvemos sin costo para ti."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — CTA (21–25s)</div><p>"Tu quieres ser el 1. Nosotros te ayudamos. Link en bio." Logo Medplan.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            Solo 1 de cada 4 colombianos logra pensionarse. No porque no trabajen suficiente. Porque no cotizan suficientes semanas.<br><br>
+            En Medplan procesamos tus planillas todos los dias. Ninguna semana perdida. Garantia cero multas UGPP.<br><br>
+            Tu decides si quieres ser el 1 o el 3.<br><br>
+            #Pension #SeguridadSocial #Colombia #TrabajadorIndependiente #Medplan #UGPP
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 7 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 7</span> Mar 8 Abr — "5 beneficios Caja" &nbsp;<span class="pill pill-gray" style="margin-left:6px">30s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">30 segundos</span>
+            <span class="pill pill-blue">Educativo</span>
+            <span class="pill pill-gray">6 escenas</span>
+            <span class="pill pill-gray">Publicar 9–11 AM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Persona amigable y cercana — formato "te cuento un secreto". Puede ser formato lista rapida con iconos animados para cada beneficio. Tono: revelacion sorprendente pero calido.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Hook (0–4s)</div><p>"5 beneficios de la Caja de Compensacion que nadie te conto. Y como independiente tambien los puedes tener."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Subsidios (4–9s)</div><p>Subsidio de vivienda, subsidio familiar, ayuda economica directa para familias con hijos.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — Recreacion (9–14s)</div><p>Parques, piscinas, canchas deportivas, centros recreativos — acceso a precios subsidiados.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — Educacion (14–20s)</div><p>Cursos de formacion, certificaciones, becas para hijos, guarderia subsidiada en algunas cajas.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — Creditos (20–25s)</div><p>Creditos de libre inversion con tasas preferenciales. Mucho mas barato que un banco.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 6 — CTA (25–30s)</div><p>"Afiliate a una Caja con Medplan — te ayudamos a elegir la mejor segun tu perfil." Logo + DM.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            La Caja de Compensacion no es solo para empleados. Los trabajadores independientes tambien tienen acceso — y muy pocos lo saben.<br><br>
+            5 beneficios: subsidios, recreacion, formacion, creditos preferenciales y mas. Todo disponible para ti.<br><br>
+            Medplan te afilia a la Caja correcta segun tu perfil. Sin tramites, sin filas.<br><br>
+            #CajaCompensacion #TrabajadorIndependiente #SeguridadSocial #Medplan #Colombia
+          </div>
+        </div>
+      </details>
+
+      <!-- Reel 8 -->
+      <details class="reel-detail">
+        <summary>
+          <span><span class="pill pill-blue" style="margin-right:10px">Reel 8</span> Mie 9 Abr — MEME "Expectativa vs Realidad" &nbsp;<span class="pill pill-gray" style="margin-left:6px">20s</span></span>
+        </summary>
+        <div class="detail-inner">
+          <div class="reel-meta">
+            <span class="pill pill-teal">20 segundos</span>
+            <span class="pill" style="background:rgba(124,58,237,0.1);color:#7c3aed">Meme / Humor</span>
+            <span class="pill pill-gray">5 escenas</span>
+            <span class="pill pill-gray">Publicar 12–2 PM</span>
+          </div>
+          <div class="reel-avatar">
+            <strong>Avatar</strong>
+            Persona casual / relatable — formato expectativa vs realidad clasico. Pantalla dividida: lado izquierdo "lo que crees" (dramatico, exagerado) vs lado derecho "lo que es" (simple, tranquilo). Musica: tension → alivio.
+          </div>
+          <div class="reel-scenes">
+            <div class="reel-scene"><div class="reel-scene-num">Escena 1 — Setup (0–4s)</div><p>Titulo en pantalla: "Expectativa vs Realidad de pagar seguridad social como independiente"</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 2 — Expectativa (4–9s)</div><p>EXPECTATIVA: "Me va a costar un millon, van a ser mil tramites, no voy a entender nada, me van a cobrar de mas" — cara de panico.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 3 — Realidad (9–13s)</div><p>REALIDAD: "Llame a Medplan. Me explicaron todo en 5 minutos. Pago desde $79,900. Listo." — cara relajada.</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 4 — Reencuadre (13–17s)</div><p>"El problema no era la seguridad social. Era no tener a alguien que te la simplificara."</p></div>
+            <div class="reel-scene"><div class="reel-scene-num">Escena 5 — CTA (17–20s)</div><p>"Somos ese alguien. Link en bio." Logo Medplan. Musica positiva.</p></div>
+          </div>
+          <div class="copy-box">
+            <strong>Copy del Post</strong>
+            La seguridad social siempre parece complicada hasta que alguien te la explica bien.<br><br>
+            En Medplan llevamos 25 anos haciendo exactamente eso: simplificarla. Plan completo desde $79,900/mes, sin filas, sin enredos, todo virtual.<br><br>
+            Que es lo que mas te ha confundido de la seguridad social? Cuentanos en los comentarios.<br><br>
+            #SeguridadSocial #TrabajadorIndependiente #Freelancer #Medplan #Colombia #Meme
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: HISTORIAS -->
 <section id="historias" style="background:white">
   <div class="container">
     <div class="section-label">72 Historias</div>
@@ -1251,6 +1695,23 @@
       &nbsp;·&nbsp; @medplan_eps &nbsp;·&nbsp;
       <a href="https://wa.me/573176350542" target="_blank">WhatsApp: 317 635 0542</a>
     </p>
+    <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:0.5;margin-bottom:16px">Documentos de Estrategia</div>
+      <div class="docs-grid" style="justify-content:center">
+        <a href="docs/ESTRATEGIA-MACRO-MES1-MARZO-ABRIL-2026.md" class="doc-link" target="_blank">
+          <span class="doc-icon">&#128196;</span>
+          Estrategia Macro
+        </a>
+        <a href="docs/ESTRATEGIA-PAUTA-ADS-MES1.md" class="doc-link" target="_blank">
+          <span class="doc-icon">&#128200;</span>
+          Estrategia de Pauta
+        </a>
+        <a href="docs/NOTICIAS-REALES-8-CARRUSELES.md" class="doc-link" target="_blank">
+          <span class="doc-icon">&#128240;</span>
+          33 Noticias Reales
+        </a>
+      </div>
+    </div>
     <p style="margin-top:20px;font-size:12px;opacity:0.4">Estrategia de contenido confidencial — Version 1.0 — Uso interno</p>
   </div>
 </footer>
