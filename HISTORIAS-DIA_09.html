@@ -34,7 +34,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
   height:100%; display:flex; flex-direction:column; justify-content:space-between;
 }
 .dark-badge {
-  display:inline-block;
+  display:none;
   padding:10px 28px; border-radius:100px;
   background:rgba(217,201,227,.2); color:#D9C9E3;
   border:1px solid rgba(217,201,227,.3);
@@ -44,12 +44,10 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .dark-fecha {
   font-family:'Playfair Display',serif;
-  font-size:38px; color:#D9C9E3; opacity:.65; margin-bottom:6px;
-}
+  font-size:38px; color:#D9C9E3; opacity:.65; margin-bottom:6px; display:none;}
 .dark-topic {
   font-size:20px; font-weight:300;
-  color:rgba(217,201,227,.35); letter-spacing:2px; text-transform:uppercase;
-}
+  color:rgba(217,201,227,.35); letter-spacing:2px; text-transform:uppercase; display:none;}
 .dark-content {
   font-family:'Playfair Display',serif;
   font-size:62px; line-height:1.3;
@@ -82,7 +80,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
   height:100%; display:flex; flex-direction:column; justify-content:space-between;
 }
 .photo-badge {
-  display:inline-block;
+  display:none;
   padding:10px 28px; border-radius:100px;
   background:rgba(217,201,227,.22); color:#D9C9E3;
   border:1px solid rgba(217,201,227,.3);
@@ -92,12 +90,10 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .photo-fecha {
   font-family:'Playfair Display',serif;
-  font-size:38px; color:#D9C9E3; opacity:.7; margin-bottom:6px;
-}
+  font-size:38px; color:#D9C9E3; opacity:.7; margin-bottom:6px; display:none;}
 .photo-topic {
   font-size:20px; font-weight:300;
-  color:rgba(217,201,227,.4); letter-spacing:2px; text-transform:uppercase;
-}
+  color:rgba(217,201,227,.4); letter-spacing:2px; text-transform:uppercase; display:none;}
 .photo-content {
   font-family:'Playfair Display',serif;
   font-size:60px; line-height:1.3;
@@ -130,7 +126,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
   pointer-events:none; user-select:none;
 }
 .split-badge {
-  display:inline-block;
+  display:none;
   padding:10px 28px; border-radius:100px;
   background:#D9C9E3; color:#3D2B24;
   font-size:20px; font-weight:600;
@@ -143,8 +139,7 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
 }
 .split-sub-dark {
   font-size:24px; font-weight:300;
-  color:rgba(248,242,236,.45); margin-top:16px; letter-spacing:1px;
-}
+  color:rgba(248,242,236,.45); margin-top:16px; letter-spacing:1px; display:none;}
 .split-bottom {
   padding:70px 90px 80px;
   display:flex; flex-direction:column; justify-content:space-between;
@@ -172,6 +167,103 @@ body { background:#1a1a1a; font-family:'Montserrat',sans-serif; }
   color:#B0AEB0; text-transform:lowercase;
 }
 .handle-light { color:rgba(217,201,227,.45); }
+
+/* ── STICKERS DECORATIVOS SCRAPBOOK (ref IMG_8045-8047) ── */
+
+/* Hojas botanicas - esquina inferior derecha (beige/lavanda slides) */
+.scrapbook-slide::after,
+.lavanda-slide::after {
+  content:'\1F33F';
+  position:absolute; bottom:80px; right:40px;
+  font-size:120px; opacity:.08;
+  transform:rotate(-25deg);
+  pointer-events:none; user-select:none; z-index:1;
+}
+
+/* Circulo outline decorativo extra - esquina superior derecha */
+.scrapbook-slide::before {
+  content:'';
+  position:absolute; top:180px; right:-40px;
+  width:200px; height:200px; border-radius:50%;
+  border:2px solid rgba(128,99,87,.12);
+  pointer-events:none; z-index:1;
+}
+
+/* Circulo outline grande - lavanda */
+.lavanda-slide::before {
+  content:'';
+  position:absolute; top:120px; right:-60px;
+  width:240px; height:240px; border-radius:50%;
+  border:2.5px solid rgba(61,43,36,.08);
+  pointer-events:none; z-index:1;
+}
+
+/* Barra decorativa diagonal - dark slides */
+.dark-slide::after {
+  content:'';
+  position:absolute; top:120px; right:60px;
+  width:100px; height:14px;
+  background:rgba(217,201,227,.12);
+  transform:rotate(-8deg);
+  border-radius:4px;
+  pointer-events:none; z-index:1;
+}
+
+/* Circulo outline sutil - dark slides */
+.dark-slide::before {
+  content:'';
+  position:absolute; bottom:280px; right:-50px;
+  width:180px; height:180px; border-radius:50%;
+  border:2px solid rgba(217,201,227,.08);
+  pointer-events:none; z-index:1;
+}
+
+/* Barra horizontal lavanda - split top */
+.split-top::after {
+  content:'';
+  position:absolute; top:60px; right:50px;
+  width:80px; height:10px;
+  background:rgba(217,201,227,.15);
+  border-radius:3px;
+  pointer-events:none; z-index:1;
+}
+
+/* Circulo outline - split bottom */
+.split-bottom::before {
+  content:'';
+  position:absolute; bottom:160px; left:-40px;
+  width:160px; height:160px; border-radius:50%;
+  border:2px solid rgba(128,99,87,.1);
+  pointer-events:none; z-index:1;
+}
+
+/* Hojas botanicas para beige-slide */
+.beige-slide::after {
+  content:'\1F33F';
+  position:absolute; bottom:100px; right:50px;
+  font-size:100px; opacity:.06;
+  transform:rotate(-30deg) scaleX(-1);
+  pointer-events:none; user-select:none; z-index:1;
+}
+
+/* Circulo outline beige */
+.beige-slide::before {
+  content:'';
+  position:absolute; top:200px; right:-30px;
+  width:180px; height:180px; border-radius:50%;
+  border:2px solid rgba(217,201,227,.15);
+  pointer-events:none; z-index:1;
+}
+
+/* Photo overlay - puntos decorativos */
+.photo-slide::before {
+  content:'\2022 \2022 \2022';
+  position:absolute; top:180px; right:80px;
+  font-size:40px; color:rgba(217,201,227,.12);
+  letter-spacing:8px;
+  pointer-events:none; z-index:2;
+}
+
 </style>
 </head>
 <body>
