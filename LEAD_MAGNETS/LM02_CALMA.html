@@ -3,435 +3,120 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu Calma, Su Refugio - Ingrid Nunez Psi</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Las 5 señales antes del desborde - Ingrid Nunez Psi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  @page {
-    size: A4;
-    margin: 0;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #F8F2EC;
-    color: #3D2B24;
-    line-height: 1.7;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 auto;
-    padding: 40px 50px;
-    background: #F8F2EC;
-    page-break-after: always;
-    position: relative;
-  }
-  .page:last-child { page-break-after: avoid; }
-
-  /* --- Cover --- */
-  .cover {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(160deg, #F4D9E8 0%, #F8F2EC 40%, #D9C9E3 100%);
-  }
-  .cover .badge {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #806357;
-    margin-bottom: 30px;
-  }
-  .cover h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 44px;
-    font-weight: 700;
-    color: #3D2B24;
-    line-height: 1.15;
-    margin-bottom: 16px;
-  }
-  .cover .subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: #806357;
-    max-width: 400px;
-    margin-bottom: 50px;
-  }
-  .cover .author {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: #3D2B24;
-    margin-bottom: 6px;
-  }
-  .cover .handle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: #B0AEB0;
-    letter-spacing: 1px;
-  }
-  .cover .divider-line {
-    width: 60px;
-    height: 2px;
-    background: #806357;
-    margin: 30px auto;
-  }
-  .cover .free-label {
-    display: inline-block;
-    padding: 8px 24px;
-    border: 1.5px solid #806357;
-    border-radius: 30px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #806357;
-    margin-top: 20px;
-  }
-
-  /* --- Interior --- */
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #3D2B24;
-    margin-bottom: 20px;
-    line-height: 1.3;
-  }
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #806357;
-    margin-bottom: 12px;
-    margin-top: 28px;
-  }
-  p {
-    font-size: 14px;
-    margin-bottom: 16px;
-    font-weight: 400;
-  }
-  .intro-text {
-    font-size: 15px;
-    font-weight: 300;
-    color: #806357;
-    font-style: italic;
-    border-left: 3px solid #F4D9E8;
-    padding-left: 20px;
-    margin-bottom: 30px;
-  }
-
-  .key-card {
-    background: white;
-    border-radius: 14px;
-    padding: 28px 30px;
-    margin-bottom: 22px;
-    position: relative;
-    overflow: hidden;
-  }
-  .key-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    background: #F4D9E8;
-  }
-  .key-card .key-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #D9C9E3;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-  .key-card h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #3D2B24;
-    margin-bottom: 10px;
-  }
-  .key-card p {
-    font-size: 13px;
-    color: #806357;
-    margin-bottom: 10px;
-  }
-  .key-card .action {
-    background: #F8F2EC;
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #3D2B24;
-    margin-top: 10px;
-  }
-  .key-card .action strong {
-    color: #806357;
-  }
-
-  .highlight-box {
-    background: #D9C9E3;
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin: 24px 0;
-    text-align: center;
-  }
-  .highlight-box p {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-style: italic;
-    color: #3D2B24;
-    margin: 0;
-  }
-
-  .phrases-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 24px 0;
-  }
-  .phrase-do, .phrase-dont {
-    border-radius: 10px;
-    padding: 18px 20px;
-    font-size: 13px;
-  }
-  .phrase-do {
-    background: #e8f0d4;
-    border-left: 4px solid #8a9a5b;
-  }
-  .phrase-do::before { content: 'Di esto: '; font-weight: 600; color: #5a6b3a; }
-  .phrase-dont {
-    background: #f5e0e0;
-    border-left: 4px solid #c27a7a;
-  }
-  .phrase-dont::before { content: 'Evita: '; font-weight: 600; color: #9a5a5a; }
-
-  .checklist {
-    background: white;
-    border: 2px dashed #D9C9E3;
-    border-radius: 12px;
-    padding: 28px 30px;
-    margin: 24px 0;
-  }
-  .checklist h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    color: #3D2B24;
-    margin-bottom: 16px;
-  }
-  .checklist-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 14px;
-    font-size: 13px;
-  }
-  .checklist-item .box {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #D9C9E3;
-    border-radius: 4px;
-    margin-right: 12px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  /* --- CTA --- */
-  .cta-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(170deg, #D9C9E3 0%, #F8F2EC 50%, #F4D9E8 100%);
-  }
-  .cta-button {
-    display: inline-block;
-    background: #3D2B24;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 16px 40px;
-    border-radius: 30px;
-    text-decoration: none;
-    letter-spacing: 1px;
-    margin-top: 20px;
-  }
-  .cta-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #3D2B24;
-    margin: 20px 0 8px;
-  }
-  .cta-price-note {
-    font-size: 12px;
-    color: #B0AEB0;
-  }
-
-  .page-footer {
-    position: absolute;
-    bottom: 30px;
-    left: 50px;
-    right: 50px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    color: #B0AEB0;
-  }
-  .page-footer .brand { font-weight: 600; letter-spacing: 1px; }
-
-  @media screen {
-    body { background: #e0d8d0; padding: 20px; }
-    .page { margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-  }
+@page { size: A4; margin: 0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Montserrat',sans-serif; background:#F8F2EC; color:#3D2B24; line-height:1.7; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page { width:210mm; min-height:297mm; margin:0 auto; padding:40px 50px; background:#F8F2EC; page-break-after:always; position:relative; }
+.page:last-child { page-break-after:avoid; }
+.cover { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:linear-gradient(165deg,#D9C9E3 0%,#F8F2EC 50%,#D9C9E3 100%); }
+.cover .badge { font-weight:600; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#806357; margin-bottom:30px; }
+.cover h1 { font-family:'Playfair Display',serif; font-size:40px; font-weight:700; color:#3D2B24; line-height:1.15; margin-bottom:16px; }
+.cover .subtitle { font-size:15px; font-weight:300; color:#806357; max-width:420px; margin-bottom:50px; }
+.cover .author { font-family:'Playfair Display',serif; font-size:18px; color:#3D2B24; margin-bottom:6px; }
+.cover .handle { font-size:13px; color:#B0AEB0; letter-spacing:1px; }
+.cover .divider-line { width:60px; height:2px; background:#806357; margin:30px auto; }
+.cover .free-label { display:inline-block; padding:8px 24px; border:1.5px solid #806357; border-radius:30px; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#806357; margin-top:20px; }
+h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:#3D2B24; margin-bottom:18px; }
+p { margin-bottom:14px; font-size:13.5px; }
+.intro { font-size:14px; color:#806357; font-style:italic; margin-bottom:28px; border-left:3px solid #D9C9E3; padding-left:16px; }
+.signal { background:#fff; border-radius:12px; padding:24px 28px; margin-bottom:20px; box-shadow:0 2px 12px rgba(61,43,36,.06); position:relative; }
+.signal-num { position:absolute; top:-10px; left:20px; background:#D9C9E3; color:#3D2B24; font-family:'Playfair Display',serif; font-weight:700; font-size:18px; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.signal h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#3D2B24; margin-bottom:10px; padding-left:30px; }
+.signal .what { font-size:13px; margin-bottom:10px; }
+.signal .reflect { font-size:13px; color:#806357; font-style:italic; border-top:1px solid rgba(217,201,227,.4); padding-top:10px; margin-bottom:0; }
+.diary { margin-top:20px; }
+.diary h2 { font-size:22px; }
+.diary table { width:100%; border-collapse:collapse; margin-top:12px; font-size:12px; }
+.diary th { background:#D9C9E3; color:#3D2B24; padding:10px 12px; text-align:left; font-weight:600; font-size:11px; letter-spacing:1px; text-transform:uppercase; }
+.diary td { padding:20px 12px; border-bottom:1px solid rgba(217,201,227,.3); vertical-align:top; min-height:50px; }
+.cta-section { text-align:center; padding:60px 40px; }
+.cta-section .highlight { font-family:'Playfair Display',serif; font-size:22px; font-style:italic; color:#3D2B24; margin-bottom:24px; line-height:1.4; }
+.cta-section .desc { font-size:14px; color:#806357; margin-bottom:30px; max-width:420px; margin-left:auto; margin-right:auto; }
+.price { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:#3D2B24; margin-bottom:6px; }
+.price-sub { font-size:12px; color:#B0AEB0; margin-bottom:24px; }
+.cta-btn { display:inline-block; padding:16px 48px; background:#3D2B24; color:#F8F2EC; font-size:14px; font-weight:600; letter-spacing:2px; text-transform:uppercase; border-radius:6px; text-decoration:none; margin-bottom:30px; }
+.watermark { position:absolute; bottom:30px; right:40px; font-size:11px; color:#B0AEB0; letter-spacing:1px; }
 </style>
 </head>
 <body>
 
-<!-- ============ COVER ============ -->
 <div class="page cover">
-  <div class="badge">Guia gratuita</div>
-  <h1>Tu Calma,<br>Su Refugio</h1>
-  <p class="subtitle">5 claves para sobrevivir las crisis emocionales de tu hijo/a sin perder la tuya.</p>
+  <div class="badge">Recurso gratuito</div>
+  <h1>Las 5 señales de que<br>tu hijo está a punto<br>de desbordarse</h1>
+  <div class="subtitle">Aprende a leer su cuerpo antes de que la tormenta llegue.</div>
   <div class="divider-line"></div>
-  <p class="author">Ingrid Nunez</p>
-  <p class="handle">@ingridnunezpsi &middot; Psicologa Infantil y Familiar</p>
-  <div class="free-label">Recurso gratuito</div>
+  <div class="author">Ingrid Núñez</div>
+  <div class="handle">@ingridnunezpsi · Psicóloga Infantil y Familiar</div>
+  <div class="free-label">Guía de detección temprana</div>
 </div>
 
-<!-- ============ PAGE 2: INTRO ============ -->
 <div class="page">
-  <h2>Lo que nadie te dice sobre las crisis de tu hijo/a.</h2>
+  <h2>Tu hijo te avisa antes. Su cuerpo habla.</h2>
+  <div class="intro">La mayoría de los padres reaccionan DESPUÉS de la crisis. Pero hay señales claras que aparecen minutos antes. Si aprendes a leerlas, puedes cambiar el desenlace. No para evitar la emoción — sino para acompañarla antes de que se desborde.</div>
 
-  <p class="intro-text">
-    Esto no va de teoria. Va de ese momento en que tu hijo esta gritando en el piso del supermercado y tu sientes que el mundo te mira. O de esa noche en que ya no puedes mas y el grito se te sale antes de pensarlo.
-  </p>
-
-  <p>Cada padre y madre que he acompanado en 15 anos de consulta me ha dicho alguna version de lo mismo: <em>"Se que no deberia gritar, pero no se que mas hacer."</em></p>
-
-  <p>Esta guia es para ese momento. No para manana. Para HOY. Para la proxima vez que sientas que el piso se mueve debajo de ti.</p>
-
-  <h3>Primero, entiende esto:</h3>
-  <p>Cuando tu hijo/a tiene una crisis emocional, su cerebro racional se desconecta. No puede escuchar razon. No puede procesar logica. No puede "calmarse porque se lo dices." Su sistema nervioso esta en modo supervivencia.</p>
-
-  <p>Y adivina que pasa contigo: tu sistema nervioso se sincroniza con el suyo. Si el esta desbordado, tu tambien empiezas a desbordarte. Es biologia, no debilidad.</p>
-
-  <div class="highlight-box">
-    <p>"Tu calma no es un lujo. Es la primera herramienta terapeutica que tu hijo/a necesita."</p>
+  <div class="signal">
+    <div class="signal-num">1</div>
+    <h3>El tono de voz cambia</h3>
+    <p class="what">Empieza a hablar más rápido, más agudo o más bajo de lo normal. A veces se vuelve demandante o repetitivo. Eso es su sistema nervioso preparándose. El cuerpo ya sabe lo que viene, aunque la mente no.</p>
+    <p class="reflect">¿Has notado cómo cambia la voz de tu hijo justo antes de una crisis? ¿Se acelera o se apaga?</p>
   </div>
 
-  <p>Las 5 claves que siguen no son pasos rigidos. Son anclas. Cosas a las que agarrarte cuando todo se descontrola.</p>
-
-  <div class="page-footer">
-    <span class="brand">@ingridnunezpsi</span>
-    <span>Tu Calma, Su Refugio &middot; Pagina 1</span>
+  <div class="signal">
+    <div class="signal-num">2</div>
+    <h3>El cuerpo se tensa</h3>
+    <p class="what">Puños cerrados. Mandíbula apretada. Hombros que suben. Movimientos bruscos. Su cuerpo se prepara para «luchar o huir» antes de que su mente lo sepa. Es biología pura: el cortisol ya está subiendo.</p>
+    <p class="reflect">¿Dónde se tensa tu hijo primero? ¿Manos, cara, espalda?</p>
   </div>
+
+  <div class="signal">
+    <div class="signal-num">3</div>
+    <h3>La mirada cambia</h3>
+    <p class="what">Ojos vidriosos, mirada perdida o fija en un punto. A veces parpadean mucho o dejan de hacer contacto visual. Es la desconexión entre su cerebro emocional y el racional. Su corteza prefrontal se está «apagando».</p>
+    <p class="reflect">¿Reconoces esa mirada? Esa que dice «ya no estoy aquí» antes de que explote.</p>
+  </div>
+  <div class="watermark">@ingridnunezpsi</div>
 </div>
 
-<!-- ============ PAGE 3: KEYS 1-3 ============ -->
 <div class="page">
-  <h2>Las 5 claves</h2>
-
-  <div class="key-card">
-    <div class="key-num">Clave 1</div>
-    <h4>Tu calma va primero. Siempre.</h4>
-    <p>No puedes regular a alguien si tu estas desregulada. Antes de hablarle, antes de tocarlo, antes de intentar calmarlo: regula tu propia respiracion. 3 respiraciones profundas. Eso es todo. Si necesitas salir del cuarto 30 segundos, hazlo. No es abandono. Es estrategia.</p>
-    <div class="action"><strong>Hazlo hoy:</strong> Identifica tu senal de alarma corporal (mandibula, punos, pecho, garganta). Esa es tu alarma interna. Cuando la sientas, para todo. Respira.</div>
+  <div class="signal">
+    <div class="signal-num">4</div>
+    <h3>Busca contacto físico (o lo rechaza)</h3>
+    <p class="what">Algunos niños se pegan a ti, te jalan la ropa, piden brazos. Otros te empujan, se alejan, gritan «no me toques». Ambas son formas de decir lo mismo: «no puedo con esto solo». La dirección es distinta pero la necesidad es la misma.</p>
+    <p class="reflect">¿Tu hijo se acerca o se aleja cuando está al límite? ¿Ha cambiado con la edad?</p>
   </div>
 
-  <div class="key-card">
-    <div class="key-num">Clave 2</div>
-    <h4>Baja a su nivel. Literalmente.</h4>
-    <p>Arrodillate. Ponte a la altura de sus ojos. No hables desde arriba. Un nino en crisis que ve a un adulto gigante hablando desde arriba no se siente seguro. Se siente amenazado. A su nivel, tu cuerpo le dice: "Estoy contigo, no contra ti."</p>
-    <div class="action"><strong>Hazlo hoy:</strong> La proxima vez que tu hijo/a tenga un momento dificil, antes de hablar, baja. Rodilla en el suelo. Contacto visual. Nota la diferencia.</div>
+  <div class="signal">
+    <div class="signal-num">5</div>
+    <h3>Repite la misma palabra o frase</h3>
+    <p class="what">«No quiero», «no puedo», «déjame», «no es justo» — en loop. No está eligiendo ser terco. Su cerebro está atascado en la emoción y no puede procesar nada nuevo. La repetición es su forma de pedir ayuda cuando las palabras no alcanzan.</p>
+    <p class="reflect">¿Cuál es la frase repetitiva de tu hijo? ¿La reconoces como señal o como provocación?</p>
   </div>
 
-  <div class="key-card">
-    <div class="key-num">Clave 3</div>
-    <h4>Nombra lo que siente. No lo que hace.</h4>
-    <p>En vez de "deja de gritar" o "ya calmate", intenta: "Veo que estas muy enojado" o "Parece que algo te frustra mucho." Cuando nombras la emocion, le ayudas a ponerle palabras a lo que su cuerpo siente. Y eso, por si solo, ya baja la intensidad.</p>
-    <div class="action"><strong>Hazlo hoy:</strong> Practica con emociones positivas primero. "Veo que estas muy emocionado." "Parece que eso te hizo feliz." Cuando lo hagas en calma, te saldra mas natural en crisis.</div>
+  <div class="diary">
+    <h2>Tu diario de detección (3 días)</h2>
+    <p style="font-size:13px; color:#806357;">Durante los próximos 3 días, observa. No hagas nada diferente todavía. Solo anota qué señal viste ANTES de cada crisis.</p>
+    <table>
+      <tr><th>Día</th><th>Qué pasó</th><th>Señal que vi ANTES</th><th>Cuánto tiempo hubo entre la señal y la crisis</th></tr>
+      <tr><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </table>
   </div>
-
-  <div class="page-footer">
-    <span class="brand">@ingridnunezpsi</span>
-    <span>Tu Calma, Su Refugio &middot; Pagina 2</span>
-  </div>
+  <div class="watermark">@ingridnunezpsi</div>
 </div>
 
-<!-- ============ PAGE 4: KEYS 4-5 + PHRASES ============ -->
-<div class="page">
-
-  <div class="key-card">
-    <div class="key-num">Clave 4</div>
-    <h4>No razonar en medio de la tormenta.</h4>
-    <p>Cuando esta en plena crisis, su corteza prefrontal esta apagada. No puede escuchar explicaciones. No puede entender consecuencias. Intentar razonar con un nino en crisis es como gritar instrucciones durante un terremoto. Primero espera a que la tormenta pase. Luego habla.</p>
-    <div class="action"><strong>Hazlo hoy:</strong> Si la crisis ya estallo, solo acompana. Quédate cerca. Ofrece tu presencia en silencio. Las palabras vienen despues.</div>
-  </div>
-
-  <div class="key-card">
-    <div class="key-num">Clave 5</div>
-    <h4>Repara. Siempre repara.</h4>
-    <p>Si perdiste la calma, si gritaste, si dijiste algo que no querias: no te castigues. Repara. Ve a tu hijo/a, dile: "Me equivoque. Lo siento. La rabia me gano, pero eso no es tu culpa." Reparar no te hace debil. Le ensena que los errores se arreglan. Que el amor es mas fuerte que el enojo.</p>
-    <div class="action"><strong>Hazlo hoy:</strong> Si hay algo pendiente por reparar, hazlo esta noche. No tiene que ser perfecto. Solo honesto.</div>
-  </div>
-
-  <h3 style="margin-top:32px;">Frases que ayudan vs. frases que danan</h3>
-
-  <div class="phrases-grid">
-    <div class="phrase-do">"Estoy aqui contigo."</div>
-    <div class="phrase-dont">"Deja de llorar."</div>
-    <div class="phrase-do">"Veo que estas enojado. Esta bien."</div>
-    <div class="phrase-dont">"No es para tanto."</div>
-    <div class="phrase-do">"Cuando estes listo, hablamos."</div>
-    <div class="phrase-dont">"Si sigues asi, vamos a..."</div>
-    <div class="phrase-do">"Me equivoque. Lo siento."</div>
-    <div class="phrase-dont">"Los ninos buenos no hacen eso."</div>
-  </div>
-
-  <div class="page-footer">
-    <span class="brand">@ingridnunezpsi</span>
-    <span>Tu Calma, Su Refugio &middot; Pagina 3</span>
-  </div>
-</div>
-
-<!-- ============ PAGE 5: CHECKLIST + CTA ============ -->
-<div class="page cta-page">
-
-  <div class="checklist" style="text-align:left; max-width:480px; margin-bottom:40px;">
-    <h4>Mi kit de emergencia emocional</h4>
-    <div class="checklist-item"><div class="box"></div><span>Identifique mi senal de alarma corporal</span></div>
-    <div class="checklist-item"><div class="box"></div><span>Tengo una frase ancla para el momento de crisis</span></div>
-    <div class="checklist-item"><div class="box"></div><span>Se bajar a su nivel y hacer contacto visual</span></div>
-    <div class="checklist-item"><div class="box"></div><span>Puedo nombrar emociones sin juzgar la conducta</span></div>
-    <div class="checklist-item"><div class="box"></div><span>Entiendo que no debo razonar en medio de la tormenta</span></div>
-    <div class="checklist-item"><div class="box"></div><span>Se reparar despues de un error</span></div>
-    <div class="checklist-item"><div class="box"></div><span>Practico estas claves cuando estoy en calma</span></div>
-  </div>
-
-  <h2>Quieres ir mas alla de sobrevivir las crisis?</h2>
-
-  <p style="max-width:420px; font-size:15px; color:#806357;">
-    "De la frustracion a la calma" es un cuaderno de trabajo con 30+ ejercicios para antes, durante y despues de cada crisis emocional. Creado desde 15 anos de consulta y desde la experiencia de ser mama.
-  </p>
-
-  <div class="cta-price">$29 USD</div>
-  <p class="cta-price-note">Un solo pago. Acceso para siempre.</p>
-
-  <a href="https://psicolaingridnunez.lovable.app/curso" class="cta-button">QUIERO EL CUADERNO</a>
-
-  <div style="margin-top: 40px;">
-    <p style="font-family:'Playfair Display',serif; font-size:16px; color:#3D2B24;">Ingrid Nunez</p>
-    <p style="font-size:12px; color:#B0AEB0;">@ingridnunezpsi &middot; psicolaingridnunez.lovable.app</p>
+<div class="page cta-section">
+  <div class="highlight">Ahora sabes CUÁNDO viene la tormenta.<br>El siguiente paso es aprender<br>QUÉ HACER en ese momento exacto.</div>
+  <div class="desc">En «De la frustración a la calma» te enseño las 5 herramientas de co-regulación que transforman ese momento de señal en momento de conexión. Sin gritos. Sin culpa. Con un método paso a paso.</div>
+  <div class="price">$29 USD</div>
+  <div class="price-sub">Un solo pago. Acceso para siempre.</div>
+  <a class="cta-btn" href="https://psicolaingridnunez.lovable.app/curso">Quiero el curso</a>
+  <div style="margin-top:20px;">
+    <div style="font-family:'Playfair Display',serif; font-size:16px; color:#3D2B24;">Ingrid Núñez</div>
+    <div style="font-size:12px; color:#B0AEB0;">@ingridnunezpsi · psicolaingridnunez.lovable.app</div>
   </div>
 </div>
 
